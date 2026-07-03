@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-04-25T20:45:00Z",
+  "source_notebooks": [
+    "PhysioGraph_HF_Shock.ipynb",
+    "PhysioGraph_External_Pipeline.ipynb"
+  ],
+  "files": {
+    "predictions.csv": {
+      "row_count": 24765,
+      "columns": ["model", "split", "dataset", "stay_id", "target", "probability"],
+      "description": "Model predictions for all 4 comparator models across internal/external splits"
+    },
+    "calibration.csv": {
+      "row_count": 93,
+      "columns": ["model", "split", "bin_index", "bin_left", "bin_right", "n", "mean_predicted_probability", "observed_event_rate"],
+      "description": "Calibration bin data for reliability diagrams"
+    }
+  },
+  "source_cohorts": {
+    "mimic": {
+      "cohort_rows": 17892,
+      "label_rows": 14553,
+      "feature_rows": 14553,
+      "event_rows": 838835,
+      "manifest_path": "physiograph_outputs/mimic/manifest.json"
+    },
+    "eicu": {
+      "cohort_rows": 27695,
+      "label_rows": 24194,
+      "feature_rows": 24194,
+      "event_rows": 4176446,
+      "manifest_path": "physiograph_outputs/eicu/manifest.json"
+    }
+  }
+}

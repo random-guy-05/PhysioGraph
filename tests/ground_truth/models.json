@@ -1,0 +1,692 @@
+{
+  "lactate_end_organ": {
+    "categorical_features": [],
+    "coefficients": [
+      0.7578862345939249,
+      -0.10603272937343151,
+      1.7287225776394848,
+      0.5798001050462739,
+      0.049585218371101414,
+      0.1647194703387689,
+      0.017910233536774508,
+      0.386505033098813,
+      0.1450599897310304,
+      0.35787210243396056
+    ],
+    "converged": true,
+    "description": "Baseline lactate with acidemia and end-organ injury markers.",
+    "eligibility": {
+      "external": {
+        "eligible_rows": 612,
+        "excluded_by_feature": {
+          "acidemia_flag": 0,
+          "baseline_bilirubin_total": 20912,
+          "baseline_creatinine": 16944,
+          "baseline_lactate": 21186,
+          "baseline_ph": 19109,
+          "hepatic_hypoperfusion_flag": 0,
+          "lactate_acidemia_interaction": 0,
+          "perfusion_burden_score": 0,
+          "renal_hypoperfusion_flag": 0,
+          "severe_acidemia_flag": 0
+        },
+        "excluded_rows": 23582,
+        "raw_rows": 24194
+      },
+      "internal": {
+        "eligible_rows": 1774,
+        "excluded_by_feature": {
+          "acidemia_flag": 0,
+          "baseline_bilirubin_total": 10600,
+          "baseline_creatinine": 6312,
+          "baseline_lactate": 9109,
+          "baseline_ph": 8873,
+          "hepatic_hypoperfusion_flag": 0,
+          "lactate_acidemia_interaction": 0,
+          "perfusion_burden_score": 0,
+          "renal_hypoperfusion_flag": 0,
+          "severe_acidemia_flag": 0
+        },
+        "excluded_rows": 12779,
+        "raw_rows": 14553
+      }
+    },
+    "expanded_feature_names": [
+      "baseline_lactate",
+      "baseline_ph",
+      "baseline_creatinine",
+      "baseline_bilirubin_total",
+      "acidemia_flag",
+      "severe_acidemia_flag",
+      "renal_hypoperfusion_flag",
+      "hepatic_hypoperfusion_flag",
+      "perfusion_burden_score",
+      "lactate_acidemia_interaction"
+    ],
+    "external_rows": 612,
+    "family": "numpy_logistic_regression",
+    "frozen_for_external_validation": true,
+    "intercept": 0.9954122936428967,
+    "iterations": 7,
+    "missingness_strategy": "complete_case_by_model_numeric_features",
+    "numeric_features": [
+      "baseline_lactate",
+      "baseline_ph",
+      "baseline_creatinine",
+      "baseline_bilirubin_total",
+      "acidemia_flag",
+      "severe_acidemia_flag",
+      "renal_hypoperfusion_flag",
+      "hepatic_hypoperfusion_flag",
+      "perfusion_burden_score",
+      "lactate_acidemia_interaction"
+    ],
+    "optimization_trace": [
+      0.6806294878916634,
+      0.5154378196444378,
+      0.4858287245705327,
+      0.4771150865307627,
+      0.47576783019264657,
+      0.4756967691354353,
+      0.4756962497759298,
+      0.4756962497384419
+    ],
+    "preprocessing": {
+      "categorical": {},
+      "numeric": {
+        "acidemia_flag": {
+          "mean": 0.15413533834586465,
+          "scale": 0.36107843444170196
+        },
+        "baseline_bilirubin_total": {
+          "mean": 1.1944360902255637,
+          "scale": 1.9353495977379418
+        },
+        "baseline_creatinine": {
+          "mean": 2.063082706766917,
+          "scale": 1.7536422593022554
+        },
+        "baseline_lactate": {
+          "mean": 2.463360902255639,
+          "scale": 2.301955278199876
+        },
+        "baseline_ph": {
+          "mean": 7.355082706766917,
+          "scale": 0.08946222331348697
+        },
+        "hepatic_hypoperfusion_flag": {
+          "mean": 0.12105263157894737,
+          "scale": 0.3261884301546562
+        },
+        "lactate_acidemia_interaction": {
+          "mean": 0.6629323308270677,
+          "scale": 2.2399923744348205
+        },
+        "perfusion_burden_score": {
+          "mean": 1.6774436090225564,
+          "scale": 1.217856896253574
+        },
+        "renal_hypoperfusion_flag": {
+          "mean": 0.35714285714285715,
+          "scale": 0.4791574237499549
+        },
+        "severe_acidemia_flag": {
+          "mean": 0.07969924812030076,
+          "scale": 0.2708270259212686
+        }
+      }
+    },
+    "selected_regularization": 0.0,
+    "target_column": "target",
+    "train_rows": 1330,
+    "validation_candidates": [
+      {
+        "auprc": 0.9004727287541943,
+        "auroc": 0.8417153914979504,
+        "brier": 0.15623905817616915,
+        "calibration_in_the_large": 0.014991215486365617,
+        "converged": true,
+        "expected_events": 263.65609967594634,
+        "expected_to_observed_ratio": 1.025899220528974,
+        "iterations": 7,
+        "l2_penalty": 0.0,
+        "n": 444,
+        "observed_events": 257.0,
+        "positive_rate": 0.5788288288288288
+      },
+      {
+        "auprc": 0.8976390468144224,
+        "auroc": 0.8398426933560832,
+        "brier": 0.15770042033088758,
+        "calibration_in_the_large": 0.016161965238754905,
+        "converged": true,
+        "expected_events": 264.1759125660072,
+        "expected_to_observed_ratio": 1.027921838778238,
+        "iterations": 6,
+        "l2_penalty": 0.01,
+        "n": 444,
+        "observed_events": 257.0,
+        "positive_rate": 0.5788288288288288
+      },
+      {
+        "auprc": 0.8900889649118888,
+        "auroc": 0.8354106410869973,
+        "brier": 0.1658583618198424,
+        "calibration_in_the_large": 0.012754627516460837,
+        "converged": true,
+        "expected_events": 262.6630546173086,
+        "expected_to_observed_ratio": 1.0220352319739634,
+        "iterations": 5,
+        "l2_penalty": 0.1,
+        "n": 444,
+        "observed_events": 257.0,
+        "positive_rate": 0.5788288288288288
+      },
+      {
+        "auprc": 0.8841913379403112,
+        "auroc": 0.8296468923614724,
+        "brier": 0.19882213505759389,
+        "calibration_in_the_large": 0.004150119466885149,
+        "converged": true,
+        "expected_events": 258.842653043297,
+        "expected_to_observed_ratio": 1.0071698561995992,
+        "iterations": 4,
+        "l2_penalty": 1.0,
+        "n": 444,
+        "observed_events": 257.0,
+        "positive_rate": 0.5788288288288288
+      }
+    ],
+    "validation_rows": 444
+  },
+  "lactate_hemodynamics": {
+    "categorical_features": [],
+    "coefficients": [
+      -0.1691639586611817,
+      0.04715031642897572,
+      0.16283589510045543,
+      0.08267888934001917,
+      -0.14883970934709514,
+      -0.014261623670402585,
+      0.07905941849546057,
+      -0.03223982205055024,
+      0.11286940929627379,
+      0.12616530511230972,
+      0.030302555197426383,
+      0.9769752654506229,
+      -0.05203736660325015,
+      0.20808010241793892
+    ],
+    "converged": true,
+    "description": "Baseline lactate with hemodynamic context.",
+    "eligibility": {
+      "external": {
+        "eligible_rows": 589,
+        "excluded_by_feature": {
+          "baseline_hr": 775,
+          "baseline_lactate": 21186,
+          "baseline_map": 21135,
+          "baseline_sbp": 21173,
+          "hr_above_100_fraction": 0,
+          "hypotension_flag": 0,
+          "lactate_hypotension_interaction": 0,
+          "lactate_map_ratio": 23589,
+          "lactate_sbp_ratio": 23605,
+          "lactate_tachycardia_interaction": 0,
+          "map_below_65_fraction": 0,
+          "sbp_below_90_fraction": 0,
+          "severe_hypotension_flag": 0,
+          "tachycardia_flag": 0
+        },
+        "excluded_rows": 23605,
+        "raw_rows": 24194
+      },
+      "internal": {
+        "eligible_rows": 4886,
+        "excluded_by_feature": {
+          "baseline_hr": 624,
+          "baseline_lactate": 9109,
+          "baseline_map": 767,
+          "baseline_sbp": 775,
+          "hr_above_100_fraction": 0,
+          "hypotension_flag": 0,
+          "lactate_hypotension_interaction": 0,
+          "lactate_map_ratio": 9661,
+          "lactate_sbp_ratio": 9664,
+          "lactate_tachycardia_interaction": 0,
+          "map_below_65_fraction": 0,
+          "sbp_below_90_fraction": 0,
+          "severe_hypotension_flag": 0,
+          "tachycardia_flag": 0
+        },
+        "excluded_rows": 9667,
+        "raw_rows": 14553
+      }
+    },
+    "expanded_feature_names": [
+      "baseline_lactate",
+      "baseline_hr",
+      "baseline_sbp",
+      "baseline_map",
+      "tachycardia_flag",
+      "hypotension_flag",
+      "severe_hypotension_flag",
+      "hr_above_100_fraction",
+      "sbp_below_90_fraction",
+      "map_below_65_fraction",
+      "lactate_map_ratio",
+      "lactate_sbp_ratio",
+      "lactate_hypotension_interaction",
+      "lactate_tachycardia_interaction"
+    ],
+    "external_rows": 589,
+    "family": "numpy_logistic_regression",
+    "frozen_for_external_validation": true,
+    "intercept": 0.04613573444000704,
+    "iterations": 5,
+    "missingness_strategy": "complete_case_by_model_numeric_features",
+    "numeric_features": [
+      "baseline_lactate",
+      "baseline_hr",
+      "baseline_sbp",
+      "baseline_map",
+      "tachycardia_flag",
+      "hypotension_flag",
+      "severe_hypotension_flag",
+      "hr_above_100_fraction",
+      "sbp_below_90_fraction",
+      "map_below_65_fraction",
+      "lactate_map_ratio",
+      "lactate_sbp_ratio",
+      "lactate_hypotension_interaction",
+      "lactate_tachycardia_interaction"
+    ],
+    "optimization_trace": [
+      0.6930718002382373,
+      0.6510490859511485,
+      0.6456556638918272,
+      0.6451954756570173,
+      0.6451919797981175,
+      0.6451919795921514
+    ],
+    "preprocessing": {
+      "categorical": {},
+      "numeric": {
+        "baseline_hr": {
+          "mean": 86.28731241473398,
+          "scale": 19.85237783928534
+        },
+        "baseline_lactate": {
+          "mean": 2.25687858117326,
+          "scale": 1.8979117332105535
+        },
+        "baseline_map": {
+          "mean": 78.38390177353342,
+          "scale": 24.1937092282741
+        },
+        "baseline_sbp": {
+          "mean": 115.80518417462483,
+          "scale": 23.13719035427496
+        },
+        "hr_above_100_fraction": {
+          "mean": 0.2688366829956632,
+          "scale": 0.39406489944701073
+        },
+        "hypotension_flag": {
+          "mean": 0.4504774897680764,
+          "scale": 0.49754147664323334
+        },
+        "lactate_hypotension_interaction": {
+          "mean": 1.0870668485675308,
+          "scale": 1.8532804857789864
+        },
+        "lactate_map_ratio": {
+          "mean": 0.03037020423996791,
+          "scale": 0.0272613643429421
+        },
+        "lactate_sbp_ratio": {
+          "mean": 0.020573546730643648,
+          "scale": 0.019246055326194462
+        },
+        "lactate_tachycardia_interaction": {
+          "mean": 0.9641909959072306,
+          "scale": 1.7519736698313992
+        },
+        "map_below_65_fraction": {
+          "mean": 0.1732886666859617,
+          "scale": 0.2690709555146608
+        },
+        "sbp_below_90_fraction": {
+          "mean": 0.08947763969733151,
+          "scale": 0.195239562471511
+        },
+        "severe_hypotension_flag": {
+          "mean": 0.2747612551159618,
+          "scale": 0.44639389310682015
+        },
+        "tachycardia_flag": {
+          "mean": 0.3844474761255116,
+          "scale": 0.4864644018078155
+        }
+      }
+    },
+    "selected_regularization": 0.0,
+    "target_column": "target",
+    "train_rows": 3665,
+    "validation_candidates": [
+      {
+        "auprc": 0.6509755123623802,
+        "auroc": 0.6251938795773023,
+        "brier": 0.23436033063470768,
+        "calibration_in_the_large": -0.0047720282451299,
+        "converged": true,
+        "expected_events": 597.1733535126964,
+        "expected_to_observed_ratio": 0.9903372363394634,
+        "iterations": 5,
+        "l2_penalty": 0.0,
+        "n": 1221,
+        "observed_events": 603.0,
+        "positive_rate": 0.49385749385749383
+      },
+      {
+        "auprc": 0.6499098810408919,
+        "auroc": 0.6228834253758178,
+        "brier": 0.2345597009265889,
+        "calibration_in_the_large": -0.005134966129001883,
+        "converged": true,
+        "expected_events": 596.7302063564887,
+        "expected_to_observed_ratio": 0.9896023322661504,
+        "iterations": 5,
+        "l2_penalty": 0.01,
+        "n": 1221,
+        "observed_events": 603.0,
+        "positive_rate": 0.49385749385749383
+      },
+      {
+        "auprc": 0.6486547595688682,
+        "auroc": 0.6230122311849597,
+        "brier": 0.23468756312751335,
+        "calibration_in_the_large": -0.004946800760183112,
+        "converged": true,
+        "expected_events": 596.9599562718164,
+        "expected_to_observed_ratio": 0.9899833437343556,
+        "iterations": 4,
+        "l2_penalty": 0.1,
+        "n": 1221,
+        "observed_events": 603.0,
+        "positive_rate": 0.49385749385749383
+      },
+      {
+        "auprc": 0.6415179453468687,
+        "auroc": 0.6182920349707772,
+        "brier": 0.23981434480339917,
+        "calibration_in_the_large": -0.0033115165038809513,
+        "converged": true,
+        "expected_events": 598.9566383487613,
+        "expected_to_observed_ratio": 0.9932945909598032,
+        "iterations": 3,
+        "l2_penalty": 1.0,
+        "n": 1221,
+        "observed_events": 603.0,
+        "positive_rate": 0.49385749385749383
+      }
+    ],
+    "validation_rows": 1221
+  },
+  "lactate_only": {
+    "categorical_features": [],
+    "coefficients": [
+      0.7668485192226935
+    ],
+    "converged": true,
+    "description": "Baseline landmark lactate only.",
+    "eligibility": {
+      "external": {
+        "eligible_rows": 3008,
+        "excluded_by_feature": {
+          "baseline_lactate": 21186
+        },
+        "excluded_rows": 21186,
+        "raw_rows": 24194
+      },
+      "internal": {
+        "eligible_rows": 5444,
+        "excluded_by_feature": {
+          "baseline_lactate": 9109
+        },
+        "excluded_rows": 9109,
+        "raw_rows": 14553
+      }
+    },
+    "expanded_feature_names": [
+      "baseline_lactate"
+    ],
+    "external_rows": 3008,
+    "family": "numpy_logistic_regression",
+    "frozen_for_external_validation": true,
+    "intercept": 0.12734433998421354,
+    "iterations": 5,
+    "missingness_strategy": "complete_case_by_model_numeric_features",
+    "numeric_features": [
+      "baseline_lactate"
+    ],
+    "optimization_trace": [
+      0.6925507830484897,
+      0.6557259159740172,
+      0.6517820239382957,
+      0.6516941657547858,
+      0.6516941217026501,
+      0.6516941217026389
+    ],
+    "preprocessing": {
+      "categorical": {},
+      "numeric": {
+        "baseline_lactate": {
+          "mean": 2.3230565760470245,
+          "scale": 1.9384395514610107
+        }
+      }
+    },
+    "selected_regularization": 0.01,
+    "target_column": "target",
+    "train_rows": 4083,
+    "validation_candidates": [
+      {
+        "auprc": 0.6575546627032544,
+        "auroc": 0.6125218365158434,
+        "brier": 0.23692064009744448,
+        "calibration_in_the_large": -0.00513888399941409,
+        "converged": true,
+        "expected_events": 697.0059788767974,
+        "expected_to_observed_ratio": 0.9900653109045418,
+        "iterations": 5,
+        "l2_penalty": 0.0,
+        "n": 1361,
+        "observed_events": 704.0,
+        "positive_rate": 0.5172667156502572
+      },
+      {
+        "auprc": 0.6575546627032544,
+        "auroc": 0.6125218365158434,
+        "brier": 0.23651908682411982,
+        "calibration_in_the_large": -0.004878317139574984,
+        "converged": true,
+        "expected_events": 697.3606103730385,
+        "expected_to_observed_ratio": 0.9905690488253388,
+        "iterations": 5,
+        "l2_penalty": 0.01,
+        "n": 1361,
+        "observed_events": 704.0,
+        "positive_rate": 0.5172667156502572
+      },
+      {
+        "auprc": 0.6575546627032544,
+        "auroc": 0.6125218365158434,
+        "brier": 0.23748537185257604,
+        "calibration_in_the_large": -0.00339438905903211,
+        "converged": true,
+        "expected_events": 699.3802364906574,
+        "expected_to_observed_ratio": 0.9934378359242292,
+        "iterations": 4,
+        "l2_penalty": 0.1,
+        "n": 1361,
+        "observed_events": 704.0,
+        "positive_rate": 0.5172667156502572
+      },
+      {
+        "auprc": 0.6575546627032544,
+        "auroc": 0.6125218365158434,
+        "brier": 0.24498044447005748,
+        "calibration_in_the_large": -0.000887894169192438,
+        "converged": true,
+        "expected_events": 702.7915760357291,
+        "expected_to_observed_ratio": 0.9982834886871153,
+        "iterations": 3,
+        "l2_penalty": 1.0,
+        "n": 1361,
+        "observed_events": 704.0,
+        "positive_rate": 0.5172667156502572
+      }
+    ],
+    "validation_rows": 1361
+  },
+  "scai_stage_model": {
+    "categorical_features": [
+      "scai_stage"
+    ],
+    "coefficients": [
+      0.42860241391661424,
+      -0.30362102270027486,
+      1.025355853525069,
+      1.1730640372812164,
+      1.242921734188985
+    ],
+    "converged": true,
+    "description": "SCAI-like stage comparator using harmonized stage categories.",
+    "eligibility": {
+      "external": {
+        "eligible_rows": 3008,
+        "excluded_by_feature": {
+          "baseline_lactate": 21186
+        },
+        "excluded_rows": 21186,
+        "raw_rows": 24194
+      },
+      "internal": {
+        "eligible_rows": 5444,
+        "excluded_by_feature": {
+          "baseline_lactate": 9109
+        },
+        "excluded_rows": 9109,
+        "raw_rows": 14553
+      }
+    },
+    "expanded_feature_names": [
+      "baseline_lactate",
+      "scai_stage__B",
+      "scai_stage__C",
+      "scai_stage__D",
+      "scai_stage__E"
+    ],
+    "external_rows": 3008,
+    "family": "numpy_logistic_regression",
+    "frozen_for_external_validation": true,
+    "intercept": -0.5569028052556948,
+    "iterations": 5,
+    "missingness_strategy": "complete_case_by_model_numeric_features",
+    "numeric_features": [
+      "baseline_lactate"
+    ],
+    "optimization_trace": [
+      0.6925507830484897,
+      0.6166021423300598,
+      0.6150641015760759,
+      0.6150327408006688,
+      0.6150327224865176,
+      0.6150327224865113
+    ],
+    "preprocessing": {
+      "categorical": {
+        "scai_stage": {
+          "categories": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "fill_value": "missing",
+          "reference_category": "A"
+        }
+      },
+      "numeric": {
+        "baseline_lactate": {
+          "mean": 2.3230565760470245,
+          "scale": 1.9384395514610107
+        }
+      }
+    },
+    "selected_regularization": 0.0,
+    "target_column": "target",
+    "train_rows": 4083,
+    "validation_candidates": [
+      {
+        "auprc": 0.6848411060942693,
+        "auroc": 0.668663302546008,
+        "brier": 0.22211734840254524,
+        "calibration_in_the_large": -0.004261627775354659,
+        "converged": true,
+        "expected_events": 698.1999245977423,
+        "expected_to_observed_ratio": 0.991761256530884,
+        "iterations": 5,
+        "l2_penalty": 0.0,
+        "n": 1361,
+        "observed_events": 704.0,
+        "positive_rate": 0.5172667156502572
+      },
+      {
+        "auprc": 0.6801304949382676,
+        "auroc": 0.6641814117199392,
+        "brier": 0.22437121457326148,
+        "calibration_in_the_large": -0.004372151839903249,
+        "converged": true,
+        "expected_events": 698.0495013458917,
+        "expected_to_observed_ratio": 0.9915475871390508,
+        "iterations": 5,
+        "l2_penalty": 0.01,
+        "n": 1361,
+        "observed_events": 704.0,
+        "positive_rate": 0.5172667156502572
+      },
+      {
+        "auprc": 0.675715883013566,
+        "auroc": 0.6604627179327521,
+        "brier": 0.23028829763044445,
+        "calibration_in_the_large": -0.0031485228554157807,
+        "converged": true,
+        "expected_events": 699.7148603937792,
+        "expected_to_observed_ratio": 0.9939131539684364,
+        "iterations": 4,
+        "l2_penalty": 0.1,
+        "n": 1361,
+        "observed_events": 704.0,
+        "positive_rate": 0.5172667156502572
+      },
+      {
+        "auprc": 0.6734127135485225,
+        "auroc": 0.6557192213228172,
+        "brier": 0.24317274690555066,
+        "calibration_in_the_large": -0.0008821945914135876,
+        "converged": true,
+        "expected_events": 702.7993331610861,
+        "expected_to_observed_ratio": 0.9982945073310883,
+        "iterations": 3,
+        "l2_penalty": 1.0,
+        "n": 1361,
+        "observed_events": 704.0,
+        "positive_rate": 0.5172667156502572
+      }
+    ],
+    "validation_rows": 1361
+  }
+}

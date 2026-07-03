@@ -1,0 +1,22 @@
+# MIMIC-IV Dataset Overrides
+# Merges on top of default.yaml
+
+paths:
+  data_subdir: Data/MIMIC/Full
+  artifact_subdir: mimic
+
+cohort:
+  icu_anchor: "first ICU stay per admission"
+  heart_failure_signal: "diagnoses_icd heart-failure ICD pattern"
+  shock_signal: "diagnoses_icd cardiogenic shock ICD pattern"
+  early_icu_max_hours: 24
+
+source_tables:
+  diagnoses: diagnoses_icd.csv
+  admissions: admissions.csv
+  patients: patients.csv
+  icustays: icustays.csv
+  chartevents: chartevents.csv
+  labevents: labevents.csv
+  inputevents: inputevents.csv
+  procedureevents: procedureevents.csv

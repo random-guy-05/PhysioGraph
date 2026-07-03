@@ -1,0 +1,27 @@
+# eICU-CRD Dataset Overrides
+# Merges on top of default.yaml
+
+paths:
+  data_subdir: Data/eICU/Full
+  artifact_subdir: eicu
+
+cohort:
+  icu_anchor: "patientunitstayid offset zero"
+  heart_failure_signal:
+    - "congestive heart failure"
+    - "heart failure"
+  shock_signal:
+    - "cardiogenic shock"
+  cardiomyopathy_signal:
+    - cardiomyopathy
+  ami_like_signal:
+    - "acute myocardial infarction"
+
+source_tables:
+  patient: patient.csv
+  diagnosis: diagnosis.csv
+  admission_dx: admissionDx.csv
+  lab: lab.csv
+  vital_periodic: vitalPeriodic.csv
+  infusion_drug: infusionDrug.csv
+  treatment: treatment.csv

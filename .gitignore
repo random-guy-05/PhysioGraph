@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (except ground truth for tests)
+*.csv
+*.pkl
+*.parquet
+*.npy
+*.npz
+*.pth
+physiograph_outputs/
+processed_data/
+_archive/
+!tests/ground_truth/*.csv
+!tests/ground_truth/*.pkl
+
+# IDE
+.vscode/
+.idea/
+.qodo/
+*.swp
+*.swo
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+coverage.xml
+
+# Local agent/tool state
+.opencode/
+.slim/
+.uvtmp/
+.uvtmp_pdf/
