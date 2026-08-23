@@ -30,6 +30,7 @@ _COHORT_COLUMNS: dict[str, Column] = {
     "shock_icd_flag": Column(int, nullable=False, checks=Check.isin([0, 1]), description="Shock ICD code flag"),
     "early_icu_flag": Column(int, nullable=False, checks=Check.isin([0, 1]), description="Early ICU admission flag"),
     "death_offset_minutes": Column(float, nullable=True, description="Minutes from admission to death"),
+    "admission_weight_kg": Column(float, nullable=True, required=False, description="Patient weight in kg at admission"),
     "excluded_before_landmark_flag": Column(int, nullable=False, checks=Check.isin([0, 1]), description="Excluded before landmark flag"),
     "exclusion_reason": Column(str, nullable=True, description="Reason for exclusion"),
 }

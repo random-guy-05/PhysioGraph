@@ -51,6 +51,7 @@ MIMIC_VITAL_IDS: dict[str, list[int]] = {
     "resp_rate": [220210],
     "spo2": [220277],
     "temp": [223761],
+    "weight_kg": [226512, 224639],
 }
 
 HF_ICD_PATTERNS: dict[int, list[str]] = {9: [r"^428"], 10: [r"^I50"]}

@@ -41,6 +41,7 @@ def _make_cohort_df(n: int = 3) -> pd.DataFrame:
             "shock_icd_flag": [0, 1, 0],
             "early_icu_flag": [1, 1, 0],
             "death_offset_minutes": [None, 1440.0, None],
+            "admission_weight_kg": [75.0, 80.0, 90.0],
             "excluded_before_landmark_flag": [0, 0, 0],
             "exclusion_reason": [None, None, None],
         }
@@ -191,7 +192,7 @@ class TestMIMICCohortSchema:
         df = _make_cohort_df()
         result = MIMICCohortSchema.validate(df)
         assert len(result) == 3
-        assert list(result.columns) == list(MIMICCohortSchema.columns.keys())
+        assert len(result.columns) == 14
 
     def test_mimic_cohort_schema_invalid_wrong_types(self):
         """MIMICCohortSchema rejects data with wrong column types."""

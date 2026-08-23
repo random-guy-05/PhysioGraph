@@ -52,6 +52,7 @@ def _synthetic_cohort_df(n: int = 10) -> pd.DataFrame:
             "shock_icd_flag": np.random.randint(0, 2, n),
             "early_icu_flag": np.random.randint(0, 2, n),
             "death_offset_minutes": [None] * n,
+            "admission_weight_kg": np.random.uniform(50, 100, n),
             "excluded_before_landmark_flag": [0] * n,
             "exclusion_reason": [""] * n,
         }

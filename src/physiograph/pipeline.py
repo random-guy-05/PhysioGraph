@@ -669,25 +669,40 @@ def derive_labels(
         labels_df["vis_rise_12h_flag"] = labels_df["pressor_12h_flag"]
 
     uo_events = events_df.loc[events_df["concept"] == "urine_output"].copy()
+
+    # Calculate baseline weight for KDIGO UO threshold (< 0.5 ml/kg/hr)
+    weight_kg = pd.Series(index=valid_index, dtype=float)
+
+    # eICU weight comes from cohort_df
+    if "admission_weight_kg" in cohort_df.columns:
+        weight_kg = cohort_df.set_index("stay_id")["admission_weight_kg"].reindex(valid_index)
+
+    # MIMIC weight comes from events (concept="weight_kg")
+    weight_events = events_df.loc[events_df["concept"] == "weight_kg"].copy()
+    if not weight_events.empty:
+        # Take the earliest weight
+        mimic_w = weight_events.sort_values(["stay_id", "offset_minutes"]).groupby("stay_id")["value_numeric"].first()
+        weight_kg = weight_kg.combine_first(mimic_w)
+
+    # Fallback for missing weight: 70kg standard adult
+    weight_kg = weight_kg.fillna(70.0)
+
     if not uo_events.empty:
-        # Rate: ml/hr.
-        # We define UO decline as sum over 12/24h period being < 0.5 ml/kg/hr.
-        # Since we don't have weight easily accessible in the strict schema,
-        # we use absolute thresholds: < 30ml/hr average as a common proxy for oliguria.
-        # 12h = < 360ml total
-        # 24h = < 720ml total
         out_uo_12 = uo_events.loc[uo_events["offset_minutes"].gt(LANDMARK_MINUTES) & uo_events["offset_minutes"].map(is_outcome_12h_offset_minutes)].groupby("stay_id")["value_numeric"].sum()
         out_uo_24 = uo_events.loc[uo_events["offset_minutes"].gt(LANDMARK_MINUTES) & uo_events["offset_minutes"].map(is_outcome_offset_minutes)].groupby("stay_id")["value_numeric"].sum()
 
         uo_df = valid_df[["stay_id"]].copy()
-        # If no events, assume oliguric? Safest is to assume normal or absent data, so we don't flag unless strictly measured.
-        # Better: calculate rate per hour over the window and flag if rate < 30 ml/hr.
-        uo_12_rate = uo_df["stay_id"].map(out_uo_12) / 12.0
-        uo_24_rate = uo_df["stay_id"].map(out_uo_24) / 24.0
 
-        # Only flag if we have data and rate is low
-        labels_df["uo_decline_12h_flag"] = (uo_12_rate.notna() & (uo_12_rate < 30.0)).astype(int)
-        labels_df["uo_decline_24h_flag"] = (uo_24_rate.notna() & (uo_24_rate < 30.0)).astype(int)
+        # Calculate rate (ml/kg/hr)
+        # We need to divide by duration (12h or 24h) and by weight
+        stay_weights = uo_df["stay_id"].map(weight_kg)
+
+        uo_12_rate_ml_kg_hr = uo_df["stay_id"].map(out_uo_12) / 12.0 / stay_weights
+        uo_24_rate_ml_kg_hr = uo_df["stay_id"].map(out_uo_24) / 24.0 / stay_weights
+
+        # True KDIGO criteria: < 0.5 ml/kg/hr
+        labels_df["uo_decline_12h_flag"] = (uo_12_rate_ml_kg_hr.notna() & (uo_12_rate_ml_kg_hr < 0.5)).astype(int)
+        labels_df["uo_decline_24h_flag"] = (uo_24_rate_ml_kg_hr.notna() & (uo_24_rate_ml_kg_hr < 0.5)).astype(int)
     else:
         labels_df["uo_decline_24h_flag"] = 0
         labels_df["uo_decline_12h_flag"] = 0

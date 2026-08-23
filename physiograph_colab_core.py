@@ -622,6 +622,45 @@ def compute_horizon_outcomes(
             result = _mark_flag(result, rise_rows, f"lactate_rise_{horizon}h_flag")
 
     result = _add_death_from_cohort(result, cohort_df, horizons)
+
+    # Calculate VIS logic dynamically
+    vis_events = events.loc[concept.eq("vis")].copy()
+    if not vis_events.empty:
+        obs_vis = vis_events.loc[vis_events["offset_minutes"].le(LANDMARK_MINUTES)].groupby(["dataset", "stay_id"])["value_numeric"].max().reset_index().rename(columns={"value_numeric": "base_vis"})
+        for horizon in horizons:
+            upper = horizon * 60
+            window_mask = vis_events["offset_minutes"].gt(LANDMARK_MINUTES) & vis_events["offset_minutes"].le(upper)
+            future_vis = vis_events.loc[window_mask].groupby(["dataset", "stay_id"])["value_numeric"].max().reset_index().rename(columns={"value_numeric": "max_vis"})
+            if not obs_vis.empty and not future_vis.empty:
+                vis_merged = obs_vis.merge(future_vis, on=["dataset", "stay_id"])
+                vis_merged["vis_rise"] = (vis_merged["max_vis"] - vis_merged["base_vis"]) >= 5.0
+                rise_rows = vis_merged.loc[vis_merged["vis_rise"]]
+                result = _mark_flag(result, rise_rows, f"vis_rise_{horizon}h_flag")
+
+    # Calculate UO logic dynamically
+    uo_events = events.loc[concept.eq("urine_output")].copy()
+    weight_kg = pd.Series(index=keys.set_index(["dataset", "stay_id"]).index, dtype=float)
+    if "admission_weight_kg" in cohort_df.columns:
+        w_df = cohort_df[["dataset", "stay_id", "admission_weight_kg"]].set_index(["dataset", "stay_id"])
+        weight_kg = weight_kg.combine_first(w_df["admission_weight_kg"])
+    weight_events = events.loc[concept.eq("weight_kg")].copy()
+    if not weight_events.empty:
+        mimic_w = weight_events.sort_values(["dataset", "stay_id", "offset_minutes"]).groupby(["dataset", "stay_id"])["value_numeric"].first()
+        weight_kg = weight_kg.combine_first(mimic_w)
+    weight_kg = weight_kg.fillna(70.0).reset_index().rename(columns={0: "weight"})
+
+    if not uo_events.empty:
+        for horizon in horizons:
+            upper = horizon * 60
+            window_mask = uo_events["offset_minutes"].gt(LANDMARK_MINUTES) & uo_events["offset_minutes"].le(upper)
+            future_uo = uo_events.loc[window_mask].groupby(["dataset", "stay_id"])["value_numeric"].sum().reset_index().rename(columns={"value_numeric": "sum_uo"})
+            if not future_uo.empty:
+                uo_merged = future_uo.merge(weight_kg, on=["dataset", "stay_id"], how="left")
+                uo_merged["weight"] = uo_merged["weight"].fillna(70.0)
+                uo_merged["uo_rate"] = uo_merged["sum_uo"] / horizon / uo_merged["weight"]
+                decline_rows = uo_merged.loc[uo_merged["uo_rate"] < 0.5]
+                result = _mark_flag(result, decline_rows, f"uo_decline_{horizon}h_flag")
+
     for horizon in horizons:
         result[f"escalation_{horizon}h_flag"] = (
             result[[f"pressor_{horizon}h_flag", f"mcs_{horizon}h_flag"]].sum(axis=1) > 0
@@ -629,9 +668,11 @@ def compute_horizon_outcomes(
         result[f"mcs_or_death_{horizon}h_flag"] = (
             result[[f"mcs_{horizon}h_flag", f"death_{horizon}h_flag"]].sum(axis=1) > 0
         ).astype(int)
-
-        # Proxy VIS with pressor
-        result[f"vis_rise_{horizon}h_flag"] = result[f"pressor_{horizon}h_flag"]
+        # Fallback pressor to VIS
+        if vis_events.empty:
+            result[f"vis_rise_{horizon}h_flag"] = result[f"pressor_{horizon}h_flag"]
+        else:
+            result[f"vis_rise_{horizon}h_flag"] = np.maximum(result[f"vis_rise_{horizon}h_flag"], result[f"pressor_{horizon}h_flag"])
 
     return result
 
@@ -1699,6 +1740,123 @@ def build_analysis_manifest(
     }
 
 
+def fit_incremental_spo2_models(
+    analysis_df: pd.DataFrame,
+    *,
+    min_rows: int = 100,
+    min_events: int = MIN_OR_EVENTS,
+    n_splits: int = 5,
+) -> pd.DataFrame:
+    """Evaluate incremental predictive value of SpO2 instability over absolute SpO2.
+
+    Model A (Baseline): Clinical controls + Absolute SpO2 (mean, min, sampling density).
+    Model B (Full): Model A + SpO2 Instability (RMSSD, SD, Below 90 fraction, Abrupt jumps).
+    """
+    try:
+        from sklearn.linear_model import LogisticRegression
+        from sklearn.metrics import average_precision_score, roc_auc_score
+        from sklearn.model_selection import StratifiedKFold
+        from scipy.stats import chi2
+        import statsmodels.api as sm
+    except Exception as exc:  # pragma: no cover
+        return pd.DataFrame([{"status": "skipped", "reason": f"dependencies unavailable: {exc}"}])
+
+    measured = _filter_measured_spo2_rows(analysis_df)
+    outcomes = _available_outcomes(measured)
+    controls = _available_controls(measured)
+
+    baseline_features = controls + ["spo2_mean", "spo2_min", "spo2_sampling_density_per_hr"]
+    instability_features = ["spo2_rmssd", "spo2_sd", "spo2_below_90_fraction", "spo2_instability_proxy_score"]
+
+    rows: list[dict[str, Any]] = []
+
+    for outcome in outcomes:
+        use_cols = [outcome] + baseline_features + instability_features
+        frame = measured[[c for c in use_cols if c in measured.columns]].copy()
+        y = pd.to_numeric(frame[outcome], errors="coerce")
+        valid = y.notna()
+        frame = frame.loc[valid].copy()
+        y = y.loc[valid].astype(int)
+
+        n_rows = int(len(y))
+        n_events = int(y.sum()) if n_rows else 0
+        if n_rows < min_rows or n_events < min_events or y.nunique() < 2:
+            rows.append({
+                "outcome": outcome,
+                "status": "skipped",
+                "reason": "insufficient rows/events/classes",
+            })
+            continue
+
+        x_base = _prepare_design_matrix(frame, [c for c in baseline_features if c in frame.columns])
+        x_full = _prepare_design_matrix(frame, [c for c in baseline_features + instability_features if c in frame.columns])
+
+        if x_base.empty or x_full.empty or x_base.shape[1] == x_full.shape[1]:
+            rows.append({
+                "outcome": outcome,
+                "status": "skipped",
+                "reason": "design matrix empty or identical",
+            })
+            continue
+
+        # In-sample LRT
+        try:
+            glm_base = sm.GLM(y, sm.add_constant(x_base, has_constant="add"), family=sm.families.Binomial()).fit()
+            glm_full = sm.GLM(y, sm.add_constant(x_full, has_constant="add"), family=sm.families.Binomial()).fit()
+
+            # Likelihood Ratio Test
+            lr_stat = -2 * (glm_base.llf - glm_full.llf)
+            df_diff = glm_full.df_model - glm_base.df_model
+            p_val = chi2.sf(lr_stat, df_diff)
+        except Exception as exc:
+            lr_stat = math.nan
+            p_val = math.nan
+
+        # CV for out-of-fold metrics
+        cv = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
+        oof_base = np.full(len(y), np.nan, dtype=float)
+        oof_full = np.full(len(y), np.nan, dtype=float)
+
+        y_array = y.to_numpy()
+        for train_idx, test_idx in cv.split(x_base, y_array):
+            for x_design, oof_probs in [(x_base, oof_base), (x_full, oof_full)]:
+                x_train = x_design.iloc[train_idx]
+                y_train = y_array[train_idx]
+                x_test = x_design.iloc[test_idx]
+                mu = x_train.mean(axis=0)
+                sigma = x_train.std(axis=0).replace(0, 1.0)
+                clf = LogisticRegression(max_iter=2000, class_weight="balanced")
+                clf.fit((x_train - mu) / sigma, y_train)
+                oof_probs[test_idx] = clf.predict_proba((x_test - mu) / sigma)[:, 1]
+
+        valid_oof = np.isfinite(oof_base) & np.isfinite(oof_full)
+        if valid_oof.sum() > 0:
+            auroc_base = float(roc_auc_score(y_array[valid_oof], oof_base[valid_oof]))
+            auroc_full = float(roc_auc_score(y_array[valid_oof], oof_full[valid_oof]))
+            auprc_base = float(average_precision_score(y_array[valid_oof], oof_base[valid_oof]))
+            auprc_full = float(average_precision_score(y_array[valid_oof], oof_full[valid_oof]))
+        else:
+            auroc_base, auroc_full, auprc_base, auprc_full = math.nan, math.nan, math.nan, math.nan
+
+        rows.append({
+            "outcome": outcome,
+            "status": "fit",
+            "n": n_rows,
+            "events": n_events,
+            "lrt_statistic": float(lr_stat),
+            "lrt_p_value": float(p_val),
+            "base_features": int(x_base.shape[1]),
+            "full_features": int(x_full.shape[1]),
+            "auroc_base": auroc_base,
+            "auroc_full": auroc_full,
+            "delta_auroc": auroc_full - auroc_base,
+            "auprc_base": auprc_base,
+            "auprc_full": auprc_full,
+            "delta_auprc": auprc_full - auprc_base,
+        })
+
+    return pd.DataFrame(rows)
+
 def fit_spo2_dragged_horizon_models(
     analysis_df: pd.DataFrame,
     *,
@@ -1931,7 +2089,54 @@ def build_lead_time_analysis(
 
             rows.append(row)
 
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    if df.empty:
+        return df
+
+    try:
+        from scipy.stats import wilcoxon
+    except Exception as exc:
+        df["statistical_test_status"] = f"skipped: {exc}"
+        return df
+
+    # Summarize with statistics
+    summary_rows = []
+    for outcome_col in ["spo2_leads_lactate_minutes", "spo2_leads_vis_minutes"]:
+        if outcome_col not in df.columns:
+            continue
+
+        vals = df[outcome_col].dropna().to_numpy()
+        if len(vals) < 10:
+            summary_rows.append({
+                "outcome_lead_time": outcome_col,
+                "status": "insufficient_n",
+                "n_pairs": len(vals)
+            })
+            continue
+
+        # H0: median difference <= 0 (SpO2 does NOT precede or is concurrent)
+        # H1: median difference > 0 (SpO2 precedes decompensation)
+        try:
+            res = wilcoxon(vals, alternative='greater')
+            p_val = float(res.pvalue)
+            stat = float(res.statistic)
+        except Exception as exc:
+            p_val = math.nan
+            stat = math.nan
+
+        summary_rows.append({
+            "outcome_lead_time": outcome_col,
+            "status": "tested",
+            "n_pairs": len(vals),
+            "median_lead_minutes": float(np.median(vals)),
+            "q25_lead_minutes": float(np.percentile(vals, 25)),
+            "q75_lead_minutes": float(np.percentile(vals, 75)),
+            "mean_lead_minutes": float(np.mean(vals)),
+            "wilcoxon_statistic": stat,
+            "p_value_greater_than_zero": p_val,
+        })
+
+    return pd.DataFrame(summary_rows)
 
 def build_spo2_trajectory_summary(
     raw_spo2: pd.DataFrame,
@@ -2077,6 +2282,7 @@ def run_spo2_drilldown(
     raw_event_summary = build_spo2_raw_event_summary(raw_spo2, analysis_df)
     trajectory_summary = build_spo2_trajectory_summary(raw_spo2, analysis_df)
     lead_time_summary = build_lead_time_analysis(dataset_artifacts)
+    incremental_models = fit_incremental_spo2_models(analysis_df)
     figures = write_spo2_figures(analysis_df, output_dir / "figures")
 
     paths = {
@@ -2096,6 +2302,7 @@ def run_spo2_drilldown(
         "raw_event_summary": output_dir / "spo2_raw_event_summary.csv",
         "trajectory_summary": output_dir / "spo2_trajectory_by_outcome.csv",
         "lead_time_summary": output_dir / "spo2_leadtime_summary.csv",
+        "incremental_models": output_dir / "spo2_incremental_predictive_value.csv",
         "availability": output_dir / "spo2_adjustment_availability.json",
         "manifest": output_dir / "manifest.json",
     }
@@ -2115,6 +2322,7 @@ def run_spo2_drilldown(
     raw_event_summary.to_csv(paths["raw_event_summary"], index=False)
     trajectory_summary.to_csv(paths["trajectory_summary"], index=False)
     lead_time_summary.to_csv(paths["lead_time_summary"], index=False)
+    incremental_models.to_csv(paths["incremental_models"], index=False)
     _write_json(paths["availability"], availability)
 
     claims_warnings = lint_claims_and_outputs(

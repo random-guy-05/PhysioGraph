@@ -106,6 +106,7 @@ EICU_PATIENT_COLUMNS: list[str] = [
     "hospitaldischargelocation",
     "hospitaldischargestatus",
     "hospitaldischargeyear",
+    "admissionweight",
 ]
 
 CHUNK_SIZE: int = 250_000
@@ -341,6 +342,7 @@ def _build_eicu_cohort(
             ),
             "age": patients["age"],
             "is_male": patients["is_male"],
+            "admission_weight_kg": pd.to_numeric(patients["admissionweight"], errors="coerce"),
             "cohort_hf_flag": patients["patientunitstayid"]
             .isin(
                 diagnosis_flags.loc[
