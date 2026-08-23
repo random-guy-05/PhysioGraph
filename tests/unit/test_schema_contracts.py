@@ -119,14 +119,29 @@ def _make_label_df(n: int = 3) -> pd.DataFrame:
             "dataset": ["mimic"] * n,
             "stay_id": range(100, 100 + n),
             "target": [0, 1, 0],
+            "lactate_rise_12h_flag": [0, 1, 0],
+            "lactate_rise_24h_flag": [0, 1, 0],
+            "vis_rise_12h_flag": [0, 1, 0],
+            "vis_rise_24h_flag": [0, 1, 0],
+            "uo_decline_12h_flag": [0, 0, 0],
+            "uo_decline_24h_flag": [0, 0, 0],
+            "pressor_12h_flag": [0, 1, 0],
             "pressor_24h_flag": [0, 1, 0],
+            "mcs_12h_flag": [0, 0, 0],
             "mcs_24h_flag": [0, 0, 0],
+            "escalation_12h_flag": [0, 1, 0],
             "escalation_24h_flag": [0, 1, 0],
+            "renal_injury_12h_flag": [0, 1, 0],
             "renal_injury_24h_flag": [0, 1, 0],
+            "hypoperfusion_12h_flag": [0, 1, 0],
             "hypoperfusion_24h_flag": [0, 1, 0],
+            "hepatic_injury_12h_flag": [0, 0, 0],
             "hepatic_injury_24h_flag": [0, 0, 0],
+            "end_organ_12h_flag": [0, 1, 0],
             "end_organ_24h_flag": [0, 1, 0],
+            "mortality_12h_flag": [0, 0, 0],
             "mortality_24h_flag": [0, 0, 0],
+            "shock_progression_12h_flag": [0, 1, 0],
             "shock_progression_24h_flag": [0, 1, 0],
             "landmark_lactate": [1.8, 4.2, 1.5],
             "post_landmark_lactate_last": [1.5, 3.0, 1.2],
@@ -302,7 +317,7 @@ class TestLabelSchema:
         df = _make_label_df()
         result = LabelSchema.validate(df)
         assert len(result) == 3
-        assert len(result.columns) == 21
+        assert len(result.columns) == 36
 
     def test_label_schema_invalid_wrong_columns(self):
         """LabelSchema rejects data with missing columns."""

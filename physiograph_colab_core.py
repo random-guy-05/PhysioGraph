@@ -1867,6 +1867,72 @@ def build_spo2_raw_event_summary(raw_spo2: pd.DataFrame, analysis_df: pd.DataFra
     return pd.DataFrame(rows)
 
 
+def build_lead_time_analysis(
+    dataset_artifacts: dict[str, dict[str, pd.DataFrame]],
+) -> pd.DataFrame:
+    """Calculate lead-time / precedence of SpO2 instability over decompensation."""
+    rows: list[dict[str, Any]] = []
+
+    for dataset, artifacts in dataset_artifacts.items():
+        events = artifacts["events"].copy()
+        if events.empty or "concept" not in events.columns:
+            continue
+
+        events["offset_minutes"] = pd.to_numeric(events["offset_minutes"], errors="coerce")
+        events["value_numeric"] = pd.to_numeric(events.get("value_numeric", pd.Series(np.nan, index=events.index)), errors="coerce")
+        events = events.dropna(subset=["offset_minutes", "stay_id"])
+        events["concept"] = events["concept"].astype(str).str.lower()
+
+        # 1. SpO2 instability timestamp (first occurrence)
+        spo2 = events[events["concept"] == "spo2"].sort_values(["stay_id", "offset_minutes"])
+        spo2["delta"] = spo2.groupby("stay_id")["value_numeric"].diff()
+
+        # Define instability as abrupt jump >= 4 OR SpO2 < 90
+        spo2["instability_event"] = (spo2["delta"].abs() >= 4.0) | (spo2["value_numeric"] < 90.0)
+        first_spo2_instability = spo2[spo2["instability_event"] & (spo2["offset_minutes"] <= LANDMARK_MINUTES)].groupby("stay_id")["offset_minutes"].min()
+
+        # 2. Decompensation event timestamps (Lactate rise, VIS rise)
+        # Lactate rise timestamp
+        lactate = events[events["concept"] == "lactate"].sort_values(["stay_id", "offset_minutes"])
+        lactate_base = lactate[lactate["offset_minutes"] <= LANDMARK_MINUTES].groupby("stay_id")["value_numeric"].last()
+        lactate["base_val"] = lactate["stay_id"].map(lactate_base).fillna(0)
+        lactate["rise_event"] = ((lactate["value_numeric"] - lactate["base_val"]) >= 1.0) | ((lactate["value_numeric"] > 2.0) & (lactate["base_val"] <= 2.0))
+        first_lac_rise = lactate[lactate["rise_event"] & (lactate["offset_minutes"] > LANDMARK_MINUTES)].groupby("stay_id")["offset_minutes"].min()
+
+        # VIS rise / Pressor start timestamp
+        vis = events[events["concept"] == "vis"].sort_values(["stay_id", "offset_minutes"])
+        vis_base = vis[vis["offset_minutes"] <= LANDMARK_MINUTES].groupby("stay_id")["value_numeric"].max()
+        vis["base_val"] = vis["stay_id"].map(vis_base).fillna(0)
+        vis["rise_event"] = (vis["value_numeric"] - vis["base_val"]) >= 5.0
+        first_vis_rise = vis[vis["rise_event"] & (vis["offset_minutes"] > LANDMARK_MINUTES)].groupby("stay_id")["offset_minutes"].min()
+
+        pressor = events[events["concept"] == "pressor"].sort_values(["stay_id", "offset_minutes"])
+        first_pressor = pressor[pressor["offset_minutes"] > LANDMARK_MINUTES].groupby("stay_id")["offset_minutes"].min()
+
+        first_vis_or_pressor = pd.concat([first_vis_rise, first_pressor]).groupby(level=0).min()
+
+        # Merge all
+        for stay_id in first_spo2_instability.index:
+            t_spo2 = float(first_spo2_instability[stay_id])
+            t_lac = float(first_lac_rise.get(stay_id, math.nan))
+            t_vis = float(first_vis_or_pressor.get(stay_id, math.nan))
+
+            row = {
+                "dataset": dataset,
+                "stay_id": int(stay_id),
+                "first_spo2_instability_minutes": t_spo2,
+                "first_lactate_rise_minutes": t_lac,
+                "first_vis_rise_minutes": t_vis,
+            }
+            if not math.isnan(t_lac):
+                row["spo2_leads_lactate_minutes"] = t_lac - t_spo2
+            if not math.isnan(t_vis):
+                row["spo2_leads_vis_minutes"] = t_vis - t_spo2
+
+            rows.append(row)
+
+    return pd.DataFrame(rows)
+
 def build_spo2_trajectory_summary(
     raw_spo2: pd.DataFrame,
     analysis_df: pd.DataFrame,
@@ -2010,6 +2076,7 @@ def run_spo2_drilldown(
     dragged_models = fit_spo2_dragged_horizon_models(analysis_df)
     raw_event_summary = build_spo2_raw_event_summary(raw_spo2, analysis_df)
     trajectory_summary = build_spo2_trajectory_summary(raw_spo2, analysis_df)
+    lead_time_summary = build_lead_time_analysis(dataset_artifacts)
     figures = write_spo2_figures(analysis_df, output_dir / "figures")
 
     paths = {
@@ -2028,6 +2095,7 @@ def run_spo2_drilldown(
         "dragged_models": output_dir / "spo2_horizon_dragged_model_metrics.csv",
         "raw_event_summary": output_dir / "spo2_raw_event_summary.csv",
         "trajectory_summary": output_dir / "spo2_trajectory_by_outcome.csv",
+        "lead_time_summary": output_dir / "spo2_leadtime_summary.csv",
         "availability": output_dir / "spo2_adjustment_availability.json",
         "manifest": output_dir / "manifest.json",
     }
@@ -2046,6 +2114,7 @@ def run_spo2_drilldown(
     dragged_models.to_csv(paths["dragged_models"], index=False)
     raw_event_summary.to_csv(paths["raw_event_summary"], index=False)
     trajectory_summary.to_csv(paths["trajectory_summary"], index=False)
+    lead_time_summary.to_csv(paths["lead_time_summary"], index=False)
     _write_json(paths["availability"], availability)
 
     claims_warnings = lint_claims_and_outputs(

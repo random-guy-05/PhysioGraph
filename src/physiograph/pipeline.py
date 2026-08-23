@@ -647,15 +647,50 @@ def derive_labels(
         set(lactate_rise_12h.index[lactate_rise_12h].astype(int).tolist())
     ).astype(int)
 
-    # Simple proxies for vis_rise and uo_decline using pressors and urine output
-    # Real implementation would require more complex logic for VIS score delta and UO volumes.
-    # For now, relying on pressor flags as a proxy for VIS.
-    labels_df["vis_rise_24h_flag"] = labels_df["pressor_24h_flag"]
-    labels_df["vis_rise_12h_flag"] = labels_df["pressor_12h_flag"]
+    # Actually compute VIS score rise and UO decline based on extracted events
+    vis_events = events_df.loc[events_df["concept"] == "vis"].copy()
+    if not vis_events.empty:
+        obs_vis = vis_events.loc[vis_events["offset_minutes"].le(LANDMARK_MINUTES)].groupby("stay_id")["value_numeric"].max()
+        out_vis_12 = vis_events.loc[vis_events["offset_minutes"].gt(LANDMARK_MINUTES) & vis_events["offset_minutes"].map(is_outcome_12h_offset_minutes)].groupby("stay_id")["value_numeric"].max()
+        out_vis_24 = vis_events.loc[vis_events["offset_minutes"].gt(LANDMARK_MINUTES) & vis_events["offset_minutes"].map(is_outcome_offset_minutes)].groupby("stay_id")["value_numeric"].max()
 
-    # UO is not extracted in the provided lab events. Mocking it with 0s to maintain schema.
-    labels_df["uo_decline_24h_flag"] = 0
-    labels_df["uo_decline_12h_flag"] = 0
+        # Merge and calculate
+        vis_df = valid_df[["stay_id"]].copy()
+        vis_df["base"] = vis_df["stay_id"].map(obs_vis).fillna(0)
+        vis_df["out_12"] = vis_df["stay_id"].map(out_vis_12).fillna(0)
+        vis_df["out_24"] = vis_df["stay_id"].map(out_vis_24).fillna(0)
+
+        # VIS rise if it goes up by at least 5 points, or new start of any pressor.
+        labels_df["vis_rise_12h_flag"] = ((vis_df["out_12"] - vis_df["base"]) >= 5.0).astype(int) | labels_df["pressor_12h_flag"]
+        labels_df["vis_rise_24h_flag"] = ((vis_df["out_24"] - vis_df["base"]) >= 5.0).astype(int) | labels_df["pressor_24h_flag"]
+    else:
+        # Fallback if no VIS events extracted
+        labels_df["vis_rise_24h_flag"] = labels_df["pressor_24h_flag"]
+        labels_df["vis_rise_12h_flag"] = labels_df["pressor_12h_flag"]
+
+    uo_events = events_df.loc[events_df["concept"] == "urine_output"].copy()
+    if not uo_events.empty:
+        # Rate: ml/hr.
+        # We define UO decline as sum over 12/24h period being < 0.5 ml/kg/hr.
+        # Since we don't have weight easily accessible in the strict schema,
+        # we use absolute thresholds: < 30ml/hr average as a common proxy for oliguria.
+        # 12h = < 360ml total
+        # 24h = < 720ml total
+        out_uo_12 = uo_events.loc[uo_events["offset_minutes"].gt(LANDMARK_MINUTES) & uo_events["offset_minutes"].map(is_outcome_12h_offset_minutes)].groupby("stay_id")["value_numeric"].sum()
+        out_uo_24 = uo_events.loc[uo_events["offset_minutes"].gt(LANDMARK_MINUTES) & uo_events["offset_minutes"].map(is_outcome_offset_minutes)].groupby("stay_id")["value_numeric"].sum()
+
+        uo_df = valid_df[["stay_id"]].copy()
+        # If no events, assume oliguric? Safest is to assume normal or absent data, so we don't flag unless strictly measured.
+        # Better: calculate rate per hour over the window and flag if rate < 30 ml/hr.
+        uo_12_rate = uo_df["stay_id"].map(out_uo_12) / 12.0
+        uo_24_rate = uo_df["stay_id"].map(out_uo_24) / 24.0
+
+        # Only flag if we have data and rate is low
+        labels_df["uo_decline_12h_flag"] = (uo_12_rate.notna() & (uo_12_rate < 30.0)).astype(int)
+        labels_df["uo_decline_24h_flag"] = (uo_24_rate.notna() & (uo_24_rate < 30.0)).astype(int)
+    else:
+        labels_df["uo_decline_24h_flag"] = 0
+        labels_df["uo_decline_12h_flag"] = 0
 
     labels_df["target"] = labels_df["shock_progression_24h_flag"]
     return cohort_df, labels_df

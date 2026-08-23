@@ -62,6 +62,16 @@ EICU_INFUSION_DRUG_TOKENS: list[str] = [
     "phenylephrine",
 ]
 
+VIS_WEIGHTS_EICU: dict[str, float] = {
+    "norepinephrine": 100.0,
+    "epinephrine": 100.0,
+    "dopamine": 1.0,
+    "dobutamine": 1.0,
+    "milrinone": 10.0,
+    "vasopressin": 10000.0,
+    "phenylephrine": 0.0, # Not in standard calculation
+}
+
 EICU_TREATMENT_TOKENS: list[str] = [
     "intraaortic balloon pump",
     "lvad",
@@ -406,21 +416,121 @@ def _stream_eicu_infusion_events(
         ).combine_first(
             pd.to_numeric(filtered["infusionrate"], errors="coerce")
         )
+
+        pressor_events = build_event_frame(
+            dataset="eicu",
+            stay_id=filtered["patientunitstayid"].astype(int),
+            event_family="intervention",
+            concept="pressor",
+            source_table="infusionDrug.csv",
+            raw_name=filtered["drugname"].astype(str),
+            offset_minutes=pd.to_numeric(
+                filtered["infusionoffset"], errors="coerce"
+            ),
+            value_numeric=numeric_rate,
+            value_text=filtered["drugname"].astype(str),
+            unit=pd.NA,
+            is_intervention=1,
+        )
+
+        # Calculate VIS score
+        drug_names_lower = filtered["drugname"].fillna("").astype(str).str.lower()
+        vis_weights = pd.Series(0.0, index=filtered.index)
+        for token, weight in VIS_WEIGHTS_EICU.items():
+            mask = drug_names_lower.str.contains(token, regex=False)
+            vis_weights.loc[mask] = weight
+
+        vis_score = numeric_rate * vis_weights
+
+        vis_events = build_event_frame(
+            dataset="eicu",
+            stay_id=filtered["patientunitstayid"].astype(int),
+            event_family="derived",
+            concept="vis",
+            source_table="infusionDrug.csv",
+            raw_name=filtered["drugname"].astype(str),
+            offset_minutes=pd.to_numeric(
+                filtered["infusionoffset"], errors="coerce"
+            ),
+            value_numeric=vis_score,
+            value_text=pd.NA,
+            unit=pd.NA,
+            is_intervention=0,
+        )
+        frames.append(pd.concat([pressor_events, vis_events], ignore_index=True))
+    return _concat_or_empty(frames, EVENT_REQUIRED_COLUMNS)
+
+def _stream_eicu_urine_output_events(
+    root: Path,
+    cohort_ids: list[int],
+    *,
+    chunk_size: int,
+    max_chunks: int | None,
+) -> pd.DataFrame:
+    """Stream intakeOutput.csv in chunks, filtering to cohort and urine output.
+
+    Args:
+        root: eICU data directory.
+        cohort_ids: List of included patientunitstayid values.
+        chunk_size: Rows per chunk.
+        max_chunks: Optional cap on chunks read.
+
+    Returns:
+        Event DataFrame with urine output rows.
+    """
+    intake_path = root / "intakeOutput.csv"
+    if not intake_path.exists():
+        return pd.DataFrame(columns=EVENT_REQUIRED_COLUMNS)
+
+    frames: list[pd.DataFrame] = []
+    for chunk in _iter_csv_chunks(
+        intake_path,
+        usecols=[
+            "patientunitstayid",
+            "intakeoutputoffset",
+            "cellpath",
+            "cellvaluenumeric",
+        ],
+        chunksize=chunk_size,
+        max_chunks=max_chunks,
+    ):
+        filtered = chunk.loc[
+            chunk["patientunitstayid"].isin(cohort_ids)
+        ].copy()
+
+        # Filter for urine output
+        cellpath_lower = filtered["cellpath"].fillna("").astype(str).str.lower()
+        filtered = filtered.loc[
+            cellpath_lower.str.contains("urine", regex=False)
+        ].copy()
+
+        if filtered.empty:
+            continue
+
+        numeric_val = pd.to_numeric(
+            filtered["cellvaluenumeric"], errors="coerce"
+        )
+        filtered["cellvaluenumeric"] = numeric_val
+        filtered = filtered.dropna(subset=["cellvaluenumeric", "intakeoutputoffset"])
+
+        if filtered.empty:
+            continue
+
         frames.append(
             build_event_frame(
                 dataset="eicu",
                 stay_id=filtered["patientunitstayid"].astype(int),
-                event_family="intervention",
-                concept="pressor",
-                source_table="infusionDrug.csv",
-                raw_name=filtered["drugname"].astype(str),
+                event_family="vital",
+                concept="urine_output",
+                source_table="intakeOutput.csv",
+                raw_name=filtered["cellpath"].astype(str),
                 offset_minutes=pd.to_numeric(
-                    filtered["infusionoffset"], errors="coerce"
+                    filtered["intakeoutputoffset"], errors="coerce"
                 ),
-                value_numeric=numeric_rate,
-                value_text=filtered["drugname"].astype(str),
+                value_numeric=filtered["cellvaluenumeric"],
+                value_text=pd.NA,
                 unit=pd.NA,
-                is_intervention=1,
+                is_intervention=0,
             )
         )
     return _concat_or_empty(frames)
@@ -682,6 +792,15 @@ def extract_eicu(
         stay_count=event_stay_count(treatment_events),
     )
 
+    uo_events = _stream_eicu_urine_output_events(
+        root, cohort_ids, chunk_size=chunk_size, max_chunks=max_chunks
+    )
+    audit.log(
+        "eicu_uo_extracted",
+        row_count=len(uo_events),
+        stay_count=event_stay_count(uo_events),
+    )
+
     lab_events = _stream_eicu_lab_events(
         root, cohort_ids, chunk_size=chunk_size, max_chunks=max_chunks
     )
@@ -711,6 +830,7 @@ def extract_eicu(
             [
                 infusion_events,
                 treatment_events,
+                uo_events,
                 lab_events,
                 vital_events,
                 death_events,

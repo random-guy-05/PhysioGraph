@@ -62,6 +62,20 @@ CARDIOGENIC_SHOCK_ICD_PATTERNS: dict[int, list[str]] = {
 
 PRESSOR_ITEMIDS: list[int] = [221906, 221289, 221662, 221653, 221749, 222315]
 
+VIS_WEIGHTS: dict[int, float] = {
+    221662: 1.0,      # Dopamine
+    221653: 1.0,      # Dobutamine
+    221289: 100.0,    # Epinephrine
+    221906: 100.0,    # Norepinephrine
+    222315: 10000.0,  # Vasopressin
+    # Milrinone (221986) is typically *10 but not in the original list.
+}
+
+URINE_OUTPUT_ITEMIDS: list[int] = [
+    226559, 226560, 226561, 226584, 226563, 226564, 226565, 226567,
+    226557, 226558, 227488, 227489
+]
+
 MCS_PROCEDUREEVENT_IDS: dict[str, list[int]] = {
     "iabp": [224272],
     "impella": [228169],
@@ -258,7 +272,13 @@ def _extract_mimic_pressor_events(
         (inputevents["starttime"] - inputevents["anchor_time"]).dt.total_seconds()
         / 60.0
     )
-    return build_event_frame(
+
+    # Calculate VIS score if weights available
+    inputevents["vis_weight"] = inputevents["itemid"].map(VIS_WEIGHTS).fillna(0.0)
+    inputevents["vis_score"] = inputevents["rate"] * inputevents["vis_weight"]
+
+    # Base pressor event
+    pressor_events = build_event_frame(
         dataset="mimic",
         stay_id=inputevents["hadm_id"].astype(int),
         event_family="intervention",
@@ -270,6 +290,74 @@ def _extract_mimic_pressor_events(
         value_text=pd.NA,
         unit=pd.NA,
         is_intervention=1,
+    )
+
+    # Derived VIS event
+    vis_events = build_event_frame(
+        dataset="mimic",
+        stay_id=inputevents["hadm_id"].astype(int),
+        event_family="derived",
+        concept="vis",
+        source_table="inputevents.csv",
+        raw_name=inputevents["itemid"].astype(str),
+        offset_minutes=offsets,
+        value_numeric=pd.to_numeric(inputevents["vis_score"], errors="coerce"),
+        value_text=pd.NA,
+        unit=pd.NA,
+        is_intervention=0,
+    )
+
+    return pd.concat([pressor_events, vis_events], ignore_index=True)
+
+def _extract_mimic_urine_output_events(
+    root: Path,
+    cohort_hadms: np.ndarray,
+    anchors: pd.DataFrame,
+) -> pd.DataFrame:
+    """Extract urine output events from outputevents.csv.
+
+    Args:
+        root: MIMIC data directory.
+        cohort_hadms: Array of included hospital admission IDs.
+        anchors: DataFrame with hadm_id → anchor_time mapping.
+
+    Returns:
+        Event DataFrame with urine output rows.
+    """
+    output_path = root / "outputevents.csv"
+    if not output_path.exists():
+        return pd.DataFrame(columns=EVENT_REQUIRED_COLUMNS)
+
+    outputevents = pd.read_csv(
+        output_path,
+        usecols=["hadm_id", "charttime", "itemid", "value"],
+    )
+    outputevents = outputevents.loc[
+        outputevents["hadm_id"].isin(cohort_hadms)
+    ].copy()
+    outputevents = outputevents.loc[
+        outputevents["itemid"].isin(URINE_OUTPUT_ITEMIDS)
+    ].dropna(subset=["value"])
+    outputevents["charttime"] = pd.to_datetime(
+        outputevents["charttime"], errors="coerce"
+    )
+    outputevents = outputevents.merge(anchors, on="hadm_id", how="left")
+    offsets = (
+        (outputevents["charttime"] - outputevents["anchor_time"]).dt.total_seconds()
+        / 60.0
+    )
+    return build_event_frame(
+        dataset="mimic",
+        stay_id=outputevents["hadm_id"].astype(int),
+        event_family="vital",
+        concept="urine_output",
+        source_table="outputevents.csv",
+        raw_name=outputevents["itemid"].astype(str),
+        offset_minutes=offsets,
+        value_numeric=pd.to_numeric(outputevents["value"], errors="coerce"),
+        value_text=pd.NA,
+        unit=pd.NA,
+        is_intervention=0,
     )
 
 
@@ -460,6 +548,13 @@ def extract_mimic(
         stay_count=event_stay_count(mcs_events),
     )
 
+    uo_events = _extract_mimic_urine_output_events(root, cohort_hadms, anchors)
+    audit.log(
+        "mimic_uo_extracted",
+        row_count=len(uo_events),
+        stay_count=event_stay_count(uo_events),
+    )
+
     vital_item_map: dict[int, str] = {
         itemid: concept
         for concept, itemids in MIMIC_VITAL_IDS.items()
@@ -518,7 +613,7 @@ def extract_mimic(
     )
     events_df = _finalize_events(
         pd.concat(
-            [pressor_events, mcs_events, vital_events, lab_events, death_events],
+            [pressor_events, mcs_events, uo_events, vital_events, lab_events, death_events],
             ignore_index=True,
         )
     )
