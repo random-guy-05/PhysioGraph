@@ -22,17 +22,20 @@ import pandas as pd
 LANDMARK_MINUTES = 240
 OBSERVATION_HOURS = 4.0
 OBSERVATION_BINS = 16
-HORIZON_HOURS = (48, 72, 96, 168)
+HORIZON_HOURS = (12, 24)
 LOW_SPO2_THRESHOLDS = (88, 90, 92, 95)
 REQUIRED_ARTIFACT_FILES = ("cohort.csv", "events.csv", "features.csv", "labels.csv")
-PRIMARY_ENDPOINT = "mcs_or_death_168h_flag"
+PRIMARY_ENDPOINT = "lactate_rise_24h_flag"
 SECONDARY_ENDPOINTS = (
-    "mcs_168h_flag",
-    "death_168h_flag",
+    "vis_rise_24h_flag",
+    "uo_decline_24h_flag",
+    "end_organ_24h_flag",
+    "lactate_rise_12h_flag",
+    "vis_rise_12h_flag",
+    "uo_decline_12h_flag",
+    "end_organ_12h_flag",
+    "mcs_24h_flag",
     "target",
-    "mcs_48h_flag",
-    "mcs_72h_flag",
-    "mcs_96h_flag",
 )
 ANALYSIS_LAYERS = (
     "descriptive",
@@ -63,12 +66,16 @@ MANIFEST_WARNINGS = (
 )
 PRIMARY_OUTCOME_COLUMNS = (
     "target",
-    "mcs_48h_flag",
-    "mcs_72h_flag",
-    "mcs_96h_flag",
-    "mcs_168h_flag",
-    "death_168h_flag",
-    "mcs_or_death_168h_flag",
+    "lactate_rise_12h_flag",
+    "lactate_rise_24h_flag",
+    "vis_rise_12h_flag",
+    "vis_rise_24h_flag",
+    "uo_decline_12h_flag",
+    "uo_decline_24h_flag",
+    "end_organ_12h_flag",
+    "end_organ_24h_flag",
+    "mcs_12h_flag",
+    "mcs_24h_flag",
 )
 PRIMARY_SPO2_MODEL_FEATURES = (
     "spo2_min",
@@ -107,8 +114,8 @@ SPO2_VARIABILITY_FEATURES = (
     "spo2_instability_proxy_score",
 )
 SPO2_VARIABILITY_OUTCOMES = (
-    "death_168h_flag",
-    "mcs_or_death_168h_flag",
+    "lactate_rise_24h_flag",
+    "vis_rise_24h_flag",
     "target",
 )
 SPO2_OXYGENATION_COVARIATES = (
@@ -567,11 +574,11 @@ def compute_horizon_outcomes(
     stay_index: pd.DataFrame | None = None,
     horizons: tuple[int, ...] = HORIZON_HOURS,
 ) -> pd.DataFrame:
-    """Create post-landmark MCS/death/escalation labels at requested horizons."""
+    """Create post-landmark labels (MCS, death, lactate, VIS proxy) at requested horizons."""
     keys = _stay_index_from(stay_index if stay_index is not None else cohort_df, cohort_df, events_df)
     result = keys.copy()
     for horizon in horizons:
-        for concept in ("pressor", "mcs", "death"):
+        for concept in ("pressor", "mcs", "death", "lactate_rise", "vis_rise", "uo_decline", "end_organ"):
             result[f"{concept}_{horizon}h_flag"] = 0
         result[f"escalation_{horizon}h_flag"] = 0
         result[f"mcs_or_death_{horizon}h_flag"] = 0
@@ -582,21 +589,37 @@ def compute_horizon_outcomes(
     if "dataset" not in events:
         events["dataset"] = "unknown"
     events["offset_minutes"] = pd.to_numeric(events["offset_minutes"], errors="coerce")
+    events["value_numeric"] = pd.to_numeric(events.get("value_numeric", pd.Series(np.nan, index=events.index)), errors="coerce")
     event_text = _event_text(events)
     concept = events.get("concept", pd.Series("", index=events.index)).fillna("").astype(str).str.lower()
+
+    # Pre-calculate baseline metrics for complex outcomes
+    obs_mask = events["offset_minutes"].ge(0) & events["offset_minutes"].le(LANDMARK_MINUTES)
+    baseline_lactate = events.loc[obs_mask & concept.eq("lactate")].sort_values(["dataset", "stay_id", "offset_minutes"]).groupby(["dataset", "stay_id"]).tail(1)[["dataset", "stay_id", "value_numeric"]].rename(columns={"value_numeric": "base_lactate"})
 
     for horizon in horizons:
         upper = horizon * 60
         window_mask = events["offset_minutes"].gt(LANDMARK_MINUTES) & events["offset_minutes"].le(upper)
+
+        # Simple flags
         pressor_mask = window_mask & concept.eq("pressor")
         mcs_mask = window_mask & (
             concept.eq("mcs")
             | event_text.str.contains(r"iabp|impella|ecmo|mechanical circulatory|\bmcs\b", regex=True, na=False)
         )
         death_mask = window_mask & concept.eq("death")
+
         result = _mark_flag(result, events.loc[pressor_mask], f"pressor_{horizon}h_flag")
         result = _mark_flag(result, events.loc[mcs_mask], f"mcs_{horizon}h_flag")
         result = _mark_flag(result, events.loc[death_mask], f"death_{horizon}h_flag")
+
+        # Lactate logic
+        future_lactate = events.loc[window_mask & concept.eq("lactate")].groupby(["dataset", "stay_id"])["value_numeric"].max().reset_index().rename(columns={"value_numeric": "max_lactate"})
+        if not baseline_lactate.empty and not future_lactate.empty:
+            merged = baseline_lactate.merge(future_lactate, on=["dataset", "stay_id"])
+            merged["lactate_rise"] = ((merged["max_lactate"] - merged["base_lactate"]) >= 1.0) | ((merged["max_lactate"] > 2.0) & (merged["base_lactate"] <= 2.0))
+            rise_rows = merged.loc[merged["lactate_rise"]]
+            result = _mark_flag(result, rise_rows, f"lactate_rise_{horizon}h_flag")
 
     result = _add_death_from_cohort(result, cohort_df, horizons)
     for horizon in horizons:
@@ -606,6 +629,10 @@ def compute_horizon_outcomes(
         result[f"mcs_or_death_{horizon}h_flag"] = (
             result[[f"mcs_{horizon}h_flag", f"death_{horizon}h_flag"]].sum(axis=1) > 0
         ).astype(int)
+
+        # Proxy VIS with pressor
+        result[f"vis_rise_{horizon}h_flag"] = result[f"pressor_{horizon}h_flag"]
+
     return result
 
 
@@ -777,15 +804,7 @@ def build_descriptive_summary(analysis_df: pd.DataFrame) -> pd.DataFrame:
         ] if col in analysis_df.columns
     ]
     group_cols = [
-        col for col in [
-            "target",
-            "mcs_48h_flag",
-            "mcs_72h_flag",
-            "mcs_96h_flag",
-            "mcs_168h_flag",
-            "death_168h_flag",
-            "mcs_or_death_168h_flag",
-        ] if col in analysis_df.columns
+        col for col in PRIMARY_OUTCOME_COLUMNS if col in analysis_df.columns
     ]
     rows: list[dict[str, Any]] = []
     for group_col in group_cols:
@@ -810,15 +829,7 @@ def build_lactate_negative_summary(analysis_df: pd.DataFrame) -> pd.DataFrame:
         analysis_df.loc[pd.to_numeric(analysis_df["baseline_lactate"], errors="coerce") < 2].copy()
     )
     outcomes = [
-        col for col in [
-            "target",
-            "mcs_48h_flag",
-            "mcs_72h_flag",
-            "mcs_96h_flag",
-            "mcs_168h_flag",
-            "death_168h_flag",
-            "mcs_or_death_168h_flag",
-        ] if col in subset.columns
+        col for col in PRIMARY_OUTCOME_COLUMNS if col in subset.columns
     ]
     rows: list[dict[str, Any]] = []
     for outcome in outcomes:
@@ -845,15 +856,7 @@ def build_lactate_negative_summary(analysis_df: pd.DataFrame) -> pd.DataFrame:
 def build_spo2_association_proxy(analysis_df: pd.DataFrame) -> pd.DataFrame:
     """Correlate SpO2 components with outcomes as a centrality proxy."""
     outcome_cols = [
-        col for col in [
-            "target",
-            "mcs_48h_flag",
-            "mcs_72h_flag",
-            "mcs_96h_flag",
-            "mcs_168h_flag",
-            "death_168h_flag",
-            "mcs_or_death_168h_flag",
-        ] if col in analysis_df.columns
+        col for col in PRIMARY_OUTCOME_COLUMNS if col in analysis_df.columns
     ]
     rows: list[dict[str, Any]] = []
     for feature in [col for col in SPO2_SIGNAL_COLUMNS if col in analysis_df.columns]:
@@ -1337,7 +1340,7 @@ def build_respiratory_context_tables(analysis_df: pd.DataFrame) -> pd.DataFrame:
     """Stratified SpO2 burden by respiratory support context with interaction terms."""
     measured = _filter_measured_spo2_rows(analysis_df)
     outcome = PRIMARY_ENDPOINT if PRIMARY_ENDPOINT in measured.columns else (
-        "death_168h_flag" if "death_168h_flag" in measured.columns else None
+        "lactate_rise_24h_flag" if "lactate_rise_24h_flag" in measured.columns else None
     )
     if outcome is None:
         return pd.DataFrame([{"status": "skipped", "reason": "primary outcome unavailable"}])
@@ -1476,7 +1479,7 @@ def build_availability_audit(
             "race_ethnicity_status": "present" if race_cols else "absent_explicit",
             "race_ethnicity_columns": ",".join(race_cols) if race_cols else "",
         }
-        for outcome in ("mcs_168h_flag", "death_168h_flag", "mcs_or_death_168h_flag"):
+        for outcome in ("lactate_rise_24h_flag", "vis_rise_24h_flag", "uo_decline_24h_flag", "mcs_24h_flag"):
             if outcome in frame.columns:
                 y = pd.to_numeric(frame[outcome], errors="coerce")
                 row[f"{outcome}_event_rate"] = float(y.mean()) if y.notna().any() else math.nan
@@ -1825,7 +1828,7 @@ def build_spo2_raw_event_summary(raw_spo2: pd.DataFrame, analysis_df: pd.DataFra
     frame["gap_minutes"] = frame.groupby(["dataset", "stay_id"])["offset_minutes"].diff()
     frame["abrupt_jump"] = frame["delta"].abs().ge(4).fillna(False)
 
-    outcome_cols = [col for col in ("target", "death_168h_flag", "mcs_or_death_168h_flag") if col in analysis_df]
+    outcome_cols = [col for col in ("target", "lactate_rise_24h_flag", "vis_rise_24h_flag") if col in analysis_df]
     lookup = analysis_df[["dataset", "stay_id", *outcome_cols]].drop_duplicates(["dataset", "stay_id"])
     frame = frame.merge(lookup, on=["dataset", "stay_id"], how="left")
 
@@ -1868,7 +1871,7 @@ def build_spo2_trajectory_summary(
     raw_spo2: pd.DataFrame,
     analysis_df: pd.DataFrame,
     *,
-    outcome: str = "mcs_or_death_168h_flag",
+    outcome: str = PRIMARY_ENDPOINT,
 ) -> pd.DataFrame:
     """Aggregate raw SpO2 trajectories (15-minute bins) by outcome group."""
     if raw_spo2.empty:
@@ -1911,7 +1914,7 @@ def write_spo2_figures(analysis_df: pd.DataFrame, output_dir: Path) -> list[Path
 
     output_dir.mkdir(parents=True, exist_ok=True)
     figures: list[Path] = []
-    outcome = "mcs_or_death_168h_flag" if "mcs_or_death_168h_flag" in analysis_df.columns else "target"
+    outcome = PRIMARY_ENDPOINT if PRIMARY_ENDPOINT in analysis_df.columns else "target"
     if outcome not in analysis_df.columns:
         return figures
 

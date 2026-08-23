@@ -233,9 +233,9 @@ def test_horizon_boundary_excludes_leq_240_includes_gt_240():
             {"dataset": "mimic", "stay_id": 1, "concept": "mcs", "raw_name": "iabp", "value_text": "", "source_table": "p", "offset_minutes": 241, "window": "outcome"},
         ]
     )
-    result = compute_horizon_outcomes(events, cohort, pd.DataFrame({"dataset": ["mimic"], "stay_id": [1]}), horizons=(48,))
+    result = compute_horizon_outcomes(events, cohort, pd.DataFrame({"dataset": ["mimic"], "stay_id": [1]}), horizons=(12,))
     row = result.iloc[0]
-    assert row["mcs_48h_flag"] == 1
+    assert row["mcs_12h_flag"] == 1
     assert LANDMARK_MINUTES == 240
 
 
@@ -248,7 +248,8 @@ def _synthetic_model_df(n: int = 120, *, zero_spo2_rows: int = 10) -> pd.DataFra
     df = pd.DataFrame(
         {
             "stay_id": stay_ids,
-            "mcs_or_death_168h_flag": y,
+            "target": y,
+            "lactate_rise_24h_flag": y,
             "spo2_plausible_count": plausible,
             "spo2_min": np.where(plausible > 0, rng.normal(92, 2, n), np.nan),
             "spo2_mean": np.where(plausible > 0, rng.normal(95, 1, n), np.nan),
@@ -288,7 +289,7 @@ def test_or_table_applies_fdr_to_fit_rows():
     y = rng.integers(0, 2, n)
     df = pd.DataFrame(
         {
-            "mcs_or_death_168h_flag": y,
+            "lactate_rise_24h_flag": y,
             "spo2_min": feature,
             "spo2_mean": feature + 3,
             "spo2_sd": rng.normal(1, 0.2, n),
@@ -312,7 +313,7 @@ def test_or_table_skips_when_events_below_floor():
     pytest.importorskip("statsmodels")
     df = pd.DataFrame(
         {
-            "mcs_or_death_168h_flag": [0] * 50 + [1] * 5,
+            "lactate_rise_24h_flag": [0] * 50 + [1] * 5,
             "spo2_min": np.linspace(85, 98, 55),
             "spo2_mean": np.linspace(90, 99, 55),
             "spo2_sd": np.ones(55),
@@ -334,7 +335,7 @@ def test_respiratory_context_returns_strata_or_skip():
     n = 250
     df = pd.DataFrame(
         {
-            "mcs_or_death_168h_flag": rng.integers(0, 2, n),
+            "lactate_rise_24h_flag": rng.integers(0, 2, n),
             "spo2_below_90_fraction": rng.uniform(0, 0.3, n),
             "spo2_plausible_count": np.ones(n),
             "resp_support_any_flag": rng.integers(0, 2, n),
@@ -352,7 +353,7 @@ def test_lactate_negative_includes_event_counts_and_fragility():
     df = pd.DataFrame(
         {
             "baseline_lactate": [1.0, 1.5, 3.0, 0.8],
-            "mcs_or_death_168h_flag": [0, 1, 1, 0],
+            "lactate_rise_24h_flag": [0, 1, 1, 0],
             "spo2_plausible_count": [2, 3, 1, 0],
             "spo2_min": [94, 90, 88, np.nan],
             "spo2_rmssd": [1.0, 1.2, 1.5, np.nan],
@@ -363,7 +364,7 @@ def test_lactate_negative_includes_event_counts_and_fragility():
     assert "n_events" in out.columns
     assert "fragility_label" in out.columns
     assert "analysis_note" in out.columns
-    row = out.loc[out["outcome"].eq("mcs_or_death_168h_flag")].iloc[0]
+    row = out.loc[out["outcome"].eq("lactate_rise_24h_flag")].iloc[0]
     assert row["n_lactate_negative"] == 2
     assert row["n_events"] == 1
 
@@ -378,7 +379,7 @@ def test_availability_audit_race_absent_explicit():
                 ]
             ),
             "features": pd.DataFrame({"dataset": ["mimic"], "stay_id": [1], "age": [70]}),
-            "labels": pd.DataFrame({"dataset": ["mimic"], "stay_id": [1], "mcs_or_death_168h_flag": [0], "mcs_168h_flag": [0], "death_168h_flag": [0]}),
+            "labels": pd.DataFrame({"dataset": ["mimic"], "stay_id": [1], "lactate_rise_24h_flag": [0], "mcs_24h_flag": [0], "vis_rise_24h_flag": [0]}),
         }
     }
     analysis = pd.DataFrame({"dataset": ["mimic"], "stay_id": [1]})
