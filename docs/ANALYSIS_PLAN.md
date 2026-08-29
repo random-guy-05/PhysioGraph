@@ -102,3 +102,46 @@ table; sensitivity matrix S1–S12; per-endpoint conclusion classification
   never substituted for quantitative VIS.
 - Urine-output outcomes are reported as a **decline proxy** unless weight-
   normalized data support the KDIGO oliguria definition.
+
+## 8. Model-minimal (epidemiological) companion analyses — frozen 2026-08-29
+
+Frozen before the full-data rebuild completed, so no full-data result was visible
+when these definitions were locked. All estimates are model-free; the incremental
+logistic models are NOT involved. Implemented in
+`src/physiograph/analysis/spo2_epidemiology.py` (output: `physiograph_outputs/epidemiology/`).
+
+**Exposure (prespecified, matching the protocol temporal-precedence definition):**
+- `exposure_any` = >=1 SpO2 <90% OR >=1 adjacent >=4 pp jump in [0, 240) min.
+- `exposure_tertile` = tertiles of `spo2_instability_proxy_score` (T1<T2<T3).
+
+**A. Stratified risk tables (cohort level).** Per dataset x endpoint:
+risk in exposed vs unexposed, risk ratio (Katz log CI), risk difference (Wald CI),
+Fisher exact p, and a person-level cluster bootstrap CI for the RR (2000 reps,
+patient clusters — repeated stays never split). Floors from §1 audit apply:
+endpoint rows below floors are labeled underpowered, never interpreted.
+
+**B. Confounder-stratified pooled estimates.** Mantel-Haenszel pooled odds ratio
+(stratified by baseline hypoxemia: `spo2_below_90_fraction > 0` vs = 0; and by
+respiratory support where available) with Greenland-Robins CI — tests whether the
+exposure-outcome association survives within absolute-SpO2 strata, which is the
+"beyond how low it went" question without a model.
+
+**C. Dose-response.** Outcome risk by exposure tertile with a two-sided
+Cochran-Armitage trend test — a graded monotone relationship is the strongest
+model-free evidence of a real signal (Bradford Hill).
+
+**D. Paired within-patient temporal precedence.** For every stay with both an
+instability onset and an outcome onset: lead-time distribution, fraction of
+outcome events **preceded** by instability, sign test vs 0.5, and median lead
+time with patient-cluster bootstrap CI. Complement reported: stays with an
+outcome but NO prior instability (guards against instability being ubiquitous).
+
+**E. Specificity matrix.** Every endpoint classified
+(positive_robust / positive_suggestive / null / underpowered / unavailable) using
+BH-corrected Fisher p across the endpoint family, with
+`hepatic_lab_worsening` prespecified as the negative-control endpoint (slow-moving,
+least plausibly coupled to acute SpO2 dynamics). Instability is "specific" only
+if acute endpoints are robust while the bilirubin control is null.
+
+Claim scope: these are observational associations with temporal ordering; the
+same non-causal language rules as §7 apply.

@@ -871,6 +871,11 @@ def build_temporal_precedence(
     for (dataset, outcome), group in record_frame.groupby(["dataset", "outcome"]):
         values = group["lead_time_minutes"].to_numpy(dtype=float)
         boot = [float(np.median(rng.choice(values, size=len(values), replace=True))) for _ in range(bootstrap_repetitions)]
+        if boot:
+            median_low = float(np.quantile(boot, 0.025))
+            median_high = float(np.quantile(boot, 0.975))
+        else:  # bootstrap_repetitions == 0: caller supplies its own CI
+            median_low = median_high = math.nan
         summaries.append(
             {
                 "dataset": dataset,
@@ -880,8 +885,8 @@ def build_temporal_precedence(
                 "median_lead_time_minutes": float(np.median(values)),
                 "q1_lead_time_minutes": float(np.quantile(values, 0.25)),
                 "q3_lead_time_minutes": float(np.quantile(values, 0.75)),
-                "median_ci95_low": float(np.quantile(boot, 0.025)),
-                "median_ci95_high": float(np.quantile(boot, 0.975)),
+                "median_ci95_low": median_low,
+                "median_ci95_high": median_high,
                 "positive_lead_time_fraction": float(np.mean(values > 0)),
                 "claim_scope": "landmark_ordering_not_causal_precedence",
             }

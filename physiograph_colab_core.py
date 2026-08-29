@@ -1749,6 +1749,23 @@ def write_archive_candidates(project_root: Path, output_dir: Path) -> Path:
     return out
 
 
+def run_model_minimal_epidemiology(
+    analysis_df: pd.DataFrame,
+    all_events: pd.DataFrame,
+    all_cohorts: pd.DataFrame,
+) -> dict[str, pd.DataFrame]:
+    """Model-minimal companion analyses (ANALYSIS_PLAN.md section 8).
+
+    Classical epidemiological estimators only — no fitted model: risk
+    ratios with cluster-bootstrap CIs, Mantel-Haenszel pooled ORs,
+    Cochran-Armitage dose-response, paired precedence sign tests, and a
+    specificity matrix with a prespecified bilirubin negative control.
+    """
+    from physiograph.analysis.spo2_epidemiology import run_epidemiology_analyses
+
+    return run_epidemiology_analyses(analysis_df, all_events, all_cohorts)
+
+
 def run_spo2_drilldown(
     dataset_artifacts: dict[str, dict[str, pd.DataFrame]],
     output_dir: Path,
@@ -1796,6 +1813,7 @@ def run_spo2_drilldown(
     trajectory_summary = build_spo2_trajectory_summary(raw_spo2, analysis_df)
     endpoint_audit = build_endpoint_completeness_audit(analysis_df)
     leadtime_records, leadtime_summary = build_temporal_precedence(all_events, all_cohorts)
+    epidemiology = run_model_minimal_epidemiology(analysis_df, all_events, all_cohorts)
     figures = write_spo2_figures(analysis_df, output_dir / "figures")
 
     paths = {
@@ -1817,6 +1835,11 @@ def run_spo2_drilldown(
         "endpoint_completeness": output_dir / "spo2_endpoint_completeness.csv",
         "leadtime_records": output_dir / "spo2_leadtime_records.csv",
         "leadtime_summary": output_dir / "spo2_leadtime_summary.csv",
+        "epi_risk_tables": output_dir / "epi_stratified_risk_tables.csv",
+        "epi_mantel_haenszel": output_dir / "epi_mantel_haenszel.csv",
+        "epi_dose_response": output_dir / "epi_dose_response.csv",
+        "epi_paired_precedence": output_dir / "epi_paired_precedence.csv",
+        "epi_specificity_matrix": output_dir / "epi_specificity_matrix.csv",
         "availability": output_dir / "spo2_adjustment_availability.json",
         "manifest": output_dir / "manifest.json",
     }
@@ -1838,6 +1861,11 @@ def run_spo2_drilldown(
     endpoint_audit.to_csv(paths["endpoint_completeness"], index=False)
     leadtime_records.to_csv(paths["leadtime_records"], index=False)
     leadtime_summary.to_csv(paths["leadtime_summary"], index=False)
+    epidemiology["stratified_risk_tables"].to_csv(paths["epi_risk_tables"], index=False)
+    epidemiology["mantel_haenszel"].to_csv(paths["epi_mantel_haenszel"], index=False)
+    epidemiology["dose_response"].to_csv(paths["epi_dose_response"], index=False)
+    epidemiology["paired_precedence"].to_csv(paths["epi_paired_precedence"], index=False)
+    epidemiology["specificity_matrix"].to_csv(paths["epi_specificity_matrix"], index=False)
     _write_json(paths["availability"], availability)
 
     claims_warnings = lint_claims_and_outputs(
@@ -1877,6 +1905,8 @@ def run_spo2_drilldown(
     manifest["primary_endpoints"] = list(PRIMARY_ENDPOINTS)
     manifest["secondary_endpoints"] = list(SECONDARY_ENDPOINTS)
     manifest["leadtime_claim_scope"] = "landmark_ordering_not_causal_precedence"
+    manifest["epidemiology_layer"] = "model_minimal_companion_v1"
+    manifest["epidemiology_negative_control_endpoint"] = "hepatic_lab_worsening_12h_flag"
     _write_json(paths["manifest"], manifest)
     claims_warnings.to_csv(output_dir / "claims_linter_warnings.csv", index=False)
     return {
