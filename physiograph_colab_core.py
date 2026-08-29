@@ -1704,7 +1704,11 @@ def write_spo2_figures(analysis_df: pd.DataFrame, output_dir: Path) -> list[Path
         if not groups:
             continue
         fig, ax = plt.subplots(figsize=(6, 4))
-        ax.boxplot(groups, labels=labels, showfliers=False)
+        # matplotlib >= 3.9 renamed `labels` -> `tick_labels`; support both.
+        try:
+            ax.boxplot(groups, tick_labels=labels, showfliers=False)
+        except TypeError:  # matplotlib < 3.9
+            ax.boxplot(groups, labels=labels, showfliers=False)
         ax.set_title(f"{metric} by {outcome}")
         ax.set_xlabel(outcome)
         ax.set_ylabel(ylabel)
@@ -1900,11 +1904,16 @@ def run_comparator_if_available(
 
     from physiograph.validation.locked_inference import run_locked_comparator_validation
 
-    artifacts = run_locked_comparator_validation(
-        internal_artifact_dir=mimic_dir,
-        external_artifact_dir=eicu_dir,
-        output_dir=comparator_dir,
-    )
+    # The locked comparator is legacy/supporting analysis; a class-poor pilot
+    # cohort or eligibility collapse must be reported, never crash the run.
+    try:
+        artifacts = run_locked_comparator_validation(
+            internal_artifact_dir=mimic_dir,
+            external_artifact_dir=eicu_dir,
+            output_dir=comparator_dir,
+        )
+    except Exception as exc:
+        return {"status": "failed", "reason": f"legacy comparator validation failed: {exc}"}
     return {"status": "ran", "artifacts": artifacts}
 
 

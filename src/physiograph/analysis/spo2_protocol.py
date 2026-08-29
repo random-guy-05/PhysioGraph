@@ -734,7 +734,7 @@ def fit_grouped_missingness_control(analysis_df: pd.DataFrame) -> pd.DataFrame:
     features = [name for name in MISSINGNESS_CONTROL_FEATURES if name in analysis_df]
     if not features:
         return pd.DataFrame([{"status": "not_run", "reason": "missingness features unavailable"}])
-    keep = [
+    keep = _dedupe(
         column
         for column in (
             "dataset",
@@ -748,7 +748,7 @@ def fit_grouped_missingness_control(analysis_df: pd.DataFrame) -> pd.DataFrame:
             *features,
         )
         if column in analysis_df
-    ]
+    )
     proxy = analysis_df[keep].copy()
     # Map sampling variables onto the fixed absolute-model slots so the same
     # fold-local engine is used without any physiological SpO2 values.
