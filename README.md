@@ -1,6 +1,37 @@
 # PhysioGraph
 
-Graph-based physiological time-series analysis for clinical prediction of cardiogenic shock progression in heart failure patients. PhysioGraph extracts structured features from MIMIC-III and eICU electronic health records, engineers clinical variables (lactate dynamics, hemodynamic thresholds, SCAI staging), and validates predictions against four frozen comparator models with locked coefficients.
+Leakage-safe landmark analysis of **SpO2 signal instability as an early warning signal for cardiogenic decompensation** in ICU patients. PhysioGraph extracts structured events from MIMIC and eICU electronic health records, computes pre-landmark SpO2 instability features from the first 4 ICU hours, and tests whether they predict decompensation (lactate rise, vasopressor/inotropic-score rise, urine-output decline, organ-injury labs, MCS initiation) in the subsequent 12–24 hours — beyond what absolute SpO2 level alone provides.
+
+The research question and endpoint hierarchy are defined in [PROJECT_GOAL.md](PROJECT_GOAL.md).
+
+## Study design
+
+```
+ICU admission ──▶ [0, 240) min observation window ──▶ fixed landmark at 240 min ──▶ (240, 960] / (240, 1680] min
+                   SpO2 instability features            all predictors frozen          12 h / 24 h outcome windows
+```
+
+- **Predictors (pre-landmark only):** SpO2 variability (SD, RMSSD, IQR, range, MAD), abrupt-jump rate, below-90 fraction, instability proxy score, plus absolute SpO2 summaries, sampling density, and clinical controls (demographics, baseline lactate/creatinine, MAP, respiratory support, ventilation, RRT).
+- **Primary outcomes:** lactate rise (Δ ≥ 0.5 mmol/L) and VIS rise at 12 h and 24 h post-landmark.
+- **Secondary/exploratory outcomes:** urine-output decline proxy, KDIGO-style creatinine worsening, hepatic laboratory worsening, MCS initiation, and a composite early-decompensation flag.
+- **Missing ≠ negative:** endpoints that cannot be ascertained (e.g., no VIS events extracted for a dataset) remain unavailable/NaN and are never silently counted as non-events.
+- **Endpoint adequacy audit:** every endpoint is classified adequate vs fragile/underpowered using observed-sample and event-count floors (≥200 observed, ≥20 events, ≥20 non-events).
+
+## Analysis methods
+
+| Analysis | Function (`physiograph.analysis.spo2_protocol`) | Purpose |
+|---|---|---|
+| Incremental nested models | `fit_grouped_incremental_models` | clinical baseline → +absolute SpO2 → +SpO2 instability, with patient-grouped `StratifiedGroupKFold`, fold-local preprocessing, out-of-fold AUROC/AUPRC/Brier/ECE/calibration, and patient-level bootstrap CIs incl. ΔAUROC/ΔAUPRC |
+| Negative control | `fit_grouped_missingness_control` | sampling density / missingness-only model to detect measurement-intensity confounding |
+| Temporal ordering | `build_temporal_precedence` | lead time from first pre-landmark instability to each outcome onset (landmark ordering, explicitly **not** causal precedence) |
+| External transportability | `fit_external_transportability` | train on MIMIC → freeze preprocessing/model → evaluate untouched eICU |
+| Endpoint audit | `build_endpoint_completeness_audit` | coverage, event prevalence, and adequacy status per dataset per endpoint |
+
+VIS is computed quantitatively from drug-specific infusion rates (norepinephrine, epinephrine, dopamine, dobutamine, phenylephrine, vasopressin, milrinone) with weight/unit normalization; urine output is streamed from source records in both datasets.
+
+## Status
+
+The analysis protocol (`spo2_protocol_v1.0`) and its implementation are complete and tested (full suite green). **Scientific conclusions are not yet frozen**: full-data MIMIC/eICU endpoint QA, fresh rebuilds, prespecified sensitivity analyses, and clean-Colab end-to-end execution are still being finalized. Legacy graph-based / long-horizon comparator analyses are retained as supporting/exploratory material and no longer drive the primary scientific story.
 
 ## Installation
 
@@ -14,50 +45,49 @@ For development with test tooling:
 pip install -e ".[dev]"
 ```
 
-For PyTorch-based GNN models:
-
-```bash
-pip install -e ".[torch]"
-```
-
-Requires Python 3.10 or later. Core dependencies: numpy, pandas, scikit-learn, pyyaml, pandera.
+Requires Python 3.10 or later. Core dependencies: numpy, pandas, scikit-learn, statsmodels, pyyaml, pandera, matplotlib.
 
 ## Quick Start
 
 ```python
 from physiograph.config import load_config
 from physiograph.cohort import build_cohort
-from physiograph.features import build_feature_table
-from physiograph.guards import LeakageGuard
+from physiograph.analysis.spo2_protocol import (
+    compute_early_decompensation_outcomes,
+    fit_grouped_incremental_models,
+    build_endpoint_completeness_audit,
+)
 
-# Load dataset configuration
 config = load_config("mimic")
 
-# Build cohort from raw EHR data
+# Build cohort and events from raw EHR data (see physiograph.pipeline for orchestration)
 result = build_cohort("mimic", data_root="/path/to/mimic/csvs")
 cohort_df = result.cohort_df
 
-# Extract features from observation-window events
-features_df = build_feature_table(events_df, cohort_df, config=config)
+# 12/24 h post-landmark outcomes with availability indicators
+outcomes = compute_early_decompensation_outcomes(events_df, cohort_df)
 
-# Run leakage guards before training
-guard = LeakageGuard(landmark_hours=config["observation_hours"])
-guard.assert_no_post_landmark_features(features_df)
-guard.assert_no_outcome_in_features(features_df)
-guard.assert_no_patient_overlap(train_ids, test_ids)
+# Endpoint adequacy audit — classify every endpoint before modeling
+audit = build_endpoint_completeness_audit(analysis_df)
+
+# Patient-grouped incremental models (clinical → +absolute SpO2 → +instability)
+model_results = fit_grouped_incremental_models(analysis_df)
 ```
+
+The authoritative end-to-end workflow is `PhysioGraph_Final_Clean.ipynb`, which drives `physiograph_colab_core.py`.
 
 ## Module Overview
 
 | Module | Purpose |
 |--------|---------|
-| `physiograph.cohort` | Patient cohort selection for MIMIC-III and eICU |
-| `physiograph.features` | Feature extraction: lactate dynamics, hemodynamics, SCAI staging, missingness |
-| `physiograph.models` | Comparator model training, evaluation, and frozen inference |
-| `physiograph.validation` | Metrics, calibration, transportability, locked comparator validation |
-| `physiograph.etl` | Raw data extraction with chunked streaming for large CSVs |
+| `physiograph.analysis` | SpO2 protocol v1.0: landmark outcomes, incremental models, negative controls, transportability, temporal ordering |
+| `physiograph.cohort` | Patient cohort selection for MIMIC and eICU |
+| `physiograph.features` | Feature extraction: SpO2 dynamics, lactate dynamics, hemodynamics, missingness |
+| `physiograph.models` | Legacy frozen comparator models (supporting/exploratory) |
+| `physiograph.validation` | Metrics, calibration, transportability |
+| `physiograph.etl` | Raw data extraction with chunked streaming: vitals, labs, pressors/VIS, urine output, MCS procedures |
 | `physiograph.guards` | Data leakage prevention (PROBAST+AI Domain 4 compliant) |
-| `physiograph.config` | YAML-based configuration with dataset-specific overrides |
+| `physiograph.config` | YAML-based configuration with dataset-specific overrides and explicit config layering |
 | `physiograph.constants` | Canonical constants sourced from config |
 | `physiograph.schema` | Pandera schemas for cohort, feature, label, and event DataFrames |
 | `physiograph.pipeline` | End-to-end orchestration: ETL, labels, features, validation |
@@ -68,62 +98,34 @@ guard.assert_no_patient_overlap(train_ids, test_ids)
 # Run all tests
 pytest tests/
 
-# Run unit tests only (skip slow/integration)
-pytest tests/ -m "not slow and not integration"
+# Run the SpO2 protocol contract tests
+pytest tests/unit/test_spo2_protocol.py
 
 # Run with coverage
 pytest tests/ --cov=physiograph --cov-report=term-missing
 ```
 
-The test suite includes 402 tests covering parity with original notebooks, schema contracts, leakage guards, model coefficients, and integration flows.
-
-## Comparator Models
-
-Four logistic regression comparators with frozen coefficients from the original study:
-
-| Model | Features | MIMIC AUROC | eICU AUROC | eICU Eligible |
-|-------|----------|-------------|------------|----------------|
-| `lactate_only` | 1 (baseline lactate) | 0.613 | 0.640 | 12.4% |
-| `lactate_hemodynamics` | 14 (lactate + hemodynamics) | 0.625 | 0.750 | 2.4% |
-| `lactate_end_organ` | 10 (lactate + end-organ markers) | 0.842 | 0.843 | 2.5% |
-| `scai_stage_model` | 5 (lactate + SCAI stage) | 0.669 | 0.697 | 12.4% |
+The suite includes 426 passing tests covering protocol clock/boundary contracts, missing-not-negative endpoint behavior, patient-grouped fold-local modeling, endpoint audits, temporal ordering, parity with original notebooks, schema contracts, leakage guards, and integration flows.
 
 ## Configuration
 
 All parameters are centralized in `configs/default.yaml` with dataset-specific overrides:
 
-- `configs/mimic.yaml` for MIMIC-III paths and item IDs
+- `configs/mimic.yaml` for MIMIC paths and item IDs
 - `configs/eicu.yaml` for eICU paths and token mappings
 
-```python
-from physiograph.config import load_config
-
-# Load default config
-config = load_config()
-
-# Load MIMIC-specific config (merges with default)
-config = load_config("mimic")
-```
+Explicit override files can be layered on top: `load_config(dataset="mimic", config_path="my_overrides.yaml")`.
 
 ## Data Leakage Prevention
 
 PhysioGraph implements 12 guard mechanisms verified against PROBAST+AI Domain 4 criteria:
 
 - Temporal leakage: post-landmark features blocked by `assert_no_post_landmark_features`
-- Patient overlap: deterministic splits with `assert_no_patient_overlap`
-- Outcome contamination: `assert_no_outcome_in_features` with 15 forbidden columns
-- Preprocessing leakage: YAIB-style fit-on-train-only `Preprocessor` class
+- Patient overlap: grouped CV and deterministic splits with `assert_no_patient_overlap`
+- Outcome contamination: `assert_no_outcome_in_features` with forbidden-column lists
+- Preprocessing leakage: fold-local / fit-on-train-only preprocessing throughout
 
-See [AUDIT_REPORT.md](AUDIT_REPORT.md) for the full leakage risk audit, calibration analysis, and transportability findings.
-
-## Citation
-
-If you use PhysioGraph in your research, please cite:
-
-```
-PhysioGraph: Graph-based physiological time-series analysis for
-cardiogenic shock prediction in heart failure patients.
-```
+See [AUDIT_REPORT.md](AUDIT_REPORT.md) for the leakage risk audit and [PROJECT_GOAL.md](PROJECT_GOAL.md) for claim-scope rules.
 
 ## License
 
