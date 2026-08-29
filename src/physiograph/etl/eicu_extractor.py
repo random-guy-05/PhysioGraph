@@ -41,6 +41,8 @@ EICU_LAB_NAME_MAP: dict[str, str] = {
     "ph": "ph",
     "creatinine": "creatinine",
     "total bilirubin": "bilirubin_total",
+    "ast (sgot)": "ast",
+    "alt (sgpt)": "alt",
 }
 
 EICU_VITAL_COLUMN_MAP: dict[str, str] = {
@@ -96,6 +98,7 @@ EICU_PATIENT_COLUMNS: list[str] = [
     "hospitaldischargelocation",
     "hospitaldischargestatus",
     "hospitaldischargeyear",
+    "admissionweight",
 ]
 
 CHUNK_SIZE: int = 250_000
@@ -347,6 +350,9 @@ def _build_eicu_cohort(
             .astype(int),
             "early_icu_flag": 1,
             "death_offset_minutes": patients["death_offset_minutes"],
+            "admission_weight_kg": pd.to_numeric(
+                patients["admissionweight"], errors="coerce"
+            ),
             "excluded_before_landmark_flag": 0,
             "exclusion_reason": "",
         }
@@ -418,8 +424,14 @@ def _stream_eicu_infusion_events(
                     filtered["infusionoffset"], errors="coerce"
                 ),
                 value_numeric=numeric_rate,
-                value_text=filtered["drugname"].astype(str),
-                unit=pd.NA,
+                value_text=(
+                    filtered["drugname"].astype(str)
+                    + " | drugrate="
+                    + filtered["drugrate"].astype(str)
+                    + " | infusionrate="
+                    + filtered["infusionrate"].astype(str)
+                ),
+                unit="unstandardized_eicu_rate",
                 is_intervention=1,
             )
         )
@@ -635,6 +647,73 @@ def _stream_eicu_vital_events(
     return _concat_or_empty(frames)
 
 
+def _stream_eicu_urine_output_events(
+    root: Path,
+    cohort_ids: list[int],
+    *,
+    chunk_size: int,
+    max_chunks: int | None,
+) -> pd.DataFrame:
+    """Extract plausible urine-output volumes from intakeOutput.csv."""
+    path = root / "intakeOutput.csv"
+    if not path.exists():
+        return pd.DataFrame(columns=EVENT_REQUIRED_COLUMNS)
+    frames: list[pd.DataFrame] = []
+    for chunk in _iter_csv_chunks(
+        path,
+        usecols=[
+            "patientunitstayid",
+            "intakeoutputoffset",
+            "celllabel",
+            "cellpath",
+            "cellvaluenumeric",
+        ],
+        chunksize=chunk_size,
+        max_chunks=max_chunks,
+    ):
+        filtered = chunk.loc[chunk["patientunitstayid"].isin(cohort_ids)].copy()
+        text = (
+            filtered["celllabel"].fillna("").astype(str)
+            + " "
+            + filtered["cellpath"].fillna("").astype(str)
+        )
+        filtered = filtered.loc[
+            text.str.contains(r"urine|foley|voided|nephrostomy|urostomy", case=False, regex=True)
+            & ~text.str.contains(r"culture|specimen|appearance|color", case=False, regex=True)
+        ].copy()
+        if filtered.empty:
+            continue
+        filtered["cellvaluenumeric"] = pd.to_numeric(
+            filtered["cellvaluenumeric"], errors="coerce"
+        )
+        filtered["intakeoutputoffset"] = pd.to_numeric(
+            filtered["intakeoutputoffset"], errors="coerce"
+        )
+        filtered = filtered.loc[
+            filtered["cellvaluenumeric"].gt(0)
+            & filtered["cellvaluenumeric"].le(5000)
+            & filtered["intakeoutputoffset"].between(0, OUTCOME_WINDOW_END_MINUTES)
+        ].copy()
+        if filtered.empty:
+            continue
+        frames.append(
+            build_event_frame(
+                dataset="eicu",
+                stay_id=filtered["patientunitstayid"].astype(int),
+                event_family="output",
+                concept="urine_output",
+                source_table="intakeOutput.csv",
+                raw_name=filtered["celllabel"].astype(str),
+                offset_minutes=filtered["intakeoutputoffset"],
+                value_numeric=filtered["cellvaluenumeric"],
+                value_text=filtered["cellpath"].astype(str),
+                unit="mL",
+                is_intervention=0,
+            )
+        )
+    return _concat_or_empty(frames)
+
+
 def extract_eicu(
     root: Path,
     audit: AuditLogger,
@@ -700,6 +779,40 @@ def extract_eicu(
         stay_count=event_stay_count(vital_events),
     )
 
+    urine_events = _stream_eicu_urine_output_events(
+        root,
+        cohort_ids,
+        chunk_size=chunk_size,
+        max_chunks=max_chunks,
+    )
+    audit.log(
+        "eicu_urine_output_streamed",
+        row_count=len(urine_events),
+        stay_count=event_stay_count(urine_events),
+    )
+
+    weight_rows = cohort_df.loc[
+        pd.to_numeric(cohort_df.get("admission_weight_kg"), errors="coerce").gt(0),
+        ["stay_id", "admission_weight_kg"],
+    ]
+    weight_events = (
+        build_event_frame(
+            dataset="eicu",
+            stay_id=weight_rows["stay_id"].astype(int),
+            event_family="demographic_measurement",
+            concept="weight",
+            source_table="patient.csv",
+            raw_name="admissionweight",
+            offset_minutes=pd.Series(0.0, index=weight_rows.index),
+            value_numeric=weight_rows["admission_weight_kg"],
+            value_text=pd.NA,
+            unit="kg",
+            is_intervention=0,
+        )
+        if not weight_rows.empty
+        else pd.DataFrame(columns=EVENT_REQUIRED_COLUMNS)
+    )
+
     death_events = build_death_events(
         cohort_df,
         dataset="eicu",
@@ -713,6 +826,8 @@ def extract_eicu(
                 treatment_events,
                 lab_events,
                 vital_events,
+                urine_events,
+                weight_events,
                 death_events,
             ],
             ignore_index=True,

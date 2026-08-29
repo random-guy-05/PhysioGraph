@@ -87,7 +87,11 @@ def _validate(cfg: dict) -> None:
         raise ValueError(f"Config missing required fields: {missing}")
 
 
-def load_config(dataset: str | None = None) -> dict[str, Any]:
+def load_config(
+    dataset: str | None = None,
+    config_path: str | Path | None = None,
+) -> dict[str, Any]:
+    """Load defaults, dataset overrides, then an optional explicit override."""
     config_dir = _find_config_dir()
 
     with open(config_dir / "default.yaml") as f:
@@ -104,6 +108,17 @@ def load_config(dataset: str | None = None) -> dict[str, Any]:
             overrides = yaml.safe_load(f)
         if overrides:
             cfg = _deep_merge(cfg, overrides)
+
+    if config_path is not None:
+        explicit_path = Path(config_path).expanduser()
+        if not explicit_path.exists():
+            raise FileNotFoundError(f"Explicit config not found: {explicit_path}")
+        with open(explicit_path) as f:
+            explicit_overrides = yaml.safe_load(f)
+        if explicit_overrides:
+            if not isinstance(explicit_overrides, dict):
+                raise ValueError("Explicit config must contain a YAML mapping")
+            cfg = _deep_merge(cfg, explicit_overrides)
 
     cfg = _resolve_paths(cfg)
     _validate(cfg)

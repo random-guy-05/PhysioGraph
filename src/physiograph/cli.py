@@ -30,7 +30,7 @@ from .pipeline import run_pipeline
 
 def _cmd_run_pipeline(args: argparse.Namespace) -> None:
     """Execute the ETL pipeline for the requested dataset."""
-    cfg = load_config(dataset=args.dataset)
+    cfg = load_config(dataset=args.dataset, config_path=args.config)
 
     resolved = cfg.get("resolved_paths", {})
     if args.dataset == "mimic":

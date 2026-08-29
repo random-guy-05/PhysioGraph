@@ -51,6 +51,7 @@ MIMIC_VITAL_IDS: dict[str, list[int]] = {
     "resp_rate": [220210],
     "spo2": [220277],
     "temp": [223761],
+    "weight": [226512],
 }
 
 HF_ICD_PATTERNS: dict[int, list[str]] = {9: [r"^428"], 10: [r"^I50"]}
@@ -60,7 +61,25 @@ CARDIOGENIC_SHOCK_ICD_PATTERNS: dict[int, list[str]] = {
     10: [r"^R570"],
 }
 
-PRESSOR_ITEMIDS: list[int] = [221906, 221289, 221662, 221653, 221749, 222315]
+PRESSOR_ITEMID_TO_DRUG: dict[int, str] = {
+    221906: "norepinephrine",
+    221289: "epinephrine",
+    221662: "dopamine",
+    221653: "dobutamine",
+    221749: "phenylephrine",
+    222315: "vasopressin",
+    221986: "milrinone",
+}
+PRESSOR_ITEMIDS: list[int] = list(PRESSOR_ITEMID_TO_DRUG)
+VIS_COEFFICIENTS: dict[str, float] = {
+    "dopamine": 1.0,
+    "dobutamine": 1.0,
+    "epinephrine": 100.0,
+    "norepinephrine": 100.0,
+    "milrinone": 10.0,
+    "vasopressin": 10_000.0,
+    "phenylephrine": 10.0,
+}
 
 MCS_PROCEDUREEVENT_IDS: dict[str, list[int]] = {
     "iabp": [224272],
@@ -229,7 +248,15 @@ def _extract_mimic_pressor_events(
     """
     inputevents = pd.read_csv(
         root / "inputevents.csv",
-        usecols=["hadm_id", "starttime", "endtime", "itemid", "rate"],
+        usecols=[
+            "hadm_id",
+            "starttime",
+            "endtime",
+            "itemid",
+            "rate",
+            "rateuom",
+            "patientweight",
+        ],
     )
     inputevents = inputevents.loc[
         inputevents["hadm_id"].isin(cohort_hadms)
@@ -258,19 +285,134 @@ def _extract_mimic_pressor_events(
         (inputevents["starttime"] - inputevents["anchor_time"]).dt.total_seconds()
         / 60.0
     )
-    return build_event_frame(
+    inputevents["drug"] = inputevents["itemid"].map(PRESSOR_ITEMID_TO_DRUG)
+    pressor_frame = build_event_frame(
         dataset="mimic",
         stay_id=inputevents["hadm_id"].astype(int),
         event_family="intervention",
         concept="pressor",
         source_table="inputevents.csv",
-        raw_name=inputevents["itemid"].astype(str),
+        raw_name=inputevents["drug"].astype(str),
         offset_minutes=offsets,
         value_numeric=pd.to_numeric(inputevents["rate"], errors="coerce"),
-        value_text=pd.NA,
-        unit=pd.NA,
+        value_text=inputevents["drug"].astype(str),
+        unit=inputevents["rateuom"].astype("string"),
         is_intervention=1,
     )
+
+    rate = pd.to_numeric(inputevents["rate"], errors="coerce")
+    weight = pd.to_numeric(inputevents["patientweight"], errors="coerce")
+    unit = inputevents["rateuom"].fillna("").astype(str).str.lower().str.replace(" ", "", regex=False)
+    dose = pd.Series(np.nan, index=inputevents.index, dtype=float)
+    non_vasopressin = inputevents["drug"].ne("vasopressin")
+    dose.loc[non_vasopressin & unit.str.contains("mcg/kg/min", regex=False)] = rate
+    dose.loc[non_vasopressin & unit.str.fullmatch(r"mcg/min|mcgpermin", na=False) & weight.gt(0)] = (
+        rate / weight
+    )
+    vasopressin = inputevents["drug"].eq("vasopressin")
+    dose.loc[vasopressin & unit.str.contains("units/kg/min", regex=False)] = rate
+    dose.loc[vasopressin & unit.str.fullmatch(r"units?/min", na=False) & weight.gt(0)] = rate / weight
+    dose.loc[vasopressin & unit.str.fullmatch(r"units?/(hour|hr)", na=False) & weight.gt(0)] = rate / (60.0 * weight)
+    dose.loc[vasopressin & unit.str.fullmatch(r"units?/kg/(hour|hr)", na=False)] = rate / 60.0
+    inputevents["vis_component"] = dose * inputevents["drug"].map(VIS_COEFFICIENTS)
+
+    vis_rows: list[dict[str, object]] = []
+    compatible = inputevents.dropna(subset=["vis_component", "starttime", "endtime", "anchor_time"])
+    for hadm_id, group in compatible.groupby("hadm_id", sort=False):
+        group = group.sort_values("starttime")
+        for _, infusion in group.iterrows():
+            active = group.loc[
+                group["starttime"].le(infusion["starttime"])
+                & group["endtime"].gt(infusion["starttime"])
+            ]
+            vis_rows.append(
+                {
+                    "hadm_id": int(hadm_id),
+                    "offset_minutes": float(
+                        (infusion["starttime"] - infusion["anchor_time"]).total_seconds() / 60.0
+                    ),
+                    "vis": float(active["vis_component"].sum()),
+                    "active_drugs": "+".join(sorted(active["drug"].astype(str).unique())),
+                }
+            )
+    if not vis_rows:
+        return pressor_frame
+    vis = pd.DataFrame(vis_rows).drop_duplicates(["hadm_id", "offset_minutes", "vis"])
+    vis_frame = build_event_frame(
+        dataset="mimic",
+        stay_id=vis["hadm_id"],
+        event_family="intervention_intensity",
+        concept="vis",
+        source_table="inputevents.csv",
+        raw_name=vis["active_drugs"],
+        offset_minutes=vis["offset_minutes"],
+        value_numeric=vis["vis"],
+        value_text=vis["active_drugs"],
+        unit="VIS",
+        is_intervention=0,
+    )
+    return pd.concat([pressor_frame, vis_frame], ignore_index=True)
+
+
+def _stream_mimic_urine_output_events(
+    root: Path,
+    cohort_hadms: np.ndarray,
+    anchors: pd.DataFrame,
+    *,
+    chunk_size: int,
+    max_chunks: int | None,
+) -> pd.DataFrame:
+    """Extract plausible urine-output volumes using dictionary labels."""
+    output_path = root / "outputevents.csv"
+    dictionary_path = root / "d_items.csv"
+    if not output_path.exists() or not dictionary_path.exists():
+        return pd.DataFrame(columns=EVENT_REQUIRED_COLUMNS)
+    dictionary = pd.read_csv(dictionary_path, usecols=["itemid", "label"])
+    labels = dictionary["label"].fillna("").astype(str)
+    urine_items = dictionary.loc[
+        labels.str.contains(r"urine|foley|voided|nephrostomy|urostomy", case=False, regex=True)
+        & ~labels.str.contains(r"culture|specimen|appearance|color", case=False, regex=True),
+        ["itemid", "label"],
+    ]
+    item_to_label = urine_items.set_index("itemid")["label"].to_dict()
+    frames: list[pd.DataFrame] = []
+    for chunk in _iter_csv_chunks(
+        output_path,
+        usecols=["hadm_id", "charttime", "itemid", "value", "valueuom"],
+        chunksize=chunk_size,
+        max_chunks=max_chunks,
+    ):
+        filtered = chunk.loc[
+            chunk["hadm_id"].isin(cohort_hadms) & chunk["itemid"].isin(item_to_label)
+        ].copy()
+        if filtered.empty:
+            continue
+        filtered["value"] = pd.to_numeric(filtered["value"], errors="coerce")
+        filtered = filtered.loc[filtered["value"].gt(0) & filtered["value"].le(5000)].copy()
+        filtered["charttime"] = pd.to_datetime(filtered["charttime"], errors="coerce")
+        filtered = filtered.merge(anchors, on="hadm_id", how="left")
+        filtered["offset_minutes"] = (
+            (filtered["charttime"] - filtered["anchor_time"]).dt.total_seconds() / 60.0
+        )
+        filtered = filtered.loc[filtered["offset_minutes"].between(0, OUTCOME_WINDOW_END_HOURS * 60)]
+        if filtered.empty:
+            continue
+        frames.append(
+            build_event_frame(
+                dataset="mimic",
+                stay_id=filtered["hadm_id"].astype(int),
+                event_family="output",
+                concept="urine_output",
+                source_table="outputevents.csv",
+                raw_name=filtered["itemid"].map(item_to_label).astype(str),
+                offset_minutes=filtered["offset_minutes"],
+                value_numeric=filtered["value"],
+                value_text=pd.NA,
+                unit=filtered["valueuom"].astype("string"),
+                is_intervention=0,
+            )
+        )
+    return _concat_or_empty(frames)
 
 
 def _extract_mimic_mcs_events(
@@ -510,6 +652,19 @@ def extract_mimic(
         stay_count=event_stay_count(lab_events),
     )
 
+    urine_events = _stream_mimic_urine_output_events(
+        root,
+        cohort_hadms,
+        anchors,
+        chunk_size=chunk_size,
+        max_chunks=max_chunks,
+    )
+    audit.log(
+        "mimic_urine_output_streamed",
+        row_count=len(urine_events),
+        stay_count=event_stay_count(urine_events),
+    )
+
     death_events = build_death_events(
         cohort_df,
         dataset="mimic",
@@ -518,7 +673,14 @@ def extract_mimic(
     )
     events_df = _finalize_events(
         pd.concat(
-            [pressor_events, mcs_events, vital_events, lab_events, death_events],
+            [
+                pressor_events,
+                mcs_events,
+                vital_events,
+                lab_events,
+                urine_events,
+                death_events,
+            ],
             ignore_index=True,
         )
     )

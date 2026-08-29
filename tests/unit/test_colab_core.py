@@ -19,6 +19,7 @@ from physiograph_colab_core import (
     fit_spo2_or_pvalue_tables,
     fit_spo2_variability_or_tables,
     lint_claims_and_outputs,
+    build_analysis_manifest,
 )
 
 
@@ -412,3 +413,17 @@ def test_claims_linter_catches_apparent_metrics():
         output_paths={},
     )
     assert not clean["check"].eq("apparent_metrics_in_model_output").any()
+
+
+def test_manifest_propagates_fresh_execution_truthfully(tmp_path):
+    manifest = build_analysis_manifest(
+        build_new=True,
+        fresh_colab_execution=True,
+        paths={"model_metrics": tmp_path / "metrics.csv"},
+        datasets=["mimic"],
+        rows=100,
+        claims_warnings=pd.DataFrame(),
+    )
+    assert manifest["fresh_colab_execution"] is True
+    assert manifest["build_new"] is True
+    assert manifest["outcome_clock"] == "12_and_24_hours_after_4h_landmark"

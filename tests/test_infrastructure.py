@@ -48,3 +48,19 @@ def test_assert_parity_scalars():
 
 def test_assert_parity_arrays():
     np.testing.assert_allclose(np.array([1.0, 2.0]), np.array([1.0, 2.0]))
+
+
+def test_explicit_config_override_is_applied(tmp_path: Path):
+    from physiograph.config import load_config
+
+    override = tmp_path / "override.yaml"
+    override.write_text("observation_hours: 6\n", encoding="utf-8")
+    config = load_config(dataset="mimic", config_path=override)
+    assert config["observation_hours"] == 6
+
+
+def test_missing_explicit_config_fails_loudly(tmp_path: Path):
+    from physiograph.config import load_config
+
+    with pytest.raises(FileNotFoundError, match="Explicit config not found"):
+        load_config(dataset="mimic", config_path=tmp_path / "missing.yaml")

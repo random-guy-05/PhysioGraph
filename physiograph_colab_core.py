@@ -18,22 +18,29 @@ from typing import Any, Iterable
 import numpy as np
 import pandas as pd
 
+from physiograph.analysis.spo2_protocol import (
+    POST_LANDMARK_HORIZONS_HOURS,
+    PRIMARY_ENDPOINTS as PROTOCOL_PRIMARY_ENDPOINTS,
+    SECONDARY_ENDPOINTS as PROTOCOL_SECONDARY_ENDPOINTS,
+    build_endpoint_completeness_audit,
+    build_temporal_precedence,
+    compute_early_decompensation_outcomes,
+    fit_external_transportability,
+    fit_grouped_incremental_models,
+    fit_grouped_missingness_control,
+)
+
 
 LANDMARK_MINUTES = 240
 OBSERVATION_HOURS = 4.0
 OBSERVATION_BINS = 16
+# Long horizons are retained only for backwards-compatible exploratory tables.
 HORIZON_HOURS = (48, 72, 96, 168)
 LOW_SPO2_THRESHOLDS = (88, 90, 92, 95)
 REQUIRED_ARTIFACT_FILES = ("cohort.csv", "events.csv", "features.csv", "labels.csv")
-PRIMARY_ENDPOINT = "mcs_or_death_168h_flag"
-SECONDARY_ENDPOINTS = (
-    "mcs_168h_flag",
-    "death_168h_flag",
-    "target",
-    "mcs_48h_flag",
-    "mcs_72h_flag",
-    "mcs_96h_flag",
-)
+PRIMARY_ENDPOINT = "lactate_rise_24h_flag"
+PRIMARY_ENDPOINTS = PROTOCOL_PRIMARY_ENDPOINTS
+SECONDARY_ENDPOINTS = PROTOCOL_SECONDARY_ENDPOINTS
 ANALYSIS_LAYERS = (
     "descriptive",
     "association_or",
@@ -61,15 +68,7 @@ MANIFEST_WARNINGS = (
     "clif_out_of_scope",
     "no_causal_language",
 )
-PRIMARY_OUTCOME_COLUMNS = (
-    "target",
-    "mcs_48h_flag",
-    "mcs_72h_flag",
-    "mcs_96h_flag",
-    "mcs_168h_flag",
-    "death_168h_flag",
-    "mcs_or_death_168h_flag",
-)
+PRIMARY_OUTCOME_COLUMNS = (*PRIMARY_ENDPOINTS, *SECONDARY_ENDPOINTS)
 PRIMARY_SPO2_MODEL_FEATURES = (
     "spo2_min",
     "spo2_mean",
@@ -106,11 +105,7 @@ SPO2_VARIABILITY_FEATURES = (
     "spo2_abrupt_jump_count",
     "spo2_instability_proxy_score",
 )
-SPO2_VARIABILITY_OUTCOMES = (
-    "death_168h_flag",
-    "mcs_or_death_168h_flag",
-    "target",
-)
+SPO2_VARIABILITY_OUTCOMES = (*PRIMARY_ENDPOINTS, *SECONDARY_ENDPOINTS)
 SPO2_OXYGENATION_COVARIATES = (
     "spo2_mean",
     "spo2_min",
@@ -652,7 +647,13 @@ def assemble_spo2_analysis_frame(
     spo2 = compute_spo2_features(events, stay_index)
     resp = compute_respiratory_support_features(events, stay_index)
     rrt = compute_rrt_features(events, stay_index)
-    horizons = compute_horizon_outcomes(events, cohort, stay_index)
+    early_outcomes = compute_early_decompensation_outcomes(
+        events,
+        cohort,
+        stay_index,
+        horizons=POST_LANDMARK_HORIZONS_HOURS,
+    )
+    exploratory_long_horizons = compute_horizon_outcomes(events, cohort, stay_index)
 
     frame = features.copy()
     if "dataset" not in frame:
@@ -661,12 +662,30 @@ def assemble_spo2_analysis_frame(
         col for col in labels.columns if col not in features.columns and col not in ("dataset", "stay_id")
     ]
     frame = frame.merge(labels[label_cols], on=["dataset", "stay_id"], how="left")
-    for extra in (spo2, resp, rrt, horizons):
+    for extra in (spo2, resp, rrt, early_outcomes, exploratory_long_horizons):
+        duplicate_non_keys = [
+            column
+            for column in extra.columns
+            if column in frame.columns and column not in {"dataset", "stay_id"}
+        ]
+        if duplicate_non_keys:
+            extra = extra.drop(columns=duplicate_non_keys)
         frame = frame.merge(extra, on=["dataset", "stay_id"], how="left")
 
-    race_cols = [col for col in cohort.columns if col.lower() in {"race", "ethnicity", "race_ethnicity"}]
-    if race_cols:
-        frame = frame.merge(cohort[["dataset", "stay_id", *race_cols]], on=["dataset", "stay_id"], how="left")
+    cohort_context = [
+        col
+        for col in cohort.columns
+        if col == "person_id" or col.lower() in {"race", "ethnicity", "race_ethnicity"}
+    ]
+    missing_context = [column for column in cohort_context if column not in frame.columns]
+    if missing_context:
+        frame = frame.merge(
+            cohort[["dataset", "stay_id", *missing_context]].drop_duplicates(),
+            on=["dataset", "stay_id"],
+            how="left",
+            validate="many_to_one",
+        )
+    race_cols = [col for col in cohort_context if col.lower() in {"race", "ethnicity", "race_ethnicity"}]
 
     availability = {
         "n_rows": int(len(frame)),
@@ -676,6 +695,8 @@ def assemble_spo2_analysis_frame(
         "rrt_or_dialysis_rows": int((frame.get("rrt_or_dialysis_flag", 0) > 0).sum()),
         "race_ethnicity_columns": race_cols,
         "race_ethnicity_available": bool(race_cols),
+        "person_id_available": bool("person_id" in frame and frame["person_id"].notna().any()),
+        "outcome_clock": "hours_after_4h_landmark",
         "signal_quality_note": (
             "Explicit pulse-ox probe quality flags are used only if present in source events; "
             "otherwise sampling gaps, implausible values, and abrupt jumps are proxy measures."
@@ -880,7 +901,14 @@ def build_spo2_association_proxy(analysis_df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _available_outcomes(analysis_df: pd.DataFrame) -> list[str]:
-    return [col for col in PRIMARY_OUTCOME_COLUMNS if col in analysis_df.columns]
+    available = [col for col in PRIMARY_OUTCOME_COLUMNS if col in analysis_df.columns]
+    if available:
+        return available
+    return [
+        col
+        for col in ("target", "mcs_or_death_168h_flag", "death_168h_flag")
+        if col in analysis_df.columns
+    ]
 
 
 def _available_spo2_model_features(analysis_df: pd.DataFrame) -> list[str]:
@@ -924,108 +952,22 @@ def _prepare_design_matrix(frame: pd.DataFrame, columns: list[str]) -> pd.DataFr
 def fit_spo2_models(
     analysis_df: pd.DataFrame,
     *,
-    min_rows: int = 20,
+    min_rows: int = 200,
     min_events: int = MIN_OR_EVENTS,
     n_splits: int = 5,
 ) -> pd.DataFrame:
-    """Fit SpO2 models with grouped out-of-fold CV metrics (no apparent performance)."""
-    try:
-        from sklearn.linear_model import LogisticRegression
-        from sklearn.metrics import average_precision_score, brier_score_loss, roc_auc_score
-    except Exception as exc:  # pragma: no cover - environment fallback
-        return pd.DataFrame([{"status": "skipped", "reason": f"sklearn unavailable: {exc}"}])
-
-    measured = _filter_measured_spo2_rows(analysis_df)
-    group_col, cv_scope = _resolve_cv_group_key(measured)
-    outcomes = _available_outcomes(measured)
-    spo2_features = _available_spo2_model_features(measured)
-    controls = _available_controls(measured)
-    extra_cols = [col for col in (group_col,) if col and col in measured.columns]
-    rows: list[dict[str, Any]] = []
-    for outcome in outcomes:
-        for model_name, columns in {
-            "spo2_only": spo2_features,
-            "spo2_adjusted": spo2_features + controls,
-        }.items():
-            use_cols = [outcome, *columns, *extra_cols]
-            frame = measured[[c for c in use_cols if c in measured.columns]].copy()
-            y = pd.to_numeric(frame[outcome], errors="coerce")
-            valid = y.notna()
-            frame = frame.loc[valid].copy()
-            y = y.loc[valid].astype(int)
-            x = _prepare_design_matrix(frame, columns)
-            n_rows = int(len(y))
-            n_events = int(y.sum()) if n_rows else 0
-            if n_rows < min_rows or n_events < min_events or y.nunique() < 2 or x.empty:
-                rows.append(
-                    {
-                        "outcome": outcome,
-                        "model": model_name,
-                        "status": "skipped",
-                        "n": n_rows,
-                        "events": n_events,
-                        "n_input_rows": int(len(analysis_df)),
-                        "n_measured_spo2_rows": int(len(measured)),
-                        "metric_scope": cv_scope,
-                        "reason": "insufficient rows/events/classes/features",
-                    }
-                )
-                continue
-            groups = frame[group_col] if group_col and group_col in frame.columns else None
-            splitter, splitter_name = _get_grouped_cv_splitter(y, groups, n_splits=n_splits)
-            split_iter = (
-                splitter.split(x, y, groups=groups)
-                if groups is not None and splitter_name != "StratifiedKFold_row_level"
-                else splitter.split(x, y)
-            )
-            oof_prob = np.full(len(y), np.nan, dtype=float)
-            for train_idx, test_idx in split_iter:
-                x_train = x.iloc[train_idx]
-                y_train = y.iloc[train_idx]
-                x_test = x.iloc[test_idx]
-                mu = x_train.mean(axis=0)
-                sigma = x_train.std(axis=0).replace(0, 1.0)
-                clf = LogisticRegression(max_iter=2000, class_weight="balanced")
-                clf.fit((x_train - mu) / sigma, y_train)
-                oof_prob[test_idx] = clf.predict_proba((x_test - mu) / sigma)[:, 1]
-            valid_oof = np.isfinite(oof_prob)
-            if valid_oof.sum() < min_rows or y.loc[valid_oof].nunique() < 2:
-                rows.append(
-                    {
-                        "outcome": outcome,
-                        "model": model_name,
-                        "status": "skipped",
-                        "n": n_rows,
-                        "events": n_events,
-                        "n_input_rows": int(len(analysis_df)),
-                        "n_measured_spo2_rows": int(len(measured)),
-                        "metric_scope": cv_scope,
-                        "reason": "insufficient out-of-fold predictions",
-                    }
-                )
-                continue
-            y_oof = y.loc[valid_oof].to_numpy()
-            prob_oof = oof_prob[valid_oof]
-            rows.append(
-                {
-                    "outcome": outcome,
-                    "model": model_name,
-                    "status": "fit",
-                    "n": n_rows,
-                    "events": n_events,
-                    "n_input_rows": int(len(analysis_df)),
-                    "n_measured_spo2_rows": int(len(measured)),
-                    "metric_scope": cv_scope,
-                    "cv_splitter": splitter_name,
-                    "cv_group_column": group_col or "none_row_level",
-                    "auroc_oof": float(roc_auc_score(y_oof, prob_oof)),
-                    "auprc_oof": float(average_precision_score(y_oof, prob_oof)),
-                    "brier_oof": float(brier_score_loss(y_oof, prob_oof)),
-                    "ece_oof": _expected_calibration_error(y_oof, prob_oof),
-                    "feature_count": int(x.shape[1]),
-                }
-            )
-    return pd.DataFrame(rows)
+    """Fit the prespecified patient-grouped, fold-local incremental models."""
+    result = fit_grouped_incremental_models(
+        analysis_df,
+        min_rows=min_rows,
+        min_events=min_events,
+        n_splits=n_splits,
+    )
+    if "n" in result:
+        result["n_input_rows"] = int(len(analysis_df))
+        measured = _filter_measured_spo2_rows(analysis_df)
+        result["n_measured_spo2_rows"] = int(len(measured))
+    return result
 
 
 def fit_spo2_or_pvalue_tables(
@@ -1174,7 +1116,7 @@ def fit_spo2_variability_or_tables(
     except Exception as exc:  # pragma: no cover - environment fallback
         return pd.DataFrame([{"status": "skipped", "reason": f"statsmodels unavailable: {exc}"}])
 
-    outcomes = [col for col in SPO2_VARIABILITY_OUTCOMES if col in analysis_df.columns]
+    outcomes = _available_outcomes(analysis_df)
     variability_features = _available_spo2_variability_features(analysis_df)
     oxygen_covariates = [col for col in SPO2_OXYGENATION_COVARIATES if col in analysis_df.columns]
     clinical_controls = _available_controls(analysis_df)
@@ -1280,13 +1222,23 @@ def fit_spo2_variability_or_tables(
                         "covariate_count": int(x.shape[1] - 1),
                     }
                 )
+    result = pd.DataFrame(rows)
+    if result.empty:
+        return result
+    fit_mask = result["status"].eq("fit")
+    if fit_mask.any():
+        result.loc[fit_mask, "p_value_adj"] = _benjamini_hochberg(
+            result.loc[fit_mask, "p_value"].astype(float).tolist()
+        )
+        result.loc[fit_mask, "n_tests"] = int(fit_mask.sum())
+        result.loc[fit_mask, "multiplicity_scope"] = "all_variability_features_models_endpoints"
     sort_cols = ["outcome", "model", "p_value", "feature"]
-    return pd.DataFrame(rows).sort_values(sort_cols, na_position="last").reset_index(drop=True)
+    return result.sort_values(sort_cols, na_position="last").reset_index(drop=True)
 
 
 def build_spo2_variability_group_summary(analysis_df: pd.DataFrame) -> pd.DataFrame:
     """Summarize raw variability differences between event and non-event groups."""
-    outcomes = [col for col in SPO2_VARIABILITY_OUTCOMES if col in analysis_df.columns]
+    outcomes = _available_outcomes(analysis_df)
     features = [
         col
         for col in ("spo2_sd", "spo2_rmssd", "spo2_iqr", "spo2_range", "spo2_mad")
@@ -1473,10 +1425,15 @@ def build_availability_audit(
             "respiratory_support_rows": int(pd.to_numeric(frame.get("resp_support_any_flag", 0), errors="coerce").fillna(0).gt(0).sum()),
             "mechanical_ventilation_rows": int(pd.to_numeric(frame.get("mechanical_ventilation_flag", 0), errors="coerce").fillna(0).gt(0).sum()),
             "rrt_or_dialysis_rows": int(pd.to_numeric(frame.get("rrt_or_dialysis_flag", 0), errors="coerce").fillna(0).gt(0).sum()),
+            "vis_12h_observed_rows": int(pd.to_numeric(frame.get("vis_observed_12h", 0), errors="coerce").fillna(0).gt(0).sum()),
+            "vis_24h_observed_rows": int(pd.to_numeric(frame.get("vis_observed_24h", 0), errors="coerce").fillna(0).gt(0).sum()),
+            "urine_output_12h_observed_rows": int(pd.to_numeric(frame.get("urine_output_12h_observed", 0), errors="coerce").fillna(0).gt(0).sum()),
+            "urine_output_24h_observed_rows": int(pd.to_numeric(frame.get("urine_output_24h_observed", 0), errors="coerce").fillna(0).gt(0).sum()),
+            "person_id_available": bool("person_id" in frame and frame["person_id"].notna().any()),
             "race_ethnicity_status": "present" if race_cols else "absent_explicit",
             "race_ethnicity_columns": ",".join(race_cols) if race_cols else "",
         }
-        for outcome in ("mcs_168h_flag", "death_168h_flag", "mcs_or_death_168h_flag"):
+        for outcome in (*PRIMARY_ENDPOINTS, *SECONDARY_ENDPOINTS):
             if outcome in frame.columns:
                 y = pd.to_numeric(frame[outcome], errors="coerce")
                 row[f"{outcome}_event_rate"] = float(y.mean()) if y.notna().any() else math.nan
@@ -1486,139 +1443,19 @@ def build_availability_audit(
 
 
 def fit_external_cross_dataset_holdout(analysis_df: pd.DataFrame) -> pd.DataFrame:
-    """Train on one dataset, evaluate on the other when floors are met."""
-    if "dataset" not in analysis_df.columns or analysis_df["dataset"].nunique() < 2:
-        return pd.DataFrame([{
-            "status": "unavailable",
-            "analysis": "external_cross_dataset",
-            "reason": "fewer_than_two_datasets",
-            "note": "not_external_validation",
-        }])
-    measured = _filter_measured_spo2_rows(analysis_df)
-    outcome = PRIMARY_ENDPOINT if PRIMARY_ENDPOINT in measured.columns else None
-    if outcome is None:
-        return pd.DataFrame([{"status": "unavailable", "analysis": "external_cross_dataset", "reason": "primary outcome missing"}])
-
-    try:
-        from sklearn.linear_model import LogisticRegression
-        from sklearn.metrics import roc_auc_score
-    except Exception as exc:
-        return pd.DataFrame([{"status": "unavailable", "analysis": "external_cross_dataset", "reason": str(exc)}])
-
-    datasets = sorted(measured["dataset"].dropna().unique().tolist())
-    rows: list[dict[str, Any]] = []
-    features = _available_spo2_model_features(measured) + _available_controls(measured)
-    for train_ds, test_ds in [(datasets[0], datasets[1]), (datasets[1], datasets[0])]:
-        train = measured.loc[measured["dataset"].eq(train_ds)].copy()
-        test = measured.loc[measured["dataset"].eq(test_ds)].copy()
-        y_train = pd.to_numeric(train[outcome], errors="coerce")
-        y_test = pd.to_numeric(test[outcome], errors="coerce")
-        train_valid = y_train.notna()
-        test_valid = y_test.notna()
-        n_train = int(train_valid.sum())
-        n_test = int(test_valid.sum())
-        events_train = int(y_train.loc[train_valid].sum())
-        events_test = int(y_test.loc[test_valid].sum())
-        if (
-            n_train < DATASET_HOLDOUT_MIN_ROWS
-            or n_test < DATASET_HOLDOUT_MIN_ROWS
-            or events_train < DATASET_HOLDOUT_MIN_EVENTS
-            or events_test < DATASET_HOLDOUT_MIN_EVENTS
-        ):
-            rows.append({
-                "status": "unavailable",
-                "analysis": "external_cross_dataset",
-                "train_dataset": train_ds,
-                "test_dataset": test_ds,
-                "n_train": n_train,
-                "n_test": n_test,
-                "events_train": events_train,
-                "events_test": events_test,
-                "reason": "below_holdout_floors",
-                "note": "not_external_validation",
-            })
-            continue
-        x_train = _prepare_design_matrix(train.loc[train_valid], features)
-        x_test = _prepare_design_matrix(test.loc[test_valid], features)
-        common = [c for c in x_train.columns if c in x_test.columns]
-        if not common:
-            rows.append({"status": "unavailable", "analysis": "external_cross_dataset", "reason": "no_common_features"})
-            continue
-        x_train = x_train[common]
-        x_test = x_test[common]
-        y_tr = y_train.loc[train_valid].astype(int)
-        y_te = y_test.loc[test_valid].astype(int)
-        if y_tr.nunique() < 2 or y_te.nunique() < 2:
-            rows.append({"status": "unavailable", "analysis": "external_cross_dataset", "reason": "single_class_split"})
-            continue
-        mu = x_train.mean(axis=0)
-        sigma = x_train.std(axis=0).replace(0, 1.0)
-        clf = LogisticRegression(max_iter=2000, class_weight="balanced")
-        clf.fit((x_train - mu) / sigma, y_tr)
-        prob = clf.predict_proba((x_test - mu) / sigma)[:, 1]
-        rows.append({
-            "status": "fit",
-            "analysis": "external_cross_dataset",
-            "train_dataset": train_ds,
-            "test_dataset": test_ds,
-            "n_train": n_train,
-            "n_test": n_test,
-            "events_train": events_train,
-            "events_test": events_test,
-            "auroc_holdout": float(roc_auc_score(y_te, prob)),
-            "note": "cross_dataset_holdout_not_external_validation",
-        })
-    return pd.DataFrame(rows)
+    """Train on MIMIC and evaluate untouched eICU using train-only preprocessing."""
+    result = fit_external_transportability(
+        analysis_df,
+        min_rows=DATASET_HOLDOUT_MIN_ROWS,
+        min_events=DATASET_HOLDOUT_MIN_EVENTS,
+    )
+    result["analysis"] = "external_cross_dataset_transportability"
+    return result
 
 
 def fit_missingness_negative_control(analysis_df: pd.DataFrame) -> pd.DataFrame:
-    """Sampling-only negative control using missingness proxies, not SpO2 signal."""
-    measured = _filter_measured_spo2_rows(analysis_df)
-    outcome = PRIMARY_ENDPOINT if PRIMARY_ENDPOINT in measured.columns else None
-    features = [c for c in MISSINGNESS_CONTROL_FEATURES if c in measured.columns and c != "spo2_plausible_count"]
-    if outcome is None or not features:
-        return pd.DataFrame([{
-            "status": "not_run",
-            "analysis": "missingness_negative_control",
-            "reason": "outcome_or_missingness_features_unavailable",
-        }])
-    try:
-        from sklearn.linear_model import LogisticRegression
-        from sklearn.metrics import roc_auc_score
-        from sklearn.model_selection import StratifiedKFold
-    except Exception as exc:
-        return pd.DataFrame([{"status": "not_run", "analysis": "missingness_negative_control", "reason": str(exc)}])
-
-    frame = measured[[outcome, *features]].copy()
-    y = pd.to_numeric(frame[outcome], errors="coerce")
-    valid = y.notna()
-    y = y.loc[valid].astype(int)
-    x = _prepare_design_matrix(frame.loc[valid], features)
-    if len(y) < 50 or y.nunique() < 2 or x.empty:
-        return pd.DataFrame([{
-            "status": "not_run",
-            "analysis": "missingness_negative_control",
-            "n": int(len(y)),
-            "events": int(y.sum()),
-            "reason": "insufficient rows/classes/features",
-        }])
-    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-    oof = np.full(len(y), np.nan)
-    for tr, te in cv.split(x, y):
-        mu = x.iloc[tr].mean(axis=0)
-        sigma = x.iloc[tr].std(axis=0).replace(0, 1.0)
-        clf = LogisticRegression(max_iter=1000, class_weight="balanced")
-        clf.fit((x.iloc[tr] - mu) / sigma, y.iloc[tr])
-        oof[te] = clf.predict_proba((x.iloc[te] - mu) / sigma)[:, 1]
-    mask = np.isfinite(oof)
-    return pd.DataFrame([{
-        "status": "fit",
-        "analysis": "missingness_negative_control",
-        "n": int(len(y)),
-        "events": int(y.sum()),
-        "auroc_oof": float(roc_auc_score(y.loc[mask], oof[mask])),
-        "note": "sampling_density_only_negative_control",
-    }])
+    """Patient-grouped missingness/sampling negative-control models."""
+    return fit_grouped_missingness_control(analysis_df)
 
 
 def lint_claims_and_outputs(
@@ -1667,6 +1504,7 @@ def lint_claims_and_outputs(
 def build_analysis_manifest(
     *,
     build_new: bool,
+    fresh_colab_execution: bool,
     paths: dict[str, Path],
     datasets: list[str],
     rows: int,
@@ -1675,11 +1513,13 @@ def build_analysis_manifest(
     """Build provenance manifest with explicit limitations."""
     return {
         "analysis": "SpO2 drilldown from cached or freshly rebuilt PhysioGraph artifacts",
-        "fresh_colab_execution": False,
+        "fresh_colab_execution": bool(fresh_colab_execution),
         "build_new": bool(build_new),
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "primary_endpoint": PRIMARY_ENDPOINT,
+        "primary_endpoints": list(PRIMARY_ENDPOINTS),
         "secondary_endpoints": list(SECONDARY_ENDPOINTS),
+        "outcome_clock": "12_and_24_hours_after_4h_landmark",
         "analysis_layers": list(ANALYSIS_LAYERS),
         "outputs": {key: str(value) for key, value in paths.items() if key != "manifest"},
         "datasets": datasets,
@@ -1689,6 +1529,7 @@ def build_analysis_manifest(
         "notes": [
             "No Google Colab execution is claimed unless the notebook is run in Colab.",
             "Grouped CV metrics are internal pooled estimates, not external validation.",
+            "Preprocessing is fitted independently within each patient-grouped training fold.",
             "Calibration/ECE uses out-of-fold predictions only.",
             "Text-derived respiratory/RRT controls are heuristic proxies.",
             "CLIF dataset is out of scope.",
@@ -1703,84 +1544,15 @@ def fit_spo2_dragged_horizon_models(
     min_events: int = 30,
     n_splits: int = 5,
 ) -> pd.DataFrame:
-    """Drag prediction horizons using CV: clinical-only vs SpO2-only vs combined."""
-    try:
-        from sklearn.linear_model import LogisticRegression
-        from sklearn.metrics import average_precision_score, brier_score_loss, roc_auc_score
-        from sklearn.model_selection import StratifiedKFold
-    except Exception as exc:  # pragma: no cover - environment fallback
-        return pd.DataFrame([{"status": "skipped", "reason": f"sklearn unavailable: {exc}"}])
-
-    outcomes = _available_outcomes(analysis_df)
-    spo2_features = _available_spo2_model_features(analysis_df)
-    controls = _available_controls(analysis_df)
-    model_specs = {
-        "clinical_only": controls,
-        "spo2_only": spo2_features,
-        "clinical_plus_spo2": controls + spo2_features,
-    }
-    rows: list[dict[str, Any]] = []
-    for outcome in outcomes:
-        y_all = pd.to_numeric(analysis_df[outcome], errors="coerce")
-        for model_name, columns in model_specs.items():
-            frame = analysis_df[[outcome, *columns]].copy()
-            valid = pd.to_numeric(frame[outcome], errors="coerce").notna()
-            frame = frame.loc[valid].copy()
-            y = pd.to_numeric(frame[outcome], errors="coerce").astype(int)
-            x = _prepare_design_matrix(frame, columns)
-            n_rows = int(len(y))
-            n_events = int(y.sum()) if n_rows else 0
-            if n_rows < min_rows or n_events < min_events or y.nunique() < 2 or x.empty:
-                rows.append(
-                    {
-                        "outcome": outcome,
-                        "model": model_name,
-                        "status": "skipped",
-                        "n": n_rows,
-                        "events": n_events,
-                        "reason": "insufficient rows/events/classes/features",
-                    }
-                )
-                continue
-            cv = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
-            fold_metrics: list[dict[str, float]] = []
-            for train_idx, test_idx in cv.split(x, y):
-                x_train = x.iloc[train_idx]
-                y_train = y.iloc[train_idx]
-                x_test = x.iloc[test_idx]
-                y_test = y.iloc[test_idx]
-                mu = x_train.mean(axis=0)
-                sigma = x_train.std(axis=0).replace(0, 1.0)
-                x_train_scaled = (x_train - mu) / sigma
-                x_test_scaled = (x_test - mu) / sigma
-                clf = LogisticRegression(max_iter=2000, class_weight="balanced")
-                clf.fit(x_train_scaled, y_train)
-                prob = clf.predict_proba(x_test_scaled)[:, 1]
-                fold_metrics.append(
-                    {
-                        "auroc": float(roc_auc_score(y_test, prob)),
-                        "auprc": float(average_precision_score(y_test, prob)),
-                        "brier": float(brier_score_loss(y_test, prob)),
-                    }
-                )
-            fold_df = pd.DataFrame(fold_metrics)
-            rows.append(
-                {
-                    "outcome": outcome,
-                    "model": model_name,
-                    "status": "fit",
-                    "n": n_rows,
-                    "events": n_events,
-                    "feature_count": int(x.shape[1]),
-                    "auroc_cv_mean": float(fold_df["auroc"].mean()),
-                    "auroc_cv_sd": float(fold_df["auroc"].std(ddof=0)),
-                    "auprc_cv_mean": float(fold_df["auprc"].mean()),
-                    "auprc_cv_sd": float(fold_df["auprc"].std(ddof=0)),
-                    "brier_cv_mean": float(fold_df["brier"].mean()),
-                    "brier_cv_sd": float(fold_df["brier"].std(ddof=0)),
-                }
-            )
-    return pd.DataFrame(rows)
+    """Compatibility wrapper around the rigorous incremental-value analysis."""
+    result = fit_grouped_incremental_models(
+        analysis_df,
+        min_rows=min_rows,
+        min_events=min_events,
+        n_splits=n_splits,
+    )
+    result["analysis"] = "prespecified_12_24h_incremental_value"
+    return result
 
 
 def collect_raw_spo2_events(dataset_artifacts: dict[str, dict[str, pd.DataFrame]]) -> pd.DataFrame:
@@ -1976,6 +1748,9 @@ def write_archive_candidates(project_root: Path, output_dir: Path) -> Path:
 def run_spo2_drilldown(
     dataset_artifacts: dict[str, dict[str, pd.DataFrame]],
     output_dir: Path,
+    *,
+    build_new: bool = False,
+    fresh_colab_execution: bool = False,
 ) -> dict[str, Any]:
     """Run the SpO2 drilldown across available datasets and write outputs."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -1993,6 +1768,14 @@ def run_spo2_drilldown(
 
     analysis_df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
     raw_spo2 = collect_raw_spo2_events(dataset_artifacts)
+    all_events = pd.concat(
+        [artifacts["events"] for artifacts in dataset_artifacts.values()],
+        ignore_index=True,
+    )
+    all_cohorts = pd.concat(
+        [artifacts["cohort"] for artifacts in dataset_artifacts.values()],
+        ignore_index=True,
+    )
     descriptive = build_descriptive_summary(analysis_df)
     lactate_negative = build_lactate_negative_summary(analysis_df)
     association = build_spo2_association_proxy(analysis_df)
@@ -2007,6 +1790,8 @@ def run_spo2_drilldown(
     dragged_models = fit_spo2_dragged_horizon_models(analysis_df)
     raw_event_summary = build_spo2_raw_event_summary(raw_spo2, analysis_df)
     trajectory_summary = build_spo2_trajectory_summary(raw_spo2, analysis_df)
+    endpoint_audit = build_endpoint_completeness_audit(analysis_df)
+    leadtime_records, leadtime_summary = build_temporal_precedence(all_events, all_cohorts)
     figures = write_spo2_figures(analysis_df, output_dir / "figures")
 
     paths = {
@@ -2018,13 +1803,16 @@ def run_spo2_drilldown(
         "or_pvalues": output_dir / "spo2_or_pvalues_adjusted_per_feature.csv",
         "respiratory_context": output_dir / "spo2_respiratory_context.csv",
         "availability_audit": output_dir / "spo2_availability_audit.csv",
-        "cross_dataset_holdout": output_dir / "spo2_cross_dataset_holdout.csv",
+        "cross_dataset_holdout": output_dir / "spo2_external_cross_dataset.csv",
         "negative_control": output_dir / "spo2_missingness_negative_control.csv",
         "variability_or_models": output_dir / "spo2_variability_or_ci_models.csv",
         "variability_group_summary": output_dir / "spo2_variability_group_summary.csv",
         "dragged_models": output_dir / "spo2_horizon_dragged_model_metrics.csv",
         "raw_event_summary": output_dir / "spo2_raw_event_summary.csv",
         "trajectory_summary": output_dir / "spo2_trajectory_by_outcome.csv",
+        "endpoint_completeness": output_dir / "spo2_endpoint_completeness.csv",
+        "leadtime_records": output_dir / "spo2_leadtime_records.csv",
+        "leadtime_summary": output_dir / "spo2_leadtime_summary.csv",
         "availability": output_dir / "spo2_adjustment_availability.json",
         "manifest": output_dir / "manifest.json",
     }
@@ -2043,15 +1831,35 @@ def run_spo2_drilldown(
     dragged_models.to_csv(paths["dragged_models"], index=False)
     raw_event_summary.to_csv(paths["raw_event_summary"], index=False)
     trajectory_summary.to_csv(paths["trajectory_summary"], index=False)
+    endpoint_audit.to_csv(paths["endpoint_completeness"], index=False)
+    leadtime_records.to_csv(paths["leadtime_records"], index=False)
+    leadtime_summary.to_csv(paths["leadtime_summary"], index=False)
     _write_json(paths["availability"], availability)
 
     claims_warnings = lint_claims_and_outputs(
         model_metrics=model_metrics,
-        manifest={"fresh_colab_execution": False},
+        manifest={"fresh_colab_execution": bool(fresh_colab_execution)},
         output_paths=paths,
     )
+    endpoint_warnings = endpoint_audit.loc[
+        endpoint_audit.get("tier", pd.Series(index=endpoint_audit.index, dtype=str)).eq("primary")
+        & ~endpoint_audit.get("status", pd.Series(index=endpoint_audit.index, dtype=str)).eq("adequate")
+    ]
+    if not endpoint_warnings.empty:
+        coverage_claims = pd.DataFrame(
+            [
+                {
+                    "severity": "warning",
+                    "check": "primary_endpoint_not_adequately_observed",
+                    "detail": f"{row.dataset}: {row.endpoint} ({row.status})",
+                }
+                for row in endpoint_warnings.itertuples()
+            ]
+        )
+        claims_warnings = pd.concat([claims_warnings, coverage_claims], ignore_index=True)
     manifest = build_analysis_manifest(
-        build_new=False,
+        build_new=build_new,
+        fresh_colab_execution=fresh_colab_execution,
         paths=paths,
         datasets=sorted(dataset_artifacts),
         rows=int(len(analysis_df)),
@@ -2059,7 +1867,12 @@ def run_spo2_drilldown(
     )
     manifest["figures"] = [str(path) for path in figures]
     manifest["raw_spo2_event_rows"] = int(len(raw_spo2))
-    manifest["horizons_hours"] = list(HORIZON_HOURS)
+    manifest["post_landmark_horizons_hours"] = list(POST_LANDMARK_HORIZONS_HOURS)
+    manifest["exploratory_long_horizons_hours_from_icu_admission"] = list(HORIZON_HOURS)
+    manifest["endpoint_definition_version"] = "spo2_protocol_v1.0"
+    manifest["primary_endpoints"] = list(PRIMARY_ENDPOINTS)
+    manifest["secondary_endpoints"] = list(SECONDARY_ENDPOINTS)
+    manifest["leadtime_claim_scope"] = "landmark_ordering_not_causal_precedence"
     _write_json(paths["manifest"], manifest)
     claims_warnings.to_csv(output_dir / "claims_linter_warnings.csv", index=False)
     return {
@@ -2106,6 +1919,7 @@ def run_physiograph_colab(
     max_stays: int | None = None,
     max_chunks: int | None = None,
     chunk_size: int = 250_000,
+    execution_environment: str = "local",
 ) -> dict[str, Any]:
     """Run the minimal Colab-facing PhysioGraph workflow."""
     project_root = Path(project_root).expanduser().resolve()
@@ -2130,7 +1944,7 @@ def run_physiograph_colab(
                 chunk_size=chunk_size,
             )
             load_status[dataset] = {
-                "status": "loaded_or_built",
+                "status": "rebuilt" if build_new else "loaded_cached",
                 "artifact_dir": str(output_root / dataset),
             }
         except Exception as exc:
@@ -2145,23 +1959,35 @@ def run_physiograph_colab(
             f"under {output_root}/mimic and/or {output_root}/eicu."
         )
 
+    fresh_colab_execution = bool(
+        execution_environment == "colab"
+        and build_new
+        and dataset_artifacts
+        and all(item.get("status") == "rebuilt" for item in load_status.values())
+    )
     comparator_status = (
         run_comparator_if_available(output_root, build_new=build_new)
         if run_comparator
         else {"status": "disabled"}
     )
-    spo2 = run_spo2_drilldown(dataset_artifacts, output_root / "spo2_drilldown")
+    spo2 = run_spo2_drilldown(
+        dataset_artifacts,
+        output_root / "spo2_drilldown",
+        build_new=build_new,
+        fresh_colab_execution=fresh_colab_execution,
+    )
     archive_candidates = write_archive_candidates(project_root, output_root / "cleanup")
 
     status = {
         "project_root": str(project_root),
         "output_root": str(output_root),
         "build_new": bool(build_new),
+        "execution_environment": execution_environment,
         "datasets": load_status,
         "comparator": comparator_status,
         "spo2_manifest": str(spo2["paths"]["manifest"]),
         "archive_candidates": str(archive_candidates),
-        "fresh_colab_execution": False,
+        "fresh_colab_execution": fresh_colab_execution,
     }
     status_path = output_root / "run_status.json"
     _write_json(status_path, status)
