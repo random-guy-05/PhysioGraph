@@ -56,3 +56,4 @@ coverage.xml
 .slim/
 .uvtmp/
 .uvtmp_pdf/
+full_rebuild_log.txt
