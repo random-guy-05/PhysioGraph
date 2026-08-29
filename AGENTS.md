@@ -1,3 +1,16 @@
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+When the user types `/graphify`, invoke the `skill` tool with `skill: "graphify"` before doing anything else.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- Dirty graphify-out/ files are expected after hooks or incremental updates; dirty graph files are not a reason to skip graphify. Only skip graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+
 # PhysioGraph Project Instructions
 
 - The user's primary runnable deliverable is ONE clean Google Colab notebook that runs start-to-finish.
@@ -20,22 +33,6 @@
 - **Discovery:** Use `git ls-files` for project mapping. Exclude all ignored paths from logic reasoning.
 - **Boundary Warning:** If an error originates in an ignored file (e.g., `node_modules`), report the path to the user and HALT. Do not investigate.
 
-## 3. THE "PERMISSION GATE" PROTOCOL
-- **Discovery Phase:** Identify files requiring changes.
-- **Confirmation Halt:** List target files and the specific reason for selection.
-- **Wait:** You must receive a user `[ACK]` or confirmation before reading the full content of those files or executing writes.
-
-## 4. AGENT ROLE: SISYPHUS (EXECUTION)
-- **Constraint:** Max 10 tool calls per turn.
-- **State Management:** Maintain a minimalist scratchpad: `[CURRENT_STEP]`, `[REMAINING_STEPS]`, `[PENDING_CHANGES]`.
-- **Context Purge:** Do not repeat previous "thoughts." Focus only on the immediate delta and next action.
-- **Loop Prevention:** If a tool fails twice with the same error, HALT and report. Do not retry.
-
-## 5. AGENT ROLE: ORACLE (ARCHITECT)
-- **Direct Entry:** Start responses with the technical solution. No preambles like "I have analyzed the code."
-- **Logic Mapping:** Verify proposed logic against `package.json` or existing config files before outputting.
-- **Verification:** Every proposal must include a single-line test command to verify the fix.
-
-## 6. ERROR & FAILURE SYNTAX
+## 3. ERROR & FAILURE SYNTAX
 - **Constraint Violation:** If a task is impossible under these token-saving rules, output: `[ERROR: CONSTRAINT_VIOLATION] - <reason>`.
 - **Ambiguity:** If the user request is vague, ask exactly ONE clarifying question.
