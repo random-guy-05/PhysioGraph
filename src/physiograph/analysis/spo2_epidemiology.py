@@ -569,13 +569,34 @@ def build_paired_precedence_table(
 
 
 def _binomial_twosided(k: int, n: int, p: float) -> float:
-    from math import comb
+    """Exact two-sided binomial test for small n; normal approximation for large n.
 
-    def pmf(x: int) -> float:
-        return comb(n, x) * (p**x) * ((1 - p) ** (n - x))
+    The exact path evaluates the PMF in log-space (math.lgamma), so comb(n, x)
+    never materializes as an integer; beyond n=10,000 the exact enumeration is
+    both unnecessary and numerically meaningless, and the normal approximation
+    with continuity correction is used instead.
+    """
+    from math import comb, exp, lgamma, log, sqrt
 
-    observed = pmf(k)
-    return float(min(1.0, sum(pmf(x) for x in range(n + 1) if pmf(x) <= observed * (1 + 1e-9))))
+    if n <= 0:
+        return 1.0
+    if n > 10_000:
+        mean = n * p
+        std = sqrt(n * p * (1 - p))
+        if std == 0:
+            return 0.0 if k != mean else 1.0
+        z = (abs(k - mean) - 0.5) / std
+        # Two-sided normal tail: erfc(z/sqrt(2)).
+        return float(math.erfc(z / sqrt(2.0)))
+
+    log_pmf = lambda x: (
+        lgamma(n + 1) - lgamma(x + 1) - lgamma(n - x + 1)
+        + x * log(p) + (n - x) * log(1 - p)
+    )
+    observed = log_pmf(k)
+    threshold = observed + log(1 + 1e-9)  # pmf <= pmf(k)*(1+1e-9)  <=>  log_pmf <= log_pmf(k) + log(1+eps)
+    total = sum(exp(log_pmf(x)) for x in range(n + 1) if log_pmf(x) <= threshold)
+    return float(min(1.0, total))
 
 
 def build_specificity_matrix(

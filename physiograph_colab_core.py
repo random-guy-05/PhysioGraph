@@ -1766,6 +1766,17 @@ def run_model_minimal_epidemiology(
     return run_epidemiology_analyses(analysis_df, all_events, all_cohorts)
 
 
+
+def _checkpoint_csv(output_dir: Path, name: str, frame: pd.DataFrame) -> None:
+    """Write a stage result immediately so partial runs keep completed stages."""
+    try:
+        path = output_dir / f"{name}.csv"
+        frame.to_csv(path, index=False)
+        print(f"[checkpoint] {name}: {len(frame)} rows -> {path.name}", flush=True)
+    except Exception as exc:  # checkpointing must never kill the run
+        print(f"[checkpoint] {name}: FAILED ({exc})", flush=True)
+
+
 def run_spo2_drilldown(
     dataset_artifacts: dict[str, dict[str, pd.DataFrame]],
     output_dir: Path,
@@ -1798,22 +1809,40 @@ def run_spo2_drilldown(
         ignore_index=True,
     )
     descriptive = build_descriptive_summary(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_descriptive_summary", descriptive)
     lactate_negative = build_lactate_negative_summary(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_lactate_negative_summary", lactate_negative)
     association = build_spo2_association_proxy(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_association_proxy", association)
     model_metrics = fit_spo2_models(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_model_metrics", model_metrics)
     or_pvalues = fit_spo2_or_pvalue_tables(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_or_pvalue_tables", or_pvalues)
     respiratory_context = build_respiratory_context_tables(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_respiratory_context", respiratory_context)
     availability_audit = build_availability_audit(dataset_artifacts, analysis_df)
+    _checkpoint_csv(output_dir, "spo2_availability_audit", availability_audit)
     cross_dataset = fit_external_cross_dataset_holdout(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_external_cross_dataset_holdout", cross_dataset)
     negative_control = fit_missingness_negative_control(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_missingness_negative_control", negative_control)
     variability_or = fit_spo2_variability_or_tables(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_variability_or_tables", variability_or)
     variability_summary = build_spo2_variability_group_summary(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_variability_group_summary", variability_summary)
     dragged_models = fit_spo2_dragged_horizon_models(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_dragged_horizon_models", dragged_models)
     raw_event_summary = build_spo2_raw_event_summary(raw_spo2, analysis_df)
+    _checkpoint_csv(output_dir, "spo2_raw_event_summary", raw_event_summary)
     trajectory_summary = build_spo2_trajectory_summary(raw_spo2, analysis_df)
+    _checkpoint_csv(output_dir, "spo2_trajectory_summary", trajectory_summary)
     endpoint_audit = build_endpoint_completeness_audit(analysis_df)
+    _checkpoint_csv(output_dir, "spo2_endpoint_completeness_early", endpoint_audit)
     leadtime_records, leadtime_summary = build_temporal_precedence(all_events, all_cohorts)
+    _checkpoint_csv(output_dir, "spo2_leadtime_summary", leadtime_summary)
     epidemiology = run_model_minimal_epidemiology(analysis_df, all_events, all_cohorts)
+    for _table_name, _table_frame in epidemiology.items():
+        _checkpoint_csv(output_dir, f"ckpt_{_table_name}", _table_frame)
     figures = write_spo2_figures(analysis_df, output_dir / "figures")
 
     paths = {
