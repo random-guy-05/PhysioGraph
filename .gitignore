@@ -57,3 +57,5 @@ coverage.xml
 .uvtmp/
 .uvtmp_pdf/
 full_rebuild_log.txt
+analysis_rerun_log.txt
+full_rebuild_log.txt
