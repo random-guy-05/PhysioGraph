@@ -1,0 +1,108 @@
+Executing notebook cell 30
+
+Executing notebook cell 31
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell31", line 60 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1534 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1548 in <module>
+pre-ICU laboratory identifier scan running
+fixed temporal assignment and known-ID validation running
+{
+  "validation": [
+    {
+      "family": "troponin",
+      "records": 2834,
+      "known_id": 741,
+      "missing_id": 2093,
+      "invalid_id": 0,
+      "no_temporal_match": 86,
+      "ambiguous_temporal_match": 4,
+      "uniquely_assigned_known": 735,
+      "correctly_assigned_known": 735,
+      "uniquely_assigned_missing": 2009,
+      "known_id_accuracy": 1.0,
+      "validation_patients": 555,
+      "all_correct_patients": 555,
+      "patient_agreement_one_sided_95pct_lower": 0.9946168256843885,
+      "passes_validation": true
+    },
+    {
+      "family": "cbc_hemoglobin",
+      "records": 4385,
+      "known_id": 1479,
+      "missing_id": 2906,
+      "invalid_id": 0,
+      "no_temporal_match": 250,
+      "ambiguous_temporal_match": 1,
+      "uniquely_assigned_known": 1445,
+      "correctly_assigned_known": 1445,
+      "uniquely_assigned_missing": 2689,
+      "known_id_accuracy": 1.0,
+      "validation_patients": 1091,
+      "all_correct_patients": 1091,
+      "patient_agreement_one_sided_95pct_lower": 0.9972579073271096,
+      "passes_validation": true
+    },
+    {
+      "family": "blood_gas_hemoglobin",
+      "records": 1956,
+      "known_id": 1380,
+      "missing_id": 576,
+      "invalid_id": 0,
+      "no_temporal_match": 141,
+      "ambiguous_temporal_match": 0,
+      "uniquely_assigned_known": 1354,
+      "correctly_assigned_known": 1354,
+      "uniquely_assigned_missing": 461,
+      "known_id_accuracy": 1.0,
+      "validation_patients": 670,
+      "all_correct_patients": 670,
+      "patient_agreement_one_sided_95pct_lower": 0.9955387389225226,
+      "passes_validation": true
+    },
+    {
+      "family": "chemistry_hemoglobin",
+      "records": 0,
+      "known_id": 0,
+      "missing_id": 0,
+      "invalid_id": 0,
+      "no_temporal_match": 0,
+      "ambiguous_temporal_match": 0,
+      "uniquely_assigned_known": 0,
+      "correctly_assigned_known": 0,
+      "uniquely_assigned_missing": 0,
+      "known_id_accuracy": null,
+      "validation_patients": 0,
+      "all_correct_patients": 0,
+      "patient_agreement_one_sided_95pct_lower": null,
+      "passes_validation": false
+    }
+  ],
+  "candidate_additions": [
+    {
+      "family": "blood_gas_hemoglobin",
+      "candidate_records": 461,
+      "eligible_encounters": 386,
+      "records_before_inpatient_admission": 352,
+      "encounters_with_pre_inpatient_records": 318
+    },
+    {
+      "family": "cbc_hemoglobin",
+      "candidate_records": 2681,
+      "eligible_encounters": 2506,
+      "records_before_inpatient_admission": 2532,
+      "encounters_with_pre_inpatient_records": 2416
+    },
+    {
+      "family": "troponin",
+      "candidate_records": 2009,
+      "eligible_encounters": 1821,
+      "records_before_inpatient_admission": 1891,
+      "encounters_with_pre_inpatient_records": 1753
+    }
+  ]
+}
+MIMIC pre-ICU linkage audit complete
+
+Locally executed selected notebook cells: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb

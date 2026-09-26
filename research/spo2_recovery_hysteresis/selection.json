@@ -1,0 +1,98 @@
+[
+  {
+    "dataset": "eicu",
+    "desaturation": 0,
+    "stage": "candidate",
+    "people": 6369
+  },
+  {
+    "dataset": "eicu",
+    "desaturation": 0,
+    "stage": "timing",
+    "people": 4537
+  },
+  {
+    "dataset": "eicu",
+    "desaturation": 0,
+    "stage": "saturation_recovered",
+    "people": 3105
+  },
+  {
+    "dataset": "eicu",
+    "desaturation": 0,
+    "stage": "hr_matched",
+    "people": 3098
+  },
+  {
+    "dataset": "eicu",
+    "desaturation": 1,
+    "stage": "candidate",
+    "people": 2203
+  },
+  {
+    "dataset": "eicu",
+    "desaturation": 1,
+    "stage": "timing",
+    "people": 1723
+  },
+  {
+    "dataset": "eicu",
+    "desaturation": 1,
+    "stage": "saturation_recovered",
+    "people": 556
+  },
+  {
+    "dataset": "eicu",
+    "desaturation": 1,
+    "stage": "hr_matched",
+    "people": 555
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 0,
+    "stage": "candidate",
+    "people": 3029
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 0,
+    "stage": "timing",
+    "people": 372
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 0,
+    "stage": "saturation_recovered",
+    "people": 223
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 0,
+    "stage": "hr_matched",
+    "people": 212
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 1,
+    "stage": "candidate",
+    "people": 651
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 1,
+    "stage": "timing",
+    "people": 320
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 1,
+    "stage": "saturation_recovered",
+    "people": 117
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 1,
+    "stage": "hr_matched",
+    "people": 110
+  }
+]

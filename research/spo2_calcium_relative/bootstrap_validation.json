@@ -1,0 +1,20 @@
+[
+  {
+    "dataset": "eicu",
+    "sql_python_log_ratios_and_contrasts": true,
+    "shared_unit_cancellations_verified": 178,
+    "draws": 20000,
+    "directly_expanded_draws": 100,
+    "max_absolute_direct_difference": 5.551115123125783e-17,
+    "resampling": "hospital"
+  },
+  {
+    "dataset": "mimic",
+    "sql_python_log_ratios_and_contrasts": true,
+    "shared_unit_cancellations_verified": 526,
+    "draws": 20000,
+    "directly_expanded_draws": 100,
+    "max_absolute_direct_difference": 2.0816681711721685e-17,
+    "resampling": "person"
+  }
+]

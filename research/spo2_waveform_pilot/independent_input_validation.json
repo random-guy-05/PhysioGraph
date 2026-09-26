@@ -1,0 +1,197 @@
+{
+  "records_checked": 11,
+  "plain_header_and_csv_clocks_match": true,
+  "direct_flac_calibration_matches": true,
+  "all_overlapping_available_channel_frames_checked": true,
+  "partial_missing_subframes_absent": true,
+  "rows": [
+    {
+      "record_number": 1,
+      "valid_numeric_rows": 10488,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "resp": {
+          "frames": 823253,
+          "maximum_absolute_difference": 5.956823390107502e-08,
+          "samples_per_frame": 1
+        },
+        "pleth": {
+          "frames": 822933,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        }
+      }
+    },
+    {
+      "record_number": 2,
+      "valid_numeric_rows": 8945,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "pleth": {
+          "frames": 742543,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        },
+        "resp": {
+          "frames": 742543,
+          "maximum_absolute_difference": 2.979504110101061e-08,
+          "samples_per_frame": 1
+        }
+      }
+    },
+    {
+      "record_number": 3,
+      "valid_numeric_rows": 13571,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "pleth": {
+          "frames": 886472,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        },
+        "resp": {
+          "frames": 886472,
+          "maximum_absolute_difference": 2.979504110101061e-08,
+          "samples_per_frame": 1
+        }
+      }
+    },
+    {
+      "record_number": 4,
+      "valid_numeric_rows": 13543,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "resp": {
+          "frames": 882702,
+          "maximum_absolute_difference": 2.979504110101061e-08,
+          "samples_per_frame": 1
+        },
+        "pleth": {
+          "frames": 877902,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        }
+      }
+    },
+    {
+      "record_number": 5,
+      "valid_numeric_rows": 13164,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "pleth": {
+          "frames": 865950,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        },
+        "resp": {
+          "frames": 890270,
+          "maximum_absolute_difference": 2.979504110101061e-08,
+          "samples_per_frame": 1
+        }
+      }
+    },
+    {
+      "record_number": 6,
+      "valid_numeric_rows": 13082,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "pleth": {
+          "frames": 847322,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        },
+        "resp": {
+          "frames": 849882,
+          "maximum_absolute_difference": 2.979504110101061e-08,
+          "samples_per_frame": 1
+        }
+      }
+    },
+    {
+      "record_number": 7,
+      "valid_numeric_rows": 11387,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "pleth": {
+          "frames": 742789,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        },
+        "resp": {
+          "frames": 742789,
+          "maximum_absolute_difference": 5.948890757778713e-08,
+          "samples_per_frame": 1
+        }
+      }
+    },
+    {
+      "record_number": 8,
+      "valid_numeric_rows": 8310,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "pleth": {
+          "frames": 611618,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        },
+        "resp": {
+          "frames": 611618,
+          "maximum_absolute_difference": 2.979504110101061e-08,
+          "samples_per_frame": 1
+        }
+      }
+    },
+    {
+      "record_number": 9,
+      "valid_numeric_rows": 12639,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "pleth": {
+          "frames": 838496,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        },
+        "resp": {
+          "frames": 838496,
+          "maximum_absolute_difference": 2.979504110101061e-08,
+          "samples_per_frame": 1
+        }
+      }
+    },
+    {
+      "record_number": 10,
+      "valid_numeric_rows": 8829,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "pleth": {
+          "frames": 683476,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        },
+        "resp": {
+          "frames": 683476,
+          "maximum_absolute_difference": 2.979504110101061e-08,
+          "samples_per_frame": 1
+        }
+      }
+    },
+    {
+      "record_number": 11,
+      "valid_numeric_rows": 2839,
+      "maximum_numeric_clock_difference_seconds": 1.8189894035458565e-12,
+      "channels": {
+        "pleth": {
+          "frames": 181587,
+          "maximum_absolute_difference": 0.0,
+          "samples_per_frame": 2
+        },
+        "resp": {
+          "frames": 181587,
+          "maximum_absolute_difference": 2.979504110101061e-08,
+          "samples_per_frame": 1
+        }
+      }
+    }
+  ],
+  "checker_correction_sha256": "af731efb59edeed620b3479ccffc9010c591ab621fc1975de5c2bd47825f33f7"
+}

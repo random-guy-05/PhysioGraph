@@ -1,0 +1,26 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "coefficient_error": 1.22514845490862e-17,
+    "cluster_covariance_error": 6.2341624917916505e-19
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "coefficient_error": 5.551115123125783e-17,
+    "cluster_covariance_error": 1.6263032587282567e-18
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "coefficient_error": 6.245004513516506e-17,
+    "cluster_covariance_error": 9.56300197450105e-19
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "coefficient_error": 5.724587470723463e-17,
+    "cluster_covariance_error": 1.8431436932253575e-18
+  }
+]

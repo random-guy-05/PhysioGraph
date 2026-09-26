@@ -1,0 +1,11 @@
+{
+  "cells": 58,
+  "code_cells": 42,
+  "source_match": true,
+  "error_outputs": 0,
+  "all_code_cells_have_execution_counts": true,
+  "notebook_sha256": "31b1389284b8da1b6a20d1dd998890d1336db25789b67b1c27723363d2dd32ff",
+  "execution": "local incremental; not full uninterrupted run or Google Colab",
+  "validation": "nbformat structure validation; exact ordered source/id comparison against builder; all code cells compile; execution count and error-output inspection",
+  "goal_complete": false
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "dataset": "eicu",
+    "concept": "etco2",
+    "raw_rows": 7385,
+    "distinct_times": 7385,
+    "people": 203
+  },
+  {
+    "dataset": "mimic",
+    "concept": "etco2",
+    "raw_rows": 524,
+    "distinct_times": 524,
+    "people": 291
+  },
+  {
+    "dataset": "mimic",
+    "concept": "minute_volume",
+    "raw_rows": 2481,
+    "distinct_times": 2481,
+    "people": 1607
+  }
+]

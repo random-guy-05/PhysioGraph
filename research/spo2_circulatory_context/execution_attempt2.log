@@ -1,0 +1,99 @@
+Executing notebook cell 13
+
+Executing notebook cell 14
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/apply.py", line 1079 in apply_series_generator
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/apply.py", line 1063 in apply_standard
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/apply.py", line 916 in apply
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/frame.py", line 10374 in apply
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/apply.py", line 937 in agg
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/frame.py", line 10149 in aggregate
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/eicu_extractor.py", line 223 in _build_eicu_diagnosis_flags
+  File "PhysioGraph_Biological_Discovery.ipynb:cell14", line 49 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 508 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 522 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 322 in normalize_text
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/algorithms.py", line 1743 in map_array
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/base.py", line 921 in _map_values
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/series.py", line 4700 in map
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 355 in series_contains_any
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/eicu_extractor.py", line 231 in _build_eicu_diagnosis_flags
+  File "PhysioGraph_Biological_Discovery.ipynb:cell14", line 49 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 508 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 522 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 322 in normalize_text
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/algorithms.py", line 1743 in map_array
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/base.py", line 921 in _map_values
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/series.py", line 4700 in map
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 355 in series_contains_any
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/eicu_extractor.py", line 231 in _build_eicu_diagnosis_flags
+  File "PhysioGraph_Biological_Discovery.ipynb:cell14", line 49 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 508 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 522 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 322 in normalize_text
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/algorithms.py", line 1743 in map_array
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/base.py", line 921 in _map_values
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/series.py", line 4700 in map
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 355 in series_contains_any
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/eicu_extractor.py", line 231 in _build_eicu_diagnosis_flags
+  File "PhysioGraph_Biological_Discovery.ipynb:cell14", line 49 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 508 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 522 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 322 in normalize_text
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/algorithms.py", line 1743 in map_array
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/base.py", line 921 in _map_values
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/series.py", line 4700 in map
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 355 in series_contains_any
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/eicu_extractor.py", line 231 in _build_eicu_diagnosis_flags
+  File "PhysioGraph_Biological_Discovery.ipynb:cell14", line 49 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 508 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 522 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 322 in normalize_text
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/algorithms.py", line 1743 in map_array
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/base.py", line 921 in _map_values
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/series.py", line 4700 in map
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 355 in series_contains_any
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/eicu_extractor.py", line 240 in _build_eicu_diagnosis_flags
+  File "PhysioGraph_Biological_Discovery.ipynb:cell14", line 49 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 508 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 522 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/dtypes/missing.py", line 313 in _isna_string_dtype
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/dtypes/missing.py", line 292 in _isna_array
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/dtypes/missing.py", line 207 in _isna
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/dtypes/missing.py", line 178 in isna
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/strings/object_array.py", line 75 in _str_map
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/strings/object_array.py", line 222 in _str_match
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/strings/accessor.py", line 1376 in match
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/strings/accessor.py", line 137 in wrapper
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 386 in match_icd_prefix
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/mimic_extractor.py", line 121 in _load_mimic_cohort
+  File "PhysioGraph_Biological_Discovery.ipynb:cell14", line 55 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 508 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 522 in <module>
+production cohort reconstruction running
+
+Traceback (most recent call last):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 522, in <module>
+    FROM {source} l JOIN eicu_cohort c ON try_cast(l.patientunitstayid AS BIGINT)=c.stay_id
+                             ^^^^^^
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 508, in main
+    def qs(value):return "'"+str(value).replace("'","''")+"'"
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PhysioGraph_Biological_Discovery.ipynb:cell14", line 56, in <module>
+  File "/Users/admin/.cache/uv/archive-v0/KCrHkZdDZs6RHIkk/lib/python3.12/site-packages/pandas/core/generic.py", line 6299, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataFrame' object has no attribute 'hospital_expire_flag'

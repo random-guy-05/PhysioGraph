@@ -1,0 +1,350 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "columns": [
+      "intercept",
+      "X",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "log_troponin",
+      "log_troponin_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "troponin_t",
+      "vent_documented",
+      "vasoactive_documented"
+    ],
+    "omitted": [
+      "sex_unknown: constant"
+    ],
+    "imputation": {
+      "age": {
+        "median": 72.0,
+        "sd": 13.320981835650228,
+        "missing": 0
+      },
+      "mean_spo2": {
+        "median": 97.26969696969697,
+        "sd": 3.1653353914589033,
+        "missing": 0
+      },
+      "hypoxic_fraction": {
+        "median": 0.0,
+        "sd": 0.12455018876575649,
+        "missing": 0
+      },
+      "log_readings": {
+        "median": 3.8501476017100584,
+        "sd": 0.2740266548435448,
+        "missing": 0
+      },
+      "mean_hr": {
+        "median": 85.83958333333334,
+        "sd": 18.900900666326663,
+        "missing": 0
+      },
+      "mean_map": {
+        "median": 76.28846153846155,
+        "sd": 7.248478750238602,
+        "missing": 538
+      },
+      "log_creatinine": {
+        "median": 0.5306282510621704,
+        "sd": 0.6101516826428038,
+        "missing": 63
+      },
+      "log_lactate": {
+        "median": 0.6931471805599453,
+        "sd": 0.5058712633757575,
+        "missing": 350
+      },
+      "log_troponin": {
+        "median": -1.5141277326297755,
+        "sd": 1.9897357166270813,
+        "missing": 77
+      },
+      "fio2": {
+        "median": 60.0,
+        "sd": 18.810287611663817,
+        "missing": 343
+      },
+      "troponin_t": {
+        "mode": 0.0,
+        "missing": 77,
+        "shared_missingness_indicator": "log_troponin_missing"
+      }
+    }
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "columns": [
+      "intercept",
+      "X",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "log_troponin",
+      "log_troponin_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "troponin_t",
+      "vent_documented",
+      "vasoactive_documented"
+    ],
+    "omitted": [
+      "sex_unknown: constant"
+    ],
+    "imputation": {
+      "age": {
+        "median": 71.0,
+        "sd": 13.141369961299748,
+        "missing": 0
+      },
+      "mean_spo2": {
+        "median": 97.4,
+        "sd": 3.0534517620604276,
+        "missing": 0
+      },
+      "hypoxic_fraction": {
+        "median": 0.0,
+        "sd": 0.11988960084753579,
+        "missing": 0
+      },
+      "log_readings": {
+        "median": 3.8501476017100584,
+        "sd": 0.2642425114831021,
+        "missing": 0
+      },
+      "mean_hr": {
+        "median": 85.0,
+        "sd": 18.913104887453986,
+        "missing": 0
+      },
+      "mean_map": {
+        "median": 76.78571428571429,
+        "sd": 6.69073364867382,
+        "missing": 787
+      },
+      "log_creatinine": {
+        "median": 0.47000362924573563,
+        "sd": 0.6117552571214797,
+        "missing": 118
+      },
+      "log_lactate": {
+        "median": 0.6418538861723947,
+        "sd": 0.4765250062150098,
+        "missing": 535
+      },
+      "log_troponin": {
+        "median": -1.5606477482646686,
+        "sd": 1.901705493309167,
+        "missing": 138
+      },
+      "fio2": {
+        "median": 60.0,
+        "sd": 18.669196006166565,
+        "missing": 487
+      },
+      "troponin_t": {
+        "mode": 0.0,
+        "missing": 138,
+        "shared_missingness_indicator": "log_troponin_missing"
+      }
+    }
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "columns": [
+      "intercept",
+      "X",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "log_troponin",
+      "log_troponin_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented"
+    ],
+    "omitted": [
+      "sex_unknown: constant",
+      "troponin_t: constant"
+    ],
+    "imputation": {
+      "age": {
+        "median": 74.0,
+        "sd": 13.176378279872958,
+        "missing": 0
+      },
+      "mean_spo2": {
+        "median": 97.33333333333333,
+        "sd": 2.985681061269936,
+        "missing": 0
+      },
+      "hypoxic_fraction": {
+        "median": 0.0,
+        "sd": 0.12157259571129227,
+        "missing": 0
+      },
+      "log_readings": {
+        "median": 2.1972245773362196,
+        "sd": 0.3809479992083306,
+        "missing": 0
+      },
+      "mean_hr": {
+        "median": 83.9,
+        "sd": 19.1667365023006,
+        "missing": 0
+      },
+      "mean_map": {
+        "median": 76.42857142857143,
+        "sd": 12.974791062822922,
+        "missing": 6
+      },
+      "log_creatinine": {
+        "median": 0.5306282510621704,
+        "sd": 0.6220004622419464,
+        "missing": 88
+      },
+      "log_lactate": {
+        "median": 0.7419373447293773,
+        "sd": 0.5251748993490584,
+        "missing": 206
+      },
+      "log_troponin": {
+        "median": -1.2729656758128873,
+        "sd": 1.4949976373189129,
+        "missing": 176
+      },
+      "fio2": {
+        "median": 60.0,
+        "sd": 19.090047682591294,
+        "missing": 313
+      },
+      "troponin_t": {
+        "mode": 1.0,
+        "missing": 176,
+        "shared_missingness_indicator": "log_troponin_missing"
+      }
+    }
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "columns": [
+      "intercept",
+      "X",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "log_troponin",
+      "log_troponin_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented"
+    ],
+    "omitted": [
+      "sex_unknown: constant",
+      "troponin_t: constant"
+    ],
+    "imputation": {
+      "age": {
+        "median": 73.0,
+        "sd": 12.96780076844996,
+        "missing": 0
+      },
+      "mean_spo2": {
+        "median": 97.33333333333333,
+        "sd": 2.949468486040296,
+        "missing": 0
+      },
+      "hypoxic_fraction": {
+        "median": 0.0,
+        "sd": 0.11816255912651509,
+        "missing": 0
+      },
+      "log_readings": {
+        "median": 2.1972245773362196,
+        "sd": 0.3856895689335547,
+        "missing": 0
+      },
+      "mean_hr": {
+        "median": 85.72321428571428,
+        "sd": 19.6142969401039,
+        "missing": 0
+      },
+      "mean_map": {
+        "median": 76.46428571428572,
+        "sd": 12.612594326091775,
+        "missing": 6
+      },
+      "log_creatinine": {
+        "median": 0.5306282510621704,
+        "sd": 0.632365665297004,
+        "missing": 104
+      },
+      "log_lactate": {
+        "median": 0.6931471805599453,
+        "sd": 0.5129573681193531,
+        "missing": 221
+      },
+      "log_troponin": {
+        "median": -1.3093333199837622,
+        "sd": 1.4767658935100274,
+        "missing": 197
+      },
+      "fio2": {
+        "median": 60.0,
+        "sd": 19.195694016717795,
+        "missing": 326
+      },
+      "troponin_t": {
+        "mode": 1.0,
+        "missing": 197,
+        "shared_missingness_indicator": "log_troponin_missing"
+      }
+    }
+  }
+]

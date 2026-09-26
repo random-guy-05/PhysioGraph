@@ -1,0 +1,9 @@
+{
+  "classification": "PROVISIONAL_WINNER_REQUIRES_NOVELTY_REVIEW",
+  "statistical_gate_count": 1,
+  "final_gate_count": 1,
+  "provisional_winner": "sbp_level",
+  "eicu_accessed": false,
+  "eicu_must_remain_unopened": true,
+  "first_mimic_candidate_outcome_read_utc": "2026-09-07T20:17:55.565810+00:00"
+}

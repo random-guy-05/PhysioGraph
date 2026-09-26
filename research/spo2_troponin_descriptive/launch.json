@@ -1,0 +1,26 @@
+{
+  "pid": 18040,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "nbformat",
+    "python",
+    "-u",
+    "scripts/build_biological_notebook.py",
+    "--troponin-descriptive-only"
+  ],
+  "utc": "2026-09-05T12:43:09.363308+00:00",
+  "builder_sha256": "3880b70555b47cff64f3a483bd3da380be98981c4cd1768a1a2c99843b2ddfa1",
+  "module_sha256": "54dd8d40f8d90acd752315e6285ed031b91c48d923157e25e1e10d554c28d399",
+  "purpose": "Add explicit earlier-hypoxemia/numeric-reporting limits and report missing availability; no selection or rise-label rule changed."
+}

@@ -1,0 +1,254 @@
+[
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 5,
+    "stage": "original",
+    "people": 3798,
+    "up": 1595,
+    "down": 2203,
+    "hospitals": 194,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 5,
+    "stage": "full_window",
+    "people": 3772,
+    "up": 1576,
+    "down": 2196,
+    "hospitals": 193,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 5,
+    "stage": "pre_available",
+    "people": 49,
+    "up": 28,
+    "down": 21,
+    "hospitals": 26,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 5,
+    "stage": "post_available",
+    "people": 46,
+    "up": 25,
+    "down": 21,
+    "hospitals": 26,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 5,
+    "stage": "paired",
+    "people": 43,
+    "up": 23,
+    "down": 20,
+    "hospitals": 25,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps",
+    "support_floor_pass": false,
+    "pre_timing_error_median_minutes": 0.0,
+    "post_timing_error_median_minutes": 0.0
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 5,
+    "stage": "paired_with_context_timestamps",
+    "people": 40,
+    "up": 21,
+    "down": 19,
+    "hospitals": 23,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 15,
+    "stage": "original",
+    "people": 3798,
+    "up": 1595,
+    "down": 2203,
+    "hospitals": 194,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 15,
+    "stage": "full_window",
+    "people": 2964,
+    "up": 1093,
+    "down": 1871,
+    "hospitals": 192,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 15,
+    "stage": "pre_available",
+    "people": 36,
+    "up": 17,
+    "down": 19,
+    "hospitals": 20,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 15,
+    "stage": "post_available",
+    "people": 34,
+    "up": 16,
+    "down": 18,
+    "hospitals": 19,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 15,
+    "stage": "paired",
+    "people": 30,
+    "up": 13,
+    "down": 17,
+    "hospitals": 18,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps",
+    "support_floor_pass": false,
+    "pre_timing_error_median_minutes": 0.0,
+    "post_timing_error_median_minutes": 0.0
+  },
+  {
+    "dataset": "eicu",
+    "tolerance_minutes": 15,
+    "stage": "paired_with_context_timestamps",
+    "people": 27,
+    "up": 11,
+    "down": 16,
+    "hospitals": 16,
+    "context_definition": "respiratory rate field present at both selected monitor timestamps"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 5,
+    "stage": "original",
+    "people": 1276,
+    "up": 625,
+    "down": 651,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 5,
+    "stage": "full_window",
+    "people": 1207,
+    "up": 584,
+    "down": 623,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 5,
+    "stage": "pre_available",
+    "people": 9,
+    "up": 3,
+    "down": 6,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 5,
+    "stage": "post_available",
+    "people": 15,
+    "up": 10,
+    "down": 5,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 5,
+    "stage": "paired",
+    "people": 5,
+    "up": 2,
+    "down": 3,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows",
+    "support_floor_pass": false,
+    "pre_timing_error_median_minutes": 1.5,
+    "post_timing_error_median_minutes": 0.0
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 5,
+    "stage": "paired_with_context_timestamps",
+    "people": 1,
+    "up": 1,
+    "down": 0,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 15,
+    "stage": "original",
+    "people": 1276,
+    "up": 625,
+    "down": 651,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 15,
+    "stage": "full_window",
+    "people": 950,
+    "up": 426,
+    "down": 524,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 15,
+    "stage": "pre_available",
+    "people": 9,
+    "up": 4,
+    "down": 5,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 15,
+    "stage": "post_available",
+    "people": 13,
+    "up": 9,
+    "down": 4,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 15,
+    "stage": "paired",
+    "people": 3,
+    "up": 1,
+    "down": 2,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows",
+    "support_floor_pass": false,
+    "pre_timing_error_median_minutes": 0.5,
+    "post_timing_error_median_minutes": 0.0
+  },
+  {
+    "dataset": "mimic",
+    "tolerance_minutes": 15,
+    "stage": "paired_with_context_timestamps",
+    "people": 0,
+    "up": 0,
+    "down": 0,
+    "hospitals": null,
+    "context_definition": "minute volume timestamps available in both side-specific windows"
+  }
+]

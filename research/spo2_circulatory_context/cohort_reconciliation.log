@@ -1,0 +1,8 @@
+{
+  "candidate": 17892,
+  "initial_eligible": 17776,
+  "canonical_eligible": 17758,
+  "newly_excluded": 18,
+  "newly_included": 0,
+  "hospital_followup_ends_by4h_despite_later_icu_end": 18
+}

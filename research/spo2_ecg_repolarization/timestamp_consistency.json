@@ -1,0 +1,10 @@
+{
+  "selected_records": 676,
+  "exact_matches": 666,
+  "rejected_records": 10,
+  "min_difference_seconds": -2479939200,
+  "max_difference_seconds": 1680220800,
+  "independent_all_timestamp_comparisons_match": true,
+  "amendment_sha256": "cd8f8c766fc4e8c41c0b1bf731589080252c0e3feb6706d01bddad550a272c5a",
+  "original_pair_choices_preserved": true
+}

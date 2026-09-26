@@ -1,0 +1,30 @@
+[
+  {
+    "dataset": "eicu",
+    "before": 12028,
+    "canonical": 12028,
+    "removed_this_execution": 0,
+    "terminal_bins_removed": 0,
+    "dynamics_before_boundary_fix": 11454,
+    "dynamics_after_boundary_fix": 11452,
+    "production_exposure_patient_sets_match": true,
+    "production_exposed": 4309,
+    "cumulative_excluded": 0,
+    "historical_reference": 12028,
+    "matches_historical_count": true
+  },
+  {
+    "dataset": "mimic",
+    "before": 17776,
+    "canonical": 17758,
+    "removed_this_execution": 18,
+    "terminal_bins_removed": 1017,
+    "dynamics_before_boundary_fix": 4735,
+    "dynamics_after_boundary_fix": 4734,
+    "production_exposure_patient_sets_match": true,
+    "production_exposed": 1423,
+    "cumulative_excluded": 18,
+    "historical_reference": 17758,
+    "matches_historical_count": true
+  }
+]

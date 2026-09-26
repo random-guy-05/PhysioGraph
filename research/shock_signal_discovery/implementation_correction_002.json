@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-09-07T19:51:04Z",
+  "protocol_sha256_unchanged": "ac46b95fc53530ee2c6a9bd7034cdd1761d2b7670f8deb9073f161bd40e0dabc",
+  "prior_attempt": "Correction 001 full rerun started at 2026-09-07T19:46:16.469815+00:00 and was interrupted in extraction. No completed candidate screen exists.",
+  "historical_first_association_attempt_utc": "2026-09-07T19:32:30.447739+00:00",
+  "historical_attempt_failed_before_first_model_fit": true,
+  "eicu_accessed": false,
+  "reason": "Code review against the unchanged written protocol before any successful candidate fit.",
+  "corrections": [
+    "Filter vital and urine candidate rows at exact minute 240 before hourly aggregation; include only measurements recorded by minute 240. The former floor(hour)<=4 filter could include minutes 241-299.",
+    "Rebuild the vital cache with recorded availability and use availability-aware completion times for sustained hypotension and oliguria.",
+    "Check laboratory abnormalities and organ-injury rises during blanking, and documented six-hour oliguria by landmark, for at-risk eligibility.",
+    "Exclude ongoing support/MCS that began before ICU admission, and exclude rewritten infusion records.",
+    "Keep all 36 hypotheses in the BH family denominator even when a model is unestimable.",
+    "Remove only algebraically redundant adjustment columns, preserving the model column space and candidate; fail unestimable constant-feature or single-outcome models.",
+    "Allow an empty statistical winner set to produce the prespecified NO_DISCOVERY_SIGNAL decision."
+  ],
+  "unchanged": ["candidate family", "effect gates", "coverage gates", "outcome thresholds", "anchor and lead windows", "bootstrap design", "no runner-up rule"],
+  "next_action": "Run regression checks, lock new executable code/config, and rerun all MIMIC stages before interpreting results."
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "all_fixed_windows_pass": true,
+    "independent_first_last_peak_values_match": true,
+    "independent_decimal_labels_match": true,
+    "complete_encounters": 133
+  },
+  {
+    "dataset": "mimic",
+    "all_fixed_windows_pass": true,
+    "independent_first_last_peak_values_match": true,
+    "independent_decimal_labels_match": true,
+    "complete_encounters": 76
+  }
+]

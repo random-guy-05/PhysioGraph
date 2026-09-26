@@ -1,0 +1,49 @@
+{
+  "utc": "2026-09-05T07:54:22.899871+00:00",
+  "mimic_dictionary_sha256": "2e8987d8ac98e48358e582708f953710f50bdea7fb4a8bb427acb364a7212894",
+  "mimic_ST_dictionary_items": [
+    {
+      "itemid": "228305",
+      "label": "ST Segment Monitoring On",
+      "param_type": "Checkbox",
+      "unitname": "",
+      "category": "Alarms"
+    }
+  ],
+  "eicu_vitalPeriodic_columns": [
+    "vitalperiodicid",
+    "patientunitstayid",
+    "observationoffset",
+    "temperature",
+    "sao2",
+    "heartrate",
+    "respiration",
+    "cvp",
+    "etco2",
+    "systemicsystolic",
+    "systemicdiastolic",
+    "systemicmean",
+    "pasystolic",
+    "padiastolic",
+    "pamean",
+    "st1",
+    "st2",
+    "st3",
+    "icp"
+  ],
+  "targeted_path_existence": {
+    "MIMIC/ECG": false,
+    "MIMIC/Waveforms": false,
+    "MIMIC/Full/record_list.csv": false,
+    "MIMIC/Full/machine_measurements.csv": false,
+    "MIMIC/Full/waveform": false,
+    "MIMIC/Full/note": false,
+    "MIMIC/Full/discharge.csv": false
+  },
+  "limitation": "Targeted inspected source checks only; not an exhaustive claim about all external releases.",
+  "prior_art": [
+    "https://pubmed.ncbi.nlm.nih.gov/42172256/",
+    "https://pubmed.ncbi.nlm.nih.gov/42026493/"
+  ],
+  "official_schema": "https://github.com/MIT-LCP/eicu-code/blob/main/website/content/eicutables/vitalPeriodic.md"
+}

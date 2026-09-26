@@ -1,0 +1,16 @@
+{
+  "utc": "2026-09-05T09:31:00.590064+00:00",
+  "environment": "local",
+  "active_cells": 48,
+  "code_cells": 36,
+  "source_matched_executed_code_cells": 36,
+  "error_cells": 0,
+  "nbformat_valid": true,
+  "latest_full_notebook_uninterrupted_execution": false,
+  "google_colab_executed": false,
+  "all_interaction_interval_corners_match": true,
+  "selection_and_cell_denominators_match": true,
+  "notebook_sha256": "b1039bd19a14463777345582d013399e201d186f25fdcd598b1ddff6f779bbf3",
+  "builder_sha256": "8b2022f0c9d23bf2772c5fa5f4db56b97108e8220329a3a65f21e86791396df7",
+  "cell_module_sha256": "26a1663c094d2556daec2c30128f71a5a4c7d070b5a71b263d533d3a7a60ef41"
+}

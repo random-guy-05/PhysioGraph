@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "eicu",
+    "sql_python_consecutive_pairs_and_person_selection_match": true,
+    "all_people_have_multiple_intervals": true,
+    "troponin_changes_calculated": false
+  },
+  {
+    "dataset": "mimic",
+    "sql_python_consecutive_pairs_and_person_selection_match": true,
+    "all_people_have_multiple_intervals": true,
+    "troponin_changes_calculated": false
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "FINAL_REPORT.md": "148e4dda23fa3ca0caa24f069dbfa919f819a031efcb394e1fed380615d13355",
+  "analysis_lock.json": "4228c1d033c5de8881ace9b59f7b9b9f721e63de9b93ae6b85fa5da712cd9550",
+  "analysis_lock.sha256": "c8a247cd4335263764a7f6808f28f8c9cfa4090a18067b6b44f8ef088dbd3c3f",
+  "association_read_receipt.json": "dcfa1ae8ee3572ee8f644ea9e51ccb105cda5d0fd184e6695b4f75c21dc010cc",
+  "feasibility.json": "3ac9a6624ddae22729940663ff3bdeaaacd000b3d39b14dba9d0b6594d36e876",
+  "figures/mimic3_replication_forest.pdf": "79e0ebaf5c0f5691cc89b6ad0d45af86c246a99e9bb38f20f24bfc2126f8b809",
+  "figures/mimic3_replication_forest.png": "aaedaad29df309f4f3a912c7400920b03552699482cb4f403c1ec712b9f7040c",
+  "figures/mimic3_support_funnel.pdf": "b6840d6689c96f69a35b351b02c2e065ee4af8dcdcecd4f4d50ea948b66ff906",
+  "figures/mimic3_support_funnel.png": "237a95775e2ec8c21d82fee4ecef271186b6e678bee1b40eda2b4d2bddf27b10",
+  "protocol.json": "7d5a79995b281727239680367de046fb786d35b670c5fad1e9b06a29194f37c5",
+  "run_status.json": "a5ac3c30f6125d0d0198780472ad555adb32e793dc269ac2076db776273c250f",
+  "support_counts.json": "4c96feca761328940489d3399856ff82f38daa65eb7f949b6337f13e694e42d9",
+  "validation_results.json": "2a36b5c123bb33cf641caeafef3dd237c9c5e5a3171dc032ccf4df5cc9fe5745"
+}

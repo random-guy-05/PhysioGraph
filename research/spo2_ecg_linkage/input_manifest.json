@@ -1,0 +1,25 @@
+{
+  "references": {
+    "spo2_context": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_context.duckdb",
+      "sha256": "7902a93985c6024dfb38a1a7555c54418492bfb3ebf4b93104a78148316d3352"
+    },
+    "spo2_cardiorenal": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_cardiorenal.duckdb",
+      "sha256": "4452c0a48f0ef2fee717a158d81c3538c326966e4b04e7a99db89966d67e6f38"
+    },
+    "admissions": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/admissions.csv",
+      "sha256": "9592fb5d355321801f3cb5789a20921d7394fde2ade5325832ea527318056d63",
+      "bytes": 94156458,
+      "mtime_ns": 1773614703263999938
+    },
+    "d_items": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_items.csv",
+      "sha256": "2e8987d8ac98e48358e582708f953710f50bdea7fb4a8bb427acb364a7212894",
+      "bytes": 375225,
+      "mtime_ns": 1773614198105000019
+    }
+  },
+  "protocol_sha256": "0994427894929de63ff08dbf7a4a338f8508d5bab202cc6762ae9a7dd9d587c4"
+}

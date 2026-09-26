@@ -1,0 +1,18 @@
+[
+  {
+    "dataset": "eicu",
+    "candidate_records": 8599,
+    "wrong_source": 3343,
+    "unknown_or_conflicting_unit": 3667,
+    "outside_value_range_or_missing": 3247,
+    "accepted_records": 4929
+  },
+  {
+    "dataset": "mimic",
+    "candidate_records": 4122,
+    "wrong_source": 0,
+    "unknown_or_conflicting_unit": 0,
+    "outside_value_range_or_missing": 19,
+    "accepted_records": 4103
+  }
+]

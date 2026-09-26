@@ -1,0 +1,42 @@
+[
+  {
+    "dataset": "eicu",
+    "operator": "<",
+    "rows": 1717
+  },
+  {
+    "dataset": "eicu",
+    "operator": "=",
+    "rows": 11881
+  },
+  {
+    "dataset": "eicu",
+    "operator": ">",
+    "rows": 83
+  },
+  {
+    "dataset": "eicu",
+    "operator": "?",
+    "rows": 1
+  },
+  {
+    "dataset": "mimic",
+    "operator": "<",
+    "rows": 598
+  },
+  {
+    "dataset": "mimic",
+    "operator": "=",
+    "rows": 4137
+  },
+  {
+    "dataset": "mimic",
+    "operator": ">",
+    "rows": 3
+  },
+  {
+    "dataset": "mimic",
+    "operator": "?",
+    "rows": 20
+  }
+]

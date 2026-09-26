@@ -1,0 +1,7 @@
+{
+  "primary_cco_support_floor_pass": false,
+  "cardiac_output_values_selected": false,
+  "mortality_selected": false,
+  "biological_discovery": false,
+  "interpretation": "A metadata support test in MIMIC only; no external mechanistic replication or clinical effect estimated."
+}

@@ -1,0 +1,11 @@
+{
+  "protocol_sha256": "ab5b34e82ca7af1ed34fdbd6acd616c95f1aa07a7a3598cafbe3719e841d5c7a",
+  "builder_sha256": "99ab28338601c637d02b551e897aed4cb590a7fec12b649799a8a763e1bcfc56",
+  "environment": "local",
+  "completed_utc": "2026-09-05T06:35:55.407373+00:00",
+  "lab_concentrations_selected": false,
+  "mortality_joined": false,
+  "prior_patient_tables_modified": false,
+  "biological_discovery": false,
+  "amendment_applied": false
+}

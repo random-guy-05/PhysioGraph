@@ -1,0 +1,10 @@
+{
+  "all_candidate_edges_match": true,
+  "all_degrees_match": true,
+  "all_isolated_pairs_match": true,
+  "all_offsets_match": true,
+  "source_hashes_unchanged": true,
+  "mortality_accessed": false,
+  "ecg_values_accessed": false,
+  "clock_calibration_established": false
+}

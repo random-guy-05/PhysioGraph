@@ -1,0 +1,18 @@
+Executing notebook cell 44
+# Oxygen-response timing feasibility
+
+**Actual execution: local. No biological effect or mortality result was estimated.**
+
+| Database | FiO2 observed | Escalation encounters | First escalation with paired SpO2 | Paired and corroborated | Original exposure 0 / 1 |
+|---|---:|---:|---:|---:|---|
+| eicu | 4224 | 174 | 146 | 33 | 10 / 23 |
+| mimic | 1883 | 30 | 16 | 3 | 1 / 2 |
+
+The frozen requirement was 200 fully supported encounters per source and 50 in each original SpO2 exposure group.
+
+The timing screen fails. Close this specification without widening time windows or relaxing oxygen-step/corroboration rules. These records do not support the proposed cross-database response experiment under the frozen requirements.
+
+Every escalation and paired timestamp was independently reconstructed with pandas/NumPy and matched SQL. No saturation-response magnitude, troponin endpoint or mortality outcome was opened for this candidate. Documentation times do not guarantee intervention times or sustained delivery. These feasibility results do not establish treatment benefit or meet the biological-discovery objective.
+
+
+Locally executed selected notebook cells: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb

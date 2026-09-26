@@ -1,0 +1,25 @@
+{
+  "association_models_fitted": 2,
+  "classification": "MIMIC3_PARITY_CORRECTED_INVERSE",
+  "corrected_association_inspected": true,
+  "environment": "LOCAL_STANDALONE_RUNTIME_NOT_COLAB",
+  "flags": {
+    "corrected_later_association_fitted": true,
+    "corrected_later_event_gate_passed": true,
+    "corrected_primary_association_fitted": true,
+    "corrected_primary_event_gate_passed": true,
+    "endpoint_logically_equivalent_after_correction": true,
+    "endpoint_observability_fully_equivalent": false,
+    "exposure_availability_parity_applied": true,
+    "exposure_availability_parity_supportable": true,
+    "exposure_mathematics_identical": true,
+    "forensic_classification_preserved": true,
+    "later_endpoint_parity_corrected": true,
+    "oliguria_parity_corrected": true,
+    "original_replication_preserved": true,
+    "outcome_peek_before_lock": false,
+    "unauthorized_models_fitted": false
+  },
+  "protected_artifacts_verified_unchanged": true,
+  "status": "completed"
+}

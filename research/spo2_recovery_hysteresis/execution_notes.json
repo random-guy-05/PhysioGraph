@@ -1,0 +1,20 @@
+{
+  "environment": "local",
+  "versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "duckdb": "1.4.3",
+    "scipy": "1.15.3",
+    "statsmodels": "0.14.5"
+  },
+  "completed_experiments": [
+    "raw arterial timing recovery",
+    "direct cardiac-output metadata support",
+    "recovery-specific mortality screen"
+  ],
+  "recovery_validation_followup": "Added independent SQL SHA256 digit-wise modular reconstruction; reran unchanged phenotype and models. Results and support counts unchanged.",
+  "initial_technical_correction": "An outer-string quoting error in the new raw-recovery module was corrected before any cells from that module executed. Protocol and study definitions were unchanged.",
+  "no_google_colab_execution": true,
+  "biological_discovery": false,
+  "goal_complete": false
+}

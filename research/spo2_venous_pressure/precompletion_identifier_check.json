@@ -1,0 +1,9 @@
+{
+  "utc": "2026-09-05T11:53:36.280644+00:00",
+  "source": "spo2_context.duckdb mimic_cohort",
+  "person_id_type": "BIGINT",
+  "hadm_id_type": "BIGINT",
+  "cohort_rows": 17758,
+  "person_ids_with_decimal_suffix": 0,
+  "clinical_values_inspected": false
+}

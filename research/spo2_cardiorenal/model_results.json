@@ -1,0 +1,58 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "n": 656,
+    "patients": 648,
+    "parameters": 21,
+    "status": "estimable",
+    "crude_differential_risk_difference": 0.09843476616068472,
+    "adjusted_differential_risk_difference": 0.08245531380809337,
+    "ci_lower": -0.008124237707088547,
+    "ci_upper": 0.17303486532327528,
+    "p_value": 0.07432219544026296,
+    "holm_primary_p": 0.14864439088052592
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "n": 926,
+    "patients": 906,
+    "parameters": 21,
+    "status": "estimable",
+    "crude_differential_risk_difference": 0.05872243463484339,
+    "adjusted_differential_risk_difference": 0.027576730826456605,
+    "ci_lower": -0.055124864907027823,
+    "ci_upper": 0.11027832655994103,
+    "p_value": 0.5130059437892178,
+    "holm_primary_p": null
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "n": 621,
+    "patients": 613,
+    "parameters": 20,
+    "status": "estimable",
+    "crude_differential_risk_difference": 0.025622171945701364,
+    "adjusted_differential_risk_difference": -0.013476334384962204,
+    "ci_lower": -0.11233261065803517,
+    "ci_upper": 0.08537994188811075,
+    "p_value": 0.7890076455153114,
+    "holm_primary_p": 0.7890076455153114
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "n": 654,
+    "patients": 647,
+    "parameters": 20,
+    "status": "estimable",
+    "crude_differential_risk_difference": 0.015671264533834044,
+    "adjusted_differential_risk_difference": -0.007170565038457158,
+    "ci_lower": -0.1129821287810338,
+    "ci_upper": 0.09864099870411948,
+    "p_value": 0.8941788250150476,
+    "holm_primary_p": null
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "freeze_utc": "2026-09-07T22:16:01.302512+00:00",
+  "protocol_sha256": "f0ca479da87a829336a3dd92fda9c1edc0a5afb0d8226932326fdc0f22c17e76",
+  "documentation_sha256": "346045a5b6f9bfd494389e1e569fc3a3384e8929f1b6ebf128d669b3b4df6ea3",
+  "code_hashes": {
+    "scripts/build_biological_notebook.py": "6ba686155a31850101850c6af0fa248e012d4ac4af56eba242aad15b7dbe67dd",
+    "scripts/run_spo2_variability_validation.py": "b14ac9de0289d25a4a74aafdbf21ab9d11cdf4d2fe6b2998ae57d4ec00c10a2f",
+    "scripts/spo2_variability_validation_cells.py": "072f3e9c4c8546f60528fdfd33884758d42d902a4cfca40e90f6417a5f488d1a",
+    "src/physiograph/analysis/spo2_variability_validation.py": "202643ef397844467e73afd17613254faebc323481c1defb37573f1852e9e165",
+    "src/physiograph/analysis/shock_signal_discovery.py": "016c251dbeb6a9adb11ad433c05e0788afe62d4bef983c6f25936e528494934d",
+    "tests/unit/test_spo2_variability_validation.py": "40c8d72e7022ee67569e04a9bd3e09de2a06551b9271c9d73f49102b33b3d2fa"
+  },
+  "exposure_parameters": {
+    "lower": 1.160311428702309e-14,
+    "upper": 4.300141942983509,
+    "center": 0.8776215724100497,
+    "scale": 0.8227000137550243
+  },
+  "mimic_at_risk_n": 8196,
+  "mimic_exposure_observed_n": 5957,
+  "eicu_association_inspected": false
+}

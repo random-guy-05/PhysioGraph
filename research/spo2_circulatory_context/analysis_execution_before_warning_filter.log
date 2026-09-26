@@ -1,0 +1,38 @@
+Executing notebook cell 17
+dataset  before  canonical  removed_this_execution  terminal_bins_removed  dynamics_before_boundary_fix  dynamics_after_boundary_fix  production_exposure_patient_sets_match  production_exposed  cumulative_excluded  historical_reference  matches_historical_count
+   eicu   12028      12028                       0                      0                         11454                        11452                                    True                4309                    0                 12028                      True
+  mimic   17776      17758                      18                   1017                          4735                         4734                                    True                1423                   18                 17758                      True
+dataset  cohort  spo2_observed  spo2_dynamics  jointly_observed  synchronous  simultaneous_drop  simultaneous_rise
+   eicu   12028          11572          11452              1022           76                 36                 43
+  mimic   17758          17053           4734              2873          227                131                110
+
+Executing notebook cell 18
+dataset  variant  jointly_observed  both_component_events  synchronous  asynchronous_both  joint_transitions  median_absolute_within_bin_time_difference
+   eicu   pooled              1022                    185           76                109              11766                                         0.0
+  mimic   pooled              2873                    495          227                268              17826                                         0.0
+  mimic arterial              1068                    107           52                 55               5649                                         0.0
+
+Executing notebook cell 20
+
+Executing notebook cell 21
+dataset  variant           endpoint subgroup  jointly_observed_with_outcome  primary_comparison_n  events  synchronous_n  synchronous_events  asynchronous_n  asynchronous_events  passes_count_gate                              decision
+   eicu   pooled hospital_mortality      all                           1013                   184      57             76                  24             108                   33              False counts only; frozen event gate failed
+   eicu   pooled  troponin_rise_12h      all                            190                    43      29             19                  14              24                   15              False counts only; frozen event gate failed
+   eicu   pooled  troponin_rise_24h      all                            191                    47      30             20                  14              27                   16              False counts only; frozen event gate failed
+  mimic   pooled hospital_mortality      all                           2873                   495     100            227                  48             268                   52               True     eligible for model support checks
+  mimic   pooled  troponin_rise_12h      all                            477                    85      41             36                  17              49                   24              False counts only; frozen event gate failed
+  mimic   pooled  troponin_rise_24h      all                            463                    88      43             37                  18              51                   25              False counts only; frozen event gate failed
+  mimic arterial hospital_mortality      all                           1068                   107      20             52                   6              55                   14              False counts only; frozen event gate failed
+  mimic arterial  troponin_rise_12h      all                            135                    20      15              8                   7              12                    8              False counts only; frozen event gate failed
+  mimic arterial  troponin_rise_24h      all                            138                    21      15              9                   7              12                    8              False counts only; frozen event gate failed
+Support gate evaluated locally; no model fit or biological discovery asserted by this cell.
+
+Executing notebook cell 22
+dataset           endpoint                          stage  causal  treatment_adjusted  biological_discovery     status                                             reason     n  events  coefficients  person_clusters
+   eicu hospital_mortality conditional association screen   False               False                 False not fitted                           frozen count gate failed   NaN     NaN           NaN              NaN
+   eicu  troponin_rise_12h conditional association screen   False               False                 False not fitted                           frozen count gate failed   NaN     NaN           NaN              NaN
+  mimic hospital_mortality conditional association screen   False               False                 False not fitted fewer than 10 events or non-events per coefficient 495.0   100.0          13.0            488.0
+  mimic  troponin_rise_12h conditional association screen   False               False                 False not fitted                           frozen count gate failed   NaN     NaN           NaN              NaN
+This is a conditional association screen. The biological discovery goal is not complete.
+
+Locally executed selected notebook cells: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb

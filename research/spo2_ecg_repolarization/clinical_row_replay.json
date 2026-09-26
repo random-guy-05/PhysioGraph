@@ -1,0 +1,24 @@
+{
+  "raw_source_modeled_rows_match": true,
+  "checks": [
+    {
+      "n": 124,
+      "identity_mismatches": 0,
+      "pre_error": 1.1368683772161603e-13,
+      "post_error": 1.1368683772161603e-13,
+      "timestamp_rejections_in_model": 0,
+      "split_mismatches": 0,
+      "split": 0
+    },
+    {
+      "n": 85,
+      "identity_mismatches": 0,
+      "pre_error": 5.684341886080802e-14,
+      "post_error": 5.684341886080802e-14,
+      "timestamp_rejections_in_model": 0,
+      "split_mismatches": 0,
+      "split": 1
+    }
+  ],
+  "clinical_mortality_accessed": false
+}

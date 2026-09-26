@@ -1,0 +1,11 @@
+{
+  "environment": "local",
+  "cell_id": "biology-127",
+  "source_sha256": "89b6155ce7465ebd21f416735ddfd6c92c496238b33eee522d3cd18bd6c0ab36",
+  "namespace_restored_from_saved_timing_gates_and_input_manifest": true,
+  "read_only_database_connection": true,
+  "source_database_sha256": "5102f9ffaf3212dd5edf5bfa674ad45b7a31294e5780a524ff888aedd331e48a",
+  "source_database_unchanged": true,
+  "syntax_corrected_screen_reexecuted": true,
+  "original_changes_computed": false
+}

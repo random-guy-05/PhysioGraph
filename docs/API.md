@@ -80,7 +80,18 @@ builder = EICUCohortBuilder(data_root=Path("/eicu"), config=config)
 result = builder.build_cohort()
 ```
 
-Token-based substring matching on free-text diagnosis fields. Broader definition includes HF, shock, cardiomyopathy, and acute MI.
+Token-based substring matching on free-text diagnosis fields. Inclusion uses the
+same rule as MIMIC: adult admissions with an explicit HF match and either ICU
+admission within 24 hours of hospital admission or cardiogenic shock. Shock,
+cardiomyopathy, and acute MI matches are retained as covariates and never
+substitute for HF.
+
+### `harmonize_hf_cohort(cohort_df)`
+
+Apply the same adult explicit-HF plus early-ICU-or-cardiogenic-shock rule to a
+combined MIMIC/eICU cohort, propagate diagnosis flags across hospital-unit
+transfers, retain one first ICU anchor per encounter, and return both the
+harmonized cohort and a dataset-level inclusion/exclusion audit.
 
 ### `match_icd_prefix(codes, patterns, versions)`
 
@@ -117,29 +128,37 @@ assert_no_nulls_in_required(df, ["stay_id", "age"])
 
 ## `physiograph.etl`
 
-### `extract_mimic(data_root, config, max_stays=None)`
+### `extract_mimic(root, audit, *, max_stays=None, max_chunks=None, chunk_size=250_000)`
 
-Extract MIMIC-III cohort and events from raw CSVs.
+Extract the MIMIC-IV cohort and events from raw CSVs.
 
 ```python
-from physiograph.etl import extract_mimic
+from physiograph.etl import AuditLogger, extract_mimic
 
-result = extract_mimic(Path("/mimic"), config)
+audit = AuditLogger(dataset="mimic")
+result = extract_mimic(Path("/mimic"), audit, max_chunks=None)
 cohort_df = result.cohort_df
 events_df = result.events_df
 ```
 
 **Returns:** `SourceExtraction(cohort_df, events_df)`.
 
-### `extract_eicu(data_root, config, max_stays=None)`
+### `extract_eicu(root, audit, *, max_stays=None, max_chunks=None, chunk_size=250_000)`
 
 Extract eICU cohort and events with chunked streaming for large tables.
 
 ```python
-from physiograph.etl import extract_eicu
+from physiograph.etl import AuditLogger, extract_eicu
 
-result = extract_eicu(Path("/eicu"), config)
+audit = AuditLogger(dataset="eicu")
+result = extract_eicu(Path("/eicu"), audit)
 ```
+
+### `extract_mimic_respiratory_procedure_events(root, cohort_df)`
+
+Targeted analysis-only extraction of direct MIMIC Invasive Ventilation
+(item 225792) and Intubation (item 224385) procedure starts. It reads only
+`d_items.csv` and `procedureevents.csv` and does not mutate cached ETL outputs.
 
 ### `classify_offset_minutes(offset_minutes)`
 
@@ -163,6 +182,157 @@ audit = AuditLogger(dataset="mimic")
 audit.log(step="cohort_extraction", row_count=17892, stay_count=17892)
 audit.log(step="event_extraction", row_count=500000, details="chartevents chunked")
 ```
+
+---
+
+## `physiograph.analysis`
+
+### `compute_early_decompensation_outcomes(events_df, cohort_df, horizons=(12, 24))`
+
+Derive source-aware post-landmark lactate, VIS, pressor-initiation, MCS, death,
+creatinine/KDIGO, hepatic, platelet, assay-matched troponin, and urine-output outcomes. Predictor values
+use `[0, 240)` minutes; minute 240 is baseline; outcomes use
+`(240, 240 + horizon]`. Last-value negatives require complete fixed-window
+follow-up; directly observed pre-censor events remain positive. Death/discharge
+and missing source tables are represented through availability columns rather
+than negative labels.
+
+### `fit_grouped_incremental_models(analysis_df, ...)`
+
+Fit clinical-only, absolute-SpO2, parsimonious-instability, and full-instability
+models separately in MIMIC and eICU, followed by a secondary pooled analysis.
+Uses patient-grouped stratified folds, fold-local preprocessing, OOF predictions,
+EPV labels, and patient-cluster bootstrap uncertainty.
+
+### `fit_external_transportability(analysis_df, ...)`
+
+Train the nested specifications in MIMIC and evaluate untouched eICU rows using
+the training-fitted preprocessing/model pipeline.
+
+### `build_endpoint_completeness_audit(analysis_df)`
+
+Report source availability, observed denominators, event/non-event counts, and
+adequacy/fragility for every endpoint and dataset.
+
+### `build_continuous_trajectory_associations(analysis_df, ...)`
+
+Report patient-cluster-bootstrap partial Spearman associations between the
+dynamics-only SpO2 score and worsening-oriented continuous lactate, VIS, urine,
+renal, hepatic, platelet, and assay-matched troponin trajectories after
+rank-adjustment for absolute SpO2, sampling density, missing bins, and longest gap.
+
+### `build_temporal_precedence(events_df, cohort_df, ...)`
+
+Report design-enforced pre-landmark instability ordering for every observed
+outcome event, including the complement with no prior instability. These outputs
+are descriptive and noncausal.
+
+### `run_epidemiology_analyses(analysis_df, events_df, cohort_df, ...)`
+
+Run stratified risk tables, Mantel-Haenszel estimates, dose-response,
+paired-ordering summaries, the hepatic specificity comparator, and the complete
+S1-S12 sensitivity matrix.
+
+### `run_lactate_episode_analyses(events_df, cohort_df, analysis_df=None, ...)`
+
+Run the v2.3 post-result mechanistic amendment. It anchors the first qualifying
+SpO2 transition, requires the lactate baseline to be strictly before that
+episode, evaluates acute 0–1 and delayed 1–8 hour windows plus localization and
+cumulative companions, audits informative lactate remeasurement, applies a
+remeasurement-weighted sensitivity, tests downward/upward and raw/binned
+definitions, and synthesizes harmonized MIMIC/eICU risk ratios. Returned tables
+include row-level primary records, paired and controlled summaries,
+observation-process and measurement-weighted diagnostics, phenotype strata,
+meta-analysis, and graded evidence. All outputs are exploratory and noncausal.
+
+### `refresh_lactate_episode_analysis(output_root, ...)`
+
+Validate immutable cached MIMIC/eICU artifacts and the fingerprinted SpO2
+analysis frame, regenerate only episode-anchored lactate tables, and atomically
+refresh their manifest fingerprints. This function cannot call raw extractors.
+The CLI wrapper is `scripts/refresh_lactate_episode_analysis.py`.
+
+### `run_multiorgan_episode_analyses(events_df, cohort_df, analysis_df=None, ...)`
+
+Run the post-result episode-anchored analysis for every registered
+decompensation endpoint. The primary binned ≥4-point absolute transition is
+tested over the complete frozen lag grid; five directional/resolution
+definitions are tested in endpoint-family focused windows. Outputs contain
+strict pre-episode baselines, first-next and worst-window labs, assay-matched
+troponin, incident support risk sets, VIS escalation, absolute and relative
+urine endpoints, conservative composites, observation-process diagnostics,
+IPW/GEE sensitivity, hierarchical q-values, meta-analysis, definitions,
+availability, and a one-row-per-focused-estimand key-results table.
+
+### `refresh_multiorgan_episode_analysis(output_root, ...)`
+
+Validate the fingerprinted MIMIC/eICU artifacts, reuse cached cohorts/events,
+and rebuild only the all-endpoint episode layer. It cannot call raw extractors.
+The CLI wrapper is `scripts/refresh_multiorgan_episode_analysis.py`.
+
+### `refresh_multiorgan_weighted_analysis(output_root)`
+
+Validate the committed focused records/effects/meta-analysis and recompute only
+the selection-weighted GEE, evidence summary, and key-results table. The CLI
+equivalent is `scripts/refresh_multiorgan_episode_analysis.py --weighted-only`.
+This path does not rebuild focused records or raw data.
+
+### `run_advanced_episode_inference(events_df, focused_records, key_results, cohort_df)`
+
+Run the v2.4 exploratory robustness layer from the already frozen primary
+episode anchors and focused endpoint grid. It constructs strictly pre-anchor
+multivariable physiology, exposure-overlap weights and full balance tables,
+cross-fitted endpoint-observation models, bounded binary TMLE with one-step
+AIPW diagnostics, continuous AIPW mean changes, eICU hospital-specific and
+Paule–Mandel/modified-HKSJ summaries, leave-one-hospital-out estimates, and
+support-qualified E-values. Concurrent anchor SpO2 is excluded from exposure
+propensity models and used only in observation/outcome models. Positive evidence
+flags require minimum event/non-event information, propensity and observation
+support, effective sample size, converged non-boundary targeting, and the
+relevant multiplicity threshold.
+
+### `refresh_advanced_episode_inference(output_root, ...)`
+
+Validate the fingerprinted cohort/event and all-endpoint focused-record
+artifacts, rerun only the advanced episode layer, atomically write its 12 output
+tables and refresh receipt, and synchronize the manifest. It cannot invoke raw
+extractors. The CLI wrapper is
+`scripts/refresh_advanced_episode_inference.py`.
+
+### `run_locked_external_replication(events_df, cohort_df, analysis_df=None, ...)`
+
+Run the unchanged ≥4-point binned SpO2 episode and 4–12-hour ventilation test
+in the harmonized MIMIC/eICU HF cohort. The runner cleans the eICU treatment
+proxy, recomputes baseline ventilation risk, analyzes every registered endpoint
+under the same lag, and returns design, cohort, endpoint-cleaning, conventional,
+weighted, meta-analysis, and summary audit tables.
+
+### `refresh_locked_external_validation(output_root, mimic_root, ...)`
+
+Validate immutable cached ETL artifacts, scan only MIMIC `d_items.csv` and
+`procedureevents.csv` for direct ventilation/intubation starts, run the locked
+analysis and optional complete advanced suite, atomically replace its outputs,
+and refresh the manifest. The CLI wrapper is
+`scripts/refresh_locked_external_validation.py`.
+
+### `refresh_endpoint_conclusions(output_root)`
+
+Validate the committed completeness, model, epidemiology, sensitivity, and
+transportability summaries; rebuild only `endpoint_conclusion_matrix.csv`; and
+atomically refresh its manifest fingerprint. Predictive evidence is ineligible
+for a suggestive or robust classification below 10 events per transformed
+feature, and external evidence must have been trained in the dataset whose
+claim it is validating. The CLI wrapper is
+`scripts/refresh_endpoint_conclusions.py`; it cannot invoke raw extractors.
+
+### `run_physiograph_colab(..., analysis_only=False)`
+
+Set `analysis_only=True` with `build_new=False` to reuse schema- and
+fingerprint-verified `cohort.csv`, `events.csv`, `features.csv`, and `labels.csv`
+after analysis-code changes. This bypasses only the ETL code-hash equality gate;
+artifact SHA-256, size, schema, build parameters, and source-fingerprint checks
+remain enforced. It regenerates the complete analysis/output layer without
+rescanning raw MIMIC/eICU source tables.
 
 ---
 
@@ -510,4 +680,46 @@ from physiograph.constants import (
     PHYSIOGRAPH_HIDDEN_DIM,   # 128
     PHYSIOGRAPH_HEADS,         # 8
 )
+```
+
+---
+
+## Head-to-head biomarker benchmark
+
+### `run_biomarker_benchmark(events, analysis_frame, n_splits=5, bootstrap_repetitions=300)`
+
+Builds leakage-safe `[0,240)`-minute SpO2, SBP, lactate, and Kapur-CSWG SCAI
+comparators, then evaluates 11 nested specifications on identical
+outcome-observed rows and patient-grouped folds. Outputs include internal OOF
+performance, paired patient-cluster-bootstrap contrasts, modified-Poisson
+associations, decision curves, marker coverage, SCAI-stage audits, and
+bidirectional MIMIC/eICU transportability.
+
+The SCAI variable is a documented EHR operationalization of Kapur et al., JACC
+2022 (doi:10.1016/j.jacc.2022.04.049), not clinician adjudication. Missing
+normal components are unclassified rather than imputed to stage A; stages are
+flagged as lower bounds when OHCA is unavailable.
+
+```python
+from physiograph.analysis import run_biomarker_benchmark
+
+tables = run_biomarker_benchmark(
+    events,
+    analysis_frame,
+    n_splits=5,
+    bootstrap_repetitions=300,
+)
+```
+
+### `refresh_biomarker_benchmark(output_root, bootstrap_repetitions=300, n_splits=5)`
+
+Validates the committed analysis frame and MIMIC/eICU manifests, reuses cached
+events, and atomically refreshes only the comparator-analysis layer. It never
+rebuilds raw data and fails if project code changes during execution.
+
+```bash
+python scripts/refresh_biomarker_benchmark.py \
+  --output-root /path/to/committed/run \
+  --bootstrap-repetitions 300 \
+  --n-splits 5
 ```

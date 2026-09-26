@@ -1,0 +1,12 @@
+{
+  "protocol_sha256": "4e0b978408f42b1ca580563599bfbe994692058359a36e5821a43837480ee588",
+  "script_sha256": "21c5a371e6a896719cb37a782f624df140f8bebdcfca90d9f08b34ef7a47a598",
+  "support_pass": true,
+  "models_fitted": 2,
+  "positive_internal_validation": false,
+  "mimic_replication": false,
+  "mortality_accessed": false,
+  "causal_effect_identified": false,
+  "environment": "local",
+  "goal_complete": false
+}

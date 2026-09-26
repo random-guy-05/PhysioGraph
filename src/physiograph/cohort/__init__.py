@@ -1,15 +1,14 @@
 """Cohort selection and patient filtering for clinical datasets.
 
-This sub-package provides cohort builders for MIMIC-III and eICU that
-reproduce the HF-shock phenotype definitions from the original
-PhysioGraph notebooks, along with contract validators for data
-integrity checks at pipeline boundaries.
+This sub-package provides production-aligned cohort builders for MIMIC-IV and
+eICU, along with contract validators for data integrity checks at pipeline
+boundaries.
 
 Quick start::
 
     from physiograph.cohort import build_cohort, MIMICCohortBuilder, EICUCohortBuilder
 
-    # MIMIC-III
+    # MIMIC-IV
     result = build_cohort("mimic", data_root="/path/to/mimic/csvs")
     print(result.cohort_df.shape, len(result.valid_stay_ids))
 
@@ -40,6 +39,11 @@ from physiograph.cohort.validators import (
     assert_no_nulls_in_required,
     assert_required_columns,
 )
+from physiograph.cohort.harmonization import (
+    HARMONIZED_HF_PHENOTYPE,
+    filter_to_harmonized_cohort,
+    harmonize_hf_cohort,
+)
 
 __all__ = [
     # Builders
@@ -63,6 +67,9 @@ __all__ = [
     "assert_cohort_size",
     "assert_flag_values",
     "assert_no_nulls_in_required",
+    "HARMONIZED_HF_PHENOTYPE",
+    "filter_to_harmonized_cohort",
+    "harmonize_hf_cohort",
 ]
 
 

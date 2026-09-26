@@ -1,0 +1,62 @@
+[
+  {
+    "dataset": "eicu",
+    "original_dynamics_encounters": 11452,
+    "complete_panels": 4807,
+    "preceding_complete_gas_encounters": 1767,
+    "preceding_gas_available_by_icu_admission": 1671,
+    "first_four_hour_gas_encounters": 1997,
+    "preceding_cells": [
+      {
+        "exposed": 0,
+        "respiratory_alkalemia": false,
+        "encounters": 1016
+      },
+      {
+        "exposed": 0,
+        "respiratory_alkalemia": true,
+        "encounters": 66
+      },
+      {
+        "exposed": 1,
+        "respiratory_alkalemia": false,
+        "encounters": 634
+      },
+      {
+        "exposed": 1,
+        "respiratory_alkalemia": true,
+        "encounters": 51
+      }
+    ]
+  },
+  {
+    "dataset": "mimic",
+    "original_dynamics_encounters": 4711,
+    "complete_panels": 4285,
+    "preceding_complete_gas_encounters": 757,
+    "preceding_gas_available_by_icu_admission": 717,
+    "first_four_hour_gas_encounters": 1580,
+    "preceding_cells": [
+      {
+        "exposed": 0,
+        "respiratory_alkalemia": false,
+        "encounters": 559
+      },
+      {
+        "exposed": 0,
+        "respiratory_alkalemia": true,
+        "encounters": 52
+      },
+      {
+        "exposed": 1,
+        "respiratory_alkalemia": false,
+        "encounters": 133
+      },
+      {
+        "exposed": 1,
+        "respiratory_alkalemia": true,
+        "encounters": 13
+      }
+    ]
+  }
+]

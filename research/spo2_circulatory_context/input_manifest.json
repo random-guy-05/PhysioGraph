@@ -1,0 +1,80 @@
+{
+  "eICU/patient": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/patient.csv",
+    "bytes": 48277161,
+    "mtime_ns": 1773720137963999986,
+    "sha256": "cc022f6bb49ae477f20aace2540480a7b1933a0698860156b9b496d66a00b2d5"
+  },
+  "eICU/diagnosis": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/diagnosis.csv",
+    "bytes": 283370401,
+    "mtime_ns": 1773720141723999977,
+    "sha256": "84957a9658fc0ee2a22ceb8368a0387df07275da77c4686b431e723cc0767a50"
+  },
+  "eICU/admissionDx": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/admissionDx.csv",
+    "bytes": 92417055,
+    "mtime_ns": 1773720139358000040,
+    "sha256": "becae4e984e40dd38d4b4709964be5e8ab55311c42cf8d4173e7deac0646e02e"
+  },
+  "MIMIC/patients": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/patients.csv",
+    "bytes": 12051137,
+    "mtime_ns": 1773614603003000020,
+    "sha256": "11df8b065f89410e894ab72857c1ce5c431f6f5d675e1541f132d49122f7d756"
+  },
+  "MIMIC/admissions": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/admissions.csv",
+    "bytes": 94156458,
+    "mtime_ns": 1773614703263999938,
+    "sha256": "9592fb5d355321801f3cb5789a20921d7394fde2ade5325832ea527318056d63"
+  },
+  "MIMIC/icustays": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/icustays.csv",
+    "bytes": 14686092,
+    "mtime_ns": 1776552649673000097,
+    "sha256": "3b16bc6cc9b93c7f20a040ba5ec38d00951f42475bf5157aea7ffde052676ef0"
+  },
+  "MIMIC/diagnoses_icd": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/diagnoses_icd.csv",
+    "bytes": 181408906,
+    "mtime_ns": 1773614196641999959,
+    "sha256": "0fb9d03a4466bdb19ddc5f60360251ce22e30413af809bb4a635b929733af575"
+  },
+  "eICU/vitalPeriodic": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/vitalPeriodic.csv",
+    "bytes": 7938281236,
+    "mtime_ns": 1773720228322000026,
+    "sha256": "09818ad685112afb5e227ec495a1ecadc2d93aad1ae937875b469ac20f321744"
+  },
+  "MIMIC/chartevents": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/chartevents.csv",
+    "bytes": 41935806083,
+    "mtime_ns": 1773621199698999881,
+    "sha256": "0d1932df345c2d135ce715df1f6afa603f7124894a5aa8c6ba56aa6ee02160d4"
+  },
+  "MIMIC/d_items": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_items.csv",
+    "bytes": 375225,
+    "mtime_ns": 1773614198105000019,
+    "sha256": "2e8987d8ac98e48358e582708f953710f50bdea7fb4a8bb427acb364a7212894"
+  },
+  "eICU/lab": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/lab.csv",
+    "bytes": 2364239214,
+    "mtime_ns": 1773720147757999897,
+    "sha256": "9a3c76e884b42b0610a1d06fd8941a62fe3a8d3430b1be137fd441538a7db4ce"
+  },
+  "MIMIC/labevents": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/labevents.csv",
+    "bytes": 18402851720,
+    "mtime_ns": 1773622056280999898,
+    "sha256": "dc4deb75491acb09b0c589b88d36e72f6e6db7676152510d83221aa8133dff54"
+  },
+  "MIMIC/d_labitems": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_labitems.csv",
+    "bytes": 64663,
+    "mtime_ns": 1773614196236000061,
+    "sha256": "f3182dbace857d8cd3439ebbd2095d3128c1751cb42b12e3e4208bdc4b363567"
+  }
+}

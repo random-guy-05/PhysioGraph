@@ -1,0 +1,79 @@
+Executing notebook cell 33
+
+Executing notebook cell 34
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell34", line 55 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1705 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1719 in <module>
+retrieving actual values for audited missing-ID laboratories running
+[
+  {
+    "family": "cbc_hemoglobin",
+    "records": 2681,
+    "encounters": 2506
+  },
+  {
+    "family": "troponin",
+    "records": 2009,
+    "encounters": 1821
+  }
+]
+restoration complete; unchanged feasibility algorithms pending running
+
+Executing notebook cell 35
+hemoglobin normalization and endpoint availability running
+[
+  {
+    "dataset": "eicu",
+    "passes_minimal_feasibility": true,
+    "groups": [
+      {
+        "exposed": 0,
+        "eligible": 7143,
+        "pre_icu_hemoglobin": 2445,
+        "paired_endpoint_observed": 409.0,
+        "result_entered_after_icu_admission": 151.0
+      },
+      {
+        "exposed": 1,
+        "eligible": 4309,
+        "pre_icu_hemoglobin": 1539,
+        "paired_endpoint_observed": 250.0,
+        "result_entered_after_icu_admission": 69.0
+      }
+    ]
+  },
+  {
+    "dataset": "mimic",
+    "passes_minimal_feasibility": true,
+    "groups": [
+      {
+        "exposed": 0,
+        "eligible": 3313,
+        "pre_icu_hemoglobin": 2387,
+        "paired_endpoint_observed": 340.0,
+        "result_entered_after_icu_admission": 91.0
+      },
+      {
+        "exposed": 1,
+        "eligible": 1398,
+        "pre_icu_hemoglobin": 1063,
+        "paired_endpoint_observed": 176.0,
+        "result_entered_after_icu_admission": 43.0
+      }
+    ]
+  }
+]
+hemoglobin susceptibility feasibility complete
+hemoglobin support complete; injury-ordering support pending running
+
+Executing notebook cell 36
+serial troponin trajectory support running
+dataset  episodes_with_hospital_boundary  any_pre_episode_assay  serial_pre_episode  complete_pre_post_trajectories  passes_count_gate
+   eicu                             4309                   1326                 224                             133               True
+  mimic                             1398                    608                 132                              76              False
+biological-ordering feasibility complete
+linkage-only amended feasibility complete
+
+Locally executed selected notebook cells: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb

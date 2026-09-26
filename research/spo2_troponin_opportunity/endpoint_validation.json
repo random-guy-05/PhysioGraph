@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "assay_timestamp_samples": 3115,
+    "distinct_timestamp_samples": 3115,
+    "native_labels_and_ratios_match": true,
+    "decimal_legacy_label_differences": 4,
+    "independent_sample_join_and_timestamp_outcomes_match": true
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "assay_timestamp_samples": 3614,
+    "distinct_timestamp_samples": 3614,
+    "native_labels_and_ratios_match": true,
+    "decimal_legacy_label_differences": 3,
+    "independent_sample_join_and_timestamp_outcomes_match": true
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "assay_timestamp_samples": 1014,
+    "distinct_timestamp_samples": 1014,
+    "native_labels_and_ratios_match": true,
+    "decimal_legacy_label_differences": 1,
+    "independent_sample_join_and_timestamp_outcomes_match": true
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "assay_timestamp_samples": 1335,
+    "distinct_timestamp_samples": 1335,
+    "native_labels_and_ratios_match": true,
+    "decimal_legacy_label_differences": 3,
+    "independent_sample_join_and_timestamp_outcomes_match": true
+  }
+]

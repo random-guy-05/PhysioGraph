@@ -1,0 +1,11 @@
+# Pre-result critique of the paired ECG discriminator
+
+Recorded while the official machine-measurement download was running, after metadata pairing but before measurement-quality counts or outcome changes were available. This does not replace the frozen primary protocol or alter its cohort, thresholds, outcomes or tests.
+
+The operational JTcF measure cannot be treated as a direct measurement of repolarization biology. In a [controlled pacing study of 71 people with bundle branch block](https://pubmed.ncbi.nlm.nih.gov/22816546/), all assessed QT/JT correction formulas retained heart-rate dependence. The [full primary report](https://pmc.ncbi.nlm.nih.gov/articles/PMC6932684/) found Fridericia among the more rate-dependent corrections. A [larger earlier study](https://pubmed.ncbi.nlm.nih.gov/15081446/) specifically identified residual rate dependence for Bazett-corrected QT minus QRS; that quantitative result cannot be transferred directly to our Fridericia measure, but it reinforces that subtraction does not itself validate the correction.
+
+The frozen primary adjusts for baseline RR, not follow-up RR or individualized QT/RR hysteresis. Consequently a positive contrast might reflect rate-correction behavior. In addition, the specificity outcome shares QRS algebraically with JTcF: shortening QRS can increase both JTcF and JTcF-minus-QRS without increasing QTcF. This is a component comparison, not an independent negative-control test or proof of injury.
+
+Excluding machine-flagged atrial fibrillation/flutter or pacing on either ECG conditions on follow-up rhythm. That may remove clinically relevant events and create selection bias. A null in this selected group cannot rule out arrhythmic vulnerability in the full cohort. Machine rhythm text, lead placement, diagnostic-testing decisions, medications and electrolytes remain unvalidated explanations.
+
+No result from this screen, even one passing its numerical prioritization gate, establishes a biological mechanism. Before promotion, the existing mandatory waveform and independent-replication work must additionally demonstrate that the apparent effect survives explicit rate-dependence and interval-component scrutiny. A failed primary will not be rescued by trying alternative correction formulas. This critique is preserved regardless of the subsequent result.

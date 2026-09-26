@@ -1,0 +1,25 @@
+{
+  "venous_o2_feasible": false,
+  "physiology_gate_passed": false,
+  "injury_gate_passed": false,
+  "low_output_gate_passed": false,
+  "prediction_gate_passed": false,
+  "cross_database_replication": false,
+  "biological_claim_ready": false,
+  "paradigm_shifting_result": false,
+  "recommended_action": "run_predefined_fallback",
+  "phase_reached": "phase_a_feasibility",
+  "effect_estimates_inspected": false,
+  "strategy": {
+    "venous_o2_feasible": false,
+    "analysis_tier": "inadequate",
+    "strategy": "fallback",
+    "primary_measurement": null,
+    "same_measure_support": false,
+    "reason": "insufficient_outcome_blind_pre_post_support"
+  },
+  "protocol_sha256": "4bc9071e7c199366663b15a433a1ad24c5055039a75cf103129de2e0f628fea1",
+  "execution_environment": "local",
+  "phase_b_protocol_frozen": false,
+  "predefined_fallback_executed": false
+}

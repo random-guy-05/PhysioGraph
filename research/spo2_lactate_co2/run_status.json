@@ -1,0 +1,1 @@
+{"status": "failed", "cell": 155, "error_type": "ParserException", "message": "Parser Error: syntax error at or near \"value\"\n\nLINE 5: ... coalesce(nullif(us,''),ui)='kpa' THEN 7.50061683 ELSE 1 END value\n                                                                        ^"}

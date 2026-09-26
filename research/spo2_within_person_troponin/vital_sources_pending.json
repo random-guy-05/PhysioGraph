@@ -1,0 +1,23 @@
+{
+  "prior": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_context.duckdb",
+    "sha256": "7902a93985c6024dfb38a1a7555c54418492bfb3ebf4b93104a78148316d3352"
+  },
+  "raw": {
+    "MIMIC/d_items": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_items.csv",
+      "bytes": 375225,
+      "mtime_ns": 1773614198105000019
+    },
+    "eICU/vitalPeriodic": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/vitalPeriodic.csv",
+      "bytes": 7938281236,
+      "mtime_ns": 1773720228322000026
+    },
+    "MIMIC/chartevents": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/chartevents.csv",
+      "bytes": 41935806083,
+      "mtime_ns": 1773621199698999881
+    }
+  }
+}

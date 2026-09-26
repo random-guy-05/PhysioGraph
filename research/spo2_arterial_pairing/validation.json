@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "dataset": "eicu",
+      "source": "qualified_pao2",
+      "tolerance_minutes": 5,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "eicu",
+      "source": "qualified_pao2",
+      "tolerance_minutes": 10,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "eicu",
+      "source": "qualified_pao2",
+      "tolerance_minutes": 15,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "eicu",
+      "source": "raw_pao2_timing_ceiling",
+      "tolerance_minutes": 5,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "eicu",
+      "source": "raw_pao2_timing_ceiling",
+      "tolerance_minutes": 10,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "eicu",
+      "source": "raw_pao2_timing_ceiling",
+      "tolerance_minutes": 15,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "mimic",
+      "source": "qualified_pao2",
+      "tolerance_minutes": 5,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "mimic",
+      "source": "qualified_pao2",
+      "tolerance_minutes": 10,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "mimic",
+      "source": "qualified_pao2",
+      "tolerance_minutes": 15,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "mimic",
+      "source": "raw_pao2_timing_ceiling",
+      "tolerance_minutes": 5,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "mimic",
+      "source": "raw_pao2_timing_ceiling",
+      "tolerance_minutes": 10,
+      "exact_sql_python_flags_and_sets": true
+    },
+    {
+      "dataset": "mimic",
+      "source": "raw_pao2_timing_ceiling",
+      "tolerance_minutes": 15,
+      "exact_sql_python_flags_and_sets": true
+    }
+  ],
+  "original_exposure_sets_match": true,
+  "independent_episode_times_match": true,
+  "source_hashes_unchanged": true
+}

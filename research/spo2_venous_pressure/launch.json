@@ -1,0 +1,26 @@
+{
+  "pid": 16669,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "nbformat",
+    "python",
+    "-u",
+    "scripts/build_biological_notebook.py",
+    "--venous-pressure-only"
+  ],
+  "utc": "2026-09-05T11:18:05.157240+00:00",
+  "builder_sha256": "404e668ece0f553b21487ae31caa886d3801cb349b8ada6d9af0f4f93160eddf",
+  "module_sha256": "9c185912eb32520a26bf3ba467b640ba1054e2d9f601ef7cc7bae988c69eb775",
+  "prelaunch_note": "Outer string delimiter syntax corrected before any extraction or plan lock."
+}

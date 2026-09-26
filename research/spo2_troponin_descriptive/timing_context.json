@@ -1,0 +1,48 @@
+[
+  {
+    "dataset": "eicu",
+    "n": 133,
+    "last_pre_result_available_by_episode": 98,
+    "last_pre_availability_missing": 0,
+    "timing_quantiles": {
+      "pre_span_minutes": {
+        "0.25": 228.0,
+        "0.5": 322.0,
+        "0.75": 414.0
+      },
+      "pre_last_to_episode_minutes": {
+        "0.25": 43.0,
+        "0.5": 83.5,
+        "0.75": 160.0
+      },
+      "first_delayed_after_episode_minutes": {
+        "0.25": 235.0,
+        "0.5": 305.0,
+        "0.75": 407.0
+      }
+    }
+  },
+  {
+    "dataset": "mimic",
+    "n": 76,
+    "last_pre_result_available_by_episode": 41,
+    "last_pre_availability_missing": 0,
+    "timing_quantiles": {
+      "pre_span_minutes": {
+        "0.25": 213.25,
+        "0.5": 300.0,
+        "0.75": 402.0
+      },
+      "pre_last_to_episode_minutes": {
+        "0.25": 39.75,
+        "0.5": 88.75,
+        "0.75": 139.25
+      },
+      "first_delayed_after_episode_minutes": {
+        "0.25": 242.87500000000003,
+        "0.5": 336.5,
+        "0.75": 511.00000000000006
+      }
+    }
+  }
+]

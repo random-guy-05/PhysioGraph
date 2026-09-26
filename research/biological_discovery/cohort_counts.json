@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "eicu",
+    "n": 11596,
+    "patients": 10281,
+    "encounters": 11596
+  },
+  {
+    "dataset": "mimic",
+    "n": 16659,
+    "patients": 12772,
+    "encounters": 16659
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "sql_python_patient_hospital_join_matches": true,
+  "independent_sql_sha_assignment_matches": true,
+  "patients_and_hospitals_disjoint": true
+}

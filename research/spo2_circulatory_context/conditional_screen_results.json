@@ -1,0 +1,42 @@
+[
+  {
+    "dataset": "eicu",
+    "endpoint": "hospital_mortality",
+    "stage": "conditional association screen",
+    "causal": false,
+    "treatment_adjusted": false,
+    "biological_discovery": false,
+    "status": "not fitted",
+    "reason": "frozen count gate failed"
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_12h",
+    "stage": "conditional association screen",
+    "causal": false,
+    "treatment_adjusted": false,
+    "biological_discovery": false,
+    "status": "not fitted",
+    "reason": "frozen count gate failed"
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "hospital_mortality",
+    "stage": "conditional association screen",
+    "causal": false,
+    "treatment_adjusted": false,
+    "biological_discovery": false,
+    "status": "not fitted",
+    "reason": "frozen count gate failed"
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_rise_12h",
+    "stage": "conditional association screen",
+    "causal": false,
+    "treatment_adjusted": false,
+    "biological_discovery": false,
+    "status": "not fitted",
+    "reason": "frozen count gate failed"
+  }
+]

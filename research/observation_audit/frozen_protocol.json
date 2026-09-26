@@ -1,0 +1,21 @@
+{
+  "config": {
+    "seed": 20260905,
+    "cadences_seconds": [
+      1,
+      5,
+      15,
+      30,
+      60
+    ],
+    "lag_seconds": 60,
+    "min_pairs": 3,
+    "min_coverage": 0.9,
+    "bootstrap": 2000,
+    "artificial_labels": 500,
+    "simulation_replicates": 1000,
+    "protocol": "observation_policy_v1"
+  },
+  "protocol_sha256": "ede79098a322f55def2b689ab671e4e257df8a0b78ee66bdff5550d2c430dabb",
+  "frozen_utc": "2026-09-05T02:04:45.753334+00:00"
+}

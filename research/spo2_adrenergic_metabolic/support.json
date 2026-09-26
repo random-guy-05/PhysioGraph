@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "eicu",
+    "stage": "raw_potassium",
+    "people": 288,
+    "exposed": 109,
+    "unexposed": 179,
+    "hospitals": 75,
+    "gate": true
+  },
+  {
+    "dataset": "eicu",
+    "stage": "qualified_joint_panel",
+    "people": 152,
+    "exposed": 56,
+    "unexposed": 96,
+    "hospitals": 61,
+    "gate": true
+  },
+  {
+    "dataset": "mimic",
+    "stage": "raw_potassium",
+    "people": 183,
+    "exposed": 58,
+    "unexposed": 125,
+    "hospitals": null,
+    "gate": true
+  },
+  {
+    "dataset": "mimic",
+    "stage": "qualified_joint_panel",
+    "people": 134,
+    "exposed": 37,
+    "unexposed": 97,
+    "hospitals": null,
+    "gate": true
+  }
+]

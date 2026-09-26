@@ -24,6 +24,7 @@ from physiograph.etl.shared import (
     OUTCOME_HOURS,
     TIME_STEP_MINUTES,
     SourceExtraction,
+    _iter_csv_chunks,
     build_event_frame,
     classify_offset_minutes,
     contains_any_token,
@@ -34,6 +35,68 @@ from physiograph.etl.shared import (
     sanitize_events,
     series_contains_any,
 )
+from physiograph.pipeline import derive_labels
+
+
+def test_explicit_landmark_pressor_status_overrides_earlier_start():
+    cohort = pd.DataFrame(
+        {
+            "dataset": ["mimic"],
+            "stay_id": [1],
+            "person_id": [10],
+            "age": [60],
+            "is_male": [1],
+            "cohort_hf_flag": [1],
+            "shock_icd_flag": [0],
+            "death_offset_minutes": [np.nan],
+            "followup_end_offset_minutes": [2000],
+        }
+    )
+    events = pd.DataFrame(
+        {
+            "stay_id": [1, 1],
+            "concept": ["pressor", "pressor_active"],
+            "offset_minutes": [100.0, 240.0],
+            "value_numeric": [1.0, 0.0],
+            "is_intervention": [1, 0],
+            "event_family": ["intervention", "intervention_status"],
+            "window": ["observation", "landmark"],
+        }
+    )
+    updated, _ = derive_labels(cohort, events)
+    assert updated.iloc[0]["baseline_vasoactive_flag"] == 0
+    assert updated.iloc[0]["baseline_vasoactive_method"] == (
+        "interval_active_at_minute_240"
+    )
+
+
+def test_explicit_landmark_mcs_status_overrides_ended_early_support():
+    cohort = pd.DataFrame(
+        {
+            "dataset": ["mimic"],
+            "stay_id": [1],
+            "person_id": [10],
+            "age": [60],
+            "is_male": [1],
+            "cohort_hf_flag": [1],
+            "shock_icd_flag": [0],
+            "death_offset_minutes": [np.nan],
+            "followup_end_offset_minutes": [2000],
+        }
+    )
+    events = pd.DataFrame(
+        {
+            "stay_id": [1, 1],
+            "concept": ["mcs", "mcs_active"],
+            "offset_minutes": [100.0, 240.0],
+            "value_numeric": [1.0, 0.0],
+            "is_intervention": [1, 0],
+            "event_family": ["intervention", "intervention_status"],
+            "window": ["observation", "landmark"],
+        }
+    )
+    updated, _ = derive_labels(cohort, events)
+    assert updated.iloc[0]["baseline_mcs_flag"] == 0
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -49,6 +112,465 @@ def test_chunk_size():
     assert MIMIC_CHUNK == 250_000, f"MIMIC CHUNK_SIZE={MIMIC_CHUNK}, expected 250000"
     assert EICU_CHUNK == 250_000, f"eICU CHUNK_SIZE={EICU_CHUNK}, expected 250000"
     assert MIMIC_CHUNK == EICU_CHUNK, "MIMIC and eICU CHUNK_SIZE must match"
+
+
+def test_chunk_streamer_disables_nested_low_memory_inference(monkeypatch, tmp_path):
+    """Mixed clinical CSV values must not trigger pandas' sub-chunk parser bug."""
+    captured = {}
+
+    def fake_read_csv(path, **kwargs):
+        captured.update(kwargs)
+        return iter([pd.DataFrame({"value": ["1", "ventilator"]})])
+
+    monkeypatch.setattr(pd, "read_csv", fake_read_csv)
+    chunks = list(
+        _iter_csv_chunks(
+            tmp_path / "mixed.csv",
+            usecols=["value"],
+            chunksize=10,
+            max_chunks=None,
+        )
+    )
+    assert captured["low_memory"] is False
+    assert len(chunks) == 1
+
+
+def test_mimic_lab_dictionary_discovers_new_release_itemids(tmp_path):
+    from physiograph.etl.mimic_extractor import _mimic_lab_item_map
+
+    pd.DataFrame(
+        {
+            "itemid": [50813, 52442, 53154, 52024, 52546, 52642, 53089, 53189, 99999],
+            "label": [
+                "Lactate",
+                "Lactate",
+                "Lactate",
+                "Creatinine, Whole Blood",
+                "Creatinine",
+                "Troponin I",
+                "Bilirubin, Total",
+                "Platelet Count",
+                "Creatinine, Urine",
+            ],
+            "fluid": [
+                "Blood",
+                "Blood",
+                "Blood",
+                "Blood",
+                "Blood",
+                "Blood",
+                "Blood",
+                "Blood",
+                "Urine",
+            ],
+        }
+    ).to_csv(tmp_path / "d_labitems.csv", index=False)
+    mapping = _mimic_lab_item_map(tmp_path)
+    assert mapping[52442] == "lactate"
+    assert mapping[53154] == "lactate"
+    assert mapping[52546] == "creatinine"
+    assert mapping[52024] == "creatinine"
+    assert mapping[52642] == "troponin_i"
+    assert mapping[53089] == "bilirubin_total"
+    assert mapping[53189] == "platelets"
+    assert 99999 not in mapping
+
+
+def test_mimic_dictionary_maps_only_operational_mcs_chart_context(tmp_path):
+    from physiograph.etl.mimic_extractor import _mimic_chartevent_item_map
+
+    pd.DataFrame(
+        {
+            "itemid": [900001, 900002, 900003, 900004, 900005, 900006],
+            "label": [
+                "Flow (LVAD)",
+                "Flow (RVAD)",
+                "Flow Rate (Impella)",
+                "Impella Line Discontinued",
+                "FiO2 (ECMO)",
+                "Inspired O2 Fraction",
+            ],
+            "linksto": ["chartevents"] * 6,
+            "category": [
+                "Centrimag",
+                "Centrimag",
+                "Impella",
+                "Impella",
+                "ECMO",
+                "Respiratory",
+            ],
+        }
+    ).to_csv(tmp_path / "d_items.csv", index=False)
+    mapping = _mimic_chartevent_item_map(tmp_path)
+    assert mapping[900001] == "mcs_context_lvad"
+    assert mapping[900002] == "mcs_context_rvad"
+    assert mapping[900003] == "mcs_context_impella"
+    assert 900004 not in mapping
+    assert mapping[900005] == "mcs_context_ecmo"
+    assert mapping[900006] == "fio2"
+
+
+def test_mimic_operational_mcs_context_extends_through_outcome_window(tmp_path):
+    from physiograph.etl.mimic_extractor import _stream_mimic_measurement_events
+
+    pd.DataFrame(
+        {
+            "stay_id": [1, 1],
+            "itemid": [900001, 900002],
+            "charttime": ["2020-01-01 05:00:00", "2020-01-01 05:00:00"],
+            "valuenum": [80.0, 4.5],
+            "value": ["80", "4.5"],
+            "valueuom": ["bpm", "L/min"],
+            "warning": [0, 0],
+        }
+    ).to_csv(tmp_path / "chartevents.csv", index=False)
+    events, _ = _stream_mimic_measurement_events(
+        tmp_path,
+        file_name="chartevents.csv",
+        source_table="chartevents.csv",
+        item_map={900001: "hr", 900002: "mcs_context_lvad"},
+        event_family="vital",
+        cohort_ids=np.array([1]),
+        anchors=pd.DataFrame(
+            {"stay_id": [1], "anchor_time": pd.to_datetime(["2020-01-01"])}
+        ),
+        id_column="stay_id",
+        offset_min=0.0,
+        offset_max=240.0,
+        upper_inclusive=False,
+        extended_context_concepts={"mcs_context_lvad"},
+        chunk_size=10,
+        max_chunks=None,
+    )
+    assert set(events["concept"]) == {"mcs_context_lvad"}
+    assert events.iloc[0]["offset_minutes"] == 300
+
+
+def test_mimic_pressor_restart_grace_avoids_false_reinitiation(tmp_path):
+    from physiograph.etl.mimic_extractor import _extract_mimic_pressor_events
+
+    pd.DataFrame(
+        {
+            "stay_id": [1, 1, 2, 2],
+            "starttime": [
+                "2020-01-01 00:00:00",
+                "2020-01-01 00:13:00",
+                "2020-01-01 00:00:00",
+                "2020-01-01 00:16:00",
+            ],
+            "endtime": [
+                "2020-01-01 00:10:00",
+                "2020-01-01 00:20:00",
+                "2020-01-01 00:10:00",
+                "2020-01-01 00:20:00",
+            ],
+            "itemid": [221906, 221906, 221906, 221906],
+            "rate": [0.1, 0.1, 0.1, 0.1],
+            "rateuom": ["mcg/kg/min"] * 4,
+            "patientweight": [80.0] * 4,
+        }
+    ).to_csv(tmp_path / "inputevents.csv", index=False)
+    anchors = pd.DataFrame(
+        {
+            "stay_id": [1, 2],
+            "anchor_time": pd.to_datetime(["2020-01-01", "2020-01-01"]),
+        }
+    )
+    events, _ = _extract_mimic_pressor_events(
+        tmp_path,
+        np.array([1, 2]),
+        anchors,
+        chunk_size=10,
+        max_chunks=None,
+    )
+    initiations = events.loc[events["concept"].eq("pressor_initiation")]
+    assert initiations.loc[initiations["stay_id"].eq(1), "offset_minutes"].tolist() == [0.0]
+    assert initiations.loc[initiations["stay_id"].eq(2), "offset_minutes"].tolist() == [0.0, 16.0]
+
+
+def test_eicu_pressor_trade_names_are_not_silently_missed(tmp_path):
+    from physiograph.etl.eicu_extractor import _stream_eicu_infusion_events
+
+    pd.DataFrame(
+        {
+            "patientunitstayid": [1, 1, 1, 1],
+            "infusionoffset": [100, 200, 300, 400],
+            "drugname": [
+                "Levophed (mcg/min)",
+                "Neo-Synephrine (mcg/min)",
+                "Dobutrex (mcg/kg/min)",
+                "Primacore (mcg/kg/min)",
+            ],
+            "drugrate": [2.0, 3.0, 4.0, 0.5],
+            "infusionrate": [np.nan] * 4,
+        }
+    ).to_csv(tmp_path / "infusionDrug.csv", index=False)
+    events = _stream_eicu_infusion_events(
+        tmp_path,
+        [1],
+        chunk_size=10,
+        max_chunks=None,
+    )
+    pressors = events.loc[events["concept"].eq("pressor")]
+    assert len(pressors) == 4
+    assert set(pressors["raw_name"]) == {
+        "Levophed (mcg/min)",
+        "Neo-Synephrine (mcg/min)",
+        "Dobutrex (mcg/kg/min)",
+        "Primacore (mcg/kg/min)",
+    }
+
+
+def test_eicu_mounted_lab_aliases_are_extracted(tmp_path):
+    from physiograph.etl.eicu_extractor import _stream_eicu_lab_events
+
+    names = ["platelets x 1000", "pt - inr", "troponin - i", "troponin - t"]
+    pd.DataFrame(
+        {
+            "patientunitstayid": [1] * 4,
+            "labresultoffset": [100, 110, 120, 130],
+            "labname": names,
+            "labresult": [200.0, 1.2, 0.1, 0.02],
+            "labmeasurenamesystem": [""] * 4,
+            "labmeasurenameinterface": [""] * 4,
+        }
+    ).to_csv(tmp_path / "lab.csv", index=False)
+    events = _stream_eicu_lab_events(
+        tmp_path,
+        [1],
+        chunk_size=10,
+        max_chunks=None,
+    )
+    assert set(events["concept"]) == {
+        "platelets",
+        "inr",
+        "troponin_i",
+        "troponin_t",
+    }
+
+
+def test_eicu_mcs_removal_is_not_misclassified_as_initiation(tmp_path):
+    from physiograph.etl.eicu_extractor import _load_eicu_treatment_events
+
+    pd.DataFrame(
+        {
+            "patientunitstayid": [1, 2],
+            "treatmentoffset": [300, 300],
+            "treatmentstring": [
+                "cardiovascular|non-operative procedures|intraaortic balloon pump removal",
+                "cardiovascular|non-operative procedures|intraaortic balloon pump",
+            ],
+        }
+    ).to_csv(tmp_path / "treatment.csv", index=False)
+    events = _load_eicu_treatment_events(
+        tmp_path,
+        [1, 2],
+        chunk_size=10,
+        max_chunks=None,
+    )
+    mcs = events.loc[events["concept"].eq("mcs")]
+    assert mcs["stay_id"].tolist() == [2]
+    assert mcs["value_text"].tolist() == ["iabp|first_documentation"]
+
+
+def test_eicu_dialysis_catheter_is_not_baseline_rrt_therapy(tmp_path):
+    from physiograph.etl.eicu_extractor import _load_eicu_treatment_events
+
+    pd.DataFrame(
+        {
+            "patientunitstayid": [1, 2],
+            "treatmentoffset": [30, 30],
+            "treatmentstring": [
+                "renal|dialysis|insertion of venous catheter for hemodialysis",
+                "renal|dialysis|C V V H D",
+            ],
+        }
+    ).to_csv(tmp_path / "treatment.csv", index=False)
+    events = _load_eicu_treatment_events(
+        tmp_path, [1, 2], chunk_size=10, max_chunks=None
+    )
+    rrt = events.loc[events["concept"].eq("rrt")]
+    assert rrt["stay_id"].tolist() == [2]
+
+
+def test_eicu_urine_excludes_occurrence_counts_and_mixed_stool(tmp_path):
+    from physiograph.etl.eicu_extractor import _stream_eicu_urine_output_events
+
+    pd.DataFrame(
+        {
+            "patientunitstayid": [1, 1, 1, 1],
+            "intakeoutputoffset": [60, 120, 180, 240],
+            "intakeoutputentryoffset": [60, 120, 180, 240],
+            "celllabel": [
+                "Urine",
+                "Urine Count",
+                "Urine Occurrence",
+                "Mixed Urine/Stool Volume",
+            ],
+            "cellpath": ["I&O|Output (ml)"] * 4,
+            "cellvaluenumeric": [100.0, 1.0, 1.0, 200.0],
+        }
+    ).to_csv(tmp_path / "intakeOutput.csv", index=False)
+    events = _stream_eicu_urine_output_events(
+        tmp_path,
+        [1],
+        chunk_size=10,
+        max_chunks=None,
+    )
+    assert events["value_numeric"].tolist() == [100.0]
+    assert events["raw_name"].tolist() == ["Urine"]
+
+
+def test_eicu_urine_uses_observation_offset_not_entry_offset(tmp_path):
+    from physiograph.etl.eicu_extractor import _stream_eicu_urine_output_events
+
+    pd.DataFrame(
+        {
+            "patientunitstayid": [1],
+            "intakeoutputoffset": [200],
+            "intakeoutputentryoffset": [300],
+            "celllabel": ["Urine"],
+            "cellpath": ["I&O|Output (ml)|Urine"],
+            "cellvaluenumeric": [100.0],
+        }
+    ).to_csv(tmp_path / "intakeOutput.csv", index=False)
+    events = _stream_eicu_urine_output_events(
+        tmp_path,
+        [1],
+        chunk_size=10,
+        max_chunks=None,
+    )
+    assert events.iloc[0]["offset_minutes"] == 200
+
+
+def test_eicu_uses_one_first_unit_anchor_per_hospital_encounter(tmp_path):
+    from physiograph.etl.eicu_extractor import (
+        EICU_COHORT_FLAG_COLUMNS,
+        EICU_PATIENT_COLUMNS,
+        _build_eicu_cohort,
+    )
+
+    base = {column: [pd.NA, pd.NA] for column in EICU_PATIENT_COLUMNS}
+    base.update(
+        {
+            "patientunitstayid": [100, 101],
+            "patienthealthsystemstayid": [50, 50],
+            "uniquepid": ["p1", "p1"],
+            "gender": ["Female", "Female"],
+            "age": [70, 70],
+            "unitvisitnumber": [1, 2],
+            "hospitaladmitoffset": [-60, -180],
+            "unitdischargeoffset": [2000, 1500],
+            "hospitaldischargeoffset": [4000, 4000],
+            "hospitaldischargeyear": [2015, 2015],
+            "admissionweight": [70, 70],
+        }
+    )
+    patients = pd.DataFrame(base)
+    flags = pd.DataFrame(
+        {
+            "stay_id": [100, 101],
+            "cohort_hf_flag": [0, 1],
+            "shock_icd_flag": [0, 0],
+            "cardiomyopathy_flag": [0, 0],
+            "acute_mi_flag": [0, 0],
+        }
+    )
+    cohort, ids = _build_eicu_cohort(
+        tmp_path,
+        patients,
+        flags,
+        AuditLogger(dataset="eicu"),
+        max_stays=None,
+    )
+    assert ids == [100]
+    assert cohort.iloc[0]["cohort_hf_flag"] == 1
+    assert cohort.iloc[0]["hospital_encounter_id"] == 50
+    assert set(EICU_COHORT_FLAG_COLUMNS).issuperset(
+        {"cohort_hf_flag", "shock_icd_flag"}
+    )
+
+
+def test_eicu_shock_cardiomyopathy_or_mi_never_substitutes_for_hf(tmp_path):
+    from physiograph.etl.eicu_extractor import (
+        EICU_PATIENT_COLUMNS,
+        _build_eicu_cohort,
+    )
+
+    base = {column: [pd.NA] * 3 for column in EICU_PATIENT_COLUMNS}
+    base.update(
+        {
+            "patientunitstayid": [100, 200, 300],
+            "patienthealthsystemstayid": [10, 20, 30],
+            "uniquepid": ["p1", "p2", "p3"],
+            "gender": ["Female", "Male", "Female"],
+            "age": [70, 70, 70],
+            "unitvisitnumber": [1, 1, 1],
+            "hospitaladmitoffset": [-60, -60, -60],
+            "unitdischargeoffset": [2000, 2000, 2000],
+            "hospitaldischargeoffset": [4000, 4000, 4000],
+            "hospitaldischargeyear": [2015, 2015, 2015],
+        }
+    )
+    flags = pd.DataFrame(
+        {
+            "stay_id": [100, 200, 300],
+            "cohort_hf_flag": [1, 0, 0],
+            "shock_icd_flag": [0, 1, 0],
+            "cardiomyopathy_flag": [0, 0, 1],
+            "acute_mi_flag": [0, 1, 1],
+        }
+    )
+    cohort, ids = _build_eicu_cohort(
+        tmp_path,
+        pd.DataFrame(base),
+        flags,
+        AuditLogger(dataset="eicu"),
+        max_stays=None,
+    )
+    assert ids == [100]
+    assert cohort["cohort_hf_flag"].eq(1).all()
+
+
+def test_eicu_treatment_table_counts_as_respiratory_context_source(tmp_path):
+    from physiograph.etl.eicu_extractor import (
+        EICU_PATIENT_COLUMNS,
+        _build_eicu_cohort,
+    )
+
+    (tmp_path / "treatment.csv").touch()
+    base = {column: [pd.NA] for column in EICU_PATIENT_COLUMNS}
+    base.update(
+        {
+            "patientunitstayid": [100],
+            "patienthealthsystemstayid": [50],
+            "uniquepid": ["p1"],
+            "gender": ["Female"],
+            "age": [70],
+            "unitvisitnumber": [1],
+            "hospitaladmitoffset": [-60],
+            "unitdischargeoffset": [2000],
+            "hospitaldischargeoffset": [4000],
+            "hospitaldischargeyear": [2015],
+        }
+    )
+    flags = pd.DataFrame(
+        {
+            "stay_id": [100],
+            "cohort_hf_flag": [1],
+            "shock_icd_flag": [0],
+            "cardiomyopathy_flag": [0],
+            "acute_mi_flag": [0],
+        }
+    )
+    cohort, _ = _build_eicu_cohort(
+        tmp_path,
+        pd.DataFrame(base),
+        flags,
+        AuditLogger(dataset="eicu"),
+        max_stays=None,
+    )
+    assert cohort.iloc[0]["respiratory_source_available"] == 1
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -384,6 +906,14 @@ class TestSanitizeEvents:
         assert math.isclose(result["value_numeric"].iloc[0], 37.0, abs_tol=0.1)
         assert result["value_numeric"].iloc[1] == 80.0
         assert math.isclose(result["value_numeric"].iloc[2], 40.0, abs_tol=0.1)
+
+    def test_impossible_adjustment_values_are_missing_not_model_inputs(self):
+        df = self._make_events_df(
+            ["spo2", "hr", "ph", "creatinine", "resp_rate"],
+            [150.0, 999.0, 2.0, -1.0, 0.0],
+        )
+        result = sanitize_events(df)
+        assert result["value_numeric"].isna().all()
 
 
 # ──────────────────────────────────────────────────────────────────────

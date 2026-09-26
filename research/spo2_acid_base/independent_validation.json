@@ -1,0 +1,16 @@
+{
+  "rows": [
+    {
+      "dataset": "eicu",
+      "baseline_encounters_checked": 1767,
+      "sql_pandas_panels_values_times_and_states_match": true
+    },
+    {
+      "dataset": "mimic",
+      "baseline_encounters_checked": 757,
+      "sql_pandas_panels_values_times_and_states_match": true
+    }
+  ],
+  "source_timing_and_ranges_pass": true,
+  "outcomes_read": false
+}

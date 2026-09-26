@@ -1,0 +1,18 @@
+[
+  {
+    "dataset": "eicu",
+    "people": 98,
+    "exposed": 36,
+    "unexposed": 62,
+    "hospitals": 17,
+    "gate": true
+  },
+  {
+    "dataset": "mimic",
+    "people": 526,
+    "exposed": 86,
+    "unexposed": 440,
+    "hospitals": null,
+    "gate": true
+  }
+]

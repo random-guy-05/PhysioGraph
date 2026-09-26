@@ -1,0 +1,34 @@
+{
+  "protocol_sha256": "ac46b95fc53530ee2c6a9bd7034cdd1761d2b7670f8deb9073f161bd40e0dabc",
+  "documentation_sha256": "164d6091b44657d4674857a83cf063388546dc3f4b6b95b822a98f1f74f2c03b",
+  "code_hashes": {
+    "scripts/build_biological_notebook.py": "018f414f93b6f46e84984462578b93e0b31e4cec39dc15f427babc70b8272148",
+    "scripts/shock_signal_discovery_cells.py": "079fa73ea916531876be3097e0a88da006de22bde31aafd5bd53d10ab11cf6c4",
+    "src/physiograph/analysis/shock_signal_discovery.py": "414f540dc5c3e24d217899cf8347eddc8eac50a074e1d7325bf84c91402ad552",
+    "tests/unit/test_shock_signal_discovery.py": "319b00f73ae21508ce12c073d4145b09281caa3eeeeff7fa1a7a350c0ae8e4b5"
+  },
+  "code_aggregate_sha256": "42d7ed7f73e9ae30106714b2d7af424f7eab3ef0c8836bc8d042cfd62b116f1b",
+  "git_commit": "5fbeb14c341fb1bce012c7ab30cc2a25f15fc331",
+  "candidate_signals": [
+    "hr",
+    "sbp",
+    "dbp",
+    "map",
+    "pulse_pressure",
+    "resp_rate",
+    "spo2",
+    "temperature_c",
+    "urine_output_ml_h"
+  ],
+  "candidate_dynamics": [
+    "level",
+    "slope",
+    "change",
+    "variability"
+  ],
+  "candidate_tests": 36,
+  "primary_outcome": "objective_shock",
+  "lead_outcome": "objective_shock_lead4",
+  "bootstrap_replicates": 200,
+  "eicu_accessed": false
+}

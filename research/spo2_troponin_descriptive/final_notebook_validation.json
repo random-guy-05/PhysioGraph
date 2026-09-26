@@ -1,0 +1,10 @@
+{
+  "utc": "2026-09-05T12:50:08.580684+00:00",
+  "descriptive_labels_and_selection_unchanged_after_reporting_clarification": true,
+  "notebook_cells": 56,
+  "code_cells": 41,
+  "all_sources_match": true,
+  "error_outputs": 0,
+  "execution": "Actual local incremental runs; not an uninterrupted latest full-notebook run and not Google Colab.",
+  "notebook_sha256": "dd2ed3fa0a25d42ea5a9739199c0f7103f6f5c7933e0c75caf371bcad6067cb0"
+}

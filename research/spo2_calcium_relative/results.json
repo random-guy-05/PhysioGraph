@@ -1,0 +1,89 @@
+{
+  "joint_gate": true,
+  "changes_computed": true,
+  "estimates": [
+    {
+      "dataset": "eicu",
+      "analyte": "calcium_log_ratio",
+      "contrast": -0.009056090686521849,
+      "bootstrap_valid": true,
+      "lower95": -0.05796241593369392,
+      "upper95": 0.009809406945060366,
+      "lower_simultaneous": -0.07203707225806635,
+      "upper_simultaneous": 0.014881132334382942,
+      "advance": false,
+      "geometric_fold_change_ratio": 0.9909847921966266,
+      "ratio_lower_simultaneous": 0.9304963995691282,
+      "ratio_upper_simultaneous": 1.0149924076666377
+    },
+    {
+      "dataset": "eicu",
+      "analyte": "ph_change",
+      "contrast": 0.008839605734767095,
+      "bootstrap_valid": true,
+      "lower95": -0.03594424063812316,
+      "upper95": 0.09962560399159673,
+      "lower_simultaneous": -0.05202130537915256,
+      "upper_simultaneous": 0.14018988849651826,
+      "advance": false
+    },
+    {
+      "dataset": "mimic",
+      "analyte": "calcium_log_ratio",
+      "contrast": -0.000571597070088871,
+      "bootstrap_valid": true,
+      "lower95": -0.03100012209875313,
+      "upper95": 0.03001632786525173,
+      "lower_simultaneous": -0.03863317343480692,
+      "upper_simultaneous": 0.03806853360376105,
+      "advance": false,
+      "geometric_fold_change_ratio": 0.9994285662603952,
+      "ratio_lower_simultaneous": 0.9621035695709068,
+      "ratio_upper_simultaneous": 1.0388024233126667
+    },
+    {
+      "dataset": "mimic",
+      "analyte": "ph_change",
+      "contrast": 0.01334302325581402,
+      "bootstrap_valid": true,
+      "lower95": -0.010635150058055405,
+      "upper95": 0.037946890665180866,
+      "lower_simultaneous": -0.017705636571729348,
+      "upper_simultaneous": 0.04473307236885587,
+      "advance": false
+    }
+  ],
+  "group_means": [
+    {
+      "dataset": "eicu",
+      "exposed": 0,
+      "people": 62,
+      "mean_log_calcium_change": -0.009423290038110243,
+      "mean_ph_change": 0.08785483870967745
+    },
+    {
+      "dataset": "eicu",
+      "exposed": 1,
+      "people": 36,
+      "mean_log_calcium_change": -0.018479380724632094,
+      "mean_ph_change": 0.09669444444444454
+    },
+    {
+      "dataset": "mimic",
+      "exposed": 0,
+      "people": 440,
+      "mean_log_calcium_change": 0.0038933905053367573,
+      "mean_ph_change": -0.001250000000000046
+    },
+    {
+      "dataset": "mimic",
+      "exposed": 1,
+      "people": 86,
+      "mean_log_calcium_change": 0.003321793435247886,
+      "mean_ph_change": 0.012093023255813974
+    }
+  ],
+  "advancement_gate_pass": false,
+  "biological_discovery": false,
+  "mortality_benefit_established": false
+}

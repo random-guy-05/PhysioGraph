@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "eicu",
+    "assay": "glucose",
+    "rows": 3810,
+    "unit_rejected_rows": 0,
+    "decimal_rejected_rows": 2,
+    "explicit_censor_rows": 1,
+    "hemol_mentions": 0
+  },
+  {
+    "dataset": "eicu",
+    "assay": "potassium",
+    "rows": 4391,
+    "unit_rejected_rows": 8,
+    "decimal_rejected_rows": 3,
+    "explicit_censor_rows": 2,
+    "hemol_mentions": 0
+  },
+  {
+    "dataset": "mimic",
+    "assay": "glucose",
+    "rows": 2842,
+    "unit_rejected_rows": 0,
+    "decimal_rejected_rows": 0,
+    "explicit_censor_rows": 0,
+    "hemol_mentions": 0
+  },
+  {
+    "dataset": "mimic",
+    "assay": "potassium",
+    "rows": 3047,
+    "unit_rejected_rows": 0,
+    "decimal_rejected_rows": 1,
+    "explicit_censor_rows": 0,
+    "hemol_mentions": 174
+  }
+]

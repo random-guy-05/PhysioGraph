@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "interaction_risk_difference": -0.01174869259975643,
+    "simultaneous_lower": -0.39576618744800446,
+    "simultaneous_upper": 0.3673056644026601,
+    "screen_pass": false
+  },
+  {
+    "dataset": "mimic",
+    "interaction_risk_difference": 0.25228928965771075,
+    "simultaneous_lower": -0.3298190335750009,
+    "simultaneous_upper": 0.8104830429091593,
+    "screen_pass": false
+  }
+]

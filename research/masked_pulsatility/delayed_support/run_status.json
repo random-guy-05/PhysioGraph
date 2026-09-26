@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "stage": "locked_outcome_analysis_complete",
+  "classification": "NO_SIGNAL",
+  "protocol_freeze_utc": "2026-09-07T16:19:32Z",
+  "first_outcome_read_utc": "2026-09-07T17:08:04.080951+00:00",
+  "mimic_execution_utc": "2026-09-07T17:08:04.080951+00:00",
+  "eicu_execution_utc": "2026-09-07T17:08:21.508379+00:00",
+  "analysis_config_sha256": "42396b3252c00016ac993c3be0a8b5ebf3c882a0b4a8ad858417da0d551d1c60",
+  "dirty_code_sha256": "e5e7c43251d7652b52abe8ffdd769db8ef04e94ad7017ea2f1b98e87ee794186",
+  "outcomes_inspected": true,
+  "secondary_outcomes_inspected": true,
+  "execution_environment": "local",
+  "start_utc": "2026-09-07T17:07:58.755589+00:00",
+  "end_utc": "2026-09-07T17:11:55.695657+00:00"
+}

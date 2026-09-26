@@ -1,0 +1,6 @@
+{
+  "first_attempt": "Terminal AssertionError at machine-versus-registry timestamp check; no quality counts, changes or models computed",
+  "source_issue": "10 of 676 timestamps disagree; publisher file hash passed",
+  "repair": "Explicit record-level timestamp amendment, retaining original pairs and all analytical gates",
+  "sql_statements_preflight": 19
+}

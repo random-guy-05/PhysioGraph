@@ -1,0 +1,72 @@
+Installed 44 packages in 1.19s
+Executing notebook cell 49
+Locked outcome-blind pilot: 11 encounters; 5 exposed and 6 controls.
+
+Executing notebook cell 50
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 978 in getaddrinfo
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 841 in create_connection
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1023 in connect
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1492 in connect
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1057 in send
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1113 in _send_output
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1353 in endheaders
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1404 in _send_request
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1358 in request
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/urllib/request.py", line 1344 in do_open
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/urllib/request.py", line 1392 in https_open
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/urllib/request.py", line 492 in _call_chain
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/urllib/request.py", line 532 in _open
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/urllib/request.py", line 515 in open
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/urllib/request.py", line 215 in urlopen
+  File "PhysioGraph_Biological_Discovery.ipynb:cell49", line 64 in fetch
+  File "PhysioGraph_Biological_Discovery.ipynb:cell50", line 29 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1742 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1756 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1103 in read
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1251 in recv_into
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 720 in readinto
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 484 in read
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/shutil.py", line 203 in copyfileobj
+  File "PhysioGraph_Biological_Discovery.ipynb:cell49", line 65 in fetch
+  File "PhysioGraph_Biological_Discovery.ipynb:cell50", line 37 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1742 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1756 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1103 in read
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1251 in recv_into
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 720 in readinto
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 484 in read
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/shutil.py", line 203 in copyfileobj
+  File "PhysioGraph_Biological_Discovery.ipynb:cell49", line 65 in fetch
+  File "PhysioGraph_Biological_Discovery.ipynb:cell50", line 37 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1742 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1756 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1103 in read
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1251 in recv_into
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 720 in readinto
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 484 in read
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/shutil.py", line 203 in copyfileobj
+  File "PhysioGraph_Biological_Discovery.ipynb:cell49", line 65 in fetch
+  File "PhysioGraph_Biological_Discovery.ipynb:cell50", line 37 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1742 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1756 in <module>
+Materialized record 1 of 11
+Materialized record 2 of 11
+Materialized record 3 of 11
+Materialized record 4 of 11
+Materialized record 5 of 11
+Materialized record 6 of 11
+Materialized record 7 of 11
+Materialized record 8 of 11
+Materialized record 9 of 11
+Materialized record 10 of 11
+Materialized record 11 of 11
+
+Locally executed selected notebook cells: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb

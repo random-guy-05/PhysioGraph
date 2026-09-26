@@ -1,0 +1,6 @@
+{
+  "outcome_read_utc": "2026-09-07T23:45:02.609853+00:00",
+  "degradation_lock_sha256": "57683ba0d46bad959a0a146f4025df7323b926ffe73a774db6c81272a7d1d585",
+  "fit": "single frozen MIMIC primary model with degraded exposure",
+  "attempt": 1
+}

@@ -7,12 +7,18 @@ validation, and artifact writing for MIMIC-IV and eICU-CRD datasets.
 from __future__ import annotations
 
 import json
+import hashlib
+import os
+import subprocess
+import uuid
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import numpy as np
 import pandas as pd
 
+from .config import load_config
 from .etl.audit import AuditLogger
 from .etl.eicu_extractor import extract_eicu
 from .etl.mimic_extractor import extract_mimic
@@ -148,6 +154,68 @@ FORBIDDEN_FEATURE_COLUMNS: set[str] = set(
     ANALYSIS_ONLY_CONTEXT_COLUMNS + OUTCOME_FLAG_COLUMNS
 )
 
+PIPELINE_SCHEMA_VERSION = "physiograph_spo2_study_v2.3"
+
+
+def _sha256_text(value: str) -> str:
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def _source_fingerprint(path: Path) -> dict[str, Any]:
+    stat = path.stat()
+    return {
+        "path": str(path.resolve()),
+        "size_bytes": int(stat.st_size),
+        "mtime_ns": int(stat.st_mtime_ns),
+    }
+
+
+def _file_sha256(path: Path, block_size: int = 1024 * 1024) -> str:
+    """Hash an artifact incrementally without loading it into memory."""
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(block_size), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def _project_code_hashes(project_root: Path) -> dict[str, str]:
+    """Hash every executable source that defines extraction or analysis."""
+    code_files = [
+        project_root / "physiograph_colab_core.py",
+        *sorted((project_root / "src" / "physiograph").rglob("*.py")),
+    ]
+    return {
+        str(path.relative_to(project_root)): hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in code_files
+        if path.exists() and path.is_file()
+    }
+
+
+def _git_revision(project_root: Path) -> str | None:
+    try:
+        return subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=project_root,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+    except Exception:
+        return None
+
+
+def _atomic_to_csv(frame: pd.DataFrame, path: Path) -> None:
+    temporary = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
+    frame.to_csv(temporary, index=False)
+    os.replace(temporary, path)
+
+
+def _atomic_write_json(path: Path, payload: Any) -> None:
+    temporary = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
+    temporary.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
+    os.replace(temporary, path)
+
 
 # ──────────────────────────────────────────────────────────────────────
 # Leakage Guards
@@ -271,12 +339,13 @@ def _series_from_table(
 def derive_labels(
     cohort_df: pd.DataFrame, events_df: pd.DataFrame
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Derive outcome labels and apply pre-landmark exclusions.
+    """Derive legacy outcome labels and landmark eligibility.
 
     Computes 24-hour outcome flags (pressor, MCS, end-organ injury,
     mortality, shock progression) from events and cohort metadata.
-    Excludes stays with intervention or death on or before the 4-hour
-    landmark.
+    Baseline MCS/vasoactive support is retained and surfaced as a control, as
+    required by the frozen analysis plan.  Only death or loss of ICU follow-up
+    on/before the landmark makes a stay landmark-ineligible.
 
     Args:
         cohort_df: Cohort DataFrame with stay-level metadata.
@@ -311,19 +380,101 @@ def derive_labels(
         .astype(int)
         .tolist()
     )
+    early_discharge_ids: set[int] = set()
+    if "followup_end_offset_minutes" in cohort_df:
+        followup = pd.to_numeric(
+            cohort_df["followup_end_offset_minutes"], errors="coerce"
+        )
+        early_discharge_ids = set(
+            cohort_df.loc[
+                followup.notna() & followup.le(LANDMARK_MINUTES), "stay_id"
+            ].astype(int)
+        )
+
+    baseline_mcs_documentation_ids = set(
+        interventions.loc[
+            interventions["concept"].eq("mcs")
+            & interventions["offset_minutes"].map(is_pre_or_at_landmark),
+            "stay_id",
+        ].astype(int)
+    )
+    baseline_mcs_documentation_ids |= set(
+        events_df.loc[
+            events_df["concept"].astype(str).str.startswith("mcs_context_")
+            & events_df["offset_minutes"].map(is_pre_or_at_landmark),
+            "stay_id",
+        ].astype(int)
+    )
+    baseline_vaso_documentation_ids = set(
+        interventions.loc[
+            interventions["concept"].isin(["pressor", "pressor_initiation"])
+            & interventions["offset_minutes"].map(is_pre_or_at_landmark),
+            "stay_id",
+        ].astype(int)
+    )
+    mcs_status = events_df.loc[
+        events_df["concept"].eq("mcs_active")
+        & pd.to_numeric(events_df["offset_minutes"], errors="coerce").eq(
+            LANDMARK_MINUTES
+        )
+    ]
+    explicit_mcs_status_stays = set(mcs_status["stay_id"].astype(int))
+    baseline_mcs_ids = baseline_mcs_documentation_ids.difference(
+        explicit_mcs_status_stays
+    )
+    baseline_mcs_ids |= set(
+        mcs_status.loc[
+            pd.to_numeric(mcs_status["value_numeric"], errors="coerce").gt(0),
+            "stay_id",
+        ].astype(int)
+    )
+    pressor_status = events_df.loc[
+        events_df["concept"].eq("pressor_active")
+        & pd.to_numeric(events_df["offset_minutes"], errors="coerce").eq(
+            LANDMARK_MINUTES
+        )
+    ]
+    if not pressor_status.empty:
+        # Production MIMIC emits interval-derived activity at minute 240;
+        # production eICU emits its documented-by-landmark proxy there. Once
+        # that explicit status source exists, an earlier infusion that has
+        # already ended must not be called active at the landmark.
+        baseline_vaso_ids = set(
+            pressor_status.loc[
+                pd.to_numeric(
+                    pressor_status["value_numeric"], errors="coerce"
+                ).gt(0),
+                "stay_id",
+            ].astype(int)
+        )
+        cohort_df["baseline_vasoactive_method"] = np.where(
+            cohort_df["dataset"].astype(str).eq("mimic"),
+            "interval_active_at_minute_240",
+            "documented_by_minute_240_proxy",
+        )
+    else:
+        baseline_vaso_ids = baseline_vaso_documentation_ids
+        cohort_df["baseline_vasoactive_method"] = (
+            "prelandmark_documentation_fallback"
+        )
+    cohort_df["baseline_intervention_flag"] = (
+        cohort_df["stay_id"].isin(early_intervention_ids).astype(int)
+    )
+    cohort_df["baseline_mcs_flag"] = cohort_df["stay_id"].isin(baseline_mcs_ids).astype(int)
+    cohort_df["baseline_vasoactive_flag"] = cohort_df["stay_id"].isin(baseline_vaso_ids).astype(int)
 
     cohort_df["excluded_before_landmark_flag"] = (
         cohort_df["stay_id"]
-        .isin(early_intervention_ids | early_death_ids)
+        .isin(early_death_ids | early_discharge_ids)
         .astype(int)
     )
 
     def _exclusion_reason(row: pd.Series) -> str:
         reasons: list[str] = []
-        if int(row["stay_id"]) in early_intervention_ids:
-            reasons.append("intervention_before_or_at_4h")
         if int(row["stay_id"]) in early_death_ids:
             reasons.append("death_before_or_at_4h")
+        if int(row["stay_id"]) in early_discharge_ids:
+            reasons.append("icu_discharge_before_or_at_4h")
         return ";".join(reasons)
 
     cohort_df["exclusion_reason"] = cohort_df.apply(
@@ -876,6 +1027,22 @@ def run_pipeline(
             )
         root = Path(eicu_root)
 
+    cfg = load_config(dataset=dataset)
+    source_names = set(cfg.get("source_tables", {}).values())
+    if dataset == "mimic":
+        source_names.update({"d_items.csv", "d_labitems.csv", "outputevents.csv"})
+    else:
+        source_names.update({"intakeOutput.csv", "respiratoryCharting.csv", "hospital.csv"})
+    source_files = [root / name for name in sorted(source_names) if (root / name).exists()]
+    source_fingerprints_at_start = {
+        path.name: _source_fingerprint(path) for path in source_files
+    }
+    project_root = Path(__file__).resolve().parents[2]
+    code_hashes_at_start = _project_code_hashes(project_root)
+    configuration_sha256_at_start = _sha256_text(
+        json.dumps(cfg, sort_keys=True, default=str)
+    )
+
     output_path = (
         Path(output_dir) if output_dir is not None
         else Path.cwd() / "physiograph_outputs" / dataset
@@ -929,16 +1096,67 @@ def run_pipeline(
     audit_path = output_path / "audit.json"
     manifest_path = output_path / "manifest.json"
 
-    cohort_df.to_csv(cohort_path, index=False)
-    labels_df.to_csv(labels_path, index=False)
-    events_df.to_csv(events_path, index=False)
-    features_df.to_csv(features_path, index=False)
+    current_source_files = [
+        root / name for name in sorted(source_names) if (root / name).exists()
+    ]
+    current_source_fingerprints = {
+        path.name: _source_fingerprint(path) for path in current_source_files
+    }
+    if current_source_fingerprints != source_fingerprints_at_start:
+        raise RuntimeError(
+            "A raw source file changed during extraction; refusing to commit mixed-version artifacts."
+        )
+    if _project_code_hashes(project_root) != code_hashes_at_start:
+        raise RuntimeError(
+            "PhysioGraph source code changed during extraction; refusing to commit artifacts with false provenance."
+        )
+    if _sha256_text(
+        json.dumps(load_config(dataset=dataset), sort_keys=True, default=str)
+    ) != configuration_sha256_at_start:
+        raise RuntimeError(
+            "Configuration changed during extraction; refusing to commit mixed-definition artifacts."
+        )
 
-    manifest = {
+    _atomic_to_csv(cohort_df, cohort_path)
+    _atomic_to_csv(labels_df, labels_path)
+    _atomic_to_csv(events_df, events_path)
+    _atomic_to_csv(features_df, features_path)
+
+    parameters = {
         "dataset": dataset,
         "max_stays": max_stays,
         "max_chunks": max_chunks,
         "chunk_size": chunk_size,
+        "root": str(root.resolve()),
+        "schema_version": PIPELINE_SCHEMA_VERSION,
+    }
+    plausible_spo2 = events_df.loc[
+        events_df["concept"].astype(str).str.lower().eq("spo2")
+        & pd.to_numeric(events_df["value_numeric"], errors="coerce").between(50, 100)
+        & pd.to_numeric(events_df["offset_minutes"], errors="coerce").ge(0)
+        & pd.to_numeric(events_df["offset_minutes"], errors="coerce").lt(LANDMARK_MINUTES)
+    ]
+    manifest = {
+        "schema_version": PIPELINE_SCHEMA_VERSION,
+        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "run_id": uuid.uuid4().hex,
+        "dataset": dataset,
+        "max_stays": max_stays,
+        "max_chunks": max_chunks,
+        "chunk_size": chunk_size,
+        "parameters_sha256": _sha256_text(json.dumps(parameters, sort_keys=True)),
+        "parameters": parameters,
+        "configuration_sha256": configuration_sha256_at_start,
+        "git_revision": _git_revision(project_root),
+        "code_sha256": code_hashes_at_start,
+        "source_fingerprints": source_fingerprints_at_start,
+        "source_availability": {
+            name: {
+                "path": str((root / name).resolve()),
+                "exists": bool((root / name).is_file()),
+            }
+            for name in sorted(source_names)
+        },
         "artifacts": {
             "cohort": str(cohort_path),
             "labels": str(labels_path),
@@ -946,13 +1164,53 @@ def run_pipeline(
             "features": str(features_path),
             "audit": str(audit_path),
         },
+        "artifact_fingerprints": {
+            path.name: {
+                **_source_fingerprint(path),
+                "sha256": _file_sha256(path),
+            }
+            for path in (cohort_path, labels_path, events_path, features_path)
+        },
         "counts": {
             "cohort_rows": int(len(cohort_df)),
             "label_rows": int(len(labels_df)),
             "event_rows": int(len(events_df)),
             "feature_rows": int(len(features_df)),
+            "spo2_plausible_rows": int(len(plausible_spo2)),
+            "spo2_measured_stays": int(plausible_spo2["stay_id"].nunique()),
+            "spo2_cohort_coverage_fraction": (
+                float(plausible_spo2["stay_id"].nunique() / len(cohort_df))
+                if len(cohort_df)
+                else None
+            ),
+        },
+        "concept_counts": {
+            str(concept): int(count)
+            for concept, count in events_df["concept"].astype(str).value_counts().items()
+        },
+        "artifact_contracts": {
+            "cohort_columns_sha256": _sha256_text("\n".join(cohort_df.columns.astype(str))),
+            "label_columns_sha256": _sha256_text("\n".join(labels_df.columns.astype(str))),
+            "event_columns_sha256": _sha256_text("\n".join(events_df.columns.astype(str))),
+            "feature_columns_sha256": _sha256_text("\n".join(features_df.columns.astype(str))),
         },
     }
+    final_source_fingerprints = {
+        path.name: _source_fingerprint(path)
+        for path in (root / name for name in sorted(source_names))
+        if path.exists()
+    }
+    if (
+        final_source_fingerprints != source_fingerprints_at_start
+        or _project_code_hashes(project_root) != code_hashes_at_start
+        or _sha256_text(
+            json.dumps(load_config(dataset=dataset), sort_keys=True, default=str)
+        )
+        != configuration_sha256_at_start
+    ):
+        raise RuntimeError(
+            "Sources, configuration, or code changed while artifacts were being written; manifest not committed."
+        )
     audit.entries.append(
         {
             "step": "artifacts_written",
@@ -960,10 +1218,14 @@ def run_pipeline(
             "dataset": dataset,
         }
     )
-    audit_path.write_text(
-        json.dumps(audit.entries, indent=2, default=str)
-    )
-    manifest_path.write_text(json.dumps(manifest, indent=2))
+    _atomic_write_json(audit_path, audit.entries)
+    manifest["artifact_fingerprints"][audit_path.name] = {
+        **_source_fingerprint(audit_path),
+        "sha256": _file_sha256(audit_path),
+    }
+    # Manifest is written last: its presence is the commit marker for a complete
+    # compatible artifact set.
+    _atomic_write_json(manifest_path, manifest)
     return {
         "cohort": str(cohort_path),
         "labels": str(labels_path),

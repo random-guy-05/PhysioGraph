@@ -1,0 +1,43 @@
+{
+  "database": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/ionized_calcium.duckdb",
+  "sha256": "d57e8ca79a68f21d6afc29e8b283459650d4ca69c746911ee621e8abcb537343",
+  "original_results": {
+    "qualified_joint_gate": false,
+    "changes_computed": false,
+    "biological_discovery": false
+  },
+  "environment": "local",
+  "original_manifest": {
+    "raw": {
+      "eICU/lab": {
+        "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/lab.csv",
+        "bytes": 2364239214,
+        "mtime_ns": 1773720147757999897,
+        "sha256": "9a3c76e884b42b0610a1d06fd8941a62fe3a8d3430b1be137fd441538a7db4ce"
+      },
+      "MIMIC/labevents": {
+        "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/labevents.csv",
+        "bytes": 18402851720,
+        "mtime_ns": 1773622056280999898,
+        "sha256": "dc4deb75491acb09b0c589b88d36e72f6e6db7676152510d83221aa8133dff54"
+      },
+      "MIMIC/admissions": {
+        "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/admissions.csv",
+        "bytes": 94156458,
+        "mtime_ns": 1773614703263999938,
+        "sha256": "9592fb5d355321801f3cb5789a20921d7394fde2ade5325832ea527318056d63"
+      },
+      "MIMIC/d_labitems": {
+        "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_labitems.csv",
+        "bytes": 64663,
+        "mtime_ns": 1773614196236000061,
+        "sha256": "f3182dbace857d8cd3439ebbd2095d3128c1751cb42b12e3e4208bdc4b363567"
+      }
+    },
+    "original_database": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/hemoglobin_oxidation.duckdb",
+    "original_database_sha256": "5102f9ffaf3212dd5edf5bfa674ad45b7a31294e5780a524ff888aedd331e48a",
+    "full_raw_lab_scans": true,
+    "numeric_rows_copied_privately": true,
+    "mortality_selected": false
+  }
+}

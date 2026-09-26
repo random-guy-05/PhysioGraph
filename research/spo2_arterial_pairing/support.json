@@ -1,0 +1,482 @@
+[
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "original_episode",
+    "encounters": 4309,
+    "people": 4057
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "full_windows",
+    "encounters": 4302,
+    "people": 4051
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "pre_available",
+    "encounters": 56,
+    "people": 56
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "post_available",
+    "encounters": 57,
+    "people": 57
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "both_available",
+    "encounters": 0,
+    "people": 0
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "original_episode",
+    "encounters": 4309,
+    "people": 4057
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "full_windows",
+    "encounters": 4189,
+    "people": 3949
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "pre_available",
+    "encounters": 113,
+    "people": 113
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "post_available",
+    "encounters": 92,
+    "people": 92
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "both_available",
+    "encounters": 1,
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "original_episode",
+    "encounters": 4309,
+    "people": 4057
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "full_windows",
+    "encounters": 4101,
+    "people": 3871
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "pre_available",
+    "encounters": 135,
+    "people": 135
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "post_available",
+    "encounters": 114,
+    "people": 114
+  },
+  {
+    "dataset": "eicu",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "both_available",
+    "encounters": 2,
+    "people": 2
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "original_episode",
+    "encounters": 4309,
+    "people": 4057
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "full_windows",
+    "encounters": 4302,
+    "people": 4051
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "pre_available",
+    "encounters": 72,
+    "people": 72
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "post_available",
+    "encounters": 82,
+    "people": 82
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "both_available",
+    "encounters": 0,
+    "people": 0
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "original_episode",
+    "encounters": 4309,
+    "people": 4057
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "full_windows",
+    "encounters": 4189,
+    "people": 3949
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "pre_available",
+    "encounters": 139,
+    "people": 139
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "post_available",
+    "encounters": 125,
+    "people": 125
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "both_available",
+    "encounters": 1,
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "original_episode",
+    "encounters": 4309,
+    "people": 4057
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "full_windows",
+    "encounters": 4101,
+    "people": 3871
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "pre_available",
+    "encounters": 165,
+    "people": 165
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "post_available",
+    "encounters": 149,
+    "people": 149
+  },
+  {
+    "dataset": "eicu",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "both_available",
+    "encounters": 2,
+    "people": 2
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "original_episode",
+    "encounters": 1398,
+    "people": 1344
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "full_windows",
+    "encounters": 1371,
+    "people": 1317
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "pre_available",
+    "encounters": 30,
+    "people": 30
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "post_available",
+    "encounters": 42,
+    "people": 42
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 5,
+    "stage": "both_available",
+    "encounters": 0,
+    "people": 0
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "original_episode",
+    "encounters": 1398,
+    "people": 1344
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "full_windows",
+    "encounters": 1322,
+    "people": 1270
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "pre_available",
+    "encounters": 48,
+    "people": 48
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "post_available",
+    "encounters": 61,
+    "people": 61
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 10,
+    "stage": "both_available",
+    "encounters": 1,
+    "people": 1
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "original_episode",
+    "encounters": 1398,
+    "people": 1344
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "full_windows",
+    "encounters": 1291,
+    "people": 1241
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "pre_available",
+    "encounters": 58,
+    "people": 58
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "post_available",
+    "encounters": 74,
+    "people": 74
+  },
+  {
+    "dataset": "mimic",
+    "source": "qualified_pao2",
+    "tolerance_minutes": 15,
+    "stage": "both_available",
+    "encounters": 4,
+    "people": 4
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "original_episode",
+    "encounters": 1398,
+    "people": 1344
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "full_windows",
+    "encounters": 1371,
+    "people": 1317
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "pre_available",
+    "encounters": 49,
+    "people": 49
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "post_available",
+    "encounters": 58,
+    "people": 58
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 5,
+    "stage": "both_available",
+    "encounters": 2,
+    "people": 2
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "original_episode",
+    "encounters": 1398,
+    "people": 1344
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "full_windows",
+    "encounters": 1322,
+    "people": 1270
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "pre_available",
+    "encounters": 73,
+    "people": 72
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "post_available",
+    "encounters": 84,
+    "people": 84
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 10,
+    "stage": "both_available",
+    "encounters": 4,
+    "people": 4
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "original_episode",
+    "encounters": 1398,
+    "people": 1344
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "full_windows",
+    "encounters": 1291,
+    "people": 1241
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "pre_available",
+    "encounters": 90,
+    "people": 89
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "post_available",
+    "encounters": 103,
+    "people": 103
+  },
+  {
+    "dataset": "mimic",
+    "source": "raw_pao2_timing_ceiling",
+    "tolerance_minutes": 15,
+    "stage": "both_available",
+    "encounters": 9,
+    "people": 9
+  }
+]

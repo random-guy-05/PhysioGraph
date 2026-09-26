@@ -1,0 +1,33 @@
+{
+  "cells": 89,
+  "code_cells": 63,
+  "all_sources_match": true,
+  "all_sources_compile": true,
+  "error_outputs": 0,
+  "all_code_cells_have_execution_counts": true,
+  "notebook_sha256": "1b71ea5b972363c20ce970bba51e3b692bbdbf460a233b7d262e91936c2f186c",
+  "execution": "local incremental; current full notebook not run uninterrupted; not Google Colab",
+  "checks": {
+    "spo2_ecg_linkage": {
+      "independent_hospital_links_match": true,
+      "independent_all_encounter_flags_match": true,
+      "independent_all_nominal_icu_offsets_match": true,
+      "source_hashes_unchanged": true,
+      "publisher_metadata_hashes_verified": true,
+      "mortality_accessed": false,
+      "ecg_measurements_accessed": false,
+      "clinical_clock_synchronization_validated": false
+    },
+    "spo2_ecg_clock": {
+      "all_candidate_edges_match": true,
+      "all_degrees_match": true,
+      "all_isolated_pairs_match": true,
+      "all_offsets_match": true,
+      "source_hashes_unchanged": true,
+      "mortality_accessed": false,
+      "ecg_values_accessed": false,
+      "clock_calibration_established": false
+    }
+  },
+  "goal_complete": false
+}

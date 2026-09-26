@@ -1,0 +1,27 @@
+{
+  "people": 338,
+  "exposed": 95,
+  "split_counts": [
+    {
+      "split": 0,
+      "exposed": 0,
+      "n": 128
+    },
+    {
+      "split": 0,
+      "exposed": 1,
+      "n": 54
+    },
+    {
+      "split": 1,
+      "exposed": 0,
+      "n": 115
+    },
+    {
+      "split": 1,
+      "exposed": 1,
+      "n": 41
+    }
+  ],
+  "independent_pairs_match": true
+}

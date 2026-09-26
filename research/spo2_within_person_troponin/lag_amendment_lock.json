@@ -1,0 +1,13 @@
+{
+  "sha256": "f6c63537963e629c55a1d07f3f586144d67f52b0fc4dcbc29f9ae5af02bbb3ba",
+  "utc": "2026-09-05T18:25:42.055417+00:00",
+  "before_primary_estimates": true,
+  "before_oxygen_feature_counts": true,
+  "timing_support_already_known": true,
+  "preexisting_run_state": {
+    "status": "failed",
+    "cell": 88,
+    "error_type": "ParserException",
+    "message": "Parser Error: syntax error at or near \"value\"\n\nLINE 1: ..._vitals AS SELECT stay_id,event_minute,'spo2' concept,spo2 value FROM longitudinal_wide WHERE spo2 IS NOT NULL UNION...\n                                                                      ^"
+  }
+}

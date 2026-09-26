@@ -1,0 +1,10 @@
+{
+  "status": "completed_without_association",
+  "classification": "NWICU_MODIFIED_ENDPOINT_ANALYSIS_NOT_RUN_INSUFFICIENT_EVENTS",
+  "environment": "LOCAL_STANDALONE_RUNTIME",
+  "execution_label": "LOCAL standalone-runtime execution",
+  "association_inspected": false,
+  "association_models_fitted": 0,
+  "outcome_fit_count": 0,
+  "reason": "retained minimum 50 modeled primary events failed with 4 events"
+}

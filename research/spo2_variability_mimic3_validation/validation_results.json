@@ -1,0 +1,96 @@
+{
+  "classification": "MIMIC3_HISTORICAL_REPLICATION_DID_NOT_CONFIRM_POST_HOC_SIGNAL",
+  "dataset": "MIMIC-III_v1.4",
+  "interpretation": "same_institution_historical_database_version_replication_not_independent_external_validation",
+  "primary": {
+    "n": 1799,
+    "events": 72,
+    "coverage": 0.7597128378378378,
+    "rr_per_mimic_sd": 0.9694212765659019,
+    "ci_low": 0.7614954905934089,
+    "ci_high": 1.2341210461093137,
+    "p_value": 0.8009348007822147,
+    "log_rr": -0.03105600763150265,
+    "hospitals": null,
+    "covariance": "HC0"
+  },
+  "later_window": {
+    "n": 1799,
+    "events": 53,
+    "coverage": 0.7597128378378378,
+    "rr_per_mimic_sd": 0.8774614323605195,
+    "ci_low": 0.6469853120573824,
+    "ci_high": 1.1900402542861548,
+    "p_value": 0.4004305854052994,
+    "log_rr": -0.13072227633392527,
+    "hospitals": null,
+    "covariance": "HC0"
+  },
+  "support": {
+    "preliminary_cohort_before_pre360_exclusions": 5405,
+    "at_risk": 2368,
+    "pre_pressure_support_excluded_unique_stays": 2425,
+    "pre_hypoperfusion_excluded_unique_stays": 1464,
+    "valid_frozen_exposure": 1799,
+    "exposure_coverage": 0.7597128378378378,
+    "primary_events_at_risk": 103,
+    "primary_events_modeled": 72,
+    "later_events_modeled": 53,
+    "released_sites": 1,
+    "component_counts": {
+      "pressure_support_post360": {
+        "continuous_support": 35150,
+        "mcs": 5180,
+        "sustained_hypotension": 4609
+      },
+      "hypoperfusion_post360": {
+        "oliguria": 776,
+        "lactate": 612,
+        "creatinine": 356,
+        "ph": 113,
+        "alt": 21
+      },
+      "paired_pressure_support": {
+        "continuous_support": 519,
+        "sustained_hypotension": 224,
+        "mcs": 18
+      },
+      "paired_hypoperfusion": {
+        "oliguria": 397,
+        "lactate": 182,
+        "creatinine": 146,
+        "ph": 25,
+        "alt": 11
+      }
+    }
+  },
+  "feasibility": {
+    "eligible_stays": 2368,
+    "valid_exposures": 1799,
+    "exposure_coverage": 0.7597128378378378,
+    "modeled_primary_events": 72,
+    "exact_composite_observable": true,
+    "contributing_sites": 1,
+    "gates": {
+      "exact_composite": true,
+      "coverage_observed": true,
+      "coverage_effective_after_waiver": true,
+      "events": true,
+      "sites_observed": false,
+      "sites_effective_after_waiver": true
+    },
+    "waivers": {
+      "minimum_70_percent_exposure_coverage": true,
+      "minimum_20_contributing_sites": true
+    },
+    "failures": [],
+    "association_authorized": true,
+    "classification": "READY_FOR_FROZEN_MIMIC3_REPLICATION_ASSOCIATION"
+  },
+  "first_mimic3_association_read_utc": "2026-09-10T16:49:21.392855+00:00",
+  "association_models_fitted": 2,
+  "covariance": "HC0_single_hospital",
+  "frozen_eicu_classification_unchanged": "POST_HOC_SIGNAL_NOT_EXTERNALLY_VALIDATED",
+  "nwicu_result_unchanged": true,
+  "inspire_result_unchanged": true
+}

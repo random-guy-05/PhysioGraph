@@ -1,0 +1,77 @@
+{
+  "results": [
+    {
+      "split": 0,
+      "analysis": "primary",
+      "endpoint": "jtcf_change",
+      "n": 124,
+      "estimate_ms": 0.011373449635866818,
+      "se_ms": 6.444655105686734,
+      "lower_ms": -12.759140868323527,
+      "upper_ms": 12.781887767595261,
+      "p": 0.9985950714602263,
+      "holm_p": 1.0
+    },
+    {
+      "split": 0,
+      "analysis": "primary",
+      "endpoint": "jtcf_minus_qrs_change",
+      "n": 124,
+      "estimate_ms": 3.1196813327251496,
+      "se_ms": 7.296607898788256,
+      "lower_ms": -11.33903431860399,
+      "upper_ms": 17.57839698405429,
+      "p": 0.6698054184475355,
+      "holm_p": 1.0
+    },
+    {
+      "split": 0,
+      "analysis": "primary",
+      "endpoint": "qrs_change_descriptive",
+      "n": 124,
+      "estimate_ms": -3.1083078830892816,
+      "se_ms": 3.0438942841445007,
+      "lower_ms": -9.139987608466912,
+      "upper_ms": 2.923371842288349,
+      "p": null
+    },
+    {
+      "split": 1,
+      "analysis": "primary",
+      "endpoint": "jtcf_change",
+      "n": 85,
+      "estimate_ms": -0.6798604988636694,
+      "se_ms": 8.224016521261905,
+      "lower_ms": -17.074137805624584,
+      "upper_ms": 15.714416807897246,
+      "p": 0.9343451678333341,
+      "holm_p": 1.0
+    },
+    {
+      "split": 1,
+      "analysis": "primary",
+      "endpoint": "jtcf_minus_qrs_change",
+      "n": 85,
+      "estimate_ms": -7.370662389277516,
+      "se_ms": 9.856216542043079,
+      "lower_ms": -27.01867097097045,
+      "upper_ms": 12.277346192415418,
+      "p": 0.457005168238511,
+      "holm_p": 1.0
+    },
+    {
+      "split": 1,
+      "analysis": "primary",
+      "endpoint": "qrs_change_descriptive",
+      "n": 85,
+      "estimate_ms": 6.690801890413846,
+      "se_ms": 4.734623170385394,
+      "lower_ms": -2.7474969016225597,
+      "upper_ms": 16.12910068245025,
+      "p": null
+    }
+  ],
+  "primary_prioritization_gate_pass": false,
+  "novel_biological_finding_established": false,
+  "mortality_benefit_established": false
+}

@@ -1,0 +1,7 @@
+{
+  "status": "completed",
+  "classification": "MIMIC3_HISTORICAL_REPLICATION_DID_NOT_CONFIRM_POST_HOC_SIGNAL",
+  "environment": "LOCAL_STANDALONE_RUNTIME",
+  "association_inspected": true,
+  "association_models_fitted": 2
+}

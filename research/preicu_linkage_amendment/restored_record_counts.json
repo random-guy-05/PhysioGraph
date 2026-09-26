@@ -1,0 +1,12 @@
+[
+  {
+    "family": "cbc_hemoglobin",
+    "records": 2681,
+    "encounters": 2506
+  },
+  {
+    "family": "troponin",
+    "records": 2009,
+    "encounters": 1821
+  }
+]

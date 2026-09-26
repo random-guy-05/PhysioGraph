@@ -1,0 +1,90 @@
+[
+  {
+    "split": 0,
+    "role": "discovery",
+    "model_fitted": true,
+    "people": 608,
+    "hospitals": 68,
+    "intervals": 1363,
+    "columns": [
+      "instability",
+      "spo2_mean",
+      "hypoxic_fraction",
+      "map_mean",
+      "hr_mean",
+      "log_readings",
+      "interval_hours",
+      "end_hours",
+      "end_hours_squared",
+      "log_baseline",
+      "map_mean_missing"
+    ],
+    "imputation": {
+      "map_mean": {
+        "median": 72.74553571428572,
+        "missing": 1155
+      }
+    },
+    "removed_no_within_variation": [],
+    "rank": 11,
+    "gate_failures": [],
+    "variant": "primary",
+    "log_coefficient": -0.050939207281502474,
+    "log_ci95": [
+      -0.11472408343682003,
+      0.01284566887381508
+    ],
+    "fold_change_ratio": 0.9503364423121728,
+    "ratio_ci95": [
+      0.8916121205227439,
+      1.0129285288955645
+    ],
+    "p": 0.11563601191711068,
+    "hospital_df": 67,
+    "holm_p": 0.23127202383422135
+  },
+  {
+    "split": 1,
+    "role": "validation",
+    "model_fitted": true,
+    "people": 460,
+    "hospitals": 70,
+    "intervals": 1034,
+    "columns": [
+      "instability",
+      "spo2_mean",
+      "hypoxic_fraction",
+      "map_mean",
+      "hr_mean",
+      "log_readings",
+      "interval_hours",
+      "end_hours",
+      "end_hours_squared",
+      "log_baseline",
+      "map_mean_missing"
+    ],
+    "imputation": {
+      "map_mean": {
+        "median": 75.125,
+        "missing": 933
+      }
+    },
+    "removed_no_within_variation": [],
+    "rank": 11,
+    "gate_failures": [],
+    "variant": "primary",
+    "log_coefficient": -0.038024373727345885,
+    "log_ci95": [
+      -0.15582239055398706,
+      0.0797736430992953
+    ],
+    "fold_change_ratio": 0.9626894762744271,
+    "ratio_ci95": [
+      0.8557111592600072,
+      1.0830418859220838
+    ],
+    "p": 0.5217398356190938,
+    "hospital_df": 69,
+    "holm_p": 0.5217398356190938
+  }
+]

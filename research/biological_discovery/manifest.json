@@ -1,0 +1,56 @@
+{
+  "environment": "local",
+  "started_utc": "2026-09-05T02:31:01.143109+00:00",
+  "finished_utc": "2026-09-05T02:43:28.439537+00:00",
+  "protocol_sha256": "00e0b16738a169f146af74dca30caf72e905c675f153b3fbad98d1a404f7d27b",
+  "python": "3.12.13 (main, Mar  3 2026, 12:39:30) [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "software": {
+    "duckdb": "1.4.3",
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scipy": "1.15.3",
+    "statsmodels": "0.14.4"
+  },
+  "outputs": {
+    "cohort_counts.json": {
+      "sha256": "e7ad1b4120dd43ceef53fe4edf7bdc74b2b9fedeaa7471058d899033213478d2",
+      "bytes": 194
+    },
+    "input_manifest.json": {
+      "sha256": "c2d0bd7ad5cfba89cd19074c06052549ceff8a3f6e45f8623a09eac679212755",
+      "bytes": 2895
+    },
+    "launcher.json": {
+      "sha256": "f3caf670b916d56be69441f96b6e22a29193d1272bc145387f433df7a05b574d",
+      "bytes": 307
+    },
+    "locked_primary_results.json": {
+      "sha256": "f4700e54edb0957df7b45d74647e5034d8861b12fdf3de9558a1350c42a3814c",
+      "bytes": 1161
+    },
+    "mimic_assay_mapping.json": {
+      "sha256": "d3cc70c609aa6c6b1bf22cc0e825e9d895fd17ce1af0e409b671b571e8cc878f",
+      "bytes": 598
+    },
+    "mortality_risks.json": {
+      "sha256": "44a6eddb820d437c9c2706d0bf74f00fddc99fca120ef36e6c72f46a6761668d",
+      "bytes": 1918
+    },
+    "protocol.json": {
+      "sha256": "aa005c2a88ad896413e5c62dfea34a415454ace658d2d11b8e7e033a33efc273",
+      "bytes": 137
+    },
+    "support_audit.json": {
+      "sha256": "fc50400b48253ac5b34e6ac69535648ab684b117977f746bf3fa26fea0783629",
+      "bytes": 1282
+    },
+    "unit_audit.json": {
+      "sha256": "62dec6499e636afbec164f54a30f82d4558d8ff7cddddae208ab6e050ebef783",
+      "bytes": 574
+    }
+  },
+  "synthetic_patients": 0,
+  "source": "original MIMIC/eICU under My Drive/Data",
+  "paradigm_shifting_result": false,
+  "clinical_benefit_established": false
+}

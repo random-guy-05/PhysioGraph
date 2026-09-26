@@ -1,0 +1,9 @@
+{
+  "protocol_sha256": "0994427894929de63ff08dbf7a4a338f8508d5bab202cc6762ae9a7dd9d587c4",
+  "script_sha256": "04d11cf1a11169710aaa8fdd169a8990daeb17b2e2b24f89f54a98f4fd5ed81c",
+  "environment": "local",
+  "scope": "original MIMIC HF cohort; MIMIC diagnostic ECG metadata only",
+  "clock_unsynchronization_warning_preserved": true,
+  "biological_discovery": false,
+  "goal_complete": false
+}

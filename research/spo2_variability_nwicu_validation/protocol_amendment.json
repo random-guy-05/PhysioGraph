@@ -1,0 +1,72 @@
+{
+  "status": "prospectively_amended_before_nwicu_association",
+  "dataset": "NWICU",
+  "modified_endpoint": {
+    "name": "modified_nwicu_pressure_support_plus_laboratory_hypoperfusion",
+    "primary_window_minutes": {
+      "lower_exclusive": 360,
+      "upper_inclusive": 960
+    },
+    "later_window_minutes": {
+      "lower_exclusive": 480,
+      "upper_inclusive": 960
+    },
+    "maximum_domain_separation_minutes": 360,
+    "pressure_support_components": [
+      "sustained_cuff_sbp_hypotension",
+      "mcs"
+    ],
+    "laboratory_hypoperfusion_components": [
+      "lactate",
+      "creatinine",
+      "ph",
+      "alt"
+    ],
+    "structurally_unavailable_components": [
+      "continuous_support",
+      "oliguria"
+    ],
+    "user_authorized_utc_date": "2026-09-08"
+  },
+  "mapping": {
+    "heart_failure": {
+      "icd9_prefix": "428",
+      "icd10_prefix": "I50"
+    },
+    "vitals": {
+      "hr": 320045,
+      "sbp_cuff": 320179,
+      "map_cuff": null,
+      "resp_rate": 320210,
+      "spo2": 320277,
+      "temperature_f": 323761
+    },
+    "labs": {
+      "creatinine_blood": 100002,
+      "lactate_blood": 100031,
+      "alt_blood": 100042,
+      "ph_blood": 100339
+    },
+    "outcome_sources": {
+      "urine_output": null,
+      "continuous_infusion_rate": null,
+      "hospital_or_site_identifier": null,
+      "mcs_itemids": [
+        736876
+      ]
+    }
+  },
+  "exposure_parameters": {
+    "lower": 1.160311428702309e-14,
+    "upper": 4.300141942983509,
+    "center": 0.8776215724100497,
+    "scale": 0.8227000137550243
+  },
+  "waivers": {
+    "minimum_70_percent_exposure_coverage": true,
+    "minimum_20_contributing_sites": true,
+    "minimum_50_modeled_primary_events": false
+  },
+  "covariance": "HC0",
+  "association_inspected": false
+}

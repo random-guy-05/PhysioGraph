@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "eicu",
+    "fit": true,
+    "n": 3613,
+    "k": 8,
+    "hospitals": 185,
+    "converged": true,
+    "score_max_abs": 1.9880985746567603e-11,
+    "independent_sandwich_max_abs": 1.582067810090848e-15
+  },
+  {
+    "dataset": "mimic",
+    "fit": true,
+    "n": 322,
+    "k": 8,
+    "hospitals": null,
+    "converged": true,
+    "score_max_abs": 3.0517810500896303e-12,
+    "independent_sandwich_max_abs": 1.7985612998927536e-14
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "phase_a_sources": [
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/vitalPeriodic.csv",
+      "size_bytes": 7938281236,
+      "mtime_ns": 1773720228322000026
+    },
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/lab.csv",
+      "size_bytes": 2364239214,
+      "mtime_ns": 1773720147757999897
+    },
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/infusionDrug.csv",
+      "size_bytes": 278645140,
+      "mtime_ns": 1773720182937000036
+    },
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/treatment.csv",
+      "size_bytes": 338269723,
+      "mtime_ns": 1773720143288000106
+    },
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/chartevents.csv",
+      "size_bytes": 41935806083,
+      "mtime_ns": 1773621199698999881
+    },
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/labevents.csv",
+      "size_bytes": 18402851720,
+      "mtime_ns": 1773622056280999898
+    },
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_labitems.csv",
+      "size_bytes": 64663,
+      "mtime_ns": 1773614196236000061
+    },
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/inputevents.csv",
+      "size_bytes": 2868896449,
+      "mtime_ns": 1773614657088999986
+    },
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/procedureevents.csv",
+      "size_bytes": 150454128,
+      "mtime_ns": 1773618915000000000
+    },
+    {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_context.duckdb",
+      "size_bytes": 39333888,
+      "mtime_ns": 1788588260012526832
+    }
+  ]
+}

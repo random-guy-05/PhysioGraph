@@ -1,0 +1,89 @@
+Downloading scikit-learn (11.5MiB)
+ Downloaded scikit-learn
+Installed 27 packages in 980ms
+Executing notebook cell 38
+care-context extraction setup running
+
+Executing notebook cell 40
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/.cache/uv/archive-v0/yUfnyfR7vr9y4xMI/lib/python3.12/site-packages/statsmodels/genmod/families/varfuncs.py", line 992 in __call__
+  File "/Users/admin/.cache/uv/archive-v0/yUfnyfR7vr9y4xMI/lib/python3.12/site-packages/statsmodels/genmod/generalized_estimating_equations.py", line 1051 in _update_mean_params
+  File "/Users/admin/.cache/uv/archive-v0/yUfnyfR7vr9y4xMI/lib/python3.12/site-packages/statsmodels/genmod/generalized_estimating_equations.py", line 1270 in fit
+  File "PhysioGraph_Biological_Discovery.ipynb:cell40", line 158 in fit_one
+  File "PhysioGraph_Biological_Discovery.ipynb:cell40", line 178 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1719 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1733 in <module>
+frozen hemoglobin interaction analysis running
+[
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_12h",
+    "n": 659,
+    "events": 159,
+    "estimable": true,
+    "interaction_OR": 0.8397431599793778,
+    "interaction_OR_ci95": [
+      0.5853281888989109,
+      1.204740499613862
+    ],
+    "holm_p": 1.0,
+    "reason": null
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "hospital_mortality",
+    "n": 3945,
+    "events": 474,
+    "estimable": true,
+    "interaction_OR": 1.068569273984573,
+    "interaction_OR_ci95": [
+      0.8962922430891,
+      1.2739598073152212
+    ],
+    "holm_p": 1.0,
+    "reason": null
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_rise_12h",
+    "n": 516,
+    "events": 145,
+    "estimable": true,
+    "interaction_OR": 0.9736437374812216,
+    "interaction_OR_ci95": [
+      0.6709395327309153,
+      1.412917381209964
+    ],
+    "holm_p": 1.0,
+    "reason": null
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "hospital_mortality",
+    "n": 3450,
+    "events": 512,
+    "estimable": true,
+    "interaction_OR": 1.1001416751272237,
+    "interaction_OR_ci95": [
+      0.9134715533385456,
+      1.3249582878944617
+    ],
+    "holm_p": 1.0,
+    "reason": null
+  }
+]
+eicu prespecified sensitivities running
+mimic prespecified sensitivities running
+frozen hemoglobin interaction analysis complete
+
+Executing notebook cell 41
+
+Traceback (most recent call last):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1733, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1719, in main
+    exec(compile(c['source'],f'{TARGET.name}:cell{i}','exec'),namespace)
+  File "PhysioGraph_Biological_Discovery.ipynb:cell41", line 15, in <module>
+AssertionError: ('eicu', 'hospital_mortality', 2.00000000188955)

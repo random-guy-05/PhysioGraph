@@ -1,0 +1,187 @@
+{
+  "protocol_sha256": "469bc70fe6b8d4e755ecf49e9b84caa381ed0ad8e82f25ba6887d03d51283a8a",
+  "documentation_sha256": "c0289bb8f75df767b53c6e94ff7be479d0a6afbc28125a4125499269d362050b",
+  "freeze_utc": "2026-09-07T16:19:32Z",
+  "code_hashes": {
+    "scripts/build_biological_notebook.py": "d46fcfaf1a706b2d3fb305e27af74d532b3bb015be7a85e6dfb814696325bc34",
+    "scripts/masked_pulsatility_delayed_support_cells.py": "ba173a6cb074b8eaa05cbd4b985a6cd3560265acf3679c885fc8d1b0f7e76668",
+    "src/physiograph/analysis/masked_pulsatility.py": "22ef94bb21b63759d3086608472d81c933395196345b42c39a2847a419d66465",
+    "tests/unit/test_masked_pulsatility.py": "deec567c2b898ed2535e025e916e30baf662e9b13e2e979d6c651570176ded13"
+  },
+  "dirty_code_sha256": "e5e7c43251d7652b52abe8ffdd769db8ef04e94ad7017ea2f1b98e87ee794186",
+  "git_commit": "5fbeb14c341fb1bce012c7ab30cc2a25f15fc331",
+  "source_manifest": {
+    "mimic_inputevents": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/inputevents.csv",
+      "byte_size": 2868896449,
+      "sha256": null,
+      "hash_note": "omitted_over_500MB"
+    },
+    "mimic_chartevents": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/chartevents.csv",
+      "byte_size": 41935806083,
+      "sha256": null,
+      "hash_note": "omitted_over_500MB"
+    },
+    "mimic_labevents": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/labevents.csv",
+      "byte_size": 18402851720,
+      "sha256": null,
+      "hash_note": "omitted_over_500MB"
+    },
+    "mimic_procedureevents": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/procedureevents.csv",
+      "byte_size": 150454128,
+      "sha256": "4858144bf33be198a002658556fd0352143653802a93d965de4f891b0beb1450",
+      "hash_note": null
+    },
+    "mimic_patients": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/patients.csv",
+      "byte_size": 12051137,
+      "sha256": "11df8b065f89410e894ab72857c1ce5c431f6f5d675e1541f132d49122f7d756",
+      "hash_note": null
+    },
+    "mimic_admissions": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/admissions.csv",
+      "byte_size": 94156458,
+      "sha256": "9592fb5d355321801f3cb5789a20921d7394fde2ade5325832ea527318056d63",
+      "hash_note": null
+    },
+    "eicu_infusionDrug": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/infusionDrug.csv",
+      "byte_size": 278645140,
+      "sha256": "cfe273bcdb31751b951348400f5b4190614f1a4164ace057bfeac7a8fa0de45d",
+      "hash_note": null
+    },
+    "eicu_vitalPeriodic": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/vitalPeriodic.csv",
+      "byte_size": 7938281236,
+      "sha256": null,
+      "hash_note": "omitted_over_500MB"
+    },
+    "eicu_lab": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/lab.csv",
+      "byte_size": 2364239214,
+      "sha256": null,
+      "hash_note": "omitted_over_500MB"
+    },
+    "eicu_treatment": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/treatment.csv",
+      "byte_size": 338269723,
+      "sha256": "598a28d516d2a2827c45ebfaeb48afbfb867be12918756c27a37e7f16d417bf6",
+      "hash_note": null
+    },
+    "eicu_patient": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/patient.csv",
+      "byte_size": 48277161,
+      "sha256": "cc022f6bb49ae477f20aace2540480a7b1933a0698860156b9b496d66a00b2d5",
+      "hash_note": null
+    }
+  },
+  "execution_order": [
+    "mimic",
+    "eicu"
+  ],
+  "primary_covariates": [
+    "age",
+    "male_sex",
+    "sbp_anchor",
+    "map_anchor",
+    "hr_anchor",
+    "sbp_slope_2h",
+    "map_slope_2h",
+    "hr_slope_2h",
+    "prior_prpp",
+    "resp_rate_anchor",
+    "spo2_anchor",
+    "creatinine_preanchor_24h",
+    "bp_measurement_count_4h",
+    "anchor_hour"
+  ],
+  "outcome": {
+    "name": "new_continuous_vasoactive_inotropic_support",
+    "concurrent_window_minutes": [
+      0,
+      120
+    ],
+    "primary_window_minutes": [
+      120,
+      720
+    ],
+    "primary_lower_bound_exclusive": true,
+    "primary_upper_bound_inclusive": true,
+    "short_sensitivity_window_minutes": [
+      120,
+      360
+    ],
+    "lead_time_bins_minutes": [
+      [
+        0,
+        60
+      ],
+      [
+        60,
+        120
+      ],
+      [
+        120,
+        240
+      ],
+      [
+        240,
+        360
+      ],
+      [
+        360,
+        720
+      ]
+    ],
+    "positive_rate_required": true,
+    "orders_excluded": true
+  },
+  "drugs": {
+    "mimic": {
+      "221906": "norepinephrine",
+      "221289": "epinephrine",
+      "221662": "dopamine",
+      "221653": "dobutamine",
+      "221749": "phenylephrine",
+      "222315": "vasopressin",
+      "221986": "milrinone"
+    },
+    "eicu": {
+      "norepinephrine": [
+        "norepinephrine",
+        "noradrenaline",
+        "levophed"
+      ],
+      "epinephrine": [
+        "epinephrine",
+        "epinepherine",
+        "adrenalin"
+      ],
+      "dopamine": [
+        "dopamine"
+      ],
+      "dobutamine": [
+        "dobutamine",
+        "dobutrex"
+      ],
+      "milrinone": [
+        "milrinone",
+        "primacor",
+        "primacore"
+      ],
+      "vasopressin": [
+        "vasopressin",
+        "pitressin"
+      ],
+      "phenylephrine": [
+        "phenylephrine",
+        "neo-synephrine",
+        "neosynephrine",
+        "neosynsprine"
+      ]
+    }
+  }
+}

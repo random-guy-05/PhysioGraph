@@ -1,0 +1,12 @@
+{
+  "cells": 60,
+  "code_cells": 43,
+  "source_match": true,
+  "error_outputs": 0,
+  "all_code_cells_have_execution_counts": true,
+  "notebook_sha256": "b8126fed345bfad3bd6a37b87c42ca4d940807122390e60d93029d6aceb2d8d5",
+  "execution": "local incremental; not full uninterrupted run or Google Colab",
+  "validation": "nbformat structure; exact ordered source/id comparison against builder; compilation of every code cell; execution count and error-output inspection",
+  "implementation_repair": "An initial run stopped at a reserved SQL alias before estimates. The alias was corrected; an unnecessarily broad statsmodels import was narrowed to the same OLS class. The frozen protocol was unchanged and the completed rerun passed independent validation.",
+  "goal_complete": false
+}

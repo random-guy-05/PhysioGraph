@@ -1,0 +1,178 @@
+[
+  {
+    "dataset": "eicu",
+    "spo2_direction": "fall",
+    "hr_direction": "fall",
+    "people": 201,
+    "known_outcomes": 199,
+    "deaths": 35,
+    "survivors": 164,
+    "unknown_outcomes": 2,
+    "risk": 0.17587939698492464
+  },
+  {
+    "dataset": "eicu",
+    "spo2_direction": "fall",
+    "hr_direction": "flat",
+    "people": 1718,
+    "known_outcomes": 1702,
+    "deaths": 262,
+    "survivors": 1440,
+    "unknown_outcomes": 16,
+    "risk": 0.15393654524089306
+  },
+  {
+    "dataset": "eicu",
+    "spo2_direction": "fall",
+    "hr_direction": "rise",
+    "people": 410,
+    "known_outcomes": 404,
+    "deaths": 66,
+    "survivors": 338,
+    "unknown_outcomes": 6,
+    "risk": 0.16336633663366337
+  },
+  {
+    "dataset": "eicu",
+    "spo2_direction": "fall",
+    "hr_direction": "unavailable",
+    "people": 13,
+    "known_outcomes": 13,
+    "deaths": 1,
+    "survivors": 12,
+    "unknown_outcomes": 0,
+    "risk": 0.07692307692307693
+  },
+  {
+    "dataset": "eicu",
+    "spo2_direction": "rise",
+    "hr_direction": "fall",
+    "people": 317,
+    "known_outcomes": 313,
+    "deaths": 50,
+    "survivors": 263,
+    "unknown_outcomes": 4,
+    "risk": 0.1597444089456869
+  },
+  {
+    "dataset": "eicu",
+    "spo2_direction": "rise",
+    "hr_direction": "flat",
+    "people": 1247,
+    "known_outcomes": 1225,
+    "deaths": 183,
+    "survivors": 1042,
+    "unknown_outcomes": 22,
+    "risk": 0.1493877551020408
+  },
+  {
+    "dataset": "eicu",
+    "spo2_direction": "rise",
+    "hr_direction": "rise",
+    "people": 143,
+    "known_outcomes": 142,
+    "deaths": 17,
+    "survivors": 125,
+    "unknown_outcomes": 1,
+    "risk": 0.11971830985915492
+  },
+  {
+    "dataset": "eicu",
+    "spo2_direction": "rise",
+    "hr_direction": "unavailable",
+    "people": 8,
+    "known_outcomes": 8,
+    "deaths": 2,
+    "survivors": 6,
+    "unknown_outcomes": 0,
+    "risk": 0.25
+  },
+  {
+    "dataset": "mimic",
+    "spo2_direction": "fall",
+    "hr_direction": "fall",
+    "people": 119,
+    "known_outcomes": 119,
+    "deaths": 33,
+    "survivors": 86,
+    "unknown_outcomes": 0,
+    "risk": 0.2773109243697479
+  },
+  {
+    "dataset": "mimic",
+    "spo2_direction": "fall",
+    "hr_direction": "flat",
+    "people": 359,
+    "known_outcomes": 359,
+    "deaths": 52,
+    "survivors": 307,
+    "unknown_outcomes": 0,
+    "risk": 0.14484679665738162
+  },
+  {
+    "dataset": "mimic",
+    "spo2_direction": "fall",
+    "hr_direction": "rise",
+    "people": 112,
+    "known_outcomes": 112,
+    "deaths": 20,
+    "survivors": 92,
+    "unknown_outcomes": 0,
+    "risk": 0.17857142857142858
+  },
+  {
+    "dataset": "mimic",
+    "spo2_direction": "fall",
+    "hr_direction": "unavailable",
+    "people": 89,
+    "known_outcomes": 89,
+    "deaths": 27,
+    "survivors": 62,
+    "unknown_outcomes": 0,
+    "risk": 0.30337078651685395
+  },
+  {
+    "dataset": "mimic",
+    "spo2_direction": "rise",
+    "hr_direction": "fall",
+    "people": 161,
+    "known_outcomes": 161,
+    "deaths": 32,
+    "survivors": 129,
+    "unknown_outcomes": 0,
+    "risk": 0.19875776397515527
+  },
+  {
+    "dataset": "mimic",
+    "spo2_direction": "rise",
+    "hr_direction": "flat",
+    "people": 334,
+    "known_outcomes": 334,
+    "deaths": 55,
+    "survivors": 279,
+    "unknown_outcomes": 0,
+    "risk": 0.16467065868263472
+  },
+  {
+    "dataset": "mimic",
+    "spo2_direction": "rise",
+    "hr_direction": "rise",
+    "people": 86,
+    "known_outcomes": 86,
+    "deaths": 13,
+    "survivors": 73,
+    "unknown_outcomes": 0,
+    "risk": 0.1511627906976744
+  },
+  {
+    "dataset": "mimic",
+    "spo2_direction": "rise",
+    "hr_direction": "unavailable",
+    "people": 84,
+    "known_outcomes": 84,
+    "deaths": 13,
+    "survivors": 71,
+    "unknown_outcomes": 0,
+    "risk": 0.15476190476190477
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "qualified_joint_gate": true,
+  "changes_computed": true,
+  "estimates": [
+    {
+      "split": 0,
+      "people": 85,
+      "hospitals": 19,
+      "contrast_mean_change_pp": -0.05410199556541019,
+      "bootstrap_all_denominators_nonzero": true,
+      "lower95": -0.22535676872683835,
+      "upper95": 0.13056042822854666,
+      "lower_simultaneous": -0.24815132132517576,
+      "upper_simultaneous": 0.15353088608529067,
+      "advance": false
+    },
+    {
+      "split": 1,
+      "people": 237,
+      "hospitals": 30,
+      "contrast_mean_change_pp": -0.00807256235827665,
+      "bootstrap_all_denominators_nonzero": true,
+      "lower95": -0.08583768712211437,
+      "upper95": 0.049973672367236675,
+      "lower_simultaneous": -0.0999109073846412,
+      "upper_simultaneous": 0.058344875910374676,
+      "advance": false
+    }
+  ],
+  "group_means": [
+    {
+      "split": 0,
+      "exposed": 0,
+      "people": 44,
+      "mean_change_pp": 0.02727272727272726,
+      "mean_baseline_pct": 0.5295454545454545,
+      "mean_followup_pct": 0.5568181818181819
+    },
+    {
+      "split": 0,
+      "exposed": 1,
+      "people": 41,
+      "mean_change_pp": -0.02682926829268293,
+      "mean_baseline_pct": 0.49268292682926834,
+      "mean_followup_pct": 0.46585365853658534
+    },
+    {
+      "split": 1,
+      "exposed": 0,
+      "people": 147,
+      "mean_change_pp": 0.059183673469387764,
+      "mean_baseline_pct": 0.37959183673469393,
+      "mean_followup_pct": 0.4387755102040816
+    },
+    {
+      "split": 1,
+      "exposed": 1,
+      "people": 90,
+      "mean_change_pp": 0.051111111111111114,
+      "mean_baseline_pct": 0.3822222222222222,
+      "mean_followup_pct": 0.43333333333333324
+    }
+  ],
+  "advancement_gate_pass": false,
+  "biological_discovery": false,
+  "mortality_benefit_established": false
+}

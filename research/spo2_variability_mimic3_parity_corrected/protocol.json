@@ -1,0 +1,124 @@
+{
+  "analysis_character": "post_hoc_to_original_mimic3_null_prelocked_before_corrected_associations",
+  "association_inspected": false,
+  "authorized_association_fits": {
+    "later_only_if_modeled_events_at_least": 50,
+    "maximum": 2,
+    "outcomes": [
+      "objective_shock_corrected",
+      "objective_shock_corrected_later"
+    ]
+  },
+  "cohort": {
+    "at_risk_exclusions": "unchanged frozen pressure/support or hypoperfusion evidence through minute 360; pre-landmark oliguria retained as a separate hour-0-to-6 exclusion",
+    "early_icu_entry_rule": "none_in_frozen_MIMIC-III_protocol",
+    "first_icu_logic": "first ICU stay per hospital admission ordered by ICUSTAYS.intime,icustay_id",
+    "heart_failure_phenotype": "DIAGNOSES_ICD ICD-9 prefix 428",
+    "minimum_observation": "ICU and hospital survival/observation strictly beyond minute 360",
+    "population": "adult_explicit_HF_first_ICU_per_hospital_admission",
+    "timeline_origin": "ICUSTAYS.intime"
+  },
+  "confirmation": {
+    "direction_consistent_with_mimic4": true,
+    "primary_ci_excludes_1_positive_direction": true,
+    "primary_p_lt": 0.05,
+    "primary_rr_gt_1": true
+  },
+  "dataset": "MIMIC-III_v1.4_CareVue",
+  "endpoint": {
+    "corrected_oliguria": {
+      "all_other_parameters": "unchanged shared frozen helper",
+      "end_hour": 16,
+      "minimum_documented_hours": 4,
+      "start_hour": 4,
+      "threshold": "mean urine output <30 mL/hour",
+      "timestamp": "six-hour rolling-window end or maximum availability, whichever later",
+      "window_hours": 6
+    },
+    "endpoint_observability_fully_equivalent": false,
+    "hypoperfusion_components": [
+      "lactate",
+      "creatinine",
+      "alt",
+      "ph",
+      "oliguria"
+    ],
+    "later": "the already-constructed corrected primary composite has completion time >480",
+    "maximum_domain_separation_minutes": 360,
+    "observability_note": "CareVue records source-era-specific support and availability documentation; logical construction is corrected but source capture cannot be identical across eras",
+    "pre_landmark_exclusions": "unchanged frozen definitions",
+    "pressure_support_components": [
+      "sustained_cuff_hypotension",
+      "continuous_support",
+      "mcs"
+    ],
+    "primary": "first pressure/support plus hypoperfusion pairing with both components >360 and <=960 and separation <=360 minutes"
+  },
+  "exposure": {
+    "availability_branch": "AVAILABILITY_PARITY_APPLIED",
+    "clipping_and_scaling": {
+      "center": 0.8776215724100497,
+      "lower": 1.160311428702309e-14,
+      "scale": 0.8227000137550243,
+      "upper": 4.300141942983509
+    },
+    "dataset_specific_recentering_or_rescaling": false,
+    "detrending": "within-stay ordinary least squares with intercept",
+    "eligibility": "charttime ICU minutes 0-240 inclusive and nonmissing STORETIME-derived availability minute <=240",
+    "error_rule": "coalesced error flag equals 0",
+    "feature": "sqrt(mean(squared OLS residuals))",
+    "hourly_binning": "floor(ICU minute/60), within-hour median",
+    "minimum_bins": 3,
+    "minimum_span_hours": 2,
+    "source": "CHARTEVENTS CareVue itemid 646 only",
+    "value_bounds": [
+      50,
+      100
+    ]
+  },
+  "interpretation": "same_institution_historical_database_version_replication_not_independent_external_validation",
+  "model": {
+    "adjustment_covariates": [
+      "age",
+      "male_sex",
+      "hr_level",
+      "sbp_level",
+      "map_level",
+      "resp_rate_level",
+      "spo2_level",
+      "temperature_c_level",
+      "baseline_creatinine",
+      "baseline_lactate",
+      "lactate_observed",
+      "bp_measurement_density",
+      "urine_measurement_density"
+    ],
+    "covariance": "HC0_due_single_hospital",
+    "effect_scale": "RR per frozen MIMIC-IV SD",
+    "family": "Poisson",
+    "link": "log",
+    "missing_data": "unchanged prepare_adjustment_covariates behavior: median numeric imputation, missingness indicators, deterministic rank-deficiency removal"
+  },
+  "prohibited": [
+    "alternate_exposure",
+    "alternate_availability_branch",
+    "alternate_oliguria",
+    "alternate_endpoint",
+    "renal_free_or_without_oliguria_endpoint",
+    "unadjusted_or_alternate_covariate_model",
+    "threshold_or_time_window_search",
+    "subgroup_analysis"
+  ],
+  "status": "FROZEN_BEFORE_CORRECTED_ENDPOINT_SUPPORT_OR_ASSOCIATION",
+  "support": {
+    "minimum_contributing_sites": 20,
+    "minimum_exposure_coverage": 0.7,
+    "minimum_modeled_later_events": 50,
+    "minimum_modeled_primary_events": 50,
+    "new_waivers_created": false,
+    "retained_waivers": {
+      "minimum_contributing_sites": true,
+      "minimum_exposure_coverage": true
+    }
+  }
+}

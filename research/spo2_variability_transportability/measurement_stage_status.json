@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "environment": "LOCAL",
+  "precision": {
+    "rr": 1.1042124729105849,
+    "log_rr": 0.09913238668390854,
+    "cluster_robust_se": 0.10983971737060261,
+    "ci_low": 0.8903385820221175,
+    "ci_high": 1.3694623707781992,
+    "rr_scale_ci_width": 0.47912378875608175,
+    "log_scale_ci_width": 0.4305716920927622,
+    "multiplicative_95_ci_factor": 1.2402163572454894,
+    "events": 85,
+    "hospitals": 194
+  },
+  "mimic_valid_exposure": 5957,
+  "eicu_valid_exposure": 8061,
+  "degradation_lock_sha256": "57683ba0d46bad959a0a146f4025df7323b926ffe73a774db6c81272a7d1d585"
+}

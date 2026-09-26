@@ -1,6 +1,10 @@
 # Architecture
 
-PhysioGraph processes clinical data through a linear pipeline: raw EHR tables are extracted into cohort and event DataFrames, labels are derived from outcome-window interventions, features are engineered from observation-window events, and predictions are validated against frozen comparator models.
+PhysioGraph's primary workflow is a 4-hour SpO2 landmark study over MIMIC-IV and
+eICU. Raw EHR tables are harmonized into cohort/event artifacts, source-aware
+12/24-hour outcomes are derived after the landmark, and SpO2 instability is
+evaluated per dataset before pooled or cross-dataset analyses. Frozen comparator
+models remain legacy/supporting analyses.
 
 ## Module Dependency Diagram
 
@@ -49,58 +53,61 @@ PhysioGraph processes clinical data through a linear pipeline: raw EHR tables ar
          comparators/*)
 ```
 
-## Data Flow
+## Primary data flow
 
 ```
-Raw EHR Tables (MIMIC-III / eICU)
+PhysioGraph_Final_Clean.ipynb
         |
         v
-  [ETL Extraction]  physiograph.etl
-   extract_mimic() / extract_eicu()
+physiograph_colab_core.run_physiograph_colab()
         |
-        v
-  Cohort DataFrame + Events DataFrame
-        |
-        v
-  [Cohort Selection]  physiograph.cohort
-   build_cohort("mimic" | "eicu")
-        |
-        v
-  CohortResult (cohort_df, valid_stay_ids, anchors)
-        |
-        v
-  [Label Derivation]  physiograph.pipeline
-   derive_labels()
-        |
-        v
-  Labels DataFrame (target, outcome flags, lactate clearance)
-        |
-        v
-  [Feature Engineering]  physiograph.features
-   build_feature_table()
-        |
-        v
-  Features DataFrame (50 columns per stay)
-        |
-        v
-  [Leakage Guards]  physiograph.guards
-   LeakageGuard.check_probast_domain4()
-        |
-        v
-  [Preprocessing]  physiograph.guards.Preprocessor
-   fit(train) -> transform(train, validation, external)
-        |
-        v
-  [Model Training]  physiograph.models.train
-   run_locked_comparator_validation()
-        |
-        v
-  Predictions, Metrics, Calibration
-        |
-        v
-  [Transportability]  physiograph.validation.transportability
-   cross_dataset_evaluation()
+        +-----------------------+
+        |                       |
+        v                       v
+ MIMIC-IV raw CSVs          eICU raw CSVs
+        |                       |
+        v                       v
+ extract_mimic()            extract_eicu()
+        +-----------+-----------+
+                    |
+                    v
+ cohort.csv + events.csv + source/config/code manifest
+                    |
+                    v
+ derive_labels() + build_feature_table()
+                    |
+                    v
+ assemble_spo2_analysis_frame()
+   [0, 240) SpO2 features + source-aware (240, 960]/(240, 1680] outcomes
+                    |
+         +----------+----------------+------------------+
+         |          |                |                  |
+         v          v                v                  v
+ endpoint audit   epidemiology   episode-anchored   grouped OOF models
+ & cohort flow    + S1-S12       lactate + all      + transportability
+                                  endpoints + IPW/
+                                  GEE + meta +
+                                  overlap/TMLE/AIPW/
+                                  site robustness
+         +----------+----------------+------------------+
+                    |
+                    v
+ CSV/JSON/PNG outputs + claims/provenance lint
 ```
+
+Analysis updates have validated cache-only paths. `analysis_only=True`
+regenerates the entire statistical layer without raw extraction. For
+episode-timing changes, `refresh_lactate_episode_analysis()` refreshes only the
+lactate component. `refresh_multiorgan_episode_analysis()` applies the same
+validated-cache boundary to all registered endpoints; after focused records
+are committed, `refresh_multiorgan_weighted_analysis()` can rebuild just the
+selection-weighted GEE, evidence, and key-results tables. Every path commits
+component-specific fingerprints to the existing manifest and none can invoke
+raw extraction. `refresh_advanced_episode_inference()` reuses those focused
+records for strictly pre-anchor overlap balance, bounded cross-fitted TMLE,
+continuous AIPW, center heterogeneity, and E-values; its claim gates also audit
+propensity support, outcome-observation support, effective sample size, and
+targeting boundaries.
 
 ## Module Responsibilities
 
@@ -127,7 +134,12 @@ Standalone functions: `assert_no_feature_leakage_columns()`, `assert_observation
 
 ### `physiograph.cohort`
 
-Cohort selection for MIMIC-III and eICU datasets. `build_cohort(dataset, data_root, config)` dispatches to the appropriate builder. MIMIC uses ICD-9/10 prefix matching for HF and cardiogenic shock phenotypes. eICU uses token-based substring matching on free-text diagnosis fields. Both produce `CohortResult` dataclasses with `cohort_df`, `valid_stay_ids`, and `anchors`.
+Cohort selection for MIMIC-IV and eICU datasets. `build_cohort(dataset,
+data_root, config)` dispatches to the package cohort builders; the production
+raw-data path performs the equivalent selection inside each streaming extractor.
+MIMIC uses ICD-9/10 prefix matching for HF and cardiogenic shock phenotypes.
+eICU uses token-based diagnosis matching. Production extraction retains adults
+with HF and either ICU admission within 24 hours or cardiogenic shock.
 
 Validators enforce required columns, no duplicate stays, minimum cohort size, and flag value constraints.
 
@@ -145,6 +157,25 @@ Submodules:
 - `lactate.py`: 12 functions for lactate binning, clearance, slope, threshold flags, SCAI modifier, and interaction terms
 - `hemodynamics.py`: 12 functions for hemodynamic flags, time-below fractions, ratios, HR banding, and perfusion burden
 - `missingness.py`: Missingness taxonomy (structural/informative/random), forward-fill with decay, clinical normals fill
+
+### `physiograph.analysis.spo2_protocol`, `spo2_epidemiology`, `spo2_lactate_mechanistic`, and `spo2_multiorgan_mechanistic`
+
+The primary scientific layer defines exact landmark outcomes, censoring,
+availability, patient-grouped fold-local models, MIMIC-to-eICU transportability,
+measurement-intensity controls, temporal-ordering summaries, risk tables,
+dose-response, specificity comparisons, and the S1-S12 sensitivity matrix.
+The v2.3 mechanistic modules anchor actual gap-qualified SpO2 transitions,
+require strictly prior outcome baselines, test first/maximum lab changes and
+incident clinical events at short lags, audit informative observation, separate
+desaturation from recovery, apply selection-weighted cluster-robust GEE, and
+perform harmonized MIMIC/eICU meta-analysis. The multiorgan layer covers every
+registered endpoint with explicit unavailable and underpowered states. It is
+an explicitly post-result exploratory amendment.
+
+`run_physiograph_colab(analysis_only=True)` reloads committed ETL artifacts and
+starts at this scientific layer. Artifact SHA-256/schema/build checks remain
+active; only the requirement that extraction-time and current analysis code
+hashes be identical is relaxed.
 
 ### `physiograph.pipeline`
 
@@ -171,7 +202,7 @@ Model validation and transportability assessment:
 ```
 configs/default.yaml          # Shared constants (time windows, clinical normals, column sets)
   |
-  +-- configs/mimic.yaml      # MIMIC-III overrides (paths, item IDs, cohort definition)
+  +-- configs/mimic.yaml      # MIMIC-IV overrides (paths, item IDs, cohort definition)
   |
   +-- configs/eicu.yaml       # eICU overrides (paths, token mappings, cohort definition)
 ```
@@ -180,7 +211,7 @@ configs/default.yaml          # Shared constants (time windows, clinical normals
 
 ## Key Design Decisions
 
-1. **Config-driven constants**: All magic numbers live in YAML, not in code. Constants module reads from config to avoid duplication.
+1. **Frozen, traceable constants**: Shared extraction mappings and reusable defaults live in YAML; protocol thresholds frozen in `ANALYSIS_PLAN.md` live beside the analysis implementation and are fingerprinted with the code.
 2. **YAIB-style preprocessing**: `Preprocessor.fit()` on training data only, `transform()` on all splits. `RuntimeError` if called before fit.
 3. **Deterministic splits**: `deterministic_internal_split()` uses evenly-spaced positional selection within sorted target-class groups, not hashing. Non-overlapping by construction.
 4. **Chunked streaming**: ETL processes multi-GB CSVs in 250K-row chunks to bound memory usage.

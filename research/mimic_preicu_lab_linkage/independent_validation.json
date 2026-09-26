@@ -1,0 +1,7 @@
+{
+  "all_candidate_labs": 9175,
+  "patient_time_assignment_matches_independent_pandas": true,
+  "duplicate_and_ambiguous_counts_match": true,
+  "concentrations_read": false,
+  "mortality_read": false
+}

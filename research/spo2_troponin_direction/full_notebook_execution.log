@@ -1,0 +1,159 @@
+Executing notebook cell 13
+
+Executing notebook cell 14
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/.cache/uv/archive-v0/a9hqSGrB-1HpPNeC/lib/python3.12/site-packages/pandas/core/strings/object_array.py", line 221 in <lambda>
+  File "/Users/admin/.cache/uv/archive-v0/a9hqSGrB-1HpPNeC/lib/python3.12/site-packages/pandas/core/strings/object_array.py", line 78 in _str_map
+  File "/Users/admin/.cache/uv/archive-v0/a9hqSGrB-1HpPNeC/lib/python3.12/site-packages/pandas/core/strings/object_array.py", line 222 in _str_match
+  File "/Users/admin/.cache/uv/archive-v0/a9hqSGrB-1HpPNeC/lib/python3.12/site-packages/pandas/core/strings/accessor.py", line 1376 in match
+  File "/Users/admin/.cache/uv/archive-v0/a9hqSGrB-1HpPNeC/lib/python3.12/site-packages/pandas/core/strings/accessor.py", line 137 in wrapper
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/shared.py", line 386 in match_icd_prefix
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/etl/mimic_extractor.py", line 121 in _load_mimic_cohort
+  File "PhysioGraph_Biological_Discovery.ipynb:cell14", line 62 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+production cohort reconstruction running
+dataset  before_exclusion  eligible  people  known_hospital_outcomes
+   eicu             12304     12028   10647                    11910
+  mimic             17892     17758   13464                    17758
+
+Executing notebook cell 15
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell15", line 18 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell15", line 18 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell15", line 18 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "/Users/admin/.cache/uv/archive-v0/a9hqSGrB-1HpPNeC/lib/python3.12/site-packages/pandas/core/generic.py", line 1907 in _get_label_or_level_values
+  File "/Users/admin/.cache/uv/archive-v0/a9hqSGrB-1HpPNeC/lib/python3.12/site-packages/pandas/core/frame.py", line 7200 in sort_values
+  File "PhysioGraph_Biological_Discovery.ipynb:cell15", line 50 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+eICU raw vital scan running
+MIMIC raw vital scan running
+joint SpO2 and MAP feature construction running
+dataset  cohort  spo2_observed  spo2_dynamics  jointly_observed  synchronous  simultaneous_drop  simultaneous_rise
+   eicu   12028          11730          11452              1022           76                 36                 43
+  mimic   17758          17172           4711              2846          223                129                106
+cohort and joint-feature feasibility complete
+
+Executing notebook cell 16
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell16", line 38 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell16", line 51 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell16", line 100 in <lambda>
+  File "PhysioGraph_Biological_Discovery.ipynb:cell16", line 100 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+eICU myocardial-injury and baseline lab extraction running
+MIMIC myocardial-injury and baseline lab extraction running
+dataset     endpoint  cohort  baseline_positive_assay_people  paired  classifiable  events
+   eicu troponin_12h   12028                            3458    2539          2405     605
+   eicu troponin_24h   12028                            3458    2648          2215     668
+  mimic troponin_12h   17758                            4485    2858          2781     674
+  mimic troponin_24h   17758                            4485    3033          2624     804
+raw source fingerprint verification running
+SpO2-context features and endpoints extracted complete
+Feasibility outputs only: no new feature-outcome association or biological discovery claimed.
+
+Executing notebook cell 17
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "<frozen importlib._bootstrap_external>", line 1190 in get_data
+  File "<frozen importlib._bootstrap_external>", line 1091 in get_code
+  File "<frozen importlib._bootstrap_external>", line 995 in exec_module
+  File "<frozen importlib._bootstrap>", line 935 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1331 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1360 in _find_and_load
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/analysis/__init__.py", line 21 in <module>
+  File "<frozen importlib._bootstrap>", line 488 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 999 in exec_module
+  File "<frozen importlib._bootstrap>", line 935 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1331 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1360 in _find_and_load
+  File "<frozen importlib._bootstrap>", line 488 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1310 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1360 in _find_and_load
+  File "PhysioGraph_Biological_Discovery.ipynb:cell17", line 13 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+dataset  before  canonical  removed_this_execution  terminal_bins_removed  dynamics_before_boundary_fix  dynamics_after_boundary_fix  production_exposure_patient_sets_match  production_exposed  cumulative_excluded  historical_reference  matches_historical_count
+   eicu   12028      12028                       0                      0                         11452                        11452                                    True                4309                    0                 12028                      True
+  mimic   17758      17758                       0                      0                          4711                         4711                                    True                1398                   18                 17758                      True
+dataset  cohort  spo2_observed  spo2_dynamics  jointly_observed  synchronous  simultaneous_drop  simultaneous_rise
+   eicu   12028          11572          11452              1022           76                 36                 43
+  mimic   17758          17052           4711              2846          223                129                106
+
+Executing notebook cell 18
+dataset  variant  jointly_observed  both_component_events  synchronous  asynchronous_both  joint_transitions  median_absolute_within_bin_time_difference
+   eicu   pooled              1022                    185           76                109              11766                                         0.0
+  mimic   pooled              2846                    477          223                254              17645                                         0.0
+  mimic arterial              1061                    105           51                 54               5612                                         0.0
+
+Executing notebook cell 20
+
+Executing notebook cell 21
+dataset  variant           endpoint subgroup  jointly_observed_with_outcome  primary_comparison_n  events  synchronous_n  synchronous_events  asynchronous_n  asynchronous_events  passes_count_gate                              decision
+   eicu   pooled hospital_mortality      all                           1013                   184      57             76                  24             108                   33              False counts only; frozen event gate failed
+   eicu   pooled  troponin_rise_12h      all                            190                    43      29             19                  14              24                   15              False counts only; frozen event gate failed
+   eicu   pooled  troponin_rise_24h      all                            191                    47      30             20                  14              27                   16              False counts only; frozen event gate failed
+  mimic   pooled hospital_mortality      all                           2846                   477      93            223                  47             254                   46              False counts only; frozen event gate failed
+  mimic   pooled  troponin_rise_12h      all                            471                    83      41             36                  17              47                   24              False counts only; frozen event gate failed
+  mimic   pooled  troponin_rise_24h      all                            457                    87      43             37                  18              50                   25              False counts only; frozen event gate failed
+  mimic arterial hospital_mortality      all                           1061                   105      18             51                   6              54                   12              False counts only; frozen event gate failed
+  mimic arterial  troponin_rise_12h      all                            134                    20      15              8                   7              12                    8              False counts only; frozen event gate failed
+  mimic arterial  troponin_rise_24h      all                            137                    21      15              9                   7              12                    8              False counts only; frozen event gate failed
+Support gate evaluated locally; no model fit or biological discovery asserted by this cell.
+
+Executing notebook cell 22
+dataset           endpoint                          stage  causal  treatment_adjusted  biological_discovery     status                   reason
+   eicu hospital_mortality conditional association screen   False               False                 False not fitted frozen count gate failed
+   eicu  troponin_rise_12h conditional association screen   False               False                 False not fitted frozen count gate failed
+  mimic hospital_mortality conditional association screen   False               False                 False not fitted frozen count gate failed
+  mimic  troponin_rise_12h conditional association screen   False               False                 False not fitted frozen count gate failed
+This is a conditional association screen. The biological discovery goal is not complete.
+
+Executing notebook cell 24
+
+Executing notebook cell 25
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell25", line 91 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell25", line 91 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1222 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1236 in <module>
+episode anchors and hospital boundaries running
+eICU pre-ICU troponin extraction running
+MIMIC pre-ICU troponin extraction running
+serial troponin trajectory support running
+dataset  episodes_with_hospital_boundary  any_pre_episode_assay  serial_pre_episode  complete_pre_post_trajectories  passes_count_gate
+   eicu                             4309                   1326                 224                             133               True
+  mimic                             1398                    288                  40                              23              False
+biological-ordering feasibility complete
+
+Locally executed selected notebook cells: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb

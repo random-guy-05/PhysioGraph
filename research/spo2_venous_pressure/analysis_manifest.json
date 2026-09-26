@@ -1,0 +1,10 @@
+{
+  "protocol_sha256": "27030f5178645738dc61ae6e8feda2ed12d3288b4d531623e58160d771222dd5",
+  "module_sha256": "9c185912eb32520a26bf3ba467b640ba1054e2d9f601ef7cc7bae988c69eb775",
+  "timing_count_floor_passed": false,
+  "comparable_units_established": false,
+  "biological_analysis_authorized_by_gates": false,
+  "pressure_changes_computed": false,
+  "clinical_outcomes_inspected": false,
+  "goal_complete": false
+}

@@ -1,0 +1,19 @@
+{
+  "schema_valid": true,
+  "cell_sources_match_builder": true,
+  "all_code_cells_have_local_execution": true,
+  "hemoglobin_cells": [
+    "biology-26",
+    "biology-27",
+    "biology-28"
+  ],
+  "primary_core_execution": "completed_full_notebook_replay",
+  "hemoglobin_execution": "separate local appended-cell run",
+  "colab_execution": false,
+  "protocol_hash_matches": true,
+  "goal_complete": false,
+  "scope_active_cell_count": 17,
+  "scope_end_cell_id": "biology-28",
+  "scope": "Primary notebook prefix through hemoglobin; subsequent cells excluded",
+  "builder_sha256_at_validation": "5e9027b4901dad61474355a03895226ae768c9d647051cd3668a8210bd856345"
+}

@@ -1,0 +1,10 @@
+{
+  "protocol_sha256": "8889474eac35ba923369155c0f2e5ef2b8743488ebe3913ce14b8bf3ad3b7275",
+  "script_sha256": "9d68db1675626adcb265ee42d5275c0821af368b791e7fc1abbf9d5ec8480e68",
+  "source_and_reference_fingerprints_unchanged": true,
+  "labels_replaced": false,
+  "mortality_read": false,
+  "association_models": 0,
+  "environment": "local",
+  "goal_complete": false
+}

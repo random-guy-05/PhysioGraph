@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-09-07T21:31:30Z",
+  "failed_lock_config_sha256": "e06c99a83b18e62a9ac58bf307f584b1f2099b3abb680622af3464083f70a8ed",
+  "failure": "MIMIC density sensitivity requested spo2_bins after a duplicate merge had renamed it spo2_bins_x/spo2_bins_y.",
+  "correction": "Reuse the already-present model_base spo2_bins column and merge only the variability value.",
+  "scientific_specification_changed": false,
+  "mimic_bootstrap_completed_before_failure": true,
+  "mimic_results_interpreted": false,
+  "eicu_extraction_started": false,
+  "eicu_association_inspected": false,
+  "required_action": "Rerun tests, create a new code/config lock, and rerun all targeted analyses."
+}

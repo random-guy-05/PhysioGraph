@@ -1,0 +1,51 @@
+{
+  "complete": true,
+  "prior": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_context.duckdb",
+    "sha256": "7902a93985c6024dfb38a1a7555c54418492bfb3ebf4b93104a78148316d3352"
+  },
+  "raw": {
+    "MIMIC/d_items": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_items.csv",
+      "bytes": 375225,
+      "mtime_ns": 1773614198105000019,
+      "sha256": "2e8987d8ac98e48358e582708f953710f50bdea7fb4a8bb427acb364a7212894"
+    },
+    "eICU/vitalPeriodic": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/vitalPeriodic.csv",
+      "bytes": 7938281236,
+      "mtime_ns": 1773720228322000026,
+      "sha256": "09818ad685112afb5e227ec495a1ecadc2d93aad1ae937875b469ac20f321744"
+    },
+    "MIMIC/chartevents": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/chartevents.csv",
+      "bytes": 41935806083,
+      "mtime_ns": 1773621199698999881,
+      "sha256": "0d1932df345c2d135ce715df1f6afa603f7124894a5aa8c6ba56aa6ee02160d4"
+    }
+  },
+  "mapping": {
+    "220045": "hr",
+    "220052": "map",
+    "220181": "map",
+    "220277": "spo2"
+  },
+  "mapping_source_sha256": "ad18663240e0c2e320766f4765cc095c3eef26b4119724bdc953d26887abdb43",
+  "config_sha256": "2230a353c5331684fc5f60ae9e9d2a014f7de53e2e38f42b72b78b9f7039b9f1",
+  "counts": [
+    {
+      "dataset": "eicu",
+      "raw_records": 719175,
+      "deduplicated_valid_records": 718723,
+      "first_four_hour_source_rows": 97863,
+      "first_four_hour_matches_existing_extraction": true
+    },
+    {
+      "dataset": "mimic",
+      "raw_records": 33325,
+      "deduplicated_valid_records": 33026,
+      "first_four_hour_source_rows": 7802,
+      "first_four_hour_matches_existing_extraction": true
+    }
+  ]
+}

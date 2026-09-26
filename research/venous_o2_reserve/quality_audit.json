@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "mimic",
+    "candidate_records": 2089,
+    "accepted_records": 2089,
+    "unknown_conflicting_or_out_of_range": 0
+  },
+  {
+    "dataset": "eicu",
+    "candidate_records": 0,
+    "accepted_records": 0,
+    "unknown_conflicting_or_out_of_range": 0
+  }
+]

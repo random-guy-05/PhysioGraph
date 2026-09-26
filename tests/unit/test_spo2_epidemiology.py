@@ -24,6 +24,8 @@ from physiograph.analysis.spo2_epidemiology import (
     assign_exposure,
     build_dose_response_tables,
     build_mantel_haenszel_tables,
+    build_paired_precedence_table,
+    build_sensitivity_matrix,
     build_specificity_matrix,
     build_stratified_risk_tables,
 )
@@ -44,6 +46,32 @@ def test_risk_difference_known_answer():
     assert rd == pytest.approx(0.2)
     assert lo == pytest.approx(0.2 - 1.96 * 0.0632456, rel=1e-3)
     assert hi == pytest.approx(0.2 + 1.96 * 0.0632456, rel=1e-3)
+
+
+def test_risk_table_missing_person_ids_fall_back_to_distinct_stays():
+    n = 200
+    exposure = np.repeat([1, 0], n // 2)
+    outcome = np.zeros(n, dtype=int)
+    outcome[:30] = 1
+    outcome[n // 2 : n // 2 + 20] = 1
+    person = pd.Series([f"p{index}" for index in range(n)], dtype="string")
+    person.iloc[100:] = pd.NA
+    frame = pd.DataFrame(
+        {
+            "dataset": "mimic",
+            "stay_id": np.arange(n),
+            "person_id": person,
+            "exposure_any": exposure,
+            "lactate_rise_12h_flag": outcome,
+        }
+    )
+    row = build_stratified_risk_tables(
+        frame,
+        endpoints=["lactate_rise_12h_flag"],
+        bootstrap_repetitions=200,
+    ).iloc[0]
+    assert row["n_bootstrap_clusters"] == n
+    assert row["risk_ratio_ci_method"] == "patient_cluster_bootstrap"
 
 
 def test_fisher_exact_matches_known_extreme():
@@ -139,7 +167,33 @@ def test_stratified_risk_tables_flag_underpowered():
     frame = _analysis_frame(n_per_arm=20)
     frame["exposure_any"] = frame["spo2_below_90_fraction"].gt(0).astype(int)
     tables = build_stratified_risk_tables(frame, endpoints=["lactate_rise_12h_flag"])
-    assert tables.iloc[0]["status"] == "underpowered"
+    row = tables.iloc[0]
+    assert row["status"] == "underpowered"
+    assert row["reason"] == "insufficient rows/events/non-events"
+
+
+def test_stratified_risk_tables_do_not_label_undefined_rr_estimated():
+    n = 400
+    exposure = np.repeat([1, 0], n // 2)
+    outcome = np.zeros(n, dtype=int)
+    outcome[:40] = 1
+    frame = pd.DataFrame(
+        {
+            "dataset": "mimic",
+            "stay_id": np.arange(n),
+            "person_id": np.arange(n),
+            "exposure_any": exposure,
+            "lactate_rise_12h_flag": outcome,
+        }
+    )
+    row = build_stratified_risk_tables(
+        frame,
+        endpoints=["lactate_rise_12h_flag"],
+        bootstrap_repetitions=200,
+    ).iloc[0]
+    assert row["status"] == "non_estimable"
+    assert math.isnan(row["risk_ratio"])
+    assert math.isnan(row["fisher_p"])
 
 
 def test_dose_response_detects_gradient():
@@ -164,6 +218,24 @@ def test_dose_response_detects_gradient():
     assert row["trend_p_bh_adjusted"] >= row["trend_p_two_sided"]
 
 
+def test_dose_response_empty_tertile_is_non_estimable():
+    n = 400
+    frame = pd.DataFrame(
+        {
+            "dataset": "mimic",
+            "exposure_tertile": pd.Series(
+                ["T1"] * 200 + ["T2"] * 200, dtype="string"
+            ),
+            "lactate_rise_12h_flag": np.tile([0, 1], n // 2),
+        }
+    )
+    row = build_dose_response_tables(
+        frame, endpoints=["lactate_rise_12h_flag"]
+    ).iloc[0]
+    assert row["status"] == "non_estimable"
+    assert math.isnan(row["trend_p_two_sided"])
+
+
 def test_mantel_haenszel_stratifies_without_crash():
     frame = _analysis_frame()
     frame["exposure_any"] = frame["spo2_below_90_fraction"].gt(0).astype(int)
@@ -173,7 +245,30 @@ def test_mantel_haenszel_stratifies_without_crash():
     assert (estimated["n_strata"] == 2).all()
 
 
-def test_specificity_matrix_null_control_must_be_null():
+def test_mantel_haenszel_perfect_separation_is_non_estimable():
+    n = 400
+    exposure = np.repeat([1, 0], n // 2)
+    frame = pd.DataFrame(
+        {
+            "dataset": "mimic",
+            "exposure_any": exposure,
+            "lactate_rise_12h_flag": exposure,
+            "spo2_below_90_fraction": np.tile(
+                np.repeat([0.0, 0.1], 100), 2
+            ),
+        }
+    )
+    table = build_mantel_haenszel_tables(
+        frame, endpoints=["lactate_rise_12h_flag"]
+    )
+    row = table.loc[
+        table["stratification"].eq("baseline_hypoxemia")
+    ].iloc[0]
+    assert row["status"] == "non_estimable"
+    assert math.isnan(row["mh_odds_ratio"])
+
+
+def test_specificity_matrix_labels_bilirubin_as_specificity_comparator():
     frame = _analysis_frame()
     frame["exposure_any"] = frame["spo2_below_90_fraction"].gt(0).astype(int)
     tables = build_stratified_risk_tables(
@@ -183,7 +278,7 @@ def test_specificity_matrix_null_control_must_be_null():
     )
     matrix = build_specificity_matrix(tables)
     roles = dict(zip(matrix["endpoint"], matrix["role"]))
-    assert roles["hepatic_lab_worsening_12h_flag"] == "negative_control"
+    assert roles["hepatic_lab_worsening_12h_flag"] == "specificity_comparator"
     assert roles["lactate_rise_12h_flag"] == "primary"
 
 
@@ -193,12 +288,15 @@ def test_assign_exposure_from_precomputed_columns():
             "stay_id": [1, 2, 3],
             "spo2_below_90_fraction": [0.05, 0.0, np.nan],
             "spo2_abrupt_jump_rate_per_hr": [0.0, 2.0, 0.0],
+            "spo2_dynamics_eligible_flag": [1, 1, 0],
             "spo2_instability_proxy_score": [1.0, 2.0, 3.0],
         }
     )
     out = assign_exposure(frame)
-    # Rows 0 (<90%) and 1 (jump) are exposed; row 2 is not.
-    assert out["exposure_any"].tolist() == [1, 1, 0]
+    # The primary exposure is dynamics-only; hypoxemia is kept separately.
+    assert out["exposure_any"].iloc[:2].tolist() == [0, 1]
+    assert np.isnan(out["exposure_any"].iloc[2])
+    assert out["exposure_hypoxemia_or_dynamics"].tolist() == [1, 1, 0]
     # Too-few-rows tertiles stay NA (floor is 30) — contract, not error.
     assert out["exposure_tertile"].isna().all()
 
@@ -214,12 +312,184 @@ def test_assign_exposure_from_precomputed_columns():
     assert set(out_wide["exposure_tertile"].unique()) == {"T1", "T2", "T3"}
 
 
+def test_dose_tertiles_never_split_identical_scores():
+    frame = pd.DataFrame(
+        {
+            "dataset": "mimic",
+            "stay_id": np.arange(60),
+            "spo2_plausible_count": 4,
+            "spo2_dynamics_eligible_flag": 1,
+            "spo2_below_90_fraction": 0.0,
+            "spo2_abrupt_jump_rate_per_hr": 0.0,
+            "spo2_dynamics_proxy_score": [1.0] * 30 + [2.0] * 30,
+        }
+    )
+    out = assign_exposure(frame)
+    assert out["exposure_tertile"].isna().all()
+
+
+def test_mantel_haenszel_does_not_treat_missing_support_as_absent():
+    frame = _analysis_frame()
+    frame["exposure_any"] = frame["spo2_below_90_fraction"].gt(0).astype(int)
+    frame["mechanical_ventilation_flag"] = np.nan
+    mh = build_mantel_haenszel_tables(
+        frame, endpoints=["lactate_rise_12h_flag"]
+    )
+    ventilation = mh.loc[mh["stratification"].eq("mechanical_ventilation")]
+    assert ventilation["status"].eq("not_stratifiable").all()
+    assert ventilation["reason"].eq(
+        "fewer than two usable exposure-by-stratum tables"
+    ).all()
+
+
 def test_missing_endpoints_never_counted_as_non_events():
     frame = _analysis_frame()
     frame["exposure_any"] = frame["spo2_below_90_fraction"].gt(0).astype(int)
     frame["vis_rise_12h_flag"] = np.nan  # unascertainable
     tables = build_stratified_risk_tables(frame, endpoints=["vis_rise_12h_flag"])
     row = tables.iloc[0]
-    assert row["status"] == "underpowered"
+    assert row["status"] == "unavailable"
     assert row["n_observed"] == 0
+    assert row["reason"] == "no jointly observed binary exposure and endpoint values"
     assert "risk_ratio" not in row or (isinstance(row["risk_ratio"], float) and math.isnan(row["risk_ratio"]))
+
+
+def test_all_missing_endpoint_is_unavailable_across_epidemiology_tables():
+    frame = _analysis_frame()
+    frame["exposure_any"] = frame["spo2_below_90_fraction"].gt(0).astype(int)
+    frame["exposure_tertile"] = pd.qcut(
+        frame["spo2_instability_proxy_score"],
+        q=3,
+        labels=["T1", "T2", "T3"],
+        duplicates="drop",
+    ).astype("string")
+    frame["vis_rise_12h_flag"] = np.nan
+
+    risk = build_stratified_risk_tables(
+        frame, endpoints=["vis_rise_12h_flag"]
+    ).iloc[0]
+    assert risk["status"] == "unavailable"
+    assert risk["reason"]
+
+    dose = build_dose_response_tables(
+        frame, endpoints=["vis_rise_12h_flag"]
+    ).iloc[0]
+    assert dose["status"] == "unavailable"
+    assert dose["reason"]
+
+    mh = build_mantel_haenszel_tables(
+        frame, endpoints=["vis_rise_12h_flag"]
+    )
+    assert mh["status"].eq("unavailable").all()
+    assert mh["reason"].fillna("").str.strip().ne("").all()
+
+    sensitivity = build_sensitivity_matrix(
+        frame, bootstrap_repetitions=200
+    )
+    unavailable = sensitivity.loc[
+        sensitivity["endpoint"].eq("vis_rise_12h_flag")
+        & sensitivity["analysis_type"].eq("binary_risk_ratio")
+    ]
+    assert not unavailable.empty
+    assert unavailable["status"].eq("unavailable").all()
+    assert unavailable["reason"].fillna("").str.strip().ne("").all()
+
+
+def test_sensitivity_matrix_surfaces_every_prespecified_axis():
+    matrix = build_sensitivity_matrix(_analysis_frame(n_per_arm=20))
+    assert {f"S{index}" for index in range(1, 13)}.issubset(
+        set(matrix["sensitivity"])
+    )
+
+
+def test_sensitivity_zero_event_arm_is_not_labeled_estimated():
+    n = 400
+    exposure = np.repeat([1, 0], n // 2)
+    outcome = np.zeros(n, dtype=int)
+    outcome[:40] = 1
+    frame = pd.DataFrame(
+        {
+            "dataset": "mimic",
+            "stay_id": np.arange(n),
+            "person_id": np.arange(n),
+            "spo2_plausible_count": 4,
+            "spo2_dynamics_eligible_flag": 1,
+            "spo2_abrupt_jump_rate_per_hr": exposure,
+            "spo2_below_90_fraction": 0.0,
+            "spo2_dynamics_proxy_score": exposure.astype(float),
+            "lactate_rise_12h_flag": outcome,
+        }
+    )
+    matrix = build_sensitivity_matrix(frame, bootstrap_repetitions=200)
+    row = matrix.loc[
+        matrix["sensitivity"].eq("S1")
+        & matrix["endpoint"].eq("lactate_rise_12h_flag")
+    ].iloc[0]
+    assert row["status"] == "underpowered_or_unidentified"
+    assert math.isnan(row["effect"])
+    assert math.isnan(row["p_value"])
+    assert "zero events" in row["reason"]
+
+
+def test_continuous_sensitivity_has_patient_cluster_bootstrap_ci():
+    rng = np.random.default_rng(44)
+    n = 240
+    score = np.linspace(0, 10, n) + rng.normal(0, 0.2, n)
+    frame = pd.DataFrame(
+        {
+            "dataset": "mimic",
+            "stay_id": np.arange(n),
+            "person_id": np.arange(n) // 2,
+            "spo2_plausible_count": 4,
+            "spo2_dynamics_eligible_flag": 1,
+            "spo2_abrupt_jump_rate_per_hr": score > np.median(score),
+            "spo2_below_90_fraction": 0.0,
+            "spo2_dynamics_proxy_score": score,
+            "lactate_delta_12h": 0.4 * score + rng.normal(0, 1.0, n),
+            "lactate_rise_12h_flag": (score > np.quantile(score, 0.8)).astype(int),
+        }
+    )
+    matrix = build_sensitivity_matrix(frame, bootstrap_repetitions=200)
+    row = matrix.loc[
+        matrix["analysis_type"].eq("continuous_spearman")
+        & matrix["endpoint"].eq("lactate_delta_12h")
+    ].iloc[0]
+    assert row["status"] == "estimated"
+    assert row["ci95_low"] < row["effect"] < row["ci95_high"]
+    assert row["bootstrap_repetitions_requested"] == 200
+    assert row["bootstrap_repetitions_valid"] >= 160
+
+
+def test_paired_precedence_handles_outcomes_with_no_prior_instability():
+    events = pd.DataFrame(
+        {
+            "dataset": ["mimic", "mimic"],
+            "stay_id": [1, 1],
+            "concept": ["lactate", "lactate"],
+            "offset_minutes": [200, 300],
+            "value_numeric": [1.0, 3.0],
+        }
+    )
+    cohort = pd.DataFrame(
+        {
+            "dataset": ["mimic"],
+            "stay_id": [1],
+            "person_id": [11],
+            "followup_end_offset_minutes": [2000],
+            "death_offset_minutes": [np.nan],
+        }
+    )
+    analysis = cohort[["dataset", "stay_id", "person_id"]].copy()
+    result = build_paired_precedence_table(
+        events,
+        cohort,
+        analysis,
+        bootstrap_repetitions=20,
+    )
+    row = result.loc[result["outcome"].eq("lactate_rise")].iloc[0]
+    assert row["n_outcome_events"] == 1
+    assert row["n_paired"] == 0
+    assert row["n_outcome_without_prior_instability"] == 1
+    assert row["status"] == "unavailable"
+    assert row["reason"]
+    assert math.isnan(row["median_boot_ci95_low"])

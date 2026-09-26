@@ -1,0 +1,22 @@
+[
+  {
+    "normalized": "ART.",
+    "records": 4338,
+    "encounters": 1741
+  },
+  {
+    "normalized": "CENTRAL VENOUS.",
+    "records": 123,
+    "encounters": 116
+  },
+  {
+    "normalized": "MIX.",
+    "records": 508,
+    "encounters": 433
+  },
+  {
+    "normalized": "VEN.",
+    "records": 1216,
+    "encounters": 978
+  }
+]

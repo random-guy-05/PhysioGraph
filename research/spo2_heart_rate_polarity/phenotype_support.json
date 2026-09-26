@@ -1,0 +1,100 @@
+[
+  {
+    "dataset": "eicu",
+    "original_encounters": 11452,
+    "exposed_encounters": 4309,
+    "selected_people": 4057,
+    "hr_matched_people": 4036,
+    "groups": [
+      {
+        "spo2_direction": "fall",
+        "hr_direction": "fall",
+        "people": 201
+      },
+      {
+        "spo2_direction": "fall",
+        "hr_direction": "flat",
+        "people": 1718
+      },
+      {
+        "spo2_direction": "fall",
+        "hr_direction": "rise",
+        "people": 410
+      },
+      {
+        "spo2_direction": "fall",
+        "hr_direction": "unavailable",
+        "people": 13
+      },
+      {
+        "spo2_direction": "rise",
+        "hr_direction": "fall",
+        "people": 317
+      },
+      {
+        "spo2_direction": "rise",
+        "hr_direction": "flat",
+        "people": 1247
+      },
+      {
+        "spo2_direction": "rise",
+        "hr_direction": "rise",
+        "people": 143
+      },
+      {
+        "spo2_direction": "rise",
+        "hr_direction": "unavailable",
+        "people": 8
+      }
+    ]
+  },
+  {
+    "dataset": "mimic",
+    "original_encounters": 4711,
+    "exposed_encounters": 1398,
+    "selected_people": 1344,
+    "hr_matched_people": 1171,
+    "groups": [
+      {
+        "spo2_direction": "fall",
+        "hr_direction": "fall",
+        "people": 119
+      },
+      {
+        "spo2_direction": "fall",
+        "hr_direction": "flat",
+        "people": 359
+      },
+      {
+        "spo2_direction": "fall",
+        "hr_direction": "rise",
+        "people": 112
+      },
+      {
+        "spo2_direction": "fall",
+        "hr_direction": "unavailable",
+        "people": 89
+      },
+      {
+        "spo2_direction": "rise",
+        "hr_direction": "fall",
+        "people": 161
+      },
+      {
+        "spo2_direction": "rise",
+        "hr_direction": "flat",
+        "people": 334
+      },
+      {
+        "spo2_direction": "rise",
+        "hr_direction": "rise",
+        "people": 86
+      },
+      {
+        "spo2_direction": "rise",
+        "hr_direction": "unavailable",
+        "people": 84
+      }
+    ]
+  }
+]

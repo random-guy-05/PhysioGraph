@@ -1,0 +1,7 @@
+{
+  "reason": "The tool session ended after the immutable one-time degradation result and its outcome-read receipt were written, before descriptive reporting completed.",
+  "preserved_degradation_result_sha256": "bfb157b59ab6db14ada33aa0ea37d182c7e57b18742bbaeace1ea1c96bcce5fd",
+  "preserved_outcome_receipt_sha256": "f15d520732c6081f3b64949cf216a921a76552cb178e009d559704bfcacf8c92",
+  "degraded_outcome_model_refit": false,
+  "resume_utc": "2026-09-08T02:13:37.455817+00:00"
+}

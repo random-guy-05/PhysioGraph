@@ -1,0 +1,12 @@
+[
+  {
+    "dataset": "eicu",
+    "independent_latest_value_match": true,
+    "people": 3984
+  },
+  {
+    "dataset": "mimic",
+    "independent_latest_value_match": true,
+    "people": 3450
+  }
+]

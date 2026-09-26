@@ -1,0 +1,27 @@
+{
+  "pid": 10169,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "nbformat",
+    "--with",
+    "scipy==1.15.2",
+    "python",
+    "-u",
+    "scripts/build_biological_notebook.py",
+    "--acid-base-mortality-only"
+  ],
+  "utc": "2026-09-05T09:25:18.408780+00:00",
+  "builder_sha256": "8b2022f0c9d23bf2772c5fa5f4db56b97108e8220329a3a65f21e86791396df7",
+  "cell_module_sha256": "26a1663c094d2556daec2c30128f71a5a4c7d070b5a71b263d533d3a7a60ef41"
+}

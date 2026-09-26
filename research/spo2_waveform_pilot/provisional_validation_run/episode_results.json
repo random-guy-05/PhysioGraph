@@ -1,0 +1,62 @@
+[
+  {
+    "episode": "E1",
+    "status": "spo2_observed_below_90pct",
+    "usable": false,
+    "coherence": null,
+    "peak_period_seconds": null,
+    "pleth_pulsatility_ratio": null,
+    "pleth_screen_pass": false,
+    "raw_p": 1.0,
+    "holm_p": 1.0,
+    "positive_flag": false
+  },
+  {
+    "episode": "E2",
+    "status": "spo2_gap_exceeds_limit",
+    "usable": false,
+    "coherence": null,
+    "peak_period_seconds": null,
+    "pleth_pulsatility_ratio": null,
+    "pleth_screen_pass": false,
+    "raw_p": 1.0,
+    "holm_p": 1.0,
+    "positive_flag": false
+  },
+  {
+    "episode": "E3",
+    "status": "spo2_observed_below_90pct",
+    "usable": false,
+    "coherence": null,
+    "peak_period_seconds": null,
+    "pleth_pulsatility_ratio": null,
+    "pleth_screen_pass": false,
+    "raw_p": 1.0,
+    "holm_p": 1.0,
+    "positive_flag": false
+  },
+  {
+    "episode": "E4",
+    "status": "spo2_observed_below_90pct",
+    "usable": false,
+    "coherence": null,
+    "peak_period_seconds": null,
+    "pleth_pulsatility_ratio": null,
+    "pleth_screen_pass": false,
+    "raw_p": 1.0,
+    "holm_p": 1.0,
+    "positive_flag": false
+  },
+  {
+    "episode": "E5",
+    "status": "spo2_gap_exceeds_limit",
+    "usable": false,
+    "coherence": null,
+    "peak_period_seconds": null,
+    "pleth_pulsatility_ratio": null,
+    "pleth_screen_pass": false,
+    "raw_p": 1.0,
+    "holm_p": 1.0,
+    "positive_flag": false
+  }
+]

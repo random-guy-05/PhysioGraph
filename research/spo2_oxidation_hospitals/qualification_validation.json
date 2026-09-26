@@ -1,0 +1,7 @@
+{
+  "sql_python_hospital_split": true,
+  "people_unique": true,
+  "hospitals_disjoint": true,
+  "sql_python_quality_flags_and_values": true,
+  "sql_python_selected_pairs": true
+}

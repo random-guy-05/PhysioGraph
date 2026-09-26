@@ -1,0 +1,68 @@
+{
+  "feasibility_passed": false,
+  "protocol_frozen_before_outcomes": false,
+  "mimic_supported": false,
+  "eicu_supported": false,
+  "mimic_primary_positive": false,
+  "eicu_primary_positive": false,
+  "cross_database_replication": false,
+  "observation_robust": false,
+  "sbp_map_independent_information": false,
+  "meaningful_lead_time": false,
+  "clinically_large_effect": false,
+  "biological_claim_ready": false,
+  "masked_pulsatility_feasible": false,
+  "recommended_action": "stop_no_viable_signal",
+  "phase_reached": "phase_a_feasibility",
+  "post_anchor_lactate_values_inspected": false,
+  "protocol_sha256": "6efa7aee3e7818c90e6f5b11bf03dd5c379f0ac3cbec64498c37cdae9fbd71d1",
+  "execution_environment": "local",
+  "support": [
+    {
+      "dataset": "mimic",
+      "production_hf_cohort": 17758,
+      "valid_sbp_dbp": 16902,
+      "at_least_2_hourly_prpp_bins": 16114,
+      "at_least_3_hourly_prpp_bins": 14258,
+      "patients_with_preanchor_lactate_lt2": 3153,
+      "patients_satisfying_compensated_state": 14500,
+      "crossings": 160,
+      "controls": 2146,
+      "crossings_followup_6h": 39,
+      "crossings_followup_12h": 56,
+      "controls_followup_6h": 542,
+      "controls_followup_12h": 771,
+      "bp_source_distribution": {
+        "invasive_arterial": 2628,
+        "noninvasive_cuff": 14274
+      },
+      "median_bp_bins_per_patient": 4.0,
+      "median_lactate_to_anchor_lag": 81.0,
+      "eicu_hospitals": null
+    },
+    {
+      "dataset": "eicu",
+      "production_hf_cohort": 12028,
+      "valid_sbp_dbp": 1103,
+      "at_least_2_hourly_prpp_bins": 998,
+      "at_least_3_hourly_prpp_bins": 872,
+      "patients_with_preanchor_lactate_lt2": 136,
+      "patients_satisfying_compensated_state": 966,
+      "crossings": 2,
+      "controls": 96,
+      "crossings_followup_6h": 0,
+      "crossings_followup_12h": 0,
+      "controls_followup_6h": 21,
+      "controls_followup_12h": 29,
+      "bp_source_distribution": {
+        "invasive_arterial": 1103
+      },
+      "median_bp_bins_per_patient": 4.0,
+      "median_lactate_to_anchor_lag": 81.0,
+      "eicu_hospitals": 36
+    }
+  ],
+  "phase_a_protocol_frozen_before_scan": true,
+  "candidate_table_rows": 2404,
+  "candidate_table_sha256": "75229aafe1e48f1fb9286b10aabd8fb3ef2b02413e90f5bd90e94b36e0499dcb"
+}

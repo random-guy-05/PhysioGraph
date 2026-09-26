@@ -1,0 +1,13 @@
+{
+  "classification": "KNOWN_SIGNAL_NO_NOVEL_WINNER",
+  "statistical_gate_count": 1,
+  "final_gate_count": 1,
+  "provisional_winner": "sbp_level",
+  "eicu_accessed": false,
+  "eicu_must_remain_unopened": true,
+  "first_mimic_candidate_outcome_read_utc": "2026-09-07T20:17:55.565810+00:00",
+  "novelty_passed": false,
+  "novelty_review_utc": "2026-09-07T20:51:42.909421+00:00",
+  "external_winner": null,
+  "runner_up_substituted": false
+}

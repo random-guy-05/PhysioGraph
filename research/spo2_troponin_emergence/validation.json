@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "baseline_sql_python_match": true,
+    "first_specimen_sql_python_match": true,
+    "decimal_interval_oracle_matches": true,
+    "selected_people": 453,
+    "endpoint_rows": 453
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "baseline_sql_python_match": true,
+    "first_specimen_sql_python_match": true,
+    "decimal_interval_oracle_matches": true,
+    "selected_people": 453,
+    "endpoint_rows": 453
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "baseline_sql_python_match": true,
+    "first_specimen_sql_python_match": true,
+    "decimal_interval_oracle_matches": true,
+    "selected_people": 171,
+    "endpoint_rows": 171
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "baseline_sql_python_match": true,
+    "first_specimen_sql_python_match": true,
+    "decimal_interval_oracle_matches": true,
+    "selected_people": 171,
+    "endpoint_rows": 171
+  }
+]

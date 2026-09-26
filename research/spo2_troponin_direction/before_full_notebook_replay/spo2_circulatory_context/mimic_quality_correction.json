@@ -1,0 +1,9 @@
+{
+  "raw_rows_before": 505662,
+  "raw_rows_after": 498940,
+  "correction": "canonical cohort, [0,240) window, and warning !=1",
+  "production_filter": "src/physiograph/etl/mimic_extractor.py:_stream_mimic_measurement_events",
+  "source_sha256": "0d1932df345c2d135ce715df1f6afa603f7124894a5aa8c6ba56aa6ee02160d4",
+  "cross_tabulations_previously_seen": true,
+  "no_effect_estimates_fitted": true
+}

@@ -1,0 +1,30 @@
+{
+  "pid": 64473,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "pyyaml",
+    "--with",
+    "nbformat",
+    "--with",
+    "statsmodels==0.14.4",
+    "--with",
+    "scipy==1.15.2",
+    "python",
+    "scripts/build_biological_notebook.py",
+    "--hemoglobin-only"
+  ],
+  "started_utc": "2026-09-05T06:12:41.488875+00:00",
+  "builder_sha256": "5e9027b4901dad61474355a03895226ae768c9d647051cd3668a8210bd856345",
+  "environment": "local"
+}

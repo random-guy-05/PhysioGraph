@@ -1,0 +1,37 @@
+[
+  {
+    "itemid": "50813",
+    "label": "Lactate",
+    "marker": "lactate"
+  },
+  {
+    "itemid": "50912",
+    "label": "Creatinine",
+    "marker": "creatinine"
+  },
+  {
+    "itemid": "50970",
+    "label": "Phosphate",
+    "marker": "phosphate"
+  },
+  {
+    "itemid": "52024",
+    "label": "Creatinine, Whole Blood",
+    "marker": "creatinine"
+  },
+  {
+    "itemid": "52442",
+    "label": "Lactate",
+    "marker": "lactate"
+  },
+  {
+    "itemid": "52546",
+    "label": "Creatinine",
+    "marker": "creatinine"
+  },
+  {
+    "itemid": "53154",
+    "label": "Lactate",
+    "marker": "lactate"
+  }
+]

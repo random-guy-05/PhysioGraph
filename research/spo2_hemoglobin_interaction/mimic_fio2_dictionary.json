@@ -1,0 +1,17 @@
+[
+  {
+    "itemid": 223835,
+    "label": "Inspired O2 Fraction",
+    "category": "Respiratory"
+  },
+  {
+    "itemid": 229238,
+    "label": "FiO2 Challenge",
+    "category": "Hemodynamics"
+  },
+  {
+    "itemid": 229239,
+    "label": "FiO2 Challenge Result",
+    "category": "Hemodynamics"
+  }
+]

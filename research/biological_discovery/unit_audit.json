@@ -1,0 +1,38 @@
+[
+  {
+    "marker": "creatinine",
+    "unit": "mg/dL",
+    "n": 10092,
+    "dataset": "eicu"
+  },
+  {
+    "marker": "lactate",
+    "unit": "mmol/L",
+    "n": 4019,
+    "dataset": "eicu"
+  },
+  {
+    "marker": "phosphate",
+    "unit": "mg/dL",
+    "n": 3527,
+    "dataset": "eicu"
+  },
+  {
+    "marker": "creatinine",
+    "unit": "mg/dL",
+    "n": 23424,
+    "dataset": "mimic"
+  },
+  {
+    "marker": "lactate",
+    "unit": "mmol/L",
+    "n": 19348,
+    "dataset": "mimic"
+  },
+  {
+    "marker": "phosphate",
+    "unit": "mg/dL",
+    "n": 21150,
+    "dataset": "mimic"
+  }
+]

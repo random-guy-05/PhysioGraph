@@ -1,4 +1,4 @@
-"""MIMIC-III heart-failure / cardiogenic-shock cohort builder.
+"""MIMIC-IV heart-failure / cardiogenic-shock cohort builder.
 
 Extracts the HF-shock phenotype definition from the PhysioGraph
 HF_Shock notebook (Cell 4) and the External Pipeline notebook
@@ -131,7 +131,7 @@ class CohortResult:
 # ---------------------------------------------------------------------------
 
 class MIMICCohortBuilder:
-    """Build the MIMIC-III HF-shock cohort from raw CSV tables.
+    """Build the production-aligned MIMIC-IV HF-shock cohort.
 
     This reproduces the phenotype definition from Cell 4 of the
     PhysioGraph_HF_Shock notebook and Cell 37 of the External Pipeline
@@ -143,12 +143,13 @@ class MIMICCohortBuilder:
        of hospital admission).
     4. Intersect HF admissions with (early ICU ∪ shock) admissions.
     5. Anchor each admission to its first ICU stay time.
-    6. Exclude stays with pre-landmark pressor/MCS or death.
+    6. Retain prevalent pressor/MCS support as baseline context; exclude only
+       death or loss of ICU follow-up on/before the landmark.
 
     Parameters
     ----------
     data_root:
-        Path to the MIMIC-III CSV directory (containing
+        Path to the MIMIC-IV CSV directory (containing
         ``diagnoses_icd.csv``, ``admissions.csv``, etc.).
     config:
         Optional pre-loaded config dict.  If ``None``,
@@ -191,66 +192,49 @@ class MIMICCohortBuilder:
             Container with ``cohort_df``, ``valid_stay_ids``, and
             ``anchors``.
         """
-        dx = self._load_diagnoses()
-        hf_hadms, shock_hadms = self._identify_phenotype_admissions(dx)
+        # Reuse the production streaming extractor's cohort implementation so
+        # this public API cannot drift to admission IDs, prevalent-support
+        # exclusion, or a different age/phenotype definition.
+        from physiograph.etl.audit import AuditLogger
+        from physiograph.etl.mimic_extractor import _load_mimic_cohort
 
-        admissions = self._load_admissions(hf_hadms)
-        early_icu_hadms, icu_anchor, icu_anchor_hadms = self._compute_icu_anchors(admissions)
-
-        # Cohort = HF ∩ (early ICU ∪ shock) ∩ has_anchor
-        cohort_hadms = np.intersect1d(
-            hf_hadms,
-            np.union1d(early_icu_hadms, shock_hadms),
+        cohort_df, _, anchors = _load_mimic_cohort(
+            self.data_root,
+            AuditLogger(dataset="mimic"),
+            max_stays=self.max_stays,
+            preferred_stay_ids=None,
         )
-        cohort_hadms = np.intersect1d(cohort_hadms, icu_anchor_hadms)
-
-        if self.max_stays is not None:
-            cohort_hadms = np.array(sorted(cohort_hadms)[: self.max_stays], dtype=int)
-
-        admissions = admissions.loc[admissions["hadm_id"].isin(cohort_hadms)].copy()
-        admissions = admissions.merge(icu_anchor, on="hadm_id", how="inner")
-
-        # Compute death offset relative to ICU anchor
-        admissions["death_offset_minutes"] = (
-            (admissions["deathtime"] - admissions["anchor_time"])
-            .dt.total_seconds()
-            / 60.0
+        death = pd.to_numeric(cohort_df["death_offset_minutes"], errors="coerce")
+        followup = pd.to_numeric(
+            cohort_df["followup_end_offset_minutes"], errors="coerce"
         )
-
-        # Comorbidities
-        admissions = self._add_comorbidities(admissions, dx, cohort_hadms)
-
-        # Pre-landmark exclusions
-        early_interv_ids, early_death_ids = self._find_pre_landmark_exclusions(
-            admissions, cohort_hadms
-        )
-        invalid_before_landmark = np.union1d(early_interv_ids, early_death_ids)
-        valid_hadms = np.setdiff1d(cohort_hadms, invalid_before_landmark)
-
+        early_death = death.between(0, 240, inclusive="both")
+        early_discharge = followup.le(240)
+        cohort_df["excluded_before_landmark_flag"] = (
+            early_death | early_discharge
+        ).astype(int)
+        cohort_df["exclusion_reason"] = [
+            ";".join(
+                reason
+                for condition, reason in (
+                    (bool(death_flag), "death_before_or_at_4h"),
+                    (bool(discharge_flag), "icu_discharge_before_or_at_4h"),
+                )
+                if condition
+            )
+            for death_flag, discharge_flag in zip(early_death, early_discharge)
+        ]
+        valid = cohort_df.loc[
+            cohort_df["excluded_before_landmark_flag"].eq(0), "stay_id"
+        ].astype(int).to_numpy()
         logger.info(
-            "MIMIC cohort: %d HF admissions, %d early ICU, %d shock ICD, "
-            "%d after exclusions",
-            len(hf_hadms),
-            len(early_icu_hadms),
-            len(shock_hadms),
-            len(valid_hadms),
+            "MIMIC production-aligned cohort: %d candidate stays, %d eligible at landmark",
+            len(cohort_df),
+            len(valid),
         )
-
-        # Build cohort DataFrame
-        cohort_df = self._build_cohort_df(
-            admissions=admissions,
-            cohort_hadms=cohort_hadms,
-            shock_hadms=shock_hadms,
-            early_icu_hadms=early_icu_hadms,
-            early_interv_ids=early_interv_ids,
-            early_death_ids=early_death_ids,
-        )
-
-        anchors = admissions[["hadm_id", "anchor_time"]].copy()
-
         return CohortResult(
             cohort_df=cohort_df,
-            valid_stay_ids=valid_hadms,
+            valid_stay_ids=valid,
             anchors=anchors,
         )
 
@@ -538,14 +522,14 @@ def build_cohort(
     config: dict[str, Any] | None = None,
     max_stays: int | None = None,
 ) -> CohortResult:
-    """Build the MIMIC-III HF-shock cohort.
+    """Build the MIMIC-IV HF-shock cohort.
 
     This is a convenience wrapper around :class:`MIMICCohortBuilder`.
 
     Parameters
     ----------
     data_root:
-        Path to the MIMIC-III CSV directory.
+        Path to the MIMIC-IV CSV directory.
     config:
         Optional pre-loaded config dict.
     max_stays:

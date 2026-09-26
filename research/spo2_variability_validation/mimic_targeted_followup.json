@@ -1,0 +1,113 @@
+{
+  "primary": {
+    "n": 5957,
+    "events": 158,
+    "coverage": 0.7268179599804783,
+    "rr_per_mimic_sd": 1.2510878230694424,
+    "ci_low": 1.1039551264449385,
+    "ci_high": 1.4178300399519945,
+    "p_value": 0.00044924317040548063,
+    "log_rr": 0.22401343131442733,
+    "hospitals": null,
+    "covariance": "HC0"
+  },
+  "lead": {
+    "n": 5957,
+    "events": 150,
+    "coverage": 0.7268179599804783,
+    "rr_per_mimic_sd": 1.2477341390171597,
+    "ci_low": 1.0949643739709671,
+    "ci_high": 1.4218183885041837,
+    "p_value": 0.0008955262096991948,
+    "log_rr": 0.2213292176195143,
+    "hospitals": null,
+    "covariance": "HC0"
+  },
+  "bootstrap": {
+    "replicates": 1000,
+    "successful": 1000,
+    "success_fraction": 1.0,
+    "sign_consistency": 0.999,
+    "median_rr": 1.2552295144327374,
+    "ci_low": 1.0818075059178174,
+    "ci_high": 1.412472362945015
+  },
+  "density_adjusted": {
+    "n": 5957,
+    "events": 158,
+    "coverage": 0.7268179599804783,
+    "rr_per_mimic_sd": 1.255166727665674,
+    "ci_low": 1.1071515372129095,
+    "ci_high": 1.4229700824919616,
+    "p_value": 0.00038523560762563144,
+    "log_rr": 0.22726841448949114,
+    "hospitals": null,
+    "covariance": "HC0"
+  },
+  "complete_case": {
+    "n": 1092,
+    "events": 44,
+    "coverage": 1.0,
+    "rr_per_mimic_sd": 1.3249605149969563,
+    "ci_low": 1.0740626156284918,
+    "ci_high": 1.6344674330497486,
+    "p_value": 0.008612633520060024,
+    "log_rr": 0.28138265899185955,
+    "hospitals": null,
+    "covariance": "HC0"
+  },
+  "quartiles": [
+    {
+      "quartile": 1,
+      "n": 1498,
+      "events": 34,
+      "risk": 0.022696929238985315
+    },
+    {
+      "quartile": 2,
+      "n": 1489,
+      "events": 27,
+      "risk": 0.018132975151108125
+    },
+    {
+      "quartile": 3,
+      "n": 1486,
+      "events": 43,
+      "risk": 0.028936742934051143
+    },
+    {
+      "quartile": 4,
+      "n": 1484,
+      "events": 54,
+      "risk": 0.03638814016172507
+    }
+  ],
+  "density_strata": [
+    {
+      "n": 2794,
+      "events": 62,
+      "coverage": 1.0,
+      "rr_per_mimic_sd": 1.2364609481403006,
+      "ci_low": 0.9946329036678575,
+      "ci_high": 1.53708536148181,
+      "p_value": 0.055935963938982515,
+      "log_rr": 0.21225322490097426,
+      "hospitals": null,
+      "covariance": "HC0",
+      "bins": 3
+    },
+    {
+      "n": 3162,
+      "events": 96,
+      "coverage": 1.0,
+      "rr_per_mimic_sd": 1.2646024249532568,
+      "ci_low": 1.0827423251204968,
+      "ci_high": 1.477008200468826,
+      "p_value": 0.0030409866385843662,
+      "log_rr": 0.23475778420597831,
+      "hospitals": null,
+      "covariance": "HC0",
+      "bins": 4
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "mimic_iv": {
+    "log_rr": 0.22401343131442733,
+    "se": 0.06383374011311983,
+    "rr": 1.2510878230694424
+  },
+  "mimic_iii": {
+    "log_rr": -0.03105600763150265,
+    "se": 0.12317092896685086,
+    "rr": 0.9694212765659019
+  },
+  "log_rr_difference_mimic_iv_minus_mimic_iii": 0.25506943894593,
+  "se_of_difference": 0.13872931960975785,
+  "z": 1.8386123399396324,
+  "p_value": 0.06597222496630938,
+  "q": 3.3804953365782904,
+  "df": 1,
+  "i_squared_percent": 70.41853632573883,
+  "formal_cross_era_heterogeneity_present_at_0_05": false,
+  "interpretation": "Two-study I-squared is unstable; no pooling is used for confirmation."
+}

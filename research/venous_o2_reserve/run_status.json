@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "stage": "Phase A outcome-blind feasibility audit",
+  "environment": "local",
+  "updated_utc": "2026-09-06T21:18:44.874157+00:00",
+  "phase": "A",
+  "clinical_outcomes_inspected": false,
+  "effect_estimates_computed": false,
+  "goal_complete": false,
+  "venous_o2_feasible": false,
+  "recommended_action": "run_predefined_fallback"
+}

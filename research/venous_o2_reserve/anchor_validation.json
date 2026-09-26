@@ -1,0 +1,18 @@
+[
+  {
+    "dataset": "eicu",
+    "eligible_encounters": 11452,
+    "exposed": 4309,
+    "controls": 7143,
+    "first_episode_matches_existing_exposure": true,
+    "deterministic_control_strategy": "nearest_transition_to_exposed_anchor_time_quantile"
+  },
+  {
+    "dataset": "mimic",
+    "eligible_encounters": 4711,
+    "exposed": 1398,
+    "controls": 3313,
+    "first_episode_matches_existing_exposure": true,
+    "deterministic_control_strategy": "nearest_transition_to_exposed_anchor_time_quantile"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "dataset": "eicu",
+    "desaturation": 0,
+    "people": 3066,
+    "deaths": 305,
+    "survivors": 2761,
+    "unknown_outcomes": 32,
+    "demographic_exclusions": 0,
+    "gate": true
+  },
+  {
+    "dataset": "eicu",
+    "desaturation": 1,
+    "people": 547,
+    "deaths": 84,
+    "survivors": 463,
+    "unknown_outcomes": 8,
+    "demographic_exclusions": 0,
+    "gate": true
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 0,
+    "people": 212,
+    "deaths": 31,
+    "survivors": 181,
+    "unknown_outcomes": 0,
+    "demographic_exclusions": 0,
+    "gate": true
+  },
+  {
+    "dataset": "mimic",
+    "desaturation": 1,
+    "people": 110,
+    "deaths": 19,
+    "survivors": 91,
+    "unknown_outcomes": 0,
+    "demographic_exclusions": 0,
+    "gate": true
+  }
+]

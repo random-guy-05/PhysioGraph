@@ -1,0 +1,33 @@
+{
+  "cells": 99,
+  "code_cells": 70,
+  "all_sources_match": true,
+  "all_sources_compile": true,
+  "error_outputs": 0,
+  "all_code_cells_have_execution_counts": true,
+  "notebook_sha256": "235a6f589d83bc2fbde6a32d3e281b879c2e87befe329df39773075cba71cdeb",
+  "execution": "local incremental; current full notebook not run uninterrupted; not Google Colab",
+  "validation": {
+    "bootstrap_checks": [
+      {
+        "dataset": "eicu",
+        "first_100_direct_expansions_match": true,
+        "replicates": 20000,
+        "finite_fraction": 1.0,
+        "resampling_unit": "hospital"
+      },
+      {
+        "dataset": "mimic",
+        "first_100_direct_expansions_match": true,
+        "replicates": 20000,
+        "finite_fraction": 1.0,
+        "resampling_unit": "person"
+      }
+    ],
+    "source_hashes_unchanged": true,
+    "unknown_mortality_not_imputed": true,
+    "original_person_and_landmark_checks_pass": true
+  },
+  "markdown_review_synchronized_without_reexecuting_analysis": true,
+  "goal_complete": false
+}

@@ -1,0 +1,15 @@
+{
+  "environment": "local",
+  "google_colab_execution": false,
+  "single_uninterrupted_execution_of_entire_current_notebook": false,
+  "full_raw_laboratory_scans_completed": true,
+  "source_hashes_match_previous_full_raw_audit": true,
+  "fixed_calcium_timing_pairs": {"eicu": 150, "mimic": 542},
+  "qualified_calcium_ph_pairs": {"eicu": 7, "mimic": 526},
+  "original_joint_gate_passed": false,
+  "original_changes_computed": false,
+  "independent_missing_hospital_assignments_checked": 1767,
+  "subsequent_metadata_attrition": "98 eICU people (36 exposed) have qualified pH at both original calcium timestamps and at least one matching normalized calcium unit tuple. This was an optimistic timing/metadata ceiling before the separate native-ratio qualification.",
+  "subsequent_separate_study": "spo2_calcium_relative; original absolute-unit estimand and support failure are unchanged",
+  "biological_discovery": false
+}

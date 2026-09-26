@@ -1,0 +1,8 @@
+{
+  "public_index_counts_match_release": true,
+  "exact_record_encounter_pairs_checked": 48,
+  "all_plain_header_identities_and_timing_match": true,
+  "maximum_overlap_difference_seconds": 1.8189894035458565e-12,
+  "metadata_checksums_match_official_manifest": true,
+  "waveform_amplitudes_not_read": true
+}

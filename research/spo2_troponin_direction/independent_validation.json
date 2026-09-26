@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "eicu",
+    "complete_trajectories": 133,
+    "independent_patient_sets_match": true,
+    "concentrations_or_directions_read": false
+  },
+  {
+    "dataset": "mimic",
+    "complete_trajectories": 23,
+    "independent_patient_sets_match": true,
+    "concentrations_or_directions_read": false
+  }
+]

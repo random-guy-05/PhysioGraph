@@ -1,0 +1,14 @@
+{
+  "protocol_sha256": "7a8b46209605755c8fa6f6ea9bd01b31ae885dd61a0620939b1d532ce1111851",
+  "environment": "local",
+  "completed_utc": "2026-09-05T09:27:28.497864+00:00",
+  "all_eight_intervals_familywise_coverage_target": 0.95,
+  "confidence_method": "Bonferroni Clopper-Pearson risk bounds propagated through the linear interaction",
+  "one_encounter_per_person_selected_before_outcomes": true,
+  "crude_unadjusted": true,
+  "association_screen_advance": false,
+  "troponin_outcomes_read": false,
+  "causal_effect_estimated": false,
+  "biological_discovery": false,
+  "goal_complete": false
+}

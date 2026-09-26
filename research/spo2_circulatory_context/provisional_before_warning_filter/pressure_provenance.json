@@ -1,0 +1,20 @@
+[
+  {
+    "dataset": "eicu",
+    "source_type": "periodic_invasive_context",
+    "records": 40033,
+    "stays": 1119
+  },
+  {
+    "dataset": "mimic",
+    "source_type": "invasive",
+    "records": 17380,
+    "stays": 3074
+  },
+  {
+    "dataset": "mimic",
+    "source_type": "noninvasive",
+    "records": 73881,
+    "stays": 15204
+  }
+]

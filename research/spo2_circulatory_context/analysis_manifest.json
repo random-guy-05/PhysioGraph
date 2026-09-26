@@ -1,0 +1,18 @@
+{
+  "environment": "local",
+  "finished_utc": "2026-09-05T06:04:20.664732+00:00",
+  "analysis_lock_sha256": "8fc4435812e6456585732f940a4a97e8c83fe86551226475abea33e142582dba",
+  "synthetic_patients": 0,
+  "raw_input_manifest_sha256": "f6cbc17569a7d61e6d62680df48fff846b79756b8aec7c0a46944bf9f0b2ff7b",
+  "implementation_sha256": "f9b842f581014eb5c5490991f930c022c6a4af1e282af7786ce141ce19ff81c9",
+  "production_spo2_helper_sha256": "fa72b693f4ba15f1d39d9bc0ccbbdf2136808bf464419beb25a31a4c2945978a",
+  "software": {
+    "python": "3.12.13 (main, Mar  3 2026, 12:39:30) [Clang 17.0.0 (clang-1700.6.4.2)]",
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "duckdb": "1.4.3"
+  },
+  "cross_database_positive_conditional_screens": [],
+  "paradigm_shifting_result": false,
+  "clinical_benefit_established": false
+}

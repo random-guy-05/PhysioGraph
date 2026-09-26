@@ -1,0 +1,38 @@
+[
+  {
+    "stage": "raw",
+    "split": 0,
+    "people": 96,
+    "exposed": 45,
+    "unexposed": 51,
+    "hospitals": 19,
+    "gate": true
+  },
+  {
+    "stage": "raw",
+    "split": 1,
+    "people": 250,
+    "exposed": 96,
+    "unexposed": 154,
+    "hospitals": 30,
+    "gate": true
+  },
+  {
+    "stage": "qualified",
+    "split": 0,
+    "people": 85,
+    "exposed": 41,
+    "unexposed": 44,
+    "hospitals": 19,
+    "gate": true
+  },
+  {
+    "stage": "qualified",
+    "split": 1,
+    "people": 237,
+    "exposed": 90,
+    "unexposed": 147,
+    "hospitals": 30,
+    "gate": true
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "freeze_utc": "2026-09-07T16:19:32Z",
+  "hash_record_utc": "2026-09-07T16:20:08Z",
+  "documentation_sha256": "c0289bb8f75df767b53c6e94ff7be479d0a6afbc28125a4125499269d362050b",
+  "root_protocol_json_sha256": "a21b9dedb937df26f385365a1049a1c943af1b4d7ca582d455ec521dc78ac8b6",
+  "execution_protocol_json_sha256": "469bc70fe6b8d4e755ecf49e9b84caa381ed0ad8e82f25ba6887d03d51283a8a",
+  "outcomes_inspected": false,
+  "post_anchor_support_rows_loaded": false,
+  "first_outcome_read_utc": null
+}

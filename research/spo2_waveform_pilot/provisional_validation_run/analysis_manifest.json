@@ -1,0 +1,17 @@
+{
+  "protocol_sha256": "4a1d9857f07ecdead25653f14d4e572bc8305ca02b741065876349caeed49240",
+  "completed_utc": "2026-09-05T08:47:03.053656+00:00",
+  "environment": "local",
+  "selected_encounters": 11,
+  "exposed_encounters": 5,
+  "usable_episode_blocks": 0,
+  "positive_pilot_flags": 0,
+  "advancement_gate_pass": false,
+  "biological_discovery": false,
+  "mortality_benefit_demonstrated": false,
+  "goal_complete": false,
+  "private_materialization_sha256": "a0faec25481a8dfedbcae419d43172a018efa991e881c1f44da0cbadb6bd578e",
+  "phase_null_replicates": 499,
+  "multiple_testing_slots": 5,
+  "seed": 20260905
+}

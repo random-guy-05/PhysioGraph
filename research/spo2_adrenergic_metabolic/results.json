@@ -1,0 +1,65 @@
+{
+  "joint_gate": true,
+  "events_computed": true,
+  "arm_counts": [
+    {
+      "dataset": "eicu",
+      "exposed": 0,
+      "people": 96,
+      "events": 4,
+      "non_events": 92,
+      "event_hospitals": 4,
+      "risk": 0.041666666666666664,
+      "event_gate": false
+    },
+    {
+      "dataset": "eicu",
+      "exposed": 1,
+      "people": 56,
+      "events": 0,
+      "non_events": 56,
+      "event_hospitals": 0,
+      "risk": 0.0,
+      "event_gate": false
+    },
+    {
+      "dataset": "mimic",
+      "exposed": 0,
+      "people": 97,
+      "events": 3,
+      "non_events": 94,
+      "event_hospitals": null,
+      "risk": 0.030927835051546393,
+      "event_gate": false
+    },
+    {
+      "dataset": "mimic",
+      "exposed": 1,
+      "people": 37,
+      "events": 1,
+      "non_events": 36,
+      "event_hospitals": null,
+      "risk": 0.02702702702702703,
+      "event_gate": false
+    }
+  ],
+  "estimates": [
+    {
+      "dataset": "eicu",
+      "risk_difference": -0.041666666666666664,
+      "risk_ratio": 0.0,
+      "event_gate": false,
+      "advance": false
+    },
+    {
+      "dataset": "mimic",
+      "risk_difference": -0.0039008080245193644,
+      "risk_ratio": 0.8738738738738739,
+      "event_gate": false,
+      "advance": false
+    }
+  ],
+  "advancement_gate_pass": false,
+  "biological_discovery": false,
+  "mortality_benefit_established": false
+}

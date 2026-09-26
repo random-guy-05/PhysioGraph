@@ -1,0 +1,6 @@
+{
+  "analysis_lock_sha256": "07c9b4b3c6ef3c9d576ca470067df9526f5b512c21840209238ea10e43d65f19",
+  "authorized_model_limit": 2,
+  "first_corrected_association_read_utc": "2026-09-11T01:52:34.067786+00:00",
+  "outcome_peek_before_lock": false
+}

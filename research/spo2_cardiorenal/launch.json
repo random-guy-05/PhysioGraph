@@ -1,0 +1,30 @@
+{
+  "pid": 16087,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "nbformat",
+    "--with",
+    "statsmodels==0.14.4",
+    "--with",
+    "scipy==1.15.2",
+    "python",
+    "-u",
+    "scripts/build_biological_notebook.py",
+    "--cardiorenal-only"
+  ],
+  "utc": "2026-09-05T10:54:43.407412+00:00",
+  "builder_sha256": "88c4b31e8ff97ebab76eccf09bf36894586ad325d303f457733df67d53b0949e",
+  "cell_module_sha256": "5369ee7dac49b5fae96da4370cc7464cc51a8c1a700786f6ac2181aac4333b16",
+  "correction": "exact decimal creatinine boundary"
+}

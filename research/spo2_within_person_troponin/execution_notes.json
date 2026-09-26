@@ -1,0 +1,11 @@
+{
+  "initial_sql_alias_failures": [
+    "map",
+    "value"
+  ],
+  "fixed_before_oxygen_features_and_troponin_changes": true,
+  "subsequent_sql_syntax_preflight_statements": 18,
+  "final_source_and_feature_validation_passed": true,
+  "original_cross_database_models_fitted": 0,
+  "separate_hospital_amendment": "SPO2_EICU_HOSPITAL_AMENDMENT.md"
+}

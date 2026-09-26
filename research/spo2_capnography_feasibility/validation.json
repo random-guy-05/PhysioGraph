@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "dataset": "eicu",
+      "tolerance_minutes": 5,
+      "all_nearest_timestamps_full_windows_and_forward_order_sql_python_agree": true,
+      "context_flags_sql_python_agree": true
+    },
+    {
+      "dataset": "eicu",
+      "tolerance_minutes": 15,
+      "all_nearest_timestamps_full_windows_and_forward_order_sql_python_agree": true,
+      "context_flags_sql_python_agree": true
+    },
+    {
+      "dataset": "mimic",
+      "tolerance_minutes": 5,
+      "all_nearest_timestamps_full_windows_and_forward_order_sql_python_agree": true,
+      "context_flags_sql_python_agree": true
+    },
+    {
+      "dataset": "mimic",
+      "tolerance_minutes": 15,
+      "all_nearest_timestamps_full_windows_and_forward_order_sql_python_agree": true,
+      "context_flags_sql_python_agree": true
+    }
+  ],
+  "one_original_episode_per_exposed_person": true,
+  "nearest_pair_ties_choose_earlier": true,
+  "no_reused_co2_timestamp": true
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "eicu",
+    "timing_intervals": 2450,
+    "oxygen_qualified_intervals": 2413,
+    "analysis_intervals": 2397,
+    "analysis_people": 1068,
+    "instability_switchers": 419,
+    "unstable_intervals": 750,
+    "stable_intervals": 1647,
+    "spo2_bins_quantiles": [
+      16.0,
+      16.0,
+      16.0
+    ],
+    "minimum_people": 100,
+    "minimum_switchers": 50,
+    "passes": true
+  },
+  {
+    "dataset": "mimic",
+    "timing_intervals": 640,
+    "oxygen_qualified_intervals": 105,
+    "analysis_intervals": 34,
+    "analysis_people": 16,
+    "instability_switchers": 5,
+    "unstable_intervals": 7,
+    "stable_intervals": 27,
+    "spo2_bins_quantiles": [
+      6.0,
+      7.5,
+      10.75
+    ],
+    "minimum_people": 100,
+    "minimum_switchers": 50,
+    "passes": false
+  }
+]

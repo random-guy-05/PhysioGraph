@@ -1,0 +1,20 @@
+{
+  "environment": "local",
+  "google_colab_execution": false,
+  "single_uninterrupted_execution_of_entire_current_notebook": false,
+  "previous_goal_turn_classification": "progress",
+  "current_goal_turn_classification": "progress",
+  "full_raw_laboratory_scans_completed": true,
+  "raw_source_hashes_match_previous_audits": true,
+  "initial_technical_failure": "After all paired support checks passed, DuckDB rejected the event projection alias because AS was missing. Event creation did not execute. Added AS and reran unchanged setup, qualification and event cells from the completed raw cache.",
+  "protocol_or_thresholds_changed_after_data": false,
+  "independent_missing_hospital_assignments_checked": 634,
+  "qualified_people": {"eicu": 152, "mimic": 134},
+  "joint_events_exposed_control": {"eicu": [0, 4], "mimic": [1, 3]},
+  "event_gate_passed": {"eicu": false, "mimic": false},
+  "bootstrap_executed": false,
+  "adjusted_or_mortality_models_executed": false,
+  "interpretation": "The point estimates do not support the proposed increased joint-event risk. Sparse events preclude the planned inference. This does not establish protection, equivalence, or absence of adrenergic physiology. The laboratory interval brackets the anchor but cannot locate biochemical onset.",
+  "biological_discovery": false,
+  "goal_complete": false
+}

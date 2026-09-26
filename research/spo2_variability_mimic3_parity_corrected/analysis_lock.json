@@ -1,0 +1,264 @@
+{
+  "corrected_association_inspected": false,
+  "first_corrected_association_read_utc": null,
+  "lock_utc": "2026-09-11T01:50:29.280420+00:00",
+  "source_checks": [
+    {
+      "actual_sha256": "3430fbb3cc9ad69952b6ec0615ac41a143dc5eb34c16832c0a6cd6f5d5cc3159",
+      "bytes": 1061461,
+      "expected_sha256": "3430fbb3cc9ad69952b6ec0615ac41a143dc5eb34c16832c0a6cd6f5d5cc3159",
+      "match": true,
+      "relative_path": "ADMISSIONS.csv.gz"
+    },
+    {
+      "actual_sha256": "4b4233f83815c3106a3fd6534a1f04342833f66e75f50c43c315cef343a57f2f",
+      "bytes": 205830,
+      "expected_sha256": "4b4233f83815c3106a3fd6534a1f04342833f66e75f50c43c315cef343a57f2f",
+      "match": true,
+      "relative_path": "CALLOUT.csv.gz"
+    },
+    {
+      "actual_sha256": "6b556c91871337cadac88a7163fdf7fcaefeefe235ed7d7f3d698895cb5c4ad7",
+      "bytes": 48639,
+      "expected_sha256": "6b556c91871337cadac88a7163fdf7fcaefeefe235ed7d7f3d698895cb5c4ad7",
+      "match": true,
+      "relative_path": "CAREGIVERS.csv.gz"
+    },
+    {
+      "actual_sha256": "1e076574589854dc6af28c4e8b5fab7528f1777567bf675052257c05ec0f490a",
+      "bytes": 1801233558,
+      "expected_sha256": "1e076574589854dc6af28c4e8b5fab7528f1777567bf675052257c05ec0f490a",
+      "match": true,
+      "relative_path": "CHARTEVENTS.csv.gz"
+    },
+    {
+      "actual_sha256": "69e1f01b426ecf9aa39e4702e301fb8e3a03bb72ebc54e4fe1350f6cd4cfb0cd",
+      "bytes": 1408796,
+      "expected_sha256": "69e1f01b426ecf9aa39e4702e301fb8e3a03bb72ebc54e4fe1350f6cd4cfb0cd",
+      "match": true,
+      "relative_path": "CPTEVENTS.csv.gz"
+    },
+    {
+      "actual_sha256": "590682590e03358295e5e7c02a54ae10e61b70f9b7e2d5695c77ae5e5a87c05a",
+      "bytes": 16756817,
+      "expected_sha256": "590682590e03358295e5e7c02a54ae10e61b70f9b7e2d5695c77ae5e5a87c05a",
+      "match": true,
+      "relative_path": "DATETIMEEVENTS.csv.gz"
+    },
+    {
+      "actual_sha256": "6bcd6bab5806b4c2558336a6de37b484106499a31e51600f369954578ced7c78",
+      "bytes": 1636144,
+      "expected_sha256": "6bcd6bab5806b4c2558336a6de37b484106499a31e51600f369954578ced7c78",
+      "match": true,
+      "relative_path": "DIAGNOSES_ICD.csv.gz"
+    },
+    {
+      "actual_sha256": "1352ea2cd5075d9a4ce381118733fa5623d8f6c5216b278763b31d307092b50f",
+      "bytes": 549047,
+      "expected_sha256": "1352ea2cd5075d9a4ce381118733fa5623d8f6c5216b278763b31d307092b50f",
+      "match": true,
+      "relative_path": "DRGCODES.csv.gz"
+    },
+    {
+      "actual_sha256": "f93e3819d770e9649e33011380f198baf7cbeda304b1c64518c385d5b3de5935",
+      "bytes": 3853,
+      "expected_sha256": "f93e3819d770e9649e33011380f198baf7cbeda304b1c64518c385d5b3de5935",
+      "match": true,
+      "relative_path": "D_CPT.csv.gz"
+    },
+    {
+      "actual_sha256": "1a218e302cc133879d71dcc54153012fbc37bdd9e0b46d9a661dc511209979d0",
+      "bytes": 279812,
+      "expected_sha256": "1a218e302cc133879d71dcc54153012fbc37bdd9e0b46d9a661dc511209979d0",
+      "match": true,
+      "relative_path": "D_ICD_DIAGNOSES.csv.gz"
+    },
+    {
+      "actual_sha256": "53407617a515b667ffe886a49ca8b0561496b40d4758c9a87e264ee666df8f18",
+      "bytes": 74692,
+      "expected_sha256": "53407617a515b667ffe886a49ca8b0561496b40d4758c9a87e264ee666df8f18",
+      "match": true,
+      "relative_path": "D_ICD_PROCEDURES.csv.gz"
+    },
+    {
+      "actual_sha256": "e4eacfa298da5e424c4952905c5a205e95813c2eec3fbba4c837990e26bbf958",
+      "bytes": 175236,
+      "expected_sha256": "e4eacfa298da5e424c4952905c5a205e95813c2eec3fbba4c837990e26bbf958",
+      "match": true,
+      "relative_path": "D_ITEMS.csv.gz"
+    },
+    {
+      "actual_sha256": "4d53931b8044249ee5b16f18d798b35845615a26637e02d7248998d100b60e1d",
+      "bytes": 11089,
+      "expected_sha256": "4d53931b8044249ee5b16f18d798b35845615a26637e02d7248998d100b60e1d",
+      "match": true,
+      "relative_path": "D_LABITEMS.csv.gz"
+    },
+    {
+      "actual_sha256": "ed056623ad5077b1686744f5e9127ceeb248a23533a57c36a379dc7d327a5dd1",
+      "bytes": 908665,
+      "expected_sha256": "ed056623ad5077b1686744f5e9127ceeb248a23533a57c36a379dc7d327a5dd1",
+      "match": true,
+      "relative_path": "ICUSTAYS.csv.gz"
+    },
+    {
+      "actual_sha256": "9274830c87bfaf1753ffcb471e2d62d0b4c8f3870ec20118355e524d79e4be17",
+      "bytes": 285705165,
+      "expected_sha256": "9274830c87bfaf1753ffcb471e2d62d0b4c8f3870ec20118355e524d79e4be17",
+      "match": true,
+      "relative_path": "INPUTEVENTS_CV.csv.gz"
+    },
+    {
+      "actual_sha256": "4c127888e6ff27b93814b04f649ec792e46b75bc11c1ae2496ce5cf43dc259ea",
+      "bytes": 234,
+      "expected_sha256": "4c127888e6ff27b93814b04f649ec792e46b75bc11c1ae2496ce5cf43dc259ea",
+      "match": true,
+      "relative_path": "INPUTEVENTS_MV.csv.gz"
+    },
+    {
+      "actual_sha256": "e33d185d56f4716aa6f8cf17f6c59887934b696210526fe69ee63a32f09f6d5b",
+      "bytes": 115847926,
+      "expected_sha256": "e33d185d56f4716aa6f8cf17f6c59887934b696210526fe69ee63a32f09f6d5b",
+      "match": true,
+      "relative_path": "LABEVENTS.csv.gz"
+    },
+    {
+      "actual_sha256": "8b03bc615781808a5446efd5b4edf7858f6128270fb493919871b58f2ed8000e",
+      "bytes": 2518,
+      "expected_sha256": "8b03bc615781808a5446efd5b4edf7858f6128270fb493919871b58f2ed8000e",
+      "match": true,
+      "relative_path": "LICENSE.txt"
+    },
+    {
+      "actual_sha256": "45b527051a200c3b8fe1d2e2f78d77da6711d41c2568a1abf4ecea97a5a4e9d8",
+      "bytes": 3183291,
+      "expected_sha256": "45b527051a200c3b8fe1d2e2f78d77da6711d41c2568a1abf4ecea97a5a4e9d8",
+      "match": true,
+      "relative_path": "MICROBIOLOGYEVENTS.csv.gz"
+    },
+    {
+      "actual_sha256": "e2459956b06fccb6fab272089c5eb4dd8e40271f1dfa0d5ea637a7ce776799d4",
+      "bytes": 281213134,
+      "expected_sha256": "e2459956b06fccb6fab272089c5eb4dd8e40271f1dfa0d5ea637a7ce776799d4",
+      "match": true,
+      "relative_path": "NOTEEVENTS.csv.gz"
+    },
+    {
+      "actual_sha256": "ee827dcfe2ab0bf64c52941b2e3077603535b7e4ddc7d24afda78113dbec7a7f",
+      "bytes": 26302150,
+      "expected_sha256": "ee827dcfe2ab0bf64c52941b2e3077603535b7e4ddc7d24afda78113dbec7a7f",
+      "match": true,
+      "relative_path": "OUTPUTEVENTS.csv.gz"
+    },
+    {
+      "actual_sha256": "7a13a8edbeb0e4c0218126d741edcd8f549e0c6c5815974e105e31ad0f300709",
+      "bytes": 292030,
+      "expected_sha256": "7a13a8edbeb0e4c0218126d741edcd8f549e0c6c5815974e105e31ad0f300709",
+      "match": true,
+      "relative_path": "PATIENTS.csv.gz"
+    },
+    {
+      "actual_sha256": "111245858c74eaf272a01bca181beaf03ffe18df25d3377ac76df8114a3d27c5",
+      "bytes": 30732289,
+      "expected_sha256": "111245858c74eaf272a01bca181beaf03ffe18df25d3377ac76df8114a3d27c5",
+      "match": true,
+      "relative_path": "PRESCRIPTIONS.csv.gz"
+    },
+    {
+      "actual_sha256": "d83b32cc165ef0334d479daace8a4cca2698012a3224ee8dea912d4a2b38f02d",
+      "bytes": 204,
+      "expected_sha256": "d83b32cc165ef0334d479daace8a4cca2698012a3224ee8dea912d4a2b38f02d",
+      "match": true,
+      "relative_path": "PROCEDUREEVENTS_MV.csv.gz"
+    },
+    {
+      "actual_sha256": "00f972036f1cdb14b59ca6efcc9d505247cc7075a1f06a982125e2d7758cf6b6",
+      "bytes": 829416,
+      "expected_sha256": "00f972036f1cdb14b59ca6efcc9d505247cc7075a1f06a982125e2d7758cf6b6",
+      "match": true,
+      "relative_path": "PROCEDURES_ICD.csv.gz"
+    },
+    {
+      "actual_sha256": "cf9c0e1a85ff8d5838d8ff3c5a5050127b9db2be1e02fbd76fc48347617fb505",
+      "bytes": 507406,
+      "expected_sha256": "cf9c0e1a85ff8d5838d8ff3c5a5050127b9db2be1e02fbd76fc48347617fb505",
+      "match": true,
+      "relative_path": "SERVICES.csv.gz"
+    },
+    {
+      "actual_sha256": "4cd5eddb28811dca38d6ba2c698d8cc95575422ac7a670a02031696932e0e60f",
+      "bytes": 2439853,
+      "expected_sha256": "4cd5eddb28811dca38d6ba2c698d8cc95575422ac7a670a02031696932e0e60f",
+      "match": true,
+      "relative_path": "TRANSFERS.csv.gz"
+    }
+  ],
+  "specification": {
+    "availability_branch": "AVAILABILITY_PARITY_APPLIED",
+    "availability_semantics_decision_sha256": "cc3e126d63e400a656b7622471751e711bb1f4e16741d4270408fd50109a7524",
+    "availability_statistics": {
+      "median_chart_to_store_delay_minutes": 10.0,
+      "mimic3_carevue_spo2_rows_charttime_0_240": 30193,
+      "p95_chart_to_store_delay_minutes": 84.0,
+      "storetime_after_minute_240_count": 2726,
+      "storetime_after_minute_240_fraction": 0.09028582784089027,
+      "storetime_missing_count": 0,
+      "storetime_missing_fraction": 0.0,
+      "valid_rows_available_by_240": 27349
+    },
+    "code_hashes": {
+      "scripts/run_spo2_variability_mimic3_forensic.py": "43faf05ffd5fc8ba8a9680364406f7681d3acd8be4ebacac51af1ab16b43f583",
+      "scripts/run_spo2_variability_mimic3_parity_corrected.py": "82aa8dd5c9b340af36cc5a8bacbc61562aa604b04759cbd6ff1321e1e6559a83",
+      "scripts/run_spo2_variability_mimic3_validation.py": "48ad1995a45a70aa3349c6fc4dbb15cab28342c1b91bb6ac560dbde7a8115f71",
+      "scripts/shock_signal_discovery_cells.py": "1048274a80689b83a4466c10fe1bc6bf0f8e62aeb9f11d06282df1087e10a2b3",
+      "src/physiograph/analysis/shock_signal_discovery.py": "016c251dbeb6a9adb11ad433c05e0788afe62d4bef983c6f25936e528494934d",
+      "src/physiograph/analysis/spo2_variability_mimic3_parity_corrected.py": "bbbbcb926fedcbb28f56352818333ea4a55ed53b22de1cc65517638fa41656b5",
+      "src/physiograph/analysis/spo2_variability_mimic3_validation.py": "5be3d9ae97a712bdab8b5b190d8f89fe90f6b2ff5dbcf9306d4fd98e608bcecd",
+      "src/physiograph/analysis/spo2_variability_validation.py": "202643ef397844467e73afd17613254faebc323481c1defb37573f1852e9e165",
+      "tests/unit/test_spo2_variability_mimic3_parity_corrected.py": "657aa611c122f0b7e4068b5c714c0baa2acb7ff364d622573695579f7004c5d6"
+    },
+    "corrected_later_rule": "corrected_primary_composite_completion_minute_gt_480",
+    "corrected_oliguria_start_hour": 4,
+    "corrected_primary_window": {
+      "lower_exclusive": 360,
+      "maximum_domain_separation_minutes": 360,
+      "upper_inclusive": 960
+    },
+    "exposure_itemid": 646,
+    "exposure_parameters": {
+      "center": 0.8776215724100497,
+      "lower": 1.160311428702309e-14,
+      "scale": 0.8227000137550243,
+      "upper": 4.300141942983509
+    },
+    "forensic_classification": "IMPLEMENTATION_OR_MAPPING_CONCERN",
+    "git_revision": "5fbeb14c341fb1bce012c7ab30cc2a25f15fc331",
+    "maximum_authorized_association_fits": 2,
+    "minimum_modeled_later_events": 50,
+    "minimum_modeled_primary_events": 50,
+    "model_covariates": [
+      "age",
+      "male_sex",
+      "hr_level",
+      "sbp_level",
+      "map_level",
+      "resp_rate_level",
+      "spo2_level",
+      "temperature_c_level",
+      "baseline_creatinine",
+      "baseline_lactate",
+      "lactate_observed",
+      "bp_measurement_density",
+      "urine_measurement_density"
+    ],
+    "new_waiver_created": false,
+    "original_classification": "MIMIC3_HISTORICAL_REPLICATION_DID_NOT_CONFIRM_POST_HOC_SIGNAL",
+    "protected_artifact_baseline_sha256": "2f67fa885854a0f33b84bdd2dbe28efc607f37b33c50f469c57caa9c89ac2f25",
+    "protocol_sha256": "f1e63513561914f325a3efe58d7e4e12c06e9572ebc145eb5730e264bac6fc97",
+    "retained_coverage_waiver": true,
+    "retained_site_waiver": true,
+    "source_manifest_sha256": "8dbae4fb5eb3aa7fb6d482eeda0662972ef4da430caa0e19ce636837213eb0b4"
+  },
+  "specification_sha256": "4c6000fe823eba47031391797ef6dbc1762ab39f0ef624148ec40d1fd2e16441",
+  "status": "LOCKED_BEFORE_CORRECTED_ENDPOINT_SUPPORT_OR_ASSOCIATION"
+}

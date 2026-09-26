@@ -1,0 +1,10 @@
+{
+  "protocol_sha256": "ecb781f84d1fc88ba67f7697aa550f6b96016ce1ddfc4897e6d363426a76dd79",
+  "script_sha256": "c1c51a198d9e55012d481698e58297c1f76c45f9b3562cbab76ff8ff34bec940",
+  "source_fingerprints_unchanged": true,
+  "both_timing_gates_pass": true,
+  "troponin_changes_calculated": false,
+  "raw_vitals_scanned": false,
+  "mortality_accessed": false,
+  "goal_complete": false
+}

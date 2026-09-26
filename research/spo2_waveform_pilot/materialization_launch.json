@@ -1,0 +1,29 @@
+{
+  "pid": 97007,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "nbformat",
+    "--with",
+    "wfdb==4.3.0",
+    "--with",
+    "scipy==1.15.2",
+    "python",
+    "-u",
+    "scripts/build_biological_notebook.py",
+    "--waveform-materialize-only"
+  ],
+  "utc": "2026-09-05T08:31:57.439108+00:00",
+  "builder_sha256": "23ef33430b96bd0abcb7a7f564887c9224d213f5cbf561055c29f40d283526e4",
+  "cell_module_sha256": "5988088755387dbef41bcf2673717711476784065774c8a07f8ad82771a46a30"
+}

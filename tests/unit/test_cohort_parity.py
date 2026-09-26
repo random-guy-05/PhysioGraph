@@ -186,42 +186,42 @@ class TestEICUDiagnosisTokenMatching:
 
 
 # ---------------------------------------------------------------------------
-# 3. Exclusion criteria: age < 16
+# 3. Harmonized adult exclusion: age < 18
 # ---------------------------------------------------------------------------
 
 
 class TestExclusionCriteriaAge:
-    """Verify age < 16 exclusion works correctly."""
+    """Verify the harmonized adult boundary works correctly."""
 
-    def test_eicu_age_under_16_excluded(self):
-        """eICU patients with age < 16 should be flagged for exclusion."""
+    def test_eicu_age_under_18_excluded(self):
+        """eICU patients with age < 18 should be flagged for exclusion."""
         # Simulate eICU exclusion logic
         cohort_df = pd.DataFrame({
             "stay_id": [1, 2, 3, 4],
-            "age": [15.0, 16.0, 45.0, 89.0],
+            "age": [15.0, 17.0, 45.0, 89.0],
             "unitdischargeoffset": [5000, 5000, 5000, 5000],
             "death_offset_minutes": [np.nan, np.nan, np.nan, np.nan],
         })
-        # Age < 16 exclusion
+        # Harmonized adult exclusion
         excluded = []
         for _, row in cohort_df.iterrows():
             age = row.get("age")
             r = []
-            if pd.notna(age) and float(age) < 16:
-                r.append("age_lt_16")
+            if pd.notna(age) and float(age) < 18:
+                r.append("age_lt_18")
             excluded.append(1 if r else 0)
-        assert excluded == [1, 0, 0, 0]
+        assert excluded == [1, 1, 0, 0]
 
-    def test_eicu_age_exactly_16_not_excluded(self):
-        """eICU patients with age exactly 16 should NOT be excluded."""
+    def test_eicu_age_exactly_18_not_excluded(self):
+        """eICU patients with age exactly 18 should not be age-excluded."""
         cohort_df = pd.DataFrame({
             "stay_id": [1],
-            "age": [16.0],
+            "age": [18.0],
             "unitdischargeoffset": [5000],
             "death_offset_minutes": [np.nan],
         })
         age = cohort_df.iloc[0]["age"]
-        assert not (pd.notna(age) and float(age) < 16)
+        assert not (pd.notna(age) and float(age) < 18)
 
     def test_parse_eicu_age_gt89(self):
         """parse_eicu_age handles '>89' de-identification pattern."""
@@ -347,6 +347,18 @@ class TestExclusionCriteriaPreLandmarkDeath:
         })
         result = derive_death_offset_minutes(row)
         assert result is None
+
+    def test_hospital_death_offset_is_already_relative_to_unit_admission(self):
+        row = pd.Series({
+            "unitdischargestatus": "Alive",
+            "unitdischargelocation": "Floor",
+            "hospitaldischargestatus": "Expired",
+            "hospitaldischargelocation": "Death",
+            "unitdischargeoffset": 1000,
+            "hospitaldischargeoffset": 1200,
+            "hospitaladmitoffset": -600,
+        })
+        assert derive_death_offset_minutes(row) == 1200.0
 
 
 # ---------------------------------------------------------------------------

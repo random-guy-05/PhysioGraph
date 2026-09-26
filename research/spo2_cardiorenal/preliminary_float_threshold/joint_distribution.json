@@ -1,0 +1,258 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 0,
+    "troponin_rise": 0,
+    "creatinine_worsening": 0,
+    "encounters": 241
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 0,
+    "troponin_rise": 0,
+    "creatinine_worsening": 1,
+    "encounters": 28
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 0,
+    "troponin_rise": 1,
+    "creatinine_worsening": 0,
+    "encounters": 84
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 0,
+    "troponin_rise": 1,
+    "creatinine_worsening": 1,
+    "encounters": 18
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 1,
+    "troponin_rise": 0,
+    "creatinine_worsening": 0,
+    "encounters": 163
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 1,
+    "troponin_rise": 0,
+    "creatinine_worsening": 1,
+    "encounters": 13
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 1,
+    "troponin_rise": 1,
+    "creatinine_worsening": 0,
+    "encounters": 83
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 1,
+    "troponin_rise": 1,
+    "creatinine_worsening": 1,
+    "encounters": 26
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 0,
+    "troponin_rise": 0,
+    "creatinine_worsening": 0,
+    "encounters": 322
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 0,
+    "troponin_rise": 0,
+    "creatinine_worsening": 1,
+    "encounters": 54
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 0,
+    "troponin_rise": 1,
+    "creatinine_worsening": 0,
+    "encounters": 140
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 0,
+    "troponin_rise": 1,
+    "creatinine_worsening": 1,
+    "encounters": 32
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 1,
+    "troponin_rise": 0,
+    "creatinine_worsening": 0,
+    "encounters": 204
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 1,
+    "troponin_rise": 0,
+    "creatinine_worsening": 1,
+    "encounters": 30
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 1,
+    "troponin_rise": 1,
+    "creatinine_worsening": 0,
+    "encounters": 107
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 1,
+    "troponin_rise": 1,
+    "creatinine_worsening": 1,
+    "encounters": 37
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 0,
+    "troponin_rise": 0,
+    "creatinine_worsening": 0,
+    "encounters": 270
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 0,
+    "troponin_rise": 0,
+    "creatinine_worsening": 1,
+    "encounters": 29
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 0,
+    "troponin_rise": 1,
+    "creatinine_worsening": 0,
+    "encounters": 76
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 0,
+    "troponin_rise": 1,
+    "creatinine_worsening": 1,
+    "encounters": 25
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 1,
+    "troponin_rise": 0,
+    "creatinine_worsening": 0,
+    "encounters": 120
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 1,
+    "troponin_rise": 0,
+    "creatinine_worsening": 1,
+    "encounters": 19
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 1,
+    "troponin_rise": 1,
+    "creatinine_worsening": 0,
+    "encounters": 54
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 1,
+    "troponin_rise": 1,
+    "creatinine_worsening": 1,
+    "encounters": 28
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 0,
+    "troponin_rise": 0,
+    "creatinine_worsening": 0,
+    "encounters": 253
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 0,
+    "troponin_rise": 0,
+    "creatinine_worsening": 1,
+    "encounters": 57
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 0,
+    "troponin_rise": 1,
+    "creatinine_worsening": 0,
+    "encounters": 81
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 0,
+    "troponin_rise": 1,
+    "creatinine_worsening": 1,
+    "encounters": 36
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 1,
+    "troponin_rise": 0,
+    "creatinine_worsening": 0,
+    "encounters": 103
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 1,
+    "troponin_rise": 0,
+    "creatinine_worsening": 1,
+    "encounters": 31
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 1,
+    "troponin_rise": 1,
+    "creatinine_worsening": 0,
+    "encounters": 54
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 1,
+    "troponin_rise": 1,
+    "creatinine_worsening": 1,
+    "encounters": 39
+  }
+]

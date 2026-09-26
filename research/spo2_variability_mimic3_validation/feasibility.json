@@ -1,0 +1,23 @@
+{
+  "eligible_stays": 2368,
+  "valid_exposures": 1799,
+  "exposure_coverage": 0.7597128378378378,
+  "modeled_primary_events": 72,
+  "exact_composite_observable": true,
+  "contributing_sites": 1,
+  "gates": {
+    "exact_composite": true,
+    "coverage_observed": true,
+    "coverage_effective_after_waiver": true,
+    "events": true,
+    "sites_observed": false,
+    "sites_effective_after_waiver": true
+  },
+  "waivers": {
+    "minimum_70_percent_exposure_coverage": true,
+    "minimum_20_contributing_sites": true
+  },
+  "failures": [],
+  "association_authorized": true,
+  "classification": "READY_FOR_FROZEN_MIMIC3_REPLICATION_ASSOCIATION"
+}

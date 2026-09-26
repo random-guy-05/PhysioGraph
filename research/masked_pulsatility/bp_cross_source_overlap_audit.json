@@ -1,0 +1,14 @@
+{
+  "exact_duplicates": 34042,
+  "near_time_duplicates": 43247,
+  "value_identical_cross_source": 58162,
+  "nurse_rows_dropped": 43247,
+  "aperiodic_rows": 136900,
+  "aperiodic_source_exclusive_rows": 93713,
+  "nurse_source_exclusive_rows": 20857,
+  "map_enriched_from_nurse": 49,
+  "dataset": "eicu",
+  "near_time_rule_minutes": 1.0,
+  "deduplicated_union_rows": 157757,
+  "deduplicated_union_stays": 11694
+}

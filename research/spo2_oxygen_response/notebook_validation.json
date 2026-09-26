@@ -1,0 +1,29 @@
+{
+  "utc": "2026-09-05T07:54:22.846428+00:00",
+  "cells": 33,
+  "code_cells": 25,
+  "all_sources_match_builder": true,
+  "all_code_cells_have_local_execution": true,
+  "no_error_outputs": true,
+  "nbformat_valid": true,
+  "latest_notebook_single_fresh_execution": false,
+  "colab_execution": false,
+  "notebook_sha256": "43403bb6563985f1ee130b1f1e92f59c512dca7b0abb36ca2d1e2726a48ebef4",
+  "builder_sha256": "2dd215783253145da65c37c80af6a2d83367c184e48af6d704385e271cc1cc1f",
+  "independent_validation": [
+    {
+      "dataset": "eicu",
+      "all_escalation_identifiers_match": true,
+      "all_pre_post_timestamps_match": true,
+      "all_corroboration_flags_match": true,
+      "records_checked": 195
+    },
+    {
+      "dataset": "mimic",
+      "all_escalation_identifiers_match": true,
+      "all_pre_post_timestamps_match": true,
+      "all_corroboration_flags_match": true,
+      "records_checked": 32
+    }
+  ]
+}

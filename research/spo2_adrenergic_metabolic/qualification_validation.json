@@ -1,0 +1,17 @@
+{
+  "checks": [
+    {
+      "dataset": "eicu",
+      "sql_python_entry_unit_decimal_flags_and_values": true,
+      "sql_python_fixed_potassium_timestamps": true,
+      "sql_python_joint_pairs_and_scaled_values": true
+    },
+    {
+      "dataset": "mimic",
+      "sql_python_entry_unit_decimal_flags_and_values": true,
+      "sql_python_fixed_potassium_timestamps": true,
+      "sql_python_joint_pairs_and_scaled_values": true
+    }
+  ],
+  "independent_missing_hospital_checks": 634
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "eicu",
+    "complete_encounters": 133,
+    "people": 133,
+    "all_original_episodes": 4309
+  },
+  {
+    "dataset": "mimic",
+    "complete_encounters": 76,
+    "people": 76,
+    "all_original_episodes": 1398
+  }
+]

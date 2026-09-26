@@ -1,0 +1,14 @@
+{
+  "protocol_sha256": "23c1edc2e918e289fefc4cb1e0d145fded0ed83210f30affe467441d03a2e555",
+  "assay_encoding_clarification_sha256": "025c612d709fe03859c0cf547be122a7ef88d60e18cc9b4f27b4aeb7f1374122",
+  "environment": "local",
+  "decimal_threshold_correction_sha256": "1081c9e32d88992d090be2839c9510c989daf9227352753b3063bc70f8ab179f",
+  "completed_utc": "2026-09-05T10:55:58.773819+00:00",
+  "primary_tests": 2,
+  "primary_candidate_advance": false,
+  "mortality_selected": false,
+  "troponin_reference_limit_required": false,
+  "causal_effect_estimated": false,
+  "biological_discovery": false,
+  "goal_complete": false
+}

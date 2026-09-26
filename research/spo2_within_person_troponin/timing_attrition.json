@@ -1,0 +1,74 @@
+[
+  {
+    "dataset": "eicu",
+    "stage": "has_previous",
+    "intervals": 7265,
+    "encounters": 4495
+  },
+  {
+    "dataset": "eicu",
+    "stage": "supported_unit",
+    "intervals": 7265,
+    "encounters": 4495
+  },
+  {
+    "dataset": "eicu",
+    "stage": "window_times",
+    "intervals": 6079,
+    "encounters": 4038
+  },
+  {
+    "dataset": "eicu",
+    "stage": "baseline_available_before_window",
+    "intervals": 5356,
+    "encounters": 3723
+  },
+  {
+    "dataset": "eicu",
+    "stage": "followup_available",
+    "intervals": 5309,
+    "encounters": 3705
+  },
+  {
+    "dataset": "eicu",
+    "stage": "both_exact_positive",
+    "intervals": 4524,
+    "encounters": 3128
+  },
+  {
+    "dataset": "mimic",
+    "stage": "has_previous",
+    "intervals": 2349,
+    "encounters": 1413
+  },
+  {
+    "dataset": "mimic",
+    "stage": "supported_unit",
+    "intervals": 2349,
+    "encounters": 1413
+  },
+  {
+    "dataset": "mimic",
+    "stage": "window_times",
+    "intervals": 1917,
+    "encounters": 1220
+  },
+  {
+    "dataset": "mimic",
+    "stage": "baseline_available_before_window",
+    "intervals": 1438,
+    "encounters": 1026
+  },
+  {
+    "dataset": "mimic",
+    "stage": "followup_available",
+    "intervals": 1378,
+    "encounters": 1002
+  },
+  {
+    "dataset": "mimic",
+    "stage": "both_exact_positive",
+    "intervals": 1257,
+    "encounters": 908
+  }
+]

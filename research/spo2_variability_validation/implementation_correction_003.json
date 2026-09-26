@@ -1,0 +1,9 @@
+{
+  "correction_id": "implementation_correction_003",
+  "stage": "after raw eICU vitals/pressures/labs extraction but before cohort assembly, support counts, or any association fit",
+  "failed_lock_config_sha256": "7ed5d574f5efc0f54e4dbb4fc42ec2b5ca82479cdffc531873450b0e208ddf02",
+  "failure": "DuckDB 1.4.3 rejected the unqualified internal column alias hour while parsing the urine extraction statement.",
+  "external_association_inspected": false,
+  "correction": "Use explicit AS aliases for the urine hour, availability, and value columns.",
+  "scientific_specification_changed": false
+}

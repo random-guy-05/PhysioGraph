@@ -1,0 +1,16 @@
+{
+  "environment": "local",
+  "google_colab_execution": false,
+  "single_uninterrupted_execution_of_entire_current_notebook": false,
+  "separate_protocol": true,
+  "timing_split_counts_known_before_lock": true,
+  "numeric_distributions_or_changes_known_before_lock": false,
+  "initial_technical_failure": "Independent SQL qualification rejected a filtered aggregate alias lacking AS. Python quality flags had been computed privately; no exposure changes had been computed. Added AS and reran the unchanged section successfully.",
+  "protocol_changed_after_failure": false,
+  "hospital_hash_changed": false,
+  "validation": "SQL and Python agree on hospital assignments, qualified timestamp values and flags, fixed pairs and exposure mean-change contrasts. One hundred directly expanded resamples per split agree with aggregate-weight bootstrap calculations.",
+  "bootstrap_draws_per_split": 20000,
+  "bootstrap_missing_group_draws": 0,
+  "directional_replication_gate_passed": false,
+  "biological_discovery": false
+}

@@ -1,0 +1,9 @@
+{
+  "primary_joint_support_pass": false,
+  "co2_values_selected": false,
+  "ventilation_values_selected": false,
+  "mortality_selected": false,
+  "association_models": 0,
+  "biological_discovery": false,
+  "interpretation": "Timing support only. Missing capnography does not establish absence of a ventilation or perfusion disturbance."
+}

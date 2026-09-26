@@ -1,0 +1,63 @@
+{
+  "base_url": "https://physionet.org/files/mimic-iv-ecg/1.0/",
+  "downloads": [
+    {
+      "url": "https://physionet.org/files/mimic-iv-ecg/1.0/SHA256SUMS.txt",
+      "final_url": "https://physionet.org/files/mimic-iv-ecg/1.0/SHA256SUMS.txt",
+      "http_status": 200,
+      "etag": "\"6504bc21-a7ef820\"",
+      "last_modified": "Fri, 15 Sep 2023 20:18:41 GMT",
+      "content_length": "176093216",
+      "retrieved_utc": "2026-09-05T19:13:51.657820+00:00",
+      "name": "SHA256SUMS.txt",
+      "bytes": 176093216,
+      "sha256": "bbc9b43e6eb5861f8afe42639e85182e8905648592c393e18217ffb3593646e4"
+    },
+    {
+      "url": "https://physionet.org/files/mimic-iv-ecg/1.0/record_list.csv",
+      "final_url": "https://physionet.org/files/mimic-iv-ecg/1.0/record_list.csv",
+      "http_status": 200,
+      "etag": "\"64f09360-4324434\"",
+      "last_modified": "Thu, 31 Aug 2023 13:19:28 GMT",
+      "content_length": "70403124",
+      "retrieved_utc": "2026-09-05T19:31:09.927414+00:00",
+      "name": "record_list.csv",
+      "bytes": 70403124,
+      "sha256": "b6f113023e955406e924a9ce10c1108f3bf8080e14cfe2f3ba3a2e858ebb621b"
+    },
+    {
+      "url": "https://physionet.org/files/mimic-iv-ecg/1.0/machine_measurements_data_dictionary.csv",
+      "final_url": "https://physionet.org/files/mimic-iv-ecg/1.0/machine_measurements_data_dictionary.csv",
+      "http_status": 200,
+      "etag": "\"64f0a468-407\"",
+      "last_modified": "Thu, 31 Aug 2023 14:32:08 GMT",
+      "content_length": "1031",
+      "retrieved_utc": "2026-09-05T19:36:41.617277+00:00",
+      "name": "machine_measurements_data_dictionary.csv",
+      "bytes": 1031,
+      "sha256": "e3c98dccfb4a30889d31f7c1bde4852e6f5c9485ca92a1722b8618722e2c006e"
+    },
+    {
+      "url": "https://physionet.org/files/mimic-iv-ecg/1.0/LICENSE.txt",
+      "final_url": "https://physionet.org/files/mimic-iv-ecg/1.0/LICENSE.txt",
+      "http_status": 200,
+      "etag": "\"65047fe8-64d7\"",
+      "last_modified": "Fri, 15 Sep 2023 16:01:44 GMT",
+      "content_length": "25815",
+      "retrieved_utc": "2026-09-05T19:36:42.128993+00:00",
+      "name": "LICENSE.txt",
+      "bytes": 25815,
+      "sha256": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017"
+    }
+  ],
+  "publisher_hashes": {
+    "LICENSE.txt": "bcdfcd4f31c790e30fb645dc36414907172405897adff329ad379eed85d12017",
+    "machine_measurements_data_dictionary.csv": "e3c98dccfb4a30889d31f7c1bde4852e6f5c9485ca92a1722b8618722e2c006e",
+    "record_list.csv": "b6f113023e955406e924a9ce10c1108f3bf8080e14cfe2f3ba3a2e858ebb621b"
+  },
+  "publisher_hashes_verified": true,
+  "checksum_list_itself_pinned_by_local_hash_and_https": true,
+  "signal_amplitudes_downloaded": false,
+  "machine_measurements_downloaded": false,
+  "reports_downloaded": false
+}

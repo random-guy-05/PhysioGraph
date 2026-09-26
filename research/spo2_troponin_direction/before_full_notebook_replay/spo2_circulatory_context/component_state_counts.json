@@ -1,0 +1,290 @@
+[
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "hospital_mortality",
+    "component_state": "neither",
+    "n": 344,
+    "events": 63
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "hospital_mortality",
+    "component_state": "spo2_only",
+    "n": 123,
+    "events": 41
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "hospital_mortality",
+    "component_state": "map_only",
+    "n": 362,
+    "events": 48
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "hospital_mortality",
+    "component_state": "both",
+    "n": 184,
+    "events": 57
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "neither",
+    "n": 59,
+    "events": 21
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "spo2_only",
+    "n": 28,
+    "events": 11
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "map_only",
+    "n": 60,
+    "events": 18
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "both",
+    "n": 43,
+    "events": 29
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "neither",
+    "n": 58,
+    "events": 24
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "spo2_only",
+    "n": 25,
+    "events": 11
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "map_only",
+    "n": 61,
+    "events": 20
+  },
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "both",
+    "n": 47,
+    "events": 30
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "hospital_mortality",
+    "component_state": "neither",
+    "n": 919,
+    "events": 110
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "hospital_mortality",
+    "component_state": "spo2_only",
+    "n": 299,
+    "events": 58
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "hospital_mortality",
+    "component_state": "map_only",
+    "n": 1151,
+    "events": 150
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "hospital_mortality",
+    "component_state": "both",
+    "n": 477,
+    "events": 93
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "neither",
+    "n": 159,
+    "events": 40
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "spo2_only",
+    "n": 68,
+    "events": 24
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "map_only",
+    "n": 161,
+    "events": 43
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "both",
+    "n": 83,
+    "events": 41
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "neither",
+    "n": 151,
+    "events": 44
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "spo2_only",
+    "n": 67,
+    "events": 32
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "map_only",
+    "n": 152,
+    "events": 55
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "both",
+    "n": 87,
+    "events": 43
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "hospital_mortality",
+    "component_state": "neither",
+    "n": 378,
+    "events": 49
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "hospital_mortality",
+    "component_state": "spo2_only",
+    "n": 86,
+    "events": 18
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "hospital_mortality",
+    "component_state": "map_only",
+    "n": 492,
+    "events": 60
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "hospital_mortality",
+    "component_state": "both",
+    "n": 105,
+    "events": 18
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "neither",
+    "n": 53,
+    "events": 17
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "spo2_only",
+    "n": 22,
+    "events": 10
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "map_only",
+    "n": 39,
+    "events": 13
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "troponin_rise_12h",
+    "component_state": "both",
+    "n": 20,
+    "events": 15
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "neither",
+    "n": 49,
+    "events": 19
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "spo2_only",
+    "n": 24,
+    "events": 13
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "map_only",
+    "n": 43,
+    "events": 16
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "endpoint": "troponin_rise_24h",
+    "component_state": "both",
+    "n": 21,
+    "events": 15
+  }
+]

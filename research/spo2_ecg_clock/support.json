@@ -1,0 +1,23 @@
+{
+  "original_encounters": 4711,
+  "raw_procedure_rows": 3343,
+  "exact_duplicate_rows_removed": 0,
+  "procedures": 3343,
+  "procedure_people": 1907,
+  "procedure_encounters": 1980,
+  "invalid_start": 0,
+  "invalid_end": 0,
+  "invalid_store": 0,
+  "valid_start_no_candidate": 743,
+  "procedures_multiple_candidates": 1784,
+  "procedures_one_candidate": 816,
+  "candidate_edges": 6290,
+  "isolated_pairs": 711,
+  "isolated_people": 609,
+  "isolated_encounters": 619,
+  "statuses": {
+    "FinishedRunning": 3343
+  },
+  "isolated_ecg_outside_nominal_hospital": 15,
+  "isolated_missing_admission_bounds": 0
+}

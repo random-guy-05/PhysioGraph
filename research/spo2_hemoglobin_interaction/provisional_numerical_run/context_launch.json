@@ -1,0 +1,31 @@
+{
+  "pid": 80235,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "pyyaml",
+    "--with",
+    "nbformat",
+    "--with",
+    "statsmodels==0.14.4",
+    "--with",
+    "scipy==1.15.2",
+    "python",
+    "scripts/build_biological_notebook.py",
+    "--interaction-context-only"
+  ],
+  "started_utc": "2026-09-05T07:20:56.612733+00:00",
+  "builder_sha256": "6d376ac55b92d593eaff1ce50b4aec66de06b2b5bb44acd3c92411dc0ee95430",
+  "cell_source_sha256": "8994c7d1ff2dd9e9a4208945bb7c7d837d9ccd56ccb57a32e2d7085cd66002c6",
+  "correction": "Explicit CSV quote/escape after parser failure; raw Python SQL strings preserve regex boundaries; no outcomes computed"
+}

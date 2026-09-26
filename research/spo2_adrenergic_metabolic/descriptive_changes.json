@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "mean_potassium_change": -0.251875,
+    "median_potassium_change": -0.1,
+    "mean_glucose_change": -31.010416666666668,
+    "median_glucose_change": -6.0,
+    "median_sample_spacing_minutes": 161.0
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "mean_potassium_change": -0.12214285714285712,
+    "median_potassium_change": 0.0,
+    "mean_glucose_change": -33.375,
+    "median_glucose_change": -12.5,
+    "median_sample_spacing_minutes": 179.5
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "mean_potassium_change": -0.1402061855670103,
+    "median_potassium_change": -0.2,
+    "mean_glucose_change": -15.288659793814434,
+    "median_glucose_change": -5.0,
+    "median_sample_spacing_minutes": 194.0
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "mean_potassium_change": 0.02972972972972972,
+    "median_potassium_change": -0.1,
+    "mean_glucose_change": -41.486486486486484,
+    "median_glucose_change": -10.0,
+    "median_sample_spacing_minutes": 174.0
+  }
+]

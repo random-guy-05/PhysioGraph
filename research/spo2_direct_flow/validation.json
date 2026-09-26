@@ -1,0 +1,9 @@
+{
+  "lowest_stay_per_person_sql_python_agree": true,
+  "hash_splits_reconstruct": true,
+  "all_timestamp_pairs_sql_python_agree": true,
+  "original_encounters": 4711,
+  "selected_people": 4305,
+  "metadata_rows": 7225,
+  "distinct_measurement_times": 7225
+}

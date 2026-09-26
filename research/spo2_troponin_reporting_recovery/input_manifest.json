@@ -1,0 +1,18 @@
+{
+  "references": {
+    "troponin_assay_audit": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/troponin_assay_audit.duckdb",
+      "sha256": "8786dba50f77b3e57e9d6da5ef330633aa34682a8ac25a77e1a3c684b11a758e"
+    },
+    "spo2_cardiorenal": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_cardiorenal.duckdb",
+      "sha256": "4452c0a48f0ef2fee717a158d81c3538c326966e4b04e7a99db89966d67e6f38"
+    }
+  },
+  "source": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/labevents.csv",
+    "bytes": 18402851720,
+    "mtime_ns": 1773622056280999898
+  },
+  "protocol_sha256": "8889474eac35ba923369155c0f2e5ef2b8743488ebe3913ce14b8bf3ad3b7275"
+}

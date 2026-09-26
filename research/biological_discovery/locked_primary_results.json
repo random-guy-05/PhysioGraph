@@ -1,0 +1,56 @@
+[
+  {
+    "dataset": "eicu",
+    "analysis": "primary",
+    "n": 18,
+    "patients": 18,
+    "deaths": 2,
+    "status": "insufficient_support",
+    "biological_claim_ready": false
+  },
+  {
+    "dataset": "eicu",
+    "analysis": "renal_restriction",
+    "n": 14,
+    "patients": 14,
+    "deaths": 1,
+    "status": "insufficient_support",
+    "biological_claim_ready": false
+  },
+  {
+    "dataset": "eicu",
+    "analysis": "available_by_landmark",
+    "n": 16,
+    "patients": 16,
+    "deaths": 2,
+    "status": "insufficient_support",
+    "biological_claim_ready": false
+  },
+  {
+    "dataset": "mimic",
+    "analysis": "primary",
+    "n": 224,
+    "patients": 223,
+    "deaths": 56,
+    "status": "insufficient_support",
+    "biological_claim_ready": false
+  },
+  {
+    "dataset": "mimic",
+    "analysis": "renal_restriction",
+    "n": 108,
+    "patients": 108,
+    "deaths": 19,
+    "status": "insufficient_support",
+    "biological_claim_ready": false
+  },
+  {
+    "dataset": "mimic",
+    "analysis": "available_by_landmark",
+    "n": 161,
+    "patients": 160,
+    "deaths": 41,
+    "status": "insufficient_support",
+    "biological_claim_ready": false
+  }
+]

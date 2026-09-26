@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "before_exclusion": 12304,
+    "eligible": 12028,
+    "people": 10647,
+    "known_hospital_outcomes": "11910"
+  },
+  {
+    "dataset": "mimic",
+    "before_exclusion": 17892,
+    "eligible": 17758,
+    "people": 13464,
+    "known_hospital_outcomes": "17758"
+  }
+]

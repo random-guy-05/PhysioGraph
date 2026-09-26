@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "eicu",
+    "people": 10167,
+    "original_exposure_and_episode_times_reproduced": true,
+    "prior_control_hash_reproduced": true
+  },
+  {
+    "dataset": "mimic",
+    "people": 4305,
+    "original_exposure_and_episode_times_reproduced": true,
+    "prior_control_hash_reproduced": true
+  }
+]

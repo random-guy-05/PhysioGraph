@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "eicu",
+    "first_episode_presence_matches_original_exposure": true,
+    "python_first_episode_times_match": true,
+    "python_complete_patient_set_matches": true
+  },
+  {
+    "dataset": "mimic",
+    "first_episode_presence_matches_original_exposure": true,
+    "python_first_episode_times_match": true,
+    "python_complete_patient_set_matches": true
+  }
+]

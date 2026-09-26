@@ -4,6 +4,39 @@ All notable changes to PhysioGraph, organized by development wave.
 
 ---
 
+## Wave 7: Episode-Anchored Lactate Amendment and Fast Analysis Resume
+
+- Added a transparent post-result mechanistic analysis that asks whether an
+  actual SpO2 instability transition precedes the next lactate rise in acute
+  0–1 and delayed 1–8 hour windows, with 1–2/2–4/4–8 localization and 8–12 and
+  cumulative 0–8 hour companions.
+- Enforced a last lactate strictly before the episode; a same-time or later
+  lactate can never be reused as baseline.
+- Separated downward desaturations from upward recovery, tested 3/4/5-point
+  episode thresholds, and added raw-chart versus 15-minute-bin sensitivity.
+- Added quantile time-aligned no-episode controls, continuous and thresholded
+  changes, informative-remeasurement diagnostics, inverse-probability
+  remeasurement-weighted sensitivity, clinical/measurement strata, and
+  fixed/random MIMIC-eICU meta-analysis with heterogeneity.
+- Added focused within-question BH q-values while retaining global exploratory
+  q-values; all new result-informed analyses are labeled post hoc.
+- Replaced overparameterized focal GLM adjustment with a parsimonious candidate
+  set and a hard fail-closed gate below five events per fitted parameter.
+- Added `analysis_only=True`, which preserves artifact/schema/fingerprint
+  validation while allowing analysis-code changes to reuse committed ETL
+  artifacts. The clean notebook defaults to this fast resume mode.
+- Added `refresh_lactate_episode_analysis()` and its CLI wrapper for a
+  component-only, manifest-committed refresh that never invokes raw extraction.
+- Made endpoint claim grading fail closed when an internal or external model
+  has fewer than 10 events per transformed feature, and prevented MIMIC-to-eICU
+  transport results from being misapplied to an eICU-trained model claim.
+- Added `refresh_endpoint_conclusions()` and its CLI wrapper for a seconds-long,
+  fingerprint-validated conclusion-only refresh with no raw-data access.
+- Component refreshes now synchronize the top-level `run_status.json` manifest
+  SHA; the integrity audit fails closed on any stale provenance pointer.
+
+---
+
 ## Wave 1: Ground Truth, Scaffolding, Config, Tests, Schemas
 
 ### Ground Truth Extraction (Task 1)
@@ -207,3 +240,225 @@ All notable changes to PhysioGraph, organized by development wave.
 - `docs/ARCHITECTURE.md`: Module dependency diagram, data flow, module responsibilities, configuration hierarchy, design decisions
 - `docs/API.md`: Full public API reference for all modules with signatures, parameters, and usage examples
 - `docs/CHANGELOG.md`: This file, documenting Waves 1-5
+
+---
+
+## Wave 6: SpO2 Protocol v2.0 Correctness and Source-Backed Validation
+
+### Root-cause correction
+
+- Confirmed directly in raw MIMIC-IV that item `220277` is pulse-oximetry SpO2
+  and occurs millions of times; the historical all-zero result was not a source-
+  data fact.
+- Fixed pilot cohort/chunk misalignment: truncated pilots now select eligible
+  stays from the same physical vital-sign chunks being scanned.
+- Replaced hospital-admission IDs with true ICU `stay_id` anchors and retained
+  one first ICU stay per admission to prevent cross-stay event mixing.
+- Added source/config/code fingerprints and a fatal full-run invariant when raw
+  SpO2 rows exist but no plausible cohort-window SpO2 survives.
+
+### Cohort, exposure, and outcome protocol
+
+- Enforced `[0, 240)` predictor and `(240, 240 + horizon]` outcome windows.
+- Added same-timestamp deduplication, 15-minute bins, gap-qualified transitions,
+  minimum dynamics support, alternate jump thresholds, desaturation duration,
+  deficit AUC, and sustained-episode features.
+- Retained patients already receiving MCS/vasoactives at the landmark and modeled
+  post-landmark initiation/escalation with explicit baseline flags.
+- Added death/discharge censoring and source-aware missingness so unavailable
+  endpoints remain `NaN`, never negative.
+- Expanded lactate, creatinine/KDIGO, bilirubin, AST/ALT, INR, platelet, MCS,
+  pressor-initiation, VIS, and urine-output outcomes at 12 and 24 hours.
+- Marked unstandardized eICU infusion rates as quantitatively unavailable for VIS;
+  labeled eICU MCS time as first device-treatment documentation rather than a
+  verified start time.
+- Preserved true zero urine measurements; declared MIMIC urine outcomes
+  unavailable because the mounted raw source lacks `outputevents.csv`.
+
+### Inference and reporting
+
+- Made MIMIC and eICU per-dataset grouped-CV analyses primary; pooled estimates
+  are secondary and MIMIC-to-eICU transportability is reported separately.
+- Added a common dynamics-eligible sample, fold-local preprocessing, patient-
+  grouped folds, patient-cluster bootstrap intervals, OOF calibration/ROC/PR,
+  EPV and fragility labels, and parsimonious/full instability specifications.
+- Implemented all sensitivity axes S1-S12 with unavailable rows retained in the
+  matrix and BH adjustment across prespecified families.
+- Corrected exposure assignment so measured stable stays are unexposed rather
+  than missing, and added balanced within-dataset instability tertiles.
+- Added all outcome events to temporal-ordering denominators, including events
+  with no prior instability; precedence is labeled design-enforced and noncausal.
+- Reclassified hepatic worsening as a specificity comparator rather than a true
+  negative control.
+- Added cohort flow, Table 1, dataset-specific feature missingness, endpoint
+  completeness/conclusion matrices, OOF prediction files, performance curves,
+  and output/claim linting.
+
+### Runtime defects found only by raw-data pilots
+
+- Disabled pandas nested low-memory inference in the shared chunk reader; later
+  mixed-type eICU respiratory chunks previously triggered an internal parser
+  `IndexError`.
+- Stabilized sparse odds-ratio table schemas when every candidate fit is skipped.
+- Guarded temporal-precedence bootstrap logic when outcomes exist but no eligible
+  prior-instability pairs exist.
+
+---
+
+## Wave 7: SpO2 Protocol v2.1 Full-Source Hardening
+
+- Added current-release MIMIC-IV laboratory item discovery from `d_labitems.csv`,
+  vital-sign unit normalization, milrinone VIS extraction, and a five-minute
+  pressor restart grace.
+- Restricted eICU to the first ICU unit per hospital encounter while preserving
+  repeat hospitalizations and patient-grouped validation.
+- Corrected fixed-window censoring, retained confirmed pre-censor events, added
+  separate early-death endpoints, and required urine-output interval coverage.
+- Kept troponin T and I assay-specific through baseline/post comparisons and
+  labeled both MIMIC and eICU MCS timings as source-specific proxies.
+- Fixed pandas string/categorical preprocessing that invalidated the first
+  full-source discovery model attempt; that attempt is not a scientific result.
+- Added atomic output commits plus source, configuration, code, input-manifest,
+  and output fingerprints so a mixed-version or partial run cannot be accepted.
+- Added mounted eICU aliases for current platelet/INR/troponin names and
+  vasoactive trade names; corrected eICU discharge-offset arithmetic.
+- Excluded IABP-removal documentation from incident MCS and broadened MIMIC MCS
+  capture to positive operational LVAD/RVAD/IABP/Impella/ECMO documentation.
+- Added MIMIC whole-blood creatinine, incident-only absolute organ-injury
+  crossings, right-closed urine-coverage bins, and coverage-qualified urine
+  temporal onsets.
+- Refit continuous-trajectory nuisance adjustment inside clustered bootstrap
+  replicates and tightened robust conclusions to require AUROC, AUPRC, and
+  patient-cluster epidemiologic interval support.
+- Removed eICU urine occurrence/count, incontinence-event, and mixed-stool rows
+  from quantitative urine volume before decline and oliguria derivation.
+
+## Wave 8: SpO2 Protocol v2.2 Hypothesis-Complete Reference and Reporting
+
+- Added sampling density, missing-bin count, and longest gap directly to the
+  clinical + absolute-SpO2 reference for internal and MIMIC-to-eICU incremental
+  prediction; per-feature dynamics ORs use the same adjustment set.
+- Removed residual legacy-target drift from descriptive tables, raw summaries,
+  trajectories, and plots; prespecified 12/24-hour outcomes are now reported
+  per database, with one median per stay/bin rather than measurement weighting.
+- Required aggregate urine-rate decline before assigning a temporal urine onset,
+  raised primary model bootstrap precision to 500 repetitions, and required at
+  least 80% valid internal/external resamples for a robust endpoint conclusion.
+- Made the eligible cohort index and cohort metadata authoritative during
+  analysis-frame assembly so stale feature/label keys cannot restore exclusions
+  and omitted feature rows cannot erase known demographics or censoring data.
+
+## Wave 9: Artifact Schema v2.3 Inference and Cross-Source Hardening
+
+- Normalized heterogeneous categorical values inside every training fold so
+  pooled secondary models cannot fail when equivalent source fields use mixed
+  integer and string representations.
+- Required a pooled endpoint to be observed in at least two datasets; endpoints
+  unique to MIMIC or eICU remain dataset-specific and are explicitly skipped in
+  pooled prediction, inference, summaries, and trajectories.
+- Required minimum event and non-event counts for binomial analyses, classified
+  separation/non-convergence/non-finite odds-ratio inference as non-estimable,
+  and excluded such rows from multiplicity correction.
+- Reused the already-authoritative analysis frame for availability reporting,
+  eliminating a redundant multi-million-row reassembly and its risk of drift.
+
+## Wave 10: Post-run Inference-Status and Provenance Audit
+
+- Required finite point estimates and confidence intervals before risk-ratio,
+  Mantel-Haenszel, dose-response, or continuous-trajectory rows can be labeled
+  estimated; degenerate and zero-cell designs are explicit non-estimable rows.
+- Added patient-cluster bootstrap 95% intervals and valid-replicate counts to
+  continuous-lactate S2 Spearman sensitivities, with an 80% validity floor.
+- Classified present-but-entirely-missing endpoint columns as unavailable,
+  correcting eICU VIS and source-absent MIMIC urine reporting semantics.
+- Made fresh-local versus cached/precomputed versus fresh-Colab provenance
+  explicit and added standalone run parameters plus figure fingerprints to the
+  final manifest.
+- Distinguished source-unavailable endpoints from merely underpowered endpoints
+  in risk, Mantel-Haenszel, dose-response, and S1-S12 sensitivity tables; every
+  non-success inferential row now carries an explicit reason.
+- Made `run_status.json` an atomic running/complete/failed state record with
+  timestamps, duration, and failure details, and documented SHA-256/byte size
+  as authoritative output integrity when cloud sync rewrites file mtimes.
+
+## Wave 11: Focal-Inference Gate Correction
+
+- Corrected the binomial inference gate so a finite prespecified focal
+  coefficient, robust standard error, p-value, and confidence interval are not
+  discarded solely because a sparse nuisance-category coefficient has undefined
+  robust inference.
+- Retained the sparse nuisance terms as explicit warning columns in association,
+  variability, and respiratory-interaction outputs; required focal terms still
+  fail closed on separation, non-convergence, missing coefficients, or any
+  non-finite focal inference.
+- Added adversarial coverage for finite focal inference with non-finite nuisance
+  categories and strengthened the respiratory-interaction regression test to
+  require all four prespecified diagnostics to fit on an estimable design.
+
+## Wave 12: Episode-Anchored Multiorgan Analysis
+
+- Generalized the actual-episode SpO2 design from lactate to all 21 registered
+  endpoints, using a frozen 12-window primary grid and all five
+  direction/resolution sensitivities in endpoint-family focused windows.
+- Added strict pre-episode lab baselines, first-next and worst-window variants,
+  full-follow-up requirements for worst-window negatives, assay-matched
+  troponin, incident support risk sets, delayed-onset VIS logic, and both
+  absolute KDIGO and strict-preanchor relative urine outcomes.
+- Added explicit observation-process tables and inverse-probability-of-
+  observation sensitivities. Weighted outcome inference now uses
+  patient-clustered Poisson-log-link GEE; a regression test covers filtered
+  frames with non-contiguous source indices.
+- Added endpoint-, family-, cross-endpoint-, and global BH corrections plus
+  information gates. The compact key table reserves its strongest label for
+  results that survive cross-endpoint FDR in unadjusted, adjusted, and weighted
+  analyses; cross-dataset random-effects evidence is labeled separately.
+- Added analysis-only and weighted-only refresh paths, nine fingerprinted output
+  tables, notebook displays, exact primary/sensitivity-grid integrity checks,
+  endpoint availability reasons, and refresh receipts that attest no raw-data
+  rebuild.
+
+## Wave 13: Advanced Episode Inference and Positivity Gates
+
+- Added one strictly pre-anchor covariate row per primary episode/control
+  anchor, with multivariable physiology, support state, measurement intensity,
+  demographics, unit, and site. Concurrent anchor SpO2 is excluded from the
+  exposure model because it partly defines the transition.
+- Added endpoint-independent exposure-overlap weights with complete encoded
+  covariate-balance output; both datasets reach maximum weighted absolute
+  standardized mean difference below 0.022.
+- Added patient-grouped cross-fitted outcome-observation and outcome nuisance
+  models, bounded binary TMLE, retained one-step AIPW diagnostics, and
+  continuous AIPW mean worsening in clinical units for every defined graded
+  endpoint.
+- Added eICU hospital-specific risk ratios, Paule–Mandel heterogeneity,
+  modified HKSJ intervals, leave-one-hospital-out estimates, and support-aware
+  E-values. Multicenter estimates remain explicitly unadjusted.
+- Corrected observation-probability truncation so complete observation at
+  probability 1 is never spuriously clipped. Positive labels now fail closed
+  when more than 10% of rows violate exposure or observation support, either
+  weighted arm has effective sample size below 50, or TMLE hits its targeting
+  boundary.
+- Added a cached-data-only advanced refresh, 12 fingerprinted tables, notebook
+  displays, exact-grid and targeting audits, and regression tests preventing
+  support failures or multicenter cross-FDR signals from being mislabeled.
+
+## Wave 14: Head-to-Head SpO2, SBP, Lactate, and Kapur-SCAI Benchmark
+
+- Added full four-hour SBP and lactate level/trajectory feature blocks and a
+  boundary-tested EHR operationalization of the Kapur-CSWG 2022 SCAI stages.
+  Missing normal components remain unclassified, OHCA absence is explicit, and
+  every assigned stage is labeled a lower bound.
+- Added 11 fair nested specifications on identical outcome rows and
+  patient-grouped folds, 300 paired patient-cluster bootstrap contrasts,
+  fold-local preprocessing, calibration, decision curves, and events-per-
+  feature gates across every registered endpoint.
+- Added marker-specific and mutually adjusted patient-clustered modified-
+  Poisson associations with tier-specific BH correction plus bidirectional
+  MIMIC/eICU frozen-model transportability.
+- Added explicit source coverage audits and optional streaming extraction of
+  eICU cuff SBP/MAP from `vitalAperiodic.csv`; current cached eICU SBP results
+  remain source-limited because that mounted file is absent.
+- Added an atomic cached-data-only benchmark refresh, 14 fingerprinted output
+  tables, clean-notebook displays, vectorized exact weighted bootstrap metrics,
+  and regression tests for every SCAI boundary, leakage at minute 240, cuff-BP
+  extraction, common folds, weighted metrics, and association execution.

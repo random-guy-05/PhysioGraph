@@ -1,0 +1,10 @@
+{
+  "protocol_sha256": "de4097bfe7b5851fc51faf8f4cf701f1216bc96e543bceaaea02b896576e368b",
+  "module_sha256": "54dd8d40f8d90acd752315e6285ed031b91c48d923157e25e1e10d554c28d399",
+  "inputs_unchanged": true,
+  "primary_count_gate_remains_failed": true,
+  "descriptive_departure_explicit": true,
+  "mortality_joined": false,
+  "hypothesis_tests": 0,
+  "goal_complete": false
+}

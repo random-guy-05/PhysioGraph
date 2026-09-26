@@ -80,39 +80,45 @@ cardiogenic_shock_icd_patterns:
 # MIMIC Item IDs - Portable Subset (External Pipeline)
 # ──────────────────────────────────────────────────────────────────────────────
 mimic_lab_ids:
-  lactate: [50813]
+  lactate: [50813, 52442, 53154]
   ph: [50820]
-  creatinine: [50912]
-  bun: [51006]
-  alt: [50861]
-  ast: [50878]
-  bilirubin_total: [50885]
+  creatinine: [50912, 52024, 52546]
+  bun: [51006, 52647]
+  alt: [50861, 53084]
+  ast: [50878, 53088]
+  bilirubin_total: [50885, 53089]
+  troponin_t: [51003]
+  troponin_i: [51002, 52642]
+  platelets: [51265, 53189]
+  inr: [51237, 51675]
 
 mimic_vital_ids:
   hr: [220045]
   sbp: [220050, 220179]
   map: [220052, 220181]
-  resp_rate: [220210]
+  resp_rate: [220210, 224689, 224690]
   spo2: [220277]
-  temp: [223761]
+  temp: [223761, 223762]
+  weight: [224639, 226512, 226531]
 
 # ──────────────────────────────────────────────────────────────────────────────
 # MIMIC Item IDs - Full Set (HF Shock Notebook)
 # ──────────────────────────────────────────────────────────────────────────────
 mimic_lab_ids_full:
-  lactate: [50813]
+  lactate: [50813, 52442, 53154]
   ph: [50820]
-  creatinine: [50912]
-  bun: [51006]
-  alt: [50861]
-  ast: [50878]
+  creatinine: [50912, 52024, 52546]
+  bun: [51006, 52647]
+  alt: [50861, 53084]
+  ast: [50878, 53088]
   troponin_t: [51003]
+  troponin_i: [51002, 52642]
   wbc: [51301]
-  platelets: [51265]
-  inr: [51237]
+  platelets: [51265, 53189]
+  inr: [51237, 51675]
   bnp: [50963]
   glucose: [50931]
-  bilirubin_total: [50885]
+  bilirubin_total: [50885, 53089]
   albumin: [50862]
   hemoglobin: [51222]
   sodium: [50824, 50983]
@@ -124,17 +130,17 @@ mimic_vital_ids_full:
   sbp: [220050, 220179]
   dbp: [220051, 220180]
   map: [220052, 220181]
-  resp_rate: [220210]
+  resp_rate: [220210, 224689, 224690]
   spo2: [220277]
   gcs_motor: [223901]
   gcs_verbal: [223900]
   gcs_eyes: [220739]
-  temp: [223761]
+  temp: [223761, 223762]
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Pressor and MCS Item IDs (MIMIC)
 # ──────────────────────────────────────────────────────────────────────────────
-pressor_itemids: [221906, 221289, 221662, 221653, 221749, 222315]
+pressor_itemids: [221906, 221289, 221662, 221653, 221749, 222315, 221986]
 mcs_procedureevent_ids:
   iabp: [224272]
   impella: [228169]
@@ -147,7 +153,23 @@ eicu_lab_name_map:
   lactate: lactate
   ph: ph
   creatinine: creatinine
+  bun: bun
+  "blood urea nitrogen": bun
   "total bilirubin": bilirubin_total
+  "bilirubin total": bilirubin_total
+  "ast (sgot)": ast
+  ast: ast
+  "alt (sgpt)": alt
+  alt: alt
+  platelets: platelets
+  "platelet count": platelets
+  "platelets x 1000": platelets
+  inr: inr
+  "pt - inr": inr
+  "troponin t": troponin_t
+  "troponin i": troponin_i
+  "troponin - t": troponin_t
+  "troponin - i": troponin_i
 
 eicu_vital_column_map:
   heartrate: hr
@@ -159,18 +181,35 @@ eicu_vital_column_map:
 
 eicu_infusion_drug_tokens:
   - norepinephrine
+  - noradrenaline
+  - levophed
   - epinephrine
+  - epinepherine
+  - adrenalin
   - dopamine
   - dobutamine
+  - dobutrex
   - milrinone
+  - primacor
+  - primacore
   - vasopressin
+  - pitressin
   - phenylephrine
+  - neo-synephrine
+  - neosynephrine
+  - neosynsprine
 
 eicu_treatment_tokens:
   - "intraaortic balloon pump"
+  - "intra-aortic balloon pump"
+  - iabp
+  - impella
+  - ecmo
+  - "extracorporeal membrane oxygenation"
   - lvad
   - bivad
   - rvad
+  - "ventricular assist device"
 
 eicu_diagnosis_tokens:
   cohort_hf_flag:
@@ -468,6 +507,8 @@ event_required_columns:
 # eICU Column Sets
 # ──────────────────────────────────────────────────────────────────────────────
 eicu_cohort_flag_columns:
+  # Only cohort_hf_flag is an inclusion diagnosis. The remaining flags are
+  # phenotype covariates; they must never be unioned into cohort eligibility.
   - cohort_hf_flag
   - shock_icd_flag
   - cardiomyopathy_flag
@@ -476,8 +517,16 @@ eicu_cohort_flag_columns:
 eicu_patient_columns:
   - patientunitstayid
   - patienthealthsystemstayid
+  - uniquepid
+  - hospitalid
+  - wardid
   - gender
   - age
+  - ethnicity
+  - unittype
+  - unitadmitsource
+  - unitvisitnumber
+  - unitstaytype
   - hospitaladmitoffset
   - unitdischargeoffset
   - unitdischargelocation

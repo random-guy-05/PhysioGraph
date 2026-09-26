@@ -1,0 +1,11 @@
+{
+  "protocol_sha256": "81e747927dc21a358619fce26f541680d75c41ebd2a8c5993101ab6d5f5388ac",
+  "numerical_validity_correction_sha256": "4c4a6421a462649490b45885382fe52635be70be6c2e27ec1eaca8da34d75284",
+  "environment": "local",
+  "completed_utc": "2026-09-05T07:37:25.779397+00:00",
+  "primary_tests": 4,
+  "positive_statistically_replicated_endpoints": [],
+  "biological_discovery": false,
+  "goal_complete": false,
+  "model_code_sha256": "54bce129362746e131b8143393ef6e62ef63268e2f23d150575a9fecc7853acf"
+}

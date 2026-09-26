@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_12h",
+    "cohort": 12028,
+    "baseline_positive_assay_people": 3458,
+    "paired": 2539,
+    "classifiable": 2405,
+    "events": 605
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_24h",
+    "cohort": 12028,
+    "baseline_positive_assay_people": 3458,
+    "paired": 2648,
+    "classifiable": 2215,
+    "events": 668
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_12h",
+    "cohort": 17758,
+    "baseline_positive_assay_people": 4485,
+    "paired": 2858,
+    "classifiable": 2781,
+    "events": 674
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_24h",
+    "cohort": 17758,
+    "baseline_positive_assay_people": 4485,
+    "paired": 3033,
+    "classifiable": 2624,
+    "events": 804
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "model_fitted": false,
+    "crude_rd": 0.00397422126745435,
+    "crude_rd95": [
+      -0.039267856226689726,
+      0.05311303027393313
+    ],
+    "n_definite": 337,
+    "design_columns": [
+      "intercept",
+      "exposed",
+      "age",
+      "is_male",
+      "spo2_mean",
+      "hypoxic_fraction",
+      "hr_mean",
+      "map_mean_missing",
+      "map_mean",
+      "fio2_max_missing",
+      "fio2_max",
+      "vent_documented",
+      "vasoactive_documented",
+      "log_readings",
+      "log_bound",
+      "troponin_t"
+    ],
+    "removed_constant_columns": [
+      "sex_unknown_flag"
+    ],
+    "rank": 16,
+    "gate_failures": [
+      "fewer than five minority outcomes per nonconstant parameter"
+    ],
+    "primary_holm_p": 1
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "model_fitted": false,
+    "crude_rd": -0.0017634291915355413,
+    "crude_rd95": [
+      -0.045315882157960716,
+      0.046616390406249555
+    ],
+    "n_definite": 346,
+    "design_columns": [
+      "intercept",
+      "exposed",
+      "age",
+      "is_male",
+      "spo2_mean",
+      "hypoxic_fraction",
+      "hr_mean",
+      "map_mean_missing",
+      "map_mean",
+      "fio2_max_missing",
+      "fio2_max",
+      "vent_documented",
+      "vasoactive_documented",
+      "log_readings",
+      "log_bound",
+      "troponin_t"
+    ],
+    "removed_constant_columns": [
+      "sex_unknown_flag"
+    ],
+    "rank": 16,
+    "gate_failures": [
+      "fewer than five minority outcomes per nonconstant parameter"
+    ]
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "model_fitted": false,
+    "crude_rd": -0.09343434343434345,
+    "crude_rd95": [
+      -0.2551246824820763,
+      0.1425554345604062
+    ],
+    "n_definite": 62,
+    "design_columns": [
+      "intercept",
+      "exposed",
+      "age",
+      "is_male",
+      "spo2_mean",
+      "hypoxic_fraction",
+      "hr_mean",
+      "map_mean_missing",
+      "map_mean",
+      "fio2_max_missing",
+      "fio2_max",
+      "vent_documented",
+      "vasoactive_documented",
+      "log_readings"
+    ],
+    "removed_constant_columns": [
+      "sex_unknown_flag",
+      "log_bound",
+      "troponin_t"
+    ],
+    "rank": 14,
+    "gate_failures": [
+      "fewer than 50 definite observations per exposure arm",
+      "fewer than five events or non-events per exposure arm",
+      "fewer than five minority outcomes per nonconstant parameter"
+    ],
+    "primary_holm_p": 1
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "model_fitted": false,
+    "crude_rd": -0.026915113871635615,
+    "crude_rd95": [
+      -0.2060520990431312,
+      0.20305503252592716
+    ],
+    "n_definite": 67,
+    "design_columns": [
+      "intercept",
+      "exposed",
+      "age",
+      "is_male",
+      "spo2_mean",
+      "hypoxic_fraction",
+      "hr_mean",
+      "map_mean_missing",
+      "map_mean",
+      "fio2_max_missing",
+      "fio2_max",
+      "vent_documented",
+      "vasoactive_documented",
+      "log_readings"
+    ],
+    "removed_constant_columns": [
+      "sex_unknown_flag",
+      "log_bound",
+      "troponin_t"
+    ],
+    "rank": 14,
+    "gate_failures": [
+      "fewer than 50 definite observations per exposure arm",
+      "fewer than five events or non-events per exposure arm",
+      "fewer than five minority outcomes per nonconstant parameter"
+    ]
+  }
+]

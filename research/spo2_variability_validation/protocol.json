@@ -1,0 +1,14 @@
+{
+  "name": "spo2_variability_targeted_replication",
+  "freeze_utc": "2026-09-07T21:09:05Z",
+  "status": "post_hoc_user_authorized_followup",
+  "original_gate_status": "failed_primary_magnitude_1.251_below_1.30",
+  "exposure": "RMS residual around OLS trend of hourly median SpO2, minutes 0-240",
+  "minimum_bins": 3,
+  "minimum_span_hours": 2,
+  "mimic_stability": ["1000_stratified_bootstrap", "spo2_density_adjusted", "complete_covariate_case", "quartile_risk", "density_strata"],
+  "eicu_primary_covariance": "hospital_clustered_robust",
+  "eicu_confirmation": {"direction": "RR>1", "p_max": 0.05, "ci_excludes_1": true, "events_min": 50, "hospitals_min": 20, "coverage_min": 0.70},
+  "prohibited": ["alternate_variability_formula", "threshold_search", "subgroup_rescue", "hospital_selection", "alternate_outcome_rescue"],
+  "eicu_association_inspected": false
+}

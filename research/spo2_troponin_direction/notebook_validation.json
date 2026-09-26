@@ -1,0 +1,79 @@
+{
+  "status": "full_replay_complete",
+  "environment": "local",
+  "validated_utc": "2026-09-05T06:12:02.539407+00:00",
+  "notebook_schema_valid": true,
+  "builder_cells_match": true,
+  "active_cells": 14,
+  "code_cells": [
+    {
+      "id": "biology-13",
+      "execution_count": 1,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-14",
+      "execution_count": 2,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-15",
+      "execution_count": 3,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-16",
+      "execution_count": 4,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-17",
+      "execution_count": 5,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-18",
+      "execution_count": 6,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-20",
+      "execution_count": 7,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-21",
+      "execution_count": 8,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-22",
+      "execution_count": 9,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-24",
+      "execution_count": 10,
+      "error_outputs": 0
+    },
+    {
+      "id": "biology-25",
+      "execution_count": 11,
+      "error_outputs": 0
+    }
+  ],
+  "final_tables_match": {
+    "spo2_circulatory_context/timing_contrast_support.json": true,
+    "spo2_circulatory_context/conditional_screen_results.json": true,
+    "spo2_circulatory_context/joint_feature_support_canonical.json": true,
+    "spo2_circulatory_context/endpoint_support_canonical.json": true,
+    "spo2_troponin_direction/trajectory_support.json": true
+  },
+  "protocol_hashes_match": true,
+  "colab_execution": false,
+  "builder_sha256": "f9b842f581014eb5c5490991f930c022c6a4af1e282af7786ce141ce19ff81c9",
+  "notebook_sha256": "0a06180e7b9a5e958a662c264941b212f5da57d77be693654edac658c7fcb4ba",
+  "goal_complete": false,
+  "validated_notebook_path": "research/spo2_troponin_direction/completed_full_notebook_replay/notebook.ipynb",
+  "current_primary_extended_after_validation": true
+}

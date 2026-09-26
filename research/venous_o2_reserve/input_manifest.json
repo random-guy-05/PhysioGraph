@@ -1,0 +1,66 @@
+{
+  "protocol_sha256": "4bc9071e7c199366663b15a433a1ad24c5055039a75cf103129de2e0f628fea1",
+  "sources": {
+    "mimic/d_items": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_items.csv",
+      "present": true,
+      "bytes": 375225,
+      "mtime_ns": 1773614198105000019
+    },
+    "mimic/d_labitems": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_labitems.csv",
+      "present": true,
+      "bytes": 64663,
+      "mtime_ns": 1773614196236000061
+    },
+    "mimic/chartevents": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/chartevents.csv",
+      "present": true,
+      "bytes": 41935806083,
+      "mtime_ns": 1773621199698999881
+    },
+    "mimic/labevents": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/labevents.csv",
+      "present": true,
+      "bytes": 18402851720,
+      "mtime_ns": 1773622056280999898
+    },
+    "mimic/inputevents": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/inputevents.csv",
+      "present": true,
+      "bytes": 2868896449,
+      "mtime_ns": 1773614657088999986
+    },
+    "eicu/lab": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/lab.csv",
+      "present": true,
+      "bytes": 2364239214,
+      "mtime_ns": 1773720147757999897
+    },
+    "eicu/vitalPeriodic": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/vitalPeriodic.csv",
+      "present": true,
+      "bytes": 7938281236,
+      "mtime_ns": 1773720228322000026
+    },
+    "eicu/respiratoryCharting": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/respiratoryCharting.csv",
+      "present": true,
+      "bytes": 1230466869,
+      "mtime_ns": 1773720212232000112
+    },
+    "eicu/infusionDrug": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/infusionDrug.csv",
+      "present": true,
+      "bytes": 278645140,
+      "mtime_ns": 1773720182937000036
+    },
+    "eicu/vitalAperiodic": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/vitalAperiodic.csv",
+      "present": false
+    }
+  },
+  "prior_database": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_context.duckdb",
+  "prior_database_bytes": 39333888,
+  "phase_a_only": true
+}

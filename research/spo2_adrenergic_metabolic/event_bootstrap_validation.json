@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "eicu",
+    "sql_python_exact_joint_labels": true,
+    "sql_python_risk_difference": true,
+    "bootstrap_run": false
+  },
+  {
+    "dataset": "mimic",
+    "sql_python_exact_joint_labels": true,
+    "sql_python_risk_difference": true,
+    "bootstrap_run": false
+  }
+]

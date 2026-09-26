@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "dataset": "eicu",
+      "estimand": "falling_spo2_hr_fall_minus_rise_rd",
+      "estimate": 0.012513060351261263,
+      "lower95": -0.04938503792104011,
+      "upper95": 0.07350429229480736,
+      "lower_bonferroni": -0.0665000541315543,
+      "upper_bonferroni": 0.08838868258190472,
+      "finite_fraction": 1.0,
+      "advance": false
+    },
+    {
+      "dataset": "eicu",
+      "estimand": "direction_interaction_rd",
+      "estimate": -0.02751303873527071,
+      "lower95": -0.10703471449271104,
+      "upper95": 0.05364074973413618,
+      "lower_bonferroni": -0.12980072502284862,
+      "upper_bonferroni": 0.07651815934507511,
+      "finite_fraction": 1.0,
+      "advance": false
+    },
+    {
+      "dataset": "mimic",
+      "estimand": "falling_spo2_hr_fall_minus_rise_rd",
+      "estimate": 0.09873949579831934,
+      "lower95": -0.008717970964196865,
+      "upper95": 0.20582122695274854,
+      "lower_bonferroni": -0.03632524683171236,
+      "upper_bonferroni": 0.23621510287405406,
+      "finite_fraction": 1.0,
+      "advance": false
+    },
+    {
+      "dataset": "mimic",
+      "estimand": "direction_interaction_rd",
+      "estimate": 0.05114452252083848,
+      "lower95": -0.09169556928016395,
+      "upper95": 0.1960703055532541,
+      "lower_bonferroni": -0.13146958804659883,
+      "upper_bonferroni": 0.2353585887324519,
+      "finite_fraction": 1.0,
+      "advance": false
+    }
+  ],
+  "joint_count_gate_pass": true,
+  "advancement_gate_pass": false,
+  "adjusted_models_fitted": false,
+  "biological_discovery_established": false
+}

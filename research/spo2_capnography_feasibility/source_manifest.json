@@ -1,0 +1,64 @@
+{
+  "raw": {
+    "eicu": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/vitalPeriodic.csv",
+      "bytes": 7938281236,
+      "mtime_ns": 1773720228322000026,
+      "sha256": "09818ad685112afb5e227ec495a1ecadc2d93aad1ae937875b469ac20f321744"
+    },
+    "mimic": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/chartevents.csv",
+      "bytes": 41935806083,
+      "mtime_ns": 1773621199698999881,
+      "sha256": "0d1932df345c2d135ce715df1f6afa603f7124894a5aa8c6ba56aa6ee02160d4"
+    }
+  },
+  "inputs": {
+    "origin": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/hemoglobin_oxidation.duckdb",
+      "bytes": 24915968,
+      "mtime_ns": 1788647553577801099,
+      "sha256": "5102f9ffaf3212dd5edf5bfa674ad45b7a31294e5780a524ff888aedd331e48a"
+    },
+    "prior": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_context.duckdb",
+      "bytes": 39333888,
+      "mtime_ns": 1788588260012526832,
+      "sha256": "7902a93985c6024dfb38a1a7555c54418492bfb3ebf4b93104a78148316d3352"
+    }
+  },
+  "dictionary": {
+    "sha256": "2e8987d8ac98e48358e582708f953710f50bdea7fb4a8bb427acb364a7212894",
+    "items": {
+      "228640": {
+        "itemid": "228640",
+        "label": "EtCO2",
+        "abbreviation": "EtCO2",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "None",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      "224687": {
+        "itemid": "224687",
+        "label": "Minute Volume",
+        "abbreviation": "Minute Volume",
+        "linksto": "chartevents",
+        "category": "Respiratory",
+        "unitname": "L/min",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": "12.100000381469727"
+      }
+    }
+  },
+  "full_raw_scans": true,
+  "explicit_csv_quote_and_escape": true,
+  "native_source_hashes_match_prior_independent_extractions": true,
+  "capnography_values_selected": false,
+  "minute_volume_values_selected": false,
+  "respiratory_rate_values_selected": false,
+  "mortality_selected": false
+}

@@ -1,0 +1,5 @@
+2026-09-06T21:18:44.508109+00:00 phase=A environment=local
+venous_o2_feasible=False strategy=fallback tier=inadequate
+clinical_outcomes_inspected=false
+effect_estimates_computed=false
+endpoint_rates_printed=false

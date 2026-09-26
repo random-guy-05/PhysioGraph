@@ -1,0 +1,26 @@
+{
+  "df": 1,
+  "difference_in_log_rr_corrected_minus_mimic4": -0.30198461752551875,
+  "heterogeneity_p_value": 0.033369516579023206,
+  "heterogeneity_z": -2.1276089858681706,
+  "i_squared_percent": 77.9089495104927,
+  "mimic3_parity_corrected_primary": {
+    "log_rr": -0.07797118621109142,
+    "robust_se": 0.12677193254490343,
+    "rr": 0.924991078657246
+  },
+  "mimic4_primary": {
+    "log_rr": 0.22401343131442733,
+    "robust_se": 0.06383374011311983,
+    "rr": 1.2510878230694424
+  },
+  "original_vs_corrected_mimic3": {
+    "comparison": "descriptive only; estimates arise from overlapping/dependent MIMIC-III risk sets, so no independence-based p-value is computed",
+    "corrected_log_rr": -0.07797118621109142,
+    "corrected_minus_original_log_rr": -0.04691517857958877,
+    "original_log_rr": -0.03105600763150265
+  },
+  "q": 4.526719996746985,
+  "se_of_difference_assuming_independent_estimates": 0.1419361450018947,
+  "two_study_instability_warning": "I-squared from only two database-era estimates is unstable and must not be used as proof of homogeneity or heterogeneity. No pooled estimate is used to claim replication."
+}

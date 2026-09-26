@@ -1,0 +1,98 @@
+{
+  "status": "complete",
+  "environment": "LOCAL_STANDALONE_RUNTIME",
+  "input_provenance": {
+    "mimic3": "independent reconstruction from original MIMIC-III CSV.GZ sources",
+    "mimic4": "validated read-only frozen discovery and SpO2-context DuckDB tables after raw Google Drive CSV timeout"
+  },
+  "frozen_results_changed": false,
+  "primary_classification": "IMPLEMENTATION_OR_MAPPING_CONCERN",
+  "reconstructed_counts": {
+    "mimic3": {
+      "preliminary": 5405,
+      "at_risk": 2368,
+      "valid_exposure": 1799,
+      "primary_events": 103,
+      "modeled_events": 72,
+      "later_modeled_events": 53
+    },
+    "mimic4": {
+      "preliminary": 17758,
+      "at_risk": 8196,
+      "valid_exposure": 5957,
+      "primary_events": 238,
+      "modeled_events": 158
+    }
+  },
+  "lock_and_code_hashes_verified": true,
+  "dominant_reason": "A material endpoint-parity defect is present: frozen MIMIC-IV oliguria surveillance uses the shared helper's hour-4 start, whereas frozen MIMIC-III explicitly starts at hour 0; the two later endpoints also use different pairing semantics. CareVue availability semantics and ICU-entry phenotype differences compound this concern.",
+  "secondary_flags": {
+    "exposure_definition_identical": false,
+    "scaling_identical": true,
+    "time_window_identical": true,
+    "endpoint_logically_identical": false,
+    "endpoint_observability_comparable": false,
+    "cohort_comparable": false,
+    "measurement_process_comparable": true,
+    "sufficient_power_for_RR_1_25": false,
+    "sufficient_power_for_RR_1_20": false,
+    "MIMIC_IV_effect_inside_MIMIC_III_CI": false,
+    "formal_cross_era_heterogeneity_present": false,
+    "coding_error_found": true,
+    "source_mapping_error_found": false
+  },
+  "storetime_audit": {
+    "mimic3_spo2_rows_0_240": 30193,
+    "storetime_after_minute_240_count": 2726,
+    "storetime_after_minute_240_fraction": 0.09028582784089027,
+    "median_store_delay_minutes": 10.0,
+    "p95_store_delay_minutes": 84.0,
+    "guard": "Descriptive implementation audit only; frozen exposure was not recalculated with a new availability rule."
+  },
+  "implementation_parity_findings": {
+    "mimic4_oliguria_start_hour": 4,
+    "mimic3_oliguria_start_hour": 0,
+    "mimic4_at_risk_replay_n": 8196,
+    "mimic4_later_semantics": "primary composite event time >480",
+    "mimic3_later_semantics": "both components re-paired strictly after 480",
+    "frozen_results_recomputed_or_changed": false
+  },
+  "degradation_phase": {
+    "triggered": false,
+    "reason": "The dominant diagnosed limitation is endpoint/cohort observability rather than a major outcome-blind SpO2 cadence or quantization shift requiring a new degradation operator."
+  },
+  "association_models_fitted_in_forensic_audit": 0,
+  "frozen_mimic3_association_models_fitted_unchanged": 2,
+  "protected_artifact_tree_hashes_before": {
+    "research/spo2_variability_mimic3_validation": "2eb27075044b6348ce8bdea891a7f0f0c0da9b44c746509eb3483895416b11f7",
+    "research/spo2_variability_validation": "097319d82eaef7f1acf1893ad1508806984c14d7891e282ce266649885ffadbe",
+    "research/spo2_variability_transportability": "d6177aa9bcf12ceeb4e5da794b6b15221af9d6ff29f4d4775b5a8fcf6061f2f6"
+  },
+  "protected_artifact_tree_hashes_after": {
+    "research/spo2_variability_mimic3_validation": "2eb27075044b6348ce8bdea891a7f0f0c0da9b44c746509eb3483895416b11f7",
+    "research/spo2_variability_validation": "097319d82eaef7f1acf1893ad1508806984c14d7891e282ce266649885ffadbe",
+    "research/spo2_variability_transportability": "d6177aa9bcf12ceeb4e5da794b6b15221af9d6ff29f4d4775b5a8fcf6061f2f6"
+  },
+  "artifact_hashes": {
+    "FINAL_REPORT.md": "903a0dd861537444cd12eb9f3888675de407880bd0292d2db3a13313b1a8dd92",
+    "cohort_transportability.csv": "4d936ad41ce12ea437475df7865b51caa1d9a101678de8aa3586ce5461ce3d8f",
+    "endpoint_component_comparison.csv": "2c65c23e00ab2e9c63865735badde5b864df7732be2a1cf6fc148a06e5f6f5be",
+    "exposure_distribution_comparison.csv": "b0578d0b04de043d09a7a29463b68668ad09ae93682792b33dc4345704e46282",
+    "figures/endpoint_composition.pdf": "f4c04e5dbcd0455637ff83613fee3c58e390ff63d74a7aa9c599a247a5a16e4c",
+    "figures/endpoint_composition.png": "efd6e872eb1b6066332495ea4e163ba5a43f29f31856c892896c91798ae04a9c",
+    "figures/exposure_distribution.pdf": "0f916515c15332832a8fca56c1af520c33c9d38dd5a0a83a12e88d6fcf3242f2",
+    "figures/exposure_distribution.png": "b394a24e00538bed6302e1f60ab5f7c0f1a50f7e7d05d54afe1443f3a9ad9e3d",
+    "figures/measurement_density.pdf": "1c8d96b1f305484eca24d9df5aafce51f1ca842cb13e4234b8fe6bb1fb6e8a47",
+    "figures/measurement_density.png": "4f532e82875f558b4a002473fc97d9a6231270b7da25cff7f8a8e019e51fc24c",
+    "figures/mimic4_mimic3_forest.pdf": "3842746b1233b9768727eafe80591a6820a6ab03b47c34b29a018ad0a2b7de2b",
+    "figures/mimic4_mimic3_forest.png": "cbc0aa381389201b7b0c7309d3d31dd6e8f44b83a771f61674b940d4df49e202",
+    "figures/repetition_quantization.pdf": "c813f9b23b7709c3fcb4e054aad0747d94f3685d074013c105187ab014b94bce",
+    "figures/repetition_quantization.png": "5cfd2d822d3b5ebadc5ca8a2a36da54430f984d1910c1214bef359947a0c54bb",
+    "heterogeneity_analysis.json": "11ec1e4db9584f211492e6151475ac55dadd2da50796680e9ab27957bb1a9b87",
+    "measurement_process_comparison.csv": "2d6dcdc540f900648a49723f1e178f57c192f25ee7cfdc6e832f2b288cbfd191",
+    "parity_matrix.csv": "43c35fd98dbde251da16f747356a7d26719a698bdbd7bbb567c3901abfb2fdd9",
+    "precision_analysis.json": "4a26692b44414b41fde375e601d5f551d2813414d62f368064712aefd31135c6",
+    "sanity_checks.json": "0100d0510a21aed1ed4383ba634bdc5b7b2e9b1191be5cab0cf9e60e6d3d4aa7",
+    "source_mapping_audit.csv": "3127c451ec85e8eff3583dee25054ae6734e782063a62d41ae159f4efc8c91c8"
+  }
+}

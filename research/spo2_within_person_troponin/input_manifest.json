@@ -1,0 +1,13 @@
+{
+  "references": {
+    "troponin_emergence": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/troponin_emergence.duckdb",
+      "sha256": "e9941c2073c3bdc2df16d4c24e0248f063798948cd92121b1029e0d8caff770a"
+    },
+    "spo2_cardiorenal": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_cardiorenal.duckdb",
+      "sha256": "4452c0a48f0ef2fee717a158d81c3538c326966e4b04e7a99db89966d67e6f38"
+    }
+  },
+  "protocol_sha256": "ecb781f84d1fc88ba67f7697aa550f6b96016ce1ddfc4897e6d363426a76dd79"
+}

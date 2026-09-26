@@ -1,0 +1,16 @@
+{
+  "scope": "descriptive status metadata only",
+  "failure": "Initial outcome-stage status counted paired-domain events before restricting to the frozen at-risk cohorts.",
+  "invalid_status_values": {
+    "MIMIC": 1716,
+    "eICU": 377
+  },
+  "validated_risk_set_values": {
+    "MIMIC": 238,
+    "eICU": 95
+  },
+  "source": "outcome_composition_comparison.csv",
+  "association_models_refit": false,
+  "degradation_rule_changed": false,
+  "frozen_validation_changed": false
+}

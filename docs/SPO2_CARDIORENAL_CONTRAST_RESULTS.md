@@ -1,0 +1,18 @@
+# Paired cardiorenal biomarker contrast
+
+**Actual execution: local. Exploratory adjusted association, not a causal or diagnostic specificity estimate.**
+
+| Source | Horizon | Paired encounters | Patients | Status | Adjusted differential association (pp) | 95% CI (pp) | Primary Holm p |
+|---|---|---:|---:|---|---:|---|---:|
+| eicu | 12h | 656 | 648 | estimable | 8.25 | -0.81 to 17.30 | 0.1486 |
+| eicu | 24h | 926 | 906 | estimable | 2.76 | -5.51 to 11.03 | — |
+| mimic | 12h | 621 | 613 | estimable | -1.35 | -11.23 to 8.54 | 0.789 |
+| mimic | 24h | 654 | 647 | estimable | -0.72 | -11.30 to 9.86 | — |
+
+Primary candidate advancement: **False**. A positive coefficient means the instability-associated increase in the troponin-rise proxy is larger than the increase in creatinine worsening in this shared sample. The 24-hour analysis cannot rescue a failed primary result.
+
+Both biomarkers require actual baseline/post pairs and complete follow-up through the stated endpoint. This selects patients remaining observed through 16 or 28 ICU hours and does not represent early deaths/discharges. The analysis controls for the frozen pre-landmark covariates, with patient-clustered uncertainty. Test ordering and non-random joint measurement remain limitations.
+
+A 1.5-fold troponin increase is not necessarily above the assay reference limit and is not adjudicated myocardial injury or infarction. Creatinine may lag acute renal dysfunction. Different marker thresholds and kinetics prevent a positive differential association from proving organ-specific tissue injury or excluding clearance effects. No mortality outcome, intervention effect, or novel biological discovery is established here.
+
+Final creatinine labels use decimal arithmetic at the unchanged 0.3 mg/dL and 1.5-fold boundaries. A post-estimate numerical correction and the archived preliminary run are documented in SPO2_CARDIORENAL_DECIMAL_THRESHOLD_CORRECTION.md.

@@ -1,0 +1,164 @@
+[
+  {
+    "raw_name": "Hgb",
+    "lab_type": 3,
+    "unit_system": "g/dL",
+    "unit_interface": "g/dL",
+    "source_approved": true,
+    "records": 4361,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Methemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "%",
+    "source_approved": false,
+    "records": 1445,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Carboxyhemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "%",
+    "source_approved": false,
+    "records": 1375,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Hgb",
+    "lab_type": 3,
+    "unit_system": "g/dL",
+    "unit_interface": "g/dl",
+    "source_approved": true,
+    "records": 492,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Oxyhemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "%",
+    "source_approved": false,
+    "records": 416,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Hgb",
+    "lab_type": 3,
+    "unit_system": "g/dL",
+    "unit_interface": "gm/dL",
+    "source_approved": true,
+    "records": 289,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Hgb",
+    "lab_type": 3,
+    "unit_system": "g/dL",
+    "unit_interface": "G/DL",
+    "source_approved": true,
+    "records": 79,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Carboxyhemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": null,
+    "source_approved": false,
+    "records": 32,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Hgb",
+    "lab_type": 3,
+    "unit_system": "g/dL",
+    "unit_interface": "GM/DL",
+    "source_approved": true,
+    "records": 30,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Carboxyhemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "% total Hgb",
+    "source_approved": false,
+    "records": 16,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Methemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "% total Hgb",
+    "source_approved": false,
+    "records": 16,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Carboxyhemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "% THB",
+    "source_approved": false,
+    "records": 14,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Methemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "% THB",
+    "source_approved": false,
+    "records": 14,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Oxyhemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "% THB",
+    "source_approved": false,
+    "records": 11,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Hgb",
+    "lab_type": 3,
+    "unit_system": "g/dL",
+    "unit_interface": "gm/dl",
+    "source_approved": true,
+    "records": 5,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Carboxyhemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "% of total",
+    "source_approved": false,
+    "records": 3,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Carboxyhemoglobin",
+    "lab_type": 7,
+    "unit_system": "%",
+    "unit_interface": "% of total Hb",
+    "source_approved": false,
+    "records": 1,
+    "dataset": "eicu"
+  },
+  {
+    "raw_name": "Hemoglobin",
+    "lab_type": 3,
+    "unit_system": "g/dL",
+    "unit_interface": "",
+    "source_approved": true,
+    "records": 1441,
+    "dataset": "mimic"
+  }
+]

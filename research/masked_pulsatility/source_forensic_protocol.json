@@ -1,0 +1,12 @@
+{
+  "sha256": "5e6d7e099ffda52ce763fbf926a833dceb2f855b70d2957bf5f079dead307146",
+  "frozen_utc": "2026-09-07T02:46:04.228620+00:00",
+  "outcome_blind": true,
+  "frozen_analysis_unchanged": true,
+  "source_availability": {
+    "eicu_vital_periodic": true,
+    "eicu_vital_aperiodic": false,
+    "eicu_nurse_charting": false,
+    "mimic_chartevents": true
+  }
+}

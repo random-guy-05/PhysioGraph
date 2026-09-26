@@ -1,0 +1,39 @@
+{
+  "protocol_sha256": "ac46b95fc53530ee2c6a9bd7034cdd1761d2b7670f8deb9073f161bd40e0dabc",
+  "documentation_sha256": "164d6091b44657d4674857a83cf063388546dc3f4b6b95b822a98f1f74f2c03b",
+  "code_hashes": {
+    "scripts/build_biological_notebook.py": "888730d2d7c228e0048af94bd599a7b69a4e1baca3e4f5e4bc4698f05e22efe2",
+    "scripts/shock_signal_discovery_cells.py": "1048274a80689b83a4466c10fe1bc6bf0f8e62aeb9f11d06282df1087e10a2b3",
+    "src/physiograph/analysis/shock_signal_discovery.py": "016c251dbeb6a9adb11ad433c05e0788afe62d4bef983c6f25936e528494934d",
+    "tests/unit/test_shock_signal_discovery.py": "dc4598bbee5cd600c260031765499c0462e23693cabb8e525fbe1dea8bfdecf1"
+  },
+  "code_aggregate_sha256": "364de5fb5a219862d5a40e63d3c8dd6dc55a900be1d5fb8a201a9ba0621bfba2",
+  "git_commit": "5fbeb14c341fb1bce012c7ab30cc2a25f15fc331",
+  "historical_first_association_attempt_utc": "2026-09-07T19:32:30.447739+00:00",
+  "implementation_corrections": {
+    "implementation_correction_001.json": "3716c983905b7bfee38370986c3966787bcfae63b59988ecd37d9b628c66e79a",
+    "implementation_correction_002.json": "a973f707c0ec8908da5daf55bdf0aa6fc0da36032c52454a21eed25e391d4888"
+  },
+  "candidate_signals": [
+    "hr",
+    "sbp",
+    "dbp",
+    "map",
+    "pulse_pressure",
+    "resp_rate",
+    "spo2",
+    "temperature_c",
+    "urine_output_ml_h"
+  ],
+  "candidate_dynamics": [
+    "level",
+    "slope",
+    "change",
+    "variability"
+  ],
+  "candidate_tests": 36,
+  "primary_outcome": "objective_shock",
+  "lead_outcome": "objective_shock_lead4",
+  "bootstrap_replicates": 200,
+  "eicu_accessed": false
+}

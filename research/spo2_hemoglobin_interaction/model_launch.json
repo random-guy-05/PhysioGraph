@@ -1,0 +1,33 @@
+{
+  "pid": 83552,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "pyyaml",
+    "--with",
+    "nbformat",
+    "--with",
+    "statsmodels==0.14.4",
+    "--with",
+    "scipy==1.15.2",
+    "--with",
+    "scikit-learn==1.6.1",
+    "python",
+    "scripts/build_biological_notebook.py",
+    "--interaction-models-only"
+  ],
+  "started_utc": "2026-09-05T07:37:05.965019+00:00",
+  "builder_sha256": "d6c9c7aeb83f7435fcee5614d683a3f507b1425c586ad00634eca898baad341e",
+  "cell_source_sha256": "54bce129362746e131b8143393ef6e62ef63268e2f23d150575a9fecc7853acf",
+  "reason": "Post-fit correction rejects separated models; unchanged biological specification"
+}

@@ -1,0 +1,55 @@
+{
+  "lock_utc": "2026-09-07T23:35:18.990803+00:00",
+  "status": "outcome_independent_measurement_degradation_specification",
+  "frozen_external_validation_lock_sha256": "e96fa15be41ee3daa8f04f5a79f195d759ab8522cc0a22193caa22e6cf74f3ff",
+  "phase_c_artifact_hashes": {
+    "measurement_process_comparison.csv": "89e8c2eab7bcecd1740e41f5f7bb9a9331133d8ab13978aa8e30dc3b097604e5",
+    "feature_distribution_comparison.csv": "2f44c5b9c2fb5cb6b289dac05630bfd460858994683b50736c75946612d3cacd",
+    "clinical_context_comparison.csv": "84c68f4faf9adf41452d720a46780ea983bb59111488a5e556399550c48247b1"
+  },
+  "exact_mimic_exposure_parity_max_abs_difference": 0.0,
+  "specification_sha256": "1a4e843ab9fe1eec242a3ad1ac0bba903c5fef1327aeedd71e9f1e57e68666f6",
+  "specification": {
+    "feature_specification": {
+      "window_minutes": [
+        0,
+        240
+      ],
+      "aggregation": "hourly_median",
+      "minimum_bins": 3,
+      "minimum_span_hours": 2,
+      "detrending": "ordinary_least_squares_spo2_on_hour",
+      "summary": "root_mean_square_residual",
+      "valid_spo2_range": [
+        50.0,
+        100.0
+      ]
+    },
+    "operator": "eicu_empirical_timing_template_with_mimic_last_observation_carried_forward",
+    "seed": 20260908,
+    "eicu_template_stays": 8061,
+    "template_pattern_sha256": "5072bffc17e04b1b4ae55b84e88e24c088834a82d5c5b12e818c80e9ccc9be28",
+    "donor_assignment": "sorted MIMIC stay IDs; seeded eICU-template sampling with replacement",
+    "value_mapping": "most recent actual MIMIC observation at or before each eICU template time; earliest subsequent actual observation only when no prior value exists",
+    "missing_hour_pattern": "inherited exactly from the sampled eICU template",
+    "cadence": "all valid 0-240 minute timestamps from the sampled eICU template",
+    "quantization": "none",
+    "arbitrary_noise": false,
+    "outcome_information_used": false,
+    "justification": {
+      "mimic_raw_observations_median": 4.0,
+      "eicu_raw_observations_median": 47.0,
+      "mimic_valid_bins_median": 3.0,
+      "eicu_valid_bins_median": 4.0,
+      "mimic_integer_fraction": 1.0,
+      "eicu_integer_fraction": 1.0
+    },
+    "prohibited": [
+      "outcome_tuning",
+      "effect_targeting",
+      "gaussian_noise",
+      "alternative_spo2_feature",
+      "threshold_search"
+    ]
+  }
+}

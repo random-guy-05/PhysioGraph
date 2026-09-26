@@ -1,0 +1,34 @@
+[
+  {
+    "dataset": "eicu",
+    "dynamics_eligible": 11452,
+    "fio2_observed_encounters": 4224,
+    "fio2_records": 11839,
+    "escalation_records": 195,
+    "escalation_encounters": 174,
+    "paired_escalation_records": 165,
+    "first_escalation_paired": 146,
+    "first_escalation_paired_and_corroborated": 33,
+    "full_support_by_original_exposure": {
+      "0": 10,
+      "1": 23
+    },
+    "feasibility_pass": false
+  },
+  {
+    "dataset": "mimic",
+    "dynamics_eligible": 4711,
+    "fio2_observed_encounters": 1883,
+    "fio2_records": 2806,
+    "escalation_records": 32,
+    "escalation_encounters": 30,
+    "paired_escalation_records": 17,
+    "first_escalation_paired": 16,
+    "first_escalation_paired_and_corroborated": 3,
+    "full_support_by_original_exposure": {
+      "0": 1,
+      "1": 2
+    },
+    "feasibility_pass": false
+  }
+]

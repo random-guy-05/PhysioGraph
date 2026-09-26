@@ -1,0 +1,52 @@
+{
+  "cells": 73,
+  "code_cells": 52,
+  "notebook_sha256": "8adabb05974548e3350a539cb6800fc736b478dd5b0d4135860554104c37bba5",
+  "builder_sources_match": true,
+  "all_code_compiles": true,
+  "error_outputs": 0,
+  "all_cells_have_execution_counts": true,
+  "local_incremental_execution": true,
+  "current_full_uninterrupted_execution": false,
+  "google_colab_execution": false,
+  "source_selection_and_interval_validation": [
+    {
+      "dataset": "eicu",
+      "horizon": "12h",
+      "baseline_sql_python_match": true,
+      "first_specimen_sql_python_match": true,
+      "decimal_interval_oracle_matches": true,
+      "selected_people": 453,
+      "endpoint_rows": 453
+    },
+    {
+      "dataset": "eicu",
+      "horizon": "24h",
+      "baseline_sql_python_match": true,
+      "first_specimen_sql_python_match": true,
+      "decimal_interval_oracle_matches": true,
+      "selected_people": 453,
+      "endpoint_rows": 453
+    },
+    {
+      "dataset": "mimic",
+      "horizon": "12h",
+      "baseline_sql_python_match": true,
+      "first_specimen_sql_python_match": true,
+      "decimal_interval_oracle_matches": true,
+      "selected_people": 171,
+      "endpoint_rows": 171
+    },
+    {
+      "dataset": "mimic",
+      "horizon": "24h",
+      "baseline_sql_python_match": true,
+      "first_specimen_sql_python_match": true,
+      "decimal_interval_oracle_matches": true,
+      "selected_people": 171,
+      "endpoint_rows": 171
+    }
+  ],
+  "aggregate_invariance_after_decimal_and_null_normalization": true,
+  "goal_complete": false
+}

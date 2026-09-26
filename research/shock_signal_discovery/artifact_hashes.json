@@ -1,0 +1,16 @@
+{
+  "protocol.json": "ac46b95fc53530ee2c6a9bd7034cdd1761d2b7670f8deb9073f161bd40e0dabc",
+  "protocol_freeze_receipt.json": "8fefcd1f02b4bfef68df623e9267caa36e5e701ef6c215a871c87257d04012aa",
+  "analysis_config.json": "5041d8085d3f5f7b5221b7fc2aeda194990950291f7a02cb8a7b9ddb9f00037d",
+  "analysis_lock.json": "4d3a0e618ee1f4e872d9ec5bdabf21c9af6f2b0743011d82b3000708cbb3bac3",
+  "association_read_receipt.json": "695d101ba3d2747ac8d5097a42d7a8600b50dfdff19774b7895b2814c9271ddf",
+  "extraction_counts.json": "40bb16775c26e84027171a1f1aa3f71ac9980527f41dbecb254fc98ffa035982",
+  "endpoint_support.json": "81522f54c5f1e25e2141cd2e022ae86865dd6f15cf54c221150007f542b460b4",
+  "mimic_candidate_screen.json": "e3ee2fe9e509c838f81a723c65d73d873c256f93d88c9a204c93cf70ab35c720",
+  "mimic_candidate_screen.csv": "4ea92b1e56acc7952134c5c2470a9412ff56536a4afc60cf8ddda61c4bbd2b2f",
+  "top_candidates.csv": "fe938e0a4b53903a2e9cc276224aa8d5b73b01bd52ecae82ec8daa591b51d6c3",
+  "measurement_coverage.csv": "33e3a36abed99f92f7025588868c68b7086f64058150fc6faf986319e0466774",
+  "decision_gate_summary.json": "67b1a0b57f9920538cd93f5c231507741d300fa6b1f769baa4cd305d169aa604",
+  "candidate_forest.png": "a1ed3b5b9d9881a9d9812307ba7951257c2929180fc12c0b7eda56395d3cd594",
+  "run_status.json": "f5cc5b50bc77cfaf4c02efe4bbaf78cdc71c3ae4ef01e5bb7b16f945c2c95730"
+}

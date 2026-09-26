@@ -1,0 +1,12 @@
+{
+  "utc": "2026-09-05T08:09:19.632357+00:00",
+  "environment": "local",
+  "source": "https://physionet.org/files/mimic4wdb/0.1.0/",
+  "records_sha256": "35ec636bf76e99570ccb50d58f83ade0098af54bfca4d8b45bd2b45750d347ac",
+  "private_metadata_sha256": "63d132d3d387c53a7548bfa60a44a11bc1c077b903a1f3b3dc4db2c57523a543",
+  "waveform_amplitudes_downloaded": false,
+  "clinical_outcomes_selected": false,
+  "linkage_requires_subject_admission_and_time": true,
+  "biological_discovery": false,
+  "goal_complete": false
+}

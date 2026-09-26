@@ -1,0 +1,249 @@
+{
+  "status": "LOCKED_BEFORE_NWICU_ASSOCIATION",
+  "specification": {
+    "protocol_sha256": "a42bb40b79577daedfb881c3579e26cfe96f4c2c2f3ebaf17022b7b61c21196a",
+    "frozen_external_validation_lock_sha256": "e96fa15be41ee3daa8f04f5a79f195d759ab8522cc0a22193caa22e6cf74f3ff",
+    "feature_specification": {
+      "window_minutes": [
+        0,
+        240
+      ],
+      "aggregation": "hourly_median",
+      "minimum_bins": 3,
+      "minimum_span_hours": 2,
+      "detrending": "ordinary_least_squares_spo2_on_hour",
+      "summary": "root_mean_square_residual",
+      "valid_spo2_range": [
+        50.0,
+        100.0
+      ]
+    },
+    "exposure_parameters": {
+      "lower": 1.160311428702309e-14,
+      "upper": 4.300141942983509,
+      "center": 0.8776215724100497,
+      "scale": 0.8227000137550243
+    },
+    "mapping": {
+      "heart_failure": {
+        "icd9_prefix": "428",
+        "icd10_prefix": "I50"
+      },
+      "vitals": {
+        "hr": 320045,
+        "sbp_cuff": 320179,
+        "map_cuff": null,
+        "resp_rate": 320210,
+        "spo2": 320277,
+        "temperature_f": 323761
+      },
+      "labs": {
+        "creatinine_blood": 100002,
+        "lactate_blood": 100031,
+        "alt_blood": 100042,
+        "ph_blood": 100339
+      },
+      "outcome_sources": {
+        "urine_output": null,
+        "continuous_infusion_rate": null,
+        "hospital_or_site_identifier": null,
+        "mcs_itemids": [
+          736876
+        ]
+      }
+    },
+    "modified_endpoint": {
+      "name": "modified_nwicu_pressure_support_plus_laboratory_hypoperfusion",
+      "primary_window_minutes": {
+        "lower_exclusive": 360,
+        "upper_inclusive": 960
+      },
+      "later_window_minutes": {
+        "lower_exclusive": 480,
+        "upper_inclusive": 960
+      },
+      "maximum_domain_separation_minutes": 360,
+      "pressure_support_components": [
+        "sustained_cuff_sbp_hypotension",
+        "mcs"
+      ],
+      "laboratory_hypoperfusion_components": [
+        "lactate",
+        "creatinine",
+        "ph",
+        "alt"
+      ],
+      "structurally_unavailable_components": [
+        "continuous_support",
+        "oliguria"
+      ],
+      "user_authorized_utc_date": "2026-09-08"
+    },
+    "gates": {
+      "minimum_exposure_coverage": 0.7,
+      "minimum_modeled_primary_events": 50,
+      "minimum_contributing_sites": 20,
+      "exact_composite_required": true
+    },
+    "user_authorized_waivers": {
+      "minimum_70_percent_exposure_coverage": true,
+      "minimum_20_contributing_sites": true,
+      "minimum_50_modeled_primary_events": false
+    },
+    "source_manifest_sha256": "5df101e4039e3c56be121c4f12ec1afebaaf22cd8ac58d7605570aa5736a38fb",
+    "prohibited": [
+      "alternate_variability_formula",
+      "dataset_specific_scaling",
+      "alternate_outcome",
+      "treating_unobserved_oliguria_as_absent",
+      "careunit_as_hospital_cluster",
+      "subgroup_or_threshold_rescue"
+    ],
+    "interpretation_rule": {
+      "directionally_supportive": "primary RR > 1, HC0 95% CI excludes 1, p < 0.05, and later-window RR > 1",
+      "otherwise": "modified endpoint not directionally supportive",
+      "never_claim": "external validation of the original frozen composite"
+    },
+    "association_inspected": false
+  },
+  "specification_sha256": "b301533cbfabc868b2b9daecf2788757809c03e4d3f60b45cd0a7e9acf06eaba",
+  "code_hashes": {
+    "scripts/run_spo2_variability_nwicu_validation.py": "81d2bd9f2a475c0b39722fbdb1f19a346c783e92879c53084aaf74e3e635a960",
+    "src/physiograph/analysis/spo2_variability_nwicu_validation.py": "bf70402aace2915309926191a779e35a821a62a5dbeb950048fd0f52cc6bbfa5",
+    "src/physiograph/analysis/spo2_variability_transportability.py": "037543ccc9c174d9965a21f1d5cfdd6254f870362ebdff9907708f6d25368793",
+    "src/physiograph/analysis/spo2_variability_validation.py": "202643ef397844467e73afd17613254faebc323481c1defb37573f1852e9e165",
+    "src/physiograph/analysis/shock_signal_discovery.py": "016c251dbeb6a9adb11ad433c05e0788afe62d4bef983c6f25936e528494934d",
+    "tests/unit/test_spo2_variability_nwicu_validation.py": "76d95790669949c9f1e1995264674b4ad0f59b0c93cfde8607c755d26d27d070"
+  },
+  "lock_utc": "2026-09-09T01:41:00.724011+00:00",
+  "documentation_sha256": "de908b4e02563f2d3c3e18fb74aacf884268e757eb4f38ad94b1c74a55035943",
+  "third_cohort_protocol_sha256": "8cb8a4c784ce0bd9471d21c172fe3251cae16000cf4110134359bf8e74be2d6b",
+  "source_checks": [
+    {
+      "relative_path": "LICENSE.txt",
+      "bytes": 2518,
+      "expected_sha256": "26794be6ea7916cd4b4017b45b9c34c3c31f645a03a9cd6c591c529b92435042",
+      "actual_sha256": "26794be6ea7916cd4b4017b45b9c34c3c31f645a03a9cd6c591c529b92435042",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_hosp/admissions.csv.gz",
+      "bytes": 1929166,
+      "expected_sha256": "79377f74e34f283ea6c2f95848932abfb6b3aa0ea71dc5f5ecfce03265535957",
+      "actual_sha256": "79377f74e34f283ea6c2f95848932abfb6b3aa0ea71dc5f5ecfce03265535957",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_hosp/d_icd_diagnoses.csv.gz",
+      "bytes": 572385,
+      "expected_sha256": "c523e9d0c5e9502b87068a72654b27ce50e132e42efe4cc26cef68a2702eb2dc",
+      "actual_sha256": "c523e9d0c5e9502b87068a72654b27ce50e132e42efe4cc26cef68a2702eb2dc",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_hosp/d_labitems.csv.gz",
+      "bytes": 2818,
+      "expected_sha256": "b64e06f38d19634abcd1d21bb3dfe298659341f30084ae7e03e4721ab992ee37",
+      "actual_sha256": "b64e06f38d19634abcd1d21bb3dfe298659341f30084ae7e03e4721ab992ee37",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_hosp/diagnoses_icd.csv.gz",
+      "bytes": 1671445,
+      "expected_sha256": "79b160feff070887a069a26c999b66224b4717e4119b75a9da184b901036fd1c",
+      "actual_sha256": "79b160feff070887a069a26c999b66224b4717e4119b75a9da184b901036fd1c",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_hosp/emar.csv.gz",
+      "bytes": 277415527,
+      "expected_sha256": "8b29dbbdae7e17b89df00133c5b04ce05fcf929e71cce8f43d1cd5646a02d731",
+      "actual_sha256": "8b29dbbdae7e17b89df00133c5b04ce05fcf929e71cce8f43d1cd5646a02d731",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_hosp/labevents.csv.gz",
+      "bytes": 204750183,
+      "expected_sha256": "858aaefa18da3f6c8b73e3b0de27eb7718cb2377dd025426f0d67be5be507e68",
+      "actual_sha256": "858aaefa18da3f6c8b73e3b0de27eb7718cb2377dd025426f0d67be5be507e68",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_hosp/patients.csv.gz",
+      "bytes": 211934,
+      "expected_sha256": "c9d922c04ef969896bab52f0509bd115801f5acf8113240803f870e3679caad9",
+      "actual_sha256": "c9d922c04ef969896bab52f0509bd115801f5acf8113240803f870e3679caad9",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_hosp/prescriptions.csv.gz",
+      "bytes": 71215732,
+      "expected_sha256": "5474ddc6083c7ebd1b16540e6c1b86b307094a84e8a44383543a4435418c1beb",
+      "actual_sha256": "5474ddc6083c7ebd1b16540e6c1b86b307094a84e8a44383543a4435418c1beb",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_icu/chartevents.csv.gz",
+      "bytes": 59884185,
+      "expected_sha256": "d6d329194f1d63241087bdfe6190beeaccfb8689adba64d46fc58b843e4f4761",
+      "actual_sha256": "d6d329194f1d63241087bdfe6190beeaccfb8689adba64d46fc58b843e4f4761",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_icu/d_items.csv.gz",
+      "bytes": 5299,
+      "expected_sha256": "44939cefcfabc14a451a6d78e3ff42fd76acf39bc73a713f4e244dfe30375288",
+      "actual_sha256": "44939cefcfabc14a451a6d78e3ff42fd76acf39bc73a713f4e244dfe30375288",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_icu/icustays.csv.gz",
+      "bytes": 873881,
+      "expected_sha256": "5b4337fbff6364662564f6a025d1329dfeeece78cdf23865d0de60544a777da1",
+      "actual_sha256": "5b4337fbff6364662564f6a025d1329dfeeece78cdf23865d0de60544a777da1",
+      "match": true
+    },
+    {
+      "relative_path": "data/nw_icu/procedureevents.csv.gz",
+      "bytes": 7294201,
+      "expected_sha256": "95a7d982546fa8c548fc3f43f0a5e237ff254d4d13389d5aaf14ee32d0f9d7c3",
+      "actual_sha256": "95a7d982546fa8c548fc3f43f0a5e237ff254d4d13389d5aaf14ee32d0f9d7c3",
+      "match": true
+    }
+  ],
+  "dictionary_verification": {
+    "vital_and_mcs_items": {
+      "320045": "PULSE",
+      "320179": "BP SYSTOLIC",
+      "320180": "BP DIASTOLIC",
+      "320210": "RESPIRATIONS",
+      "320277": "PULSE OXIMETRY",
+      "323761": "TEMPERATURE",
+      "736876": "ECMO PUMP SETTINGS"
+    },
+    "laboratory_items": {
+      "100002": {
+        "label": "Creatinine",
+        "fluid": "Blood"
+      },
+      "100031": {
+        "label": "Lactate",
+        "fluid": "Blood"
+      },
+      "100042": {
+        "label": "Alanine Aminotransferase (ALT)",
+        "fluid": "Blood"
+      },
+      "100339": {
+        "label": "pH",
+        "fluid": "Blood"
+      }
+    },
+    "map_cuff_item": null,
+    "continuous_infusion_rate_source": null,
+    "urine_output_source": null,
+    "site_identifier": null
+  },
+  "first_nwicu_association_read_utc": null,
+  "nwicu_association_inspected": false
+}

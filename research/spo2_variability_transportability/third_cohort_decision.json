@@ -1,0 +1,15 @@
+{
+  "classification": "THIRD_COHORT_STRONGLY_JUSTIFIED",
+  "rationale": "eICU precision is demonstrably modest for RR 1.20\u20131.25, its interval contains the MIMIC effect, direction is concordant, and the MIMIC signal is bootstrap-stable; a higher-event, high-fidelity cohort can materially adjudicate transportability.",
+  "evidence": {
+    "eicu_power_rr_1_20": 0.38220673476009037,
+    "eicu_power_rr_1_25": 0.5285623376858789,
+    "eicu_ci_contains_mimic_rr": true,
+    "directionally_concordant": true,
+    "mimic_bootstrap_positive_fraction": 0.999,
+    "degradation_percent_log_rr_attenuation": 73.52437993955704,
+    "degradation_pearson": 0.8112131779623386,
+    "database_interaction_p": 0.32560985160275857
+  },
+  "guard": "The frozen eICU result remains POST_HOC_SIGNAL_NOT_EXTERNALLY_VALIDATED."
+}

@@ -1,0 +1,48 @@
+Executing notebook cell 17
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell17", line 37 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1066 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1080 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell17", line 37 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1066 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1080 in <module>
+dataset  before  canonical  removed_this_execution  terminal_bins_removed  dynamics_before_boundary_fix  dynamics_after_boundary_fix  production_exposure_patient_sets_match  production_exposed  cumulative_excluded  historical_reference  matches_historical_count
+   eicu   12028      12028                       0                      0                         11452                        11452                                    True                4309                    0                 12028                      True
+  mimic   17758      17758                       0                      0                          4734                         4711                                    True                1398                   18                 17758                      True
+dataset  cohort  spo2_observed  spo2_dynamics  jointly_observed  synchronous  simultaneous_drop  simultaneous_rise
+   eicu   12028          11572          11452              1022           76                 36                 43
+  mimic   17758          17052           4711              2846          223                129                106
+
+Executing notebook cell 18
+dataset  variant  jointly_observed  both_component_events  synchronous  asynchronous_both  joint_transitions  median_absolute_within_bin_time_difference
+   eicu   pooled              1022                    185           76                109              11766                                         0.0
+  mimic   pooled              2846                    477          223                254              17645                                         0.0
+  mimic arterial              1061                    105           51                 54               5612                                         0.0
+
+Executing notebook cell 20
+
+Executing notebook cell 21
+dataset  variant           endpoint subgroup  jointly_observed_with_outcome  primary_comparison_n  events  synchronous_n  synchronous_events  asynchronous_n  asynchronous_events  passes_count_gate                              decision
+   eicu   pooled hospital_mortality      all                           1013                   184      57             76                  24             108                   33              False counts only; frozen event gate failed
+   eicu   pooled  troponin_rise_12h      all                            190                    43      29             19                  14              24                   15              False counts only; frozen event gate failed
+   eicu   pooled  troponin_rise_24h      all                            191                    47      30             20                  14              27                   16              False counts only; frozen event gate failed
+  mimic   pooled hospital_mortality      all                           2846                   477      93            223                  47             254                   46              False counts only; frozen event gate failed
+  mimic   pooled  troponin_rise_12h      all                            471                    83      41             36                  17              47                   24              False counts only; frozen event gate failed
+  mimic   pooled  troponin_rise_24h      all                            457                    87      43             37                  18              50                   25              False counts only; frozen event gate failed
+  mimic arterial hospital_mortality      all                           1061                   105      18             51                   6              54                   12              False counts only; frozen event gate failed
+  mimic arterial  troponin_rise_12h      all                            134                    20      15              8                   7              12                    8              False counts only; frozen event gate failed
+  mimic arterial  troponin_rise_24h      all                            137                    21      15              9                   7              12                    8              False counts only; frozen event gate failed
+Support gate evaluated locally; no model fit or biological discovery asserted by this cell.
+
+Executing notebook cell 22
+dataset           endpoint                          stage  causal  treatment_adjusted  biological_discovery     status                   reason
+   eicu hospital_mortality conditional association screen   False               False                 False not fitted frozen count gate failed
+   eicu  troponin_rise_12h conditional association screen   False               False                 False not fitted frozen count gate failed
+  mimic hospital_mortality conditional association screen   False               False                 False not fitted frozen count gate failed
+  mimic  troponin_rise_12h conditional association screen   False               False                 False not fitted frozen count gate failed
+This is a conditional association screen. The biological discovery goal is not complete.
+
+Locally executed selected notebook cells: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb

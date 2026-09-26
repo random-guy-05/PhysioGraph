@@ -1,0 +1,11 @@
+{
+  "protocol_sha256": "c4bfceb077de944b82944dc6dfadd1a5f387990d69b2310d7a88d9ae9a7f8c03",
+  "script_sha256": "fc4c912d47692c8b1403dd02fe88cc29de3650bfd300143fc7ff1777be78cc5a",
+  "source_fingerprints_unchanged": true,
+  "synthetic_interval_tests": 11,
+  "synthetic_parser_tests": 5,
+  "mortality_accessed": false,
+  "existing_labels_replaced": false,
+  "environment": "local",
+  "goal_complete": false
+}

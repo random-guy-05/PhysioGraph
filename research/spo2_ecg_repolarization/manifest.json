@@ -1,0 +1,7 @@
+{
+  "protocol_sha256": "0d3f5bc1bc0fe477ae4b7def007172ed4c7ff5683b4192a257b8a7587b85da09",
+  "timestamp_amendment_sha256": "cd8f8c766fc4e8c41c0b1bf731589080252c0e3feb6706d01bddad550a272c5a",
+  "script_sha256": "6a45b07c59a88239f270c4c7f4606143e7059962a551544a8ee755f82a6d85a1",
+  "environment": "local",
+  "goal_complete": false
+}

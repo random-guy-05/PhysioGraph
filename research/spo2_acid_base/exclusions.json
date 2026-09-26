@@ -1,0 +1,20 @@
+[
+  {
+    "dataset": "eicu",
+    "component_records": 21374,
+    "source_rejected": 0,
+    "unavailable_by_landmark": 941,
+    "unit_rejected": 3301,
+    "range_rejected": 91,
+    "invalid_or_conflicting_latest_components": 3297
+  },
+  {
+    "dataset": "mimic",
+    "component_records": 17398,
+    "source_rejected": 4472,
+    "unavailable_by_landmark": 179,
+    "unit_rejected": 0,
+    "range_rejected": 7,
+    "invalid_or_conflicting_latest_components": 0
+  }
+]

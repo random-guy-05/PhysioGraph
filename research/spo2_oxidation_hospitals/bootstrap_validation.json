@@ -1,0 +1,18 @@
+[
+  {
+    "split": 0,
+    "sql_python_contrast": true,
+    "draws": 20000,
+    "directly_expanded_draws": 100,
+    "max_absolute_direct_difference": 1.1102230246251565e-16,
+    "resampling_unit": "hospital"
+  },
+  {
+    "split": 1,
+    "sql_python_contrast": true,
+    "draws": 20000,
+    "directly_expanded_draws": 100,
+    "max_absolute_direct_difference": 6.938893903907228e-17,
+    "resampling_unit": "hospital"
+  }
+]

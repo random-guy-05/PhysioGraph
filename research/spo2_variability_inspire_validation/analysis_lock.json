@@ -1,0 +1,216 @@
+{
+  "status": "LOCKED_BEFORE_INSPIRE_ENDPOINT_SUPPORT_OR_ASSOCIATION",
+  "lock_utc": "2026-09-09T05:02:51.870226+00:00",
+  "specification": {
+    "protocol_sha256": "91f6c40572443f0ccecbdbbc2d8179f41e7d0011d9692392ed563cd4bcc66eec",
+    "documentation_sha256": "0315ca02d1c841bf6c87881dec702f34f1ec77d410a94954b4868380b0005956",
+    "source_manifest_sha256": "bc72e1f1a8049376598759417c22ae19c8a1efc94eea92a59c001bc2c25bf6bb",
+    "frozen_ancestors": {
+      "external_validation_config_sha256": "e96fa15be41ee3daa8f04f5a79f195d759ab8522cc0a22193caa22e6cf74f3ff",
+      "external_validation_lock_sha256": "9fbd4e8cf687ea6e5084b9c55b6ccd224b4548c738c3bb6ea4ad8c512cd015d4",
+      "third_cohort_protocol_sha256": "8cb8a4c784ce0bd9471d21c172fe3251cae16000cf4110134359bf8e74be2d6b"
+    },
+    "endpoint": {
+      "name": "pressure_support_plus_hypoperfusion",
+      "primary_window_minutes": {
+        "lower_exclusive": 360,
+        "upper_inclusive": 960
+      },
+      "later_window_minutes": {
+        "lower_exclusive": 480,
+        "upper_inclusive": 960
+      },
+      "maximum_domain_separation_minutes": 360,
+      "pressure_support_components": [
+        "sustained_cuff_hypotension",
+        "continuous_support",
+        "mcs"
+      ],
+      "hypoperfusion_components": [
+        "lactate",
+        "creatinine",
+        "alt",
+        "ph",
+        "oliguria"
+      ]
+    },
+    "mapping": {
+      "timeline_origin": "operations.icuin_time",
+      "heart_failure": {
+        "icd10_prefix": "I50"
+      },
+      "vitals": {
+        "hr": "hr",
+        "sbp_cuff": "nibp_sbp",
+        "map_cuff": "nibp_mbp",
+        "resp_rate": "rr",
+        "spo2": "spo2",
+        "temperature_c": "bt",
+        "urine_output": "uo"
+      },
+      "labs": {
+        "creatinine": "creatinine",
+        "lactate": "lacate",
+        "alt": "alt",
+        "ph": "ph"
+      },
+      "continuous_support": {
+        "source": "administered medications with route=iv",
+        "drug_names": [
+          "norepinephrine",
+          "epinephrine",
+          "dopamine",
+          "dobutamine",
+          "milrinone",
+          "vasopressin",
+          "phenylephrine"
+        ]
+      },
+      "mcs": {
+        "iabp": "iabp",
+        "ecmo": "ecmo"
+      },
+      "site_identifier": null,
+      "released_site_count": 1
+    },
+    "exposure_parameters": {
+      "lower": 1.160311428702309e-14,
+      "upper": 4.300141942983509,
+      "center": 0.8776215724100497,
+      "scale": 0.8227000137550243
+    },
+    "code_hashes": {
+      "scripts/run_spo2_variability_inspire_validation.py": "979f9a64f0d26ca8a8bcfd85c131a1cc5aae44fb83a118138485dac303114247",
+      "src/physiograph/analysis/spo2_variability_inspire_validation.py": "70844b09b548b400d99840da493480636dfa95edb31c39e2a752da021d8e389e",
+      "src/physiograph/analysis/spo2_variability_nwicu_validation.py": "bf70402aace2915309926191a779e35a821a62a5dbeb950048fd0f52cc6bbfa5",
+      "src/physiograph/analysis/spo2_variability_transportability.py": "037543ccc9c174d9965a21f1d5cfdd6254f870362ebdff9907708f6d25368793",
+      "src/physiograph/analysis/spo2_variability_validation.py": "202643ef397844467e73afd17613254faebc323481c1defb37573f1852e9e165",
+      "src/physiograph/analysis/shock_signal_discovery.py": "016c251dbeb6a9adb11ad433c05e0788afe62d4bef983c6f25936e528494934d",
+      "tests/unit/test_spo2_variability_inspire_validation.py": "07a5128672475a8bf836cbba5d887d8d23beb0ab2126035a4fab8f44f3ce5f16"
+    }
+  },
+  "specification_sha256": "1091ff2480d129b04d01644470a0ae0016ad3953a0e91f849886c2e8928eaac8",
+  "source_checks": [
+    {
+      "relative_path": "CHANGELOG.txt",
+      "bytes": 1524,
+      "expected_sha256": "027baed9aa097f5df2ee39841a7ab31c7deb0af33f0544757c4b522506d2b476",
+      "actual_sha256": "027baed9aa097f5df2ee39841a7ab31c7deb0af33f0544757c4b522506d2b476",
+      "match": true
+    },
+    {
+      "relative_path": "LICENSE.txt",
+      "bytes": 0,
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "relative_path": "department.csv",
+      "bytes": 344,
+      "expected_sha256": "a3ac995c7d9c7c78ad57361f90df2aca98a9f6830bbbb5ee7d24ad3c4ad6967b",
+      "actual_sha256": "a3ac995c7d9c7c78ad57361f90df2aca98a9f6830bbbb5ee7d24ad3c4ad6967b",
+      "match": true
+    },
+    {
+      "relative_path": "diagnosis.csv.gz",
+      "bytes": 12542887,
+      "expected_sha256": "e2ff242e91a23e4d771faaddfdb1d167c8b7cfcc5c6073f3a82eca1a934122c3",
+      "actual_sha256": "e2ff242e91a23e4d771faaddfdb1d167c8b7cfcc5c6073f3a82eca1a934122c3",
+      "match": true
+    },
+    {
+      "relative_path": "icd10_excluded.csv",
+      "bytes": 1648,
+      "expected_sha256": "b30de640dcdfb188dd474023d338174a529f1219e1ba19dda8b8b40a7e212892",
+      "actual_sha256": "b30de640dcdfb188dd474023d338174a529f1219e1ba19dda8b8b40a7e212892",
+      "match": true
+    },
+    {
+      "relative_path": "labs.csv.gz",
+      "bytes": 87591119,
+      "expected_sha256": "297858717e286273a14e502d5ef17bce7e633893e376625a368757c7162d66eb",
+      "actual_sha256": "297858717e286273a14e502d5ef17bce7e633893e376625a368757c7162d66eb",
+      "match": true
+    },
+    {
+      "relative_path": "medications.csv.gz",
+      "bytes": 50951568,
+      "expected_sha256": "9be15628d551670c3708cc5ec743ea5021487982990e314911b28a1c764d4854",
+      "actual_sha256": "9be15628d551670c3708cc5ec743ea5021487982990e314911b28a1c764d4854",
+      "match": true
+    },
+    {
+      "relative_path": "operations.csv.gz",
+      "bytes": 5629428,
+      "expected_sha256": "0c366d4945f258ecf317261f54a36b116bb170c583b2c6c59c558711b15cebf7",
+      "actual_sha256": "0c366d4945f258ecf317261f54a36b116bb170c583b2c6c59c558711b15cebf7",
+      "match": true
+    },
+    {
+      "relative_path": "parameters.csv",
+      "bytes": 6041,
+      "expected_sha256": "6d657d12925016888002f4b0428ce374a75c1704d332e5a9c8242eed4f51fdaa",
+      "actual_sha256": "6d657d12925016888002f4b0428ce374a75c1704d332e5a9c8242eed4f51fdaa",
+      "match": true
+    },
+    {
+      "relative_path": "schema.csv",
+      "bytes": 3076,
+      "expected_sha256": "0a58162f9d11a56e1e54112dd1b3737d34f0726c276a5c22604d1a2502101934",
+      "actual_sha256": "0a58162f9d11a56e1e54112dd1b3737d34f0726c276a5c22604d1a2502101934",
+      "match": true
+    },
+    {
+      "relative_path": "vitals.csv.gz",
+      "bytes": 228735431,
+      "expected_sha256": "5c3d853ec671f3b42df6e6a8f3c44a058eb95f2f278b99ac9a190f0c6bbddec2",
+      "actual_sha256": "5c3d853ec671f3b42df6e6a8f3c44a058eb95f2f278b99ac9a190f0c6bbddec2",
+      "match": true
+    },
+    {
+      "relative_path": "ward_vitals.csv.gz",
+      "bytes": 152535640,
+      "expected_sha256": "1c70aee2ae25327b54f2ddee4bb29523bae57d6c74847f949e9e8d0fc4045e14",
+      "actual_sha256": "1c70aee2ae25327b54f2ddee4bb29523bae57d6c74847f949e9e8d0fc4045e14",
+      "match": true
+    }
+  ],
+  "dictionary_verification": {
+    "parameter_labels": {
+      "ward_vitals": [
+        "bt",
+        "ecmo",
+        "hr",
+        "iabp",
+        "nibp_mbp",
+        "nibp_sbp",
+        "rr",
+        "spo2",
+        "uo"
+      ],
+      "labs": [
+        "alt",
+        "creatinine",
+        "lacate",
+        "ph"
+      ]
+    },
+    "medication_semantics": "administered medication at chart_time",
+    "continuous_support_mapping": {
+      "source": "administered medications with route=iv",
+      "drug_names": [
+        "norepinephrine",
+        "epinephrine",
+        "dopamine",
+        "dobutamine",
+        "milrinone",
+        "vasopressin",
+        "phenylephrine"
+      ]
+    },
+    "released_site_count": 1
+  },
+  "first_inspire_association_read_utc": null,
+  "inspire_association_inspected": false
+}

@@ -1,0 +1,12 @@
+{
+  "environment": "local",
+  "google_colab_execution": false,
+  "single_uninterrupted_execution_of_entire_current_notebook": false,
+  "full_eicu_and_mimic_raw_lab_scans_completed": true,
+  "original_joint_timing_gate_passed": false,
+  "original_numeric_qualification_and_changes_computed": false,
+  "initial_technical_failure": "DuckDB rejected the unquoted comments projection alias before the eICU extraction query ran. The alias was changed to raw_comment and the full section subsequently completed.",
+  "later_code_correction": "Added AS to the filtered minimum's value alias in the numeric qualification branch. That branch was not entered by the failed joint timing gate. This syntax fix does not alter the protocol or original result.",
+  "subsequent_separate_study": "spo2_oxidation_hospitals retains the original timing failure and uses an explicitly subsequent protocol locked before values or biochemical contrasts.",
+  "biological_discovery": false
+}

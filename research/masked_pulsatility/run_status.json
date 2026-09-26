@@ -1,0 +1,1 @@
+{"status": "failed", "cell": 176, "error_type": "BinderException", "message": "Binder Error: Referenced column \"hospital_id\" not found in FROM clause!\nCandidate bindings: \"stay_id\", \"person_id\", \"admit_time\", \"hadm_id\", \"death_offset_minutes\"\n\nLINE 1: SELECT stay_id,hospital_id FROM phase.mimic_cohort\n                       ^"}

@@ -18,5 +18,7 @@ source_tables:
   icustays: icustays.csv
   chartevents: chartevents.csv
   labevents: labevents.csv
+  lab_dictionary: d_labitems.csv
+  item_dictionary: d_items.csv
   inputevents: inputevents.csv
   procedureevents: procedureevents.csv

@@ -1,0 +1,28 @@
+{
+  "preliminary_eligible_stays": 1201,
+  "preliminary_valid_exposures": 542,
+  "preliminary_exposure_coverage": 0.45129059117402165,
+  "final_at_risk_coverage_evaluable": true,
+  "original_frozen_composite_observable": false,
+  "modified_endpoint_observable": true,
+  "site_identifier_available": false,
+  "contributing_sites": null,
+  "modeled_primary_events": 4,
+  "gates": {
+    "coverage_observed": false,
+    "coverage_effective_after_waiver": true,
+    "events": false,
+    "sites_observed": false,
+    "sites_effective_after_waiver": true,
+    "modified_endpoint": true
+  },
+  "waivers": {
+    "minimum_70_percent_exposure_coverage": true,
+    "minimum_20_contributing_sites": true
+  },
+  "failures": [
+    "minimum_50_modeled_events_not_demonstrable"
+  ],
+  "association_authorized": false,
+  "classification": "FROZEN_THIRD_COHORT_VALIDATION_NOT_RUN_FEASIBILITY_FAILURE"
+}

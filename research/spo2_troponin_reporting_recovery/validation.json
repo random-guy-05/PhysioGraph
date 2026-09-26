@@ -1,0 +1,14 @@
+[
+  {
+    "horizon": "12h",
+    "all_sql_python_patient_flags_match": true,
+    "original_numeric_pair_set_matches": true,
+    "independent_comment_classes_and_numbers_match": true
+  },
+  {
+    "horizon": "24h",
+    "all_sql_python_patient_flags_match": true,
+    "original_numeric_pair_set_matches": true,
+    "independent_comment_classes_and_numbers_match": true
+  }
+]

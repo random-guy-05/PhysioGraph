@@ -1,0 +1,44 @@
+[
+  {
+    "split": 0,
+    "role": "discovery",
+    "variant": "omit_lag",
+    "model_fitted": true,
+    "log_coefficient": -0.041807578134288474,
+    "log_ci95": [
+      -0.16100306544671733,
+      0.07738790917814037
+    ],
+    "fold_change_ratio": 0.9590543058374152,
+    "ratio_ci95": [
+      0.8512894615206661,
+      1.080461115896191
+    ],
+    "p": 0.48629131226863165,
+    "hospital_df": 67,
+    "same_primary_rows_and_outcomes": true,
+    "primary_log_coefficient": -0.050939207281502474,
+    "holm_p": 0.9725826245372633
+  },
+  {
+    "split": 1,
+    "role": "validation",
+    "variant": "omit_lag",
+    "model_fitted": true,
+    "log_coefficient": 0.022250558095040836,
+    "log_ci95": [
+      -0.15250673133441373,
+      0.1970078475244954
+    ],
+    "fold_change_ratio": 1.0224999480163273,
+    "ratio_ci95": [
+      0.8585531147288166,
+      1.2177535970195936
+    ],
+    "p": 0.8002496326551932,
+    "hospital_df": 69,
+    "same_primary_rows_and_outcomes": true,
+    "primary_log_coefficient": -0.038024373727345885,
+    "holm_p": 0.9725826245372633
+  }
+]

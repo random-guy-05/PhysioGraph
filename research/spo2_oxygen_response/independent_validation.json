@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "all_escalation_identifiers_match": true,
+    "all_pre_post_timestamps_match": true,
+    "all_corroboration_flags_match": true,
+    "records_checked": 195
+  },
+  {
+    "dataset": "mimic",
+    "all_escalation_identifiers_match": true,
+    "all_pre_post_timestamps_match": true,
+    "all_corroboration_flags_match": true,
+    "records_checked": 32
+  }
+]

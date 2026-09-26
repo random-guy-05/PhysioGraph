@@ -1,0 +1,30 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "paired_encounters": 656,
+    "existing_troponin_labels_match": true,
+    "window_checks_pass": true
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "paired_encounters": 926,
+    "existing_troponin_labels_match": true,
+    "window_checks_pass": true
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "paired_encounters": 621,
+    "existing_troponin_labels_match": true,
+    "window_checks_pass": true
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "paired_encounters": 654,
+    "existing_troponin_labels_match": true,
+    "window_checks_pass": true
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "name": "objective_shock_single_signal_discovery",
+  "version": 1,
+  "freeze_utc": "2026-09-07T18:04:48Z",
+  "development_database": "mimic",
+  "external_database": "eicu_unread_until_winner_freeze",
+  "population": "validated adult first-ICU-per-admission heart-failure cohort",
+  "feature_anchor_minute": 240,
+  "landmark_minute": 360,
+  "primary_window_minutes": [360, 960],
+  "primary_lower_exclusive": true,
+  "primary_upper_inclusive": true,
+  "lead_sensitivity_window_minutes": [480, 960],
+  "candidate_window_minutes": [0, 240],
+  "domain_pair_max_separation_minutes": 360,
+  "pressure_support_domain": {
+    "sustained_hypotension": "two consecutive hourly routine-cuff bins with SBP <90 or direct MAP <65",
+    "continuous_support": "positive-rate actual administration of frozen seven-drug vasoactive/inotropic set",
+    "mcs": "validated IABP, Impella, or ECMO initiation"
+  },
+  "hypoperfusion_domain": {
+    "lactate": "post-landmark >=4 or >=2 with >=0.5 mmol/L rise from latest valid pre-anchor lactate",
+    "urine_output": "<30 mL/h across fully post-anchor rolling 6h with >=4 documented hourly bins",
+    "creatinine": ">=0.3 mg/dL or >=1.5-fold rise from latest pre-anchor creatinine",
+    "alt": ">200 U/L when baseline <=200, or >=3-fold rise from baseline",
+    "ph": "<7.20 when baseline was not <7.20"
+  },
+  "candidate_signals": ["hr", "sbp", "dbp", "map", "pulse_pressure", "resp_rate", "spo2", "temperature_c", "urine_output_ml_h"],
+  "candidate_dynamics": ["level", "slope", "change", "variability"],
+  "candidate_test_count": 36,
+  "hourly_aggregation": {"vitals": "median", "urine_output": "sum"},
+  "dynamic_min_bins": 3,
+  "dynamic_min_span_hours": 2,
+  "primary_model": "modified Poisson log link with HC0 robust variance",
+  "multiplicity": "Benjamini-Hochberg separately across 36 primary and 36 lead-sensitivity tests",
+  "bootstrap_replicates": 200,
+  "winner_gates": {
+    "coverage_min": 0.70,
+    "cohort_events_min": 100,
+    "model_events_min": 50,
+    "primary_q_max": 0.05,
+    "primary_magnitude_min": 1.30,
+    "lead_q_max": 0.05,
+    "lead_magnitude_min": 1.20,
+    "bootstrap_success_min": 0.95,
+    "bootstrap_sign_consistency_min": 0.90,
+    "leave_domain_out_magnitude_min": 1.20
+  },
+  "anti_circularity": {
+    "bp_candidates": "exclude hypotension as pressure-domain completion",
+    "urine_candidates": "exclude urine output as hypoperfusion-domain completion",
+    "other_candidates": "full composite"
+  },
+  "selection": "lower primary q, then larger absolute log RR, then higher coverage; one provisional winner only",
+  "novelty": "review only the top statistical winner; established marker ends study without runner-up",
+  "eicu_rule": "no candidate association access before one winner and external protocol/code freeze",
+  "prohibited": ["PrPP threshold changes", "masked-pulsatility subgroup rescue", "unplanned ratios", "neural networks", "runner-up substitution", "post-anchor covariates", "outcome-driven windows"]
+}

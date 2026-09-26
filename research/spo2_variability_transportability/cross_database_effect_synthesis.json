@@ -1,0 +1,44 @@
+{
+  "studies": [
+    {
+      "dataset": "MIMIC",
+      "log_rr": 0.22401343131442733,
+      "se": 0.06383374011311983,
+      "rr": 1.2510878230694424
+    },
+    {
+      "dataset": "eICU",
+      "log_rr": 0.09913238668390854,
+      "se": 0.10983971737060261,
+      "rr": 1.1042124729105849
+    }
+  ],
+  "fixed_effect": {
+    "log_rr": 0.19248468058740764,
+    "se": 0.05519052517974279,
+    "rr": 1.212257932485758,
+    "ci_low": 1.0879674723341262,
+    "ci_high": 1.3507474554563932
+  },
+  "random_effects_dl": {
+    "log_rr": 0.19248468058740764,
+    "se": 0.05519052517974279,
+    "rr": 1.212257932485758,
+    "ci_low": 1.0879674723341262,
+    "ci_high": 1.3507474554563932,
+    "tau_squared": 0.0
+  },
+  "heterogeneity": {
+    "q": 0.9662793613548064,
+    "df": 1,
+    "p_value": 0.3256098516027558,
+    "i_squared_percent": 0.0,
+    "warning": "I-squared and tau-squared are highly unstable with only two datasets."
+  },
+  "database_by_exposure_interaction": {
+    "z": 0.982995097319822,
+    "p_value": 0.32560985160275857,
+    "method": "independent_summary_estimate_difference"
+  },
+  "interpretation_guard": "Pooling does not convert a failed external validation into successful external validation."
+}

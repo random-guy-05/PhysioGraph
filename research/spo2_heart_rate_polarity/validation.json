@@ -1,0 +1,21 @@
+{
+  "bootstrap_checks": [
+    {
+      "dataset": "eicu",
+      "first_100_direct_expansions_match": true,
+      "replicates": 20000,
+      "finite_fraction": 1.0,
+      "resampling_unit": "hospital"
+    },
+    {
+      "dataset": "mimic",
+      "first_100_direct_expansions_match": true,
+      "replicates": 20000,
+      "finite_fraction": 1.0,
+      "resampling_unit": "person"
+    }
+  ],
+  "source_hashes_unchanged": true,
+  "unknown_mortality_not_imputed": true,
+  "original_person_and_landmark_checks_pass": true
+}

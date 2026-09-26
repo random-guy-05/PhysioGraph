@@ -1,0 +1,74 @@
+[
+  {
+    "dataset": "eicu",
+    "stage": "cohort",
+    "n": 11596,
+    "known_outcomes": 11492,
+    "deaths": 1228,
+    "sites": 200,
+    "patients": 10281
+  },
+  {
+    "dataset": "eicu",
+    "stage": "paired_lactate",
+    "n": 405,
+    "known_outcomes": 404,
+    "deaths": 102,
+    "sites": 87,
+    "patients": 403
+  },
+  {
+    "dataset": "eicu",
+    "stage": "normalizers",
+    "n": 92,
+    "known_outcomes": 92,
+    "deaths": 13,
+    "sites": 48,
+    "patients": 92
+  },
+  {
+    "dataset": "eicu",
+    "stage": "primary_complete_labs",
+    "n": 18,
+    "known_outcomes": 18,
+    "deaths": 2,
+    "sites": 9,
+    "patients": 18
+  },
+  {
+    "dataset": "mimic",
+    "stage": "cohort",
+    "n": 16659,
+    "known_outcomes": 16659,
+    "deaths": 2209,
+    "sites": 1,
+    "patients": 12772
+  },
+  {
+    "dataset": "mimic",
+    "stage": "paired_lactate",
+    "n": 2540,
+    "known_outcomes": 2540,
+    "deaths": 644,
+    "sites": 1,
+    "patients": 2432
+  },
+  {
+    "dataset": "mimic",
+    "stage": "normalizers",
+    "n": 506,
+    "known_outcomes": 506,
+    "deaths": 102,
+    "sites": 1,
+    "patients": 497
+  },
+  {
+    "dataset": "mimic",
+    "stage": "primary_complete_labs",
+    "n": 224,
+    "known_outcomes": 224,
+    "deaths": 56,
+    "sites": 1,
+    "patients": 223
+  }
+]

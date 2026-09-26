@@ -36,6 +36,10 @@ processed_data/
 _archive/
 !tests/ground_truth/*.csv
 !tests/ground_truth/*.pkl
+!research/spo2_variability_transportability/*.csv
+!research/spo2_variability_transportability/figures/*.pdf
+!research/spo2_variability_nwicu_validation/*.csv
+!research/spo2_variability_mimic3_forensic/*.csv
 
 # IDE
 .vscode/

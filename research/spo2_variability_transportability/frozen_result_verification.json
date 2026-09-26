@@ -1,0 +1,160 @@
+{
+  "classification": "POST_HOC_SIGNAL_NOT_EXTERNALLY_VALIDATED",
+  "lock_sha256": "e96fa15be41ee3daa8f04f5a79f195d759ab8522cc0a22193caa22e6cf74f3ff",
+  "lock_utc": "2026-09-07T22:16:01.302512+00:00",
+  "first_eicu_association_read_utc": "2026-09-07T22:36:19.726811+00:00",
+  "exposure": {
+    "window_minutes": [
+      0,
+      240
+    ],
+    "aggregation": "hourly_median",
+    "minimum_bins": 3,
+    "minimum_span_hours": 2,
+    "detrending": "ordinary_least_squares_spo2_on_hour",
+    "summary": "root_mean_square_residual",
+    "valid_spo2_range": [
+      50.0,
+      100.0
+    ]
+  },
+  "exposure_parameters": {
+    "lower": 1.160311428702309e-14,
+    "upper": 4.300141942983509,
+    "center": 0.8776215724100497,
+    "scale": 0.8227000137550243
+  },
+  "covariates": [
+    "age",
+    "male_sex",
+    "hr_level",
+    "sbp_level",
+    "map_level",
+    "resp_rate_level",
+    "spo2_level",
+    "temperature_c_level",
+    "baseline_creatinine",
+    "baseline_lactate",
+    "lactate_observed",
+    "bp_measurement_density",
+    "urine_measurement_density"
+  ],
+  "outcomes": {
+    "primary": "constructed pressure/support plus hypoperfusion composite, >360 through 960 minutes",
+    "later": "same constructed composite, >480 through 960 minutes"
+  },
+  "support": {
+    "cohort": 12028,
+    "at_risk": 8743,
+    "events": 95,
+    "lead_events": 90,
+    "spo2_observed": 8061,
+    "hospitals": 196
+  },
+  "effects": {
+    "mimic_primary": {
+      "n": 5957,
+      "events": 158,
+      "coverage": 0.7268179599804783,
+      "rr_per_mimic_sd": 1.2510878230694424,
+      "ci_low": 1.1039551264449385,
+      "ci_high": 1.4178300399519945,
+      "p_value": 0.00044924317040548063,
+      "log_rr": 0.22401343131442733,
+      "hospitals": null,
+      "covariance": "HC0"
+    },
+    "mimic_later": {
+      "n": 5957,
+      "events": 150,
+      "coverage": 0.7268179599804783,
+      "rr_per_mimic_sd": 1.2477341390171597,
+      "ci_low": 1.0949643739709671,
+      "ci_high": 1.4218183885041837,
+      "p_value": 0.0008955262096991948,
+      "log_rr": 0.2213292176195143,
+      "hospitals": null,
+      "covariance": "HC0"
+    },
+    "eicu_primary": {
+      "n": 8061,
+      "events": 85,
+      "coverage": 0.9219947386480613,
+      "rr_per_mimic_sd": 1.1042124729105849,
+      "ci_low": 0.8903385820221175,
+      "ci_high": 1.3694623707781992,
+      "p_value": 0.36678145152346353,
+      "log_rr": 0.09913238668390854,
+      "hospitals": 194,
+      "covariance": "cluster_hospital"
+    },
+    "eicu_later": {
+      "n": 8061,
+      "events": 80,
+      "coverage": 0.9219947386480613,
+      "rr_per_mimic_sd": 1.0700023700557277,
+      "ci_low": 0.8534841582862079,
+      "ci_high": 1.3414485328278831,
+      "p_value": 0.557497964270058,
+      "log_rr": 0.06766086347671466,
+      "hospitals": 194,
+      "covariance": "cluster_hospital"
+    }
+  },
+  "hash_checks": [
+    {
+      "item": "external_validation_config",
+      "actual": "e96fa15be41ee3daa8f04f5a79f195d759ab8522cc0a22193caa22e6cf74f3ff",
+      "expected": "e96fa15be41ee3daa8f04f5a79f195d759ab8522cc0a22193caa22e6cf74f3ff",
+      "match": true
+    },
+    {
+      "item": "protocol",
+      "actual": "f0ca479da87a829336a3dd92fda9c1edc0a5afb0d8226932326fdc0f22c17e76",
+      "expected": "f0ca479da87a829336a3dd92fda9c1edc0a5afb0d8226932326fdc0f22c17e76",
+      "match": true
+    },
+    {
+      "item": "protocol_documentation",
+      "actual": "346045a5b6f9bfd494389e1e569fc3a3384e8929f1b6ebf128d669b3b4df6ea3",
+      "expected": "346045a5b6f9bfd494389e1e569fc3a3384e8929f1b6ebf128d669b3b4df6ea3",
+      "match": true
+    },
+    {
+      "item": "scripts/build_biological_notebook.py",
+      "actual": "6ba686155a31850101850c6af0fa248e012d4ac4af56eba242aad15b7dbe67dd",
+      "expected": "6ba686155a31850101850c6af0fa248e012d4ac4af56eba242aad15b7dbe67dd",
+      "match": true
+    },
+    {
+      "item": "scripts/run_spo2_variability_validation.py",
+      "actual": "b14ac9de0289d25a4a74aafdbf21ab9d11cdf4d2fe6b2998ae57d4ec00c10a2f",
+      "expected": "b14ac9de0289d25a4a74aafdbf21ab9d11cdf4d2fe6b2998ae57d4ec00c10a2f",
+      "match": true
+    },
+    {
+      "item": "scripts/spo2_variability_validation_cells.py",
+      "actual": "072f3e9c4c8546f60528fdfd33884758d42d902a4cfca40e90f6417a5f488d1a",
+      "expected": "072f3e9c4c8546f60528fdfd33884758d42d902a4cfca40e90f6417a5f488d1a",
+      "match": true
+    },
+    {
+      "item": "src/physiograph/analysis/spo2_variability_validation.py",
+      "actual": "202643ef397844467e73afd17613254faebc323481c1defb37573f1852e9e165",
+      "expected": "202643ef397844467e73afd17613254faebc323481c1defb37573f1852e9e165",
+      "match": true
+    },
+    {
+      "item": "src/physiograph/analysis/shock_signal_discovery.py",
+      "actual": "016c251dbeb6a9adb11ad433c05e0788afe62d4bef983c6f25936e528494934d",
+      "expected": "016c251dbeb6a9adb11ad433c05e0788afe62d4bef983c6f25936e528494934d",
+      "match": true
+    },
+    {
+      "item": "tests/unit/test_spo2_variability_validation.py",
+      "actual": "40c8d72e7022ee67569e04a9bd3e09de2a06551b9271c9d73f49102b33b3d2fa",
+      "expected": "40c8d72e7022ee67569e04a9bd3e09de2a06551b9271c9d73f49102b33b3d2fa",
+      "match": true
+    }
+  ]
+}

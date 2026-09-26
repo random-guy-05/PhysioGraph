@@ -1,0 +1,78 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "n": 2294,
+    "people": 2207,
+    "parameters": 21,
+    "status": "estimable",
+    "primary_contrast": 0.007519132834562943,
+    "ci_lower": -0.0009674672390425493,
+    "ci_upper": 0.016005732908168434,
+    "p_value": 0.08244158728049057,
+    "holm_p": 0.16488317456098114,
+    "adjusted_coefficients": {
+      "maximum": 0.03616738139641501,
+      "single_expectation": 0.028648248561852063,
+      "first_sample": 0.025402254198907383,
+      "D": 0.007519132834562943
+    }
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "n": 2042,
+    "people": 1973,
+    "parameters": 21,
+    "status": "estimable",
+    "primary_contrast": 0.0028411397417983254,
+    "ci_lower": -0.009801111129110727,
+    "ci_upper": 0.015483390612707378,
+    "p_value": 0.6594492124083413,
+    "holm_p": null,
+    "adjusted_coefficients": {
+      "maximum": 0.05024827291275622,
+      "single_expectation": 0.04740713317095789,
+      "first_sample": 0.047937928883173664,
+      "D": 0.0028411397417983254
+    }
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "n": 774,
+    "people": 764,
+    "parameters": 20,
+    "status": "estimable",
+    "primary_contrast": -0.011180830424506755,
+    "ci_lower": -0.024785888374657724,
+    "ci_upper": 0.002424227525644213,
+    "p_value": 0.10709598996143754,
+    "holm_p": 0.16488317456098114,
+    "adjusted_coefficients": {
+      "maximum": 0.0717628500070867,
+      "single_expectation": 0.08294368043159345,
+      "first_sample": 0.0856902777023566,
+      "D": -0.011180830424506755
+    }
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "n": 718,
+    "people": 710,
+    "parameters": 20,
+    "status": "estimable",
+    "primary_contrast": -0.006202915169865167,
+    "ci_lower": -0.029934045195150274,
+    "ci_upper": 0.01752821485541994,
+    "p_value": 0.6079870893794275,
+    "holm_p": null,
+    "adjusted_coefficients": {
+      "maximum": 0.08195940329622194,
+      "single_expectation": 0.0881623184660871,
+      "first_sample": 0.10351345184853493,
+      "D": -0.006202915169865167
+    }
+  }
+]

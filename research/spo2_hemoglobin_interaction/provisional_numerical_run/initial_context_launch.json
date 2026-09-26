@@ -1,0 +1,29 @@
+{
+  "pid": 80041,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "pyyaml",
+    "--with",
+    "nbformat",
+    "--with",
+    "statsmodels==0.14.4",
+    "--with",
+    "scipy==1.15.2",
+    "python",
+    "scripts/build_biological_notebook.py",
+    "--interaction-context-only"
+  ],
+  "started_utc": "2026-09-05T07:20:10.496604+00:00",
+  "builder_sha256": "6d376ac55b92d593eaff1ce50b4aec66de06b2b5bb44acd3c92411dc0ee95430"
+}

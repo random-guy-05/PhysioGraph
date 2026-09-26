@@ -1,0 +1,28 @@
+{
+  "cells": 83,
+  "code_cells": 59,
+  "notebook_sha256": "b08bc9228e0532f70a2149b0a160b220541bad1ade3c69f44eef81d92c9bc199",
+  "builder_sources_match": true,
+  "all_code_compiles": true,
+  "error_outputs": 0,
+  "all_cells_have_execution_counts": true,
+  "local_incremental_execution": true,
+  "current_full_uninterrupted_execution": false,
+  "google_colab_execution": false,
+  "clinical_row_replay": [
+    {
+      "split": 0,
+      "rows": 1363,
+      "source_identity_mismatches": 0,
+      "max_independent_sql_log_change_error": 8.881784197001252e-16
+    },
+    {
+      "split": 1,
+      "rows": 1034,
+      "source_identity_mismatches": 0,
+      "max_independent_sql_log_change_error": 8.881784197001252e-16
+    }
+  ],
+  "aggregate_invariance_after_missing_MAP_reporting": true,
+  "goal_complete": false
+}

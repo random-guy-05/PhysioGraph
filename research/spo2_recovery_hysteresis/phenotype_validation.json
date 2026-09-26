@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "lowest_stay_and_original_first_event_reconstruct": true,
+    "python_sql_timing_flags_and_values_agree": true,
+    "sham_hash_algorithm": "SHA256 full integer modulo case anchor count",
+    "independent_sql_sha256_digitwise_modulo_and_sham_pairs_agree": true
+  },
+  {
+    "dataset": "mimic",
+    "lowest_stay_and_original_first_event_reconstruct": true,
+    "python_sql_timing_flags_and_values_agree": true,
+    "sham_hash_algorithm": "SHA256 full integer modulo case anchor count",
+    "independent_sql_sha256_digitwise_modulo_and_sham_pairs_agree": true
+  }
+]

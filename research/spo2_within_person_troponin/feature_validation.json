@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "all_sql_python_bins_and_features_match": true,
+    "intervals": 2450,
+    "bins": 80966,
+    "troponin_changes_calculated": false
+  },
+  {
+    "dataset": "mimic",
+    "all_sql_python_bins_and_features_match": true,
+    "intervals": 640,
+    "bins": 8920,
+    "troponin_changes_calculated": false
+  }
+]

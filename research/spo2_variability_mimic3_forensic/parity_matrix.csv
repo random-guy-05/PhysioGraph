@@ -1,0 +1,24 @@
+component,MIMIC-IV definition,MIMIC-III definition,identical / equivalent / materially different,evidence,consequence
+Exposure window,charttime 0-240 inclusive plus storetime<=240,charttime 0-240 inclusive; no storetime gate,materially different,M4 vital_candidates vs M3 early filter,M3 permits measurements stored after landmark
+Time origin,ICUSTAYS.intime,ICUSTAYS.intime,identical,both subtract ICU intime,none
+Hourly bins,floor(minute/60); hourly median,floor(minute/60); hourly median,identical,shared trajectory_features,minute 240 creates hour 4 in both
+Duplicate timestamps,retained then absorbed by hourly median,retained then absorbed by hourly median,identical,no pre-hour deduplication,duplicate feeds can weight median in both
+Support for exposure,>=3 bins and span>=2 h,>=3 bins and span>=2 h,identical,shared trajectory_features,none
+Trend/RMS,OLS with intercept on hour; sqrt(mean(residual^2)),same shared implementation,identical,numpy.linalg.lstsq and mean denominator n,none
+Clipping/scaling,"M4 p1/p99, clipped mean/SD",exact frozen constants; no recentering,identical,"{""lower"": 1.160311428702309e-14, ""upper"": 4.300141942983509, ""center"": 0.8776215724100497, ""scale"": 0.8227000137550243}",none
+SpO2 validity,50<=SpO2<=100; item 220277,50<=SpO2<=100; item 646,equivalent,dictionary labels both SpO2,different EHR generations/device processes
+Cohort observation,preliminary follow-up >240 min; at-risk follow-up/death beyond 360 min; ICU within 24 h or shock ICD,preliminary follow-up/death beyond 360 min; no ICU-entry-time restriction,materially different,cohort SQL,preliminary selection and ICU-entry phenotype differ; neither era requires observation through minute 960
+HF phenotype,ICD-9 428* or ICD-10 I50*,ICD-9 428*,equivalent,era-appropriate diagnosis codes,both use retrospective admission diagnoses
+First ICU,first stay per hadm by intime/stay_id,first stay per hadm by intime/icustay_id,equivalent,row_number per hospital admission,identifier names differ only
+BP timing,"charttime with max(charttime,storetime) availability",charttime only,materially different,sustained hypotension inputs,M3 may recognize late-entered BP earlier
+Lab timing,"max(charttime,storetime)",charttime only; LABEVENTS has no storetime,materially different,normalized lab SQL,availability chronology not equivalent
+Urine timing,"max(charttime,storetime)",charttime only,materially different,urine hourly availability,M3 may recognize late-entered output earlier
+Oliguria surveillance start,"shared helper default start_hour=4, end_hour=16","shared helper explicitly start_hour=0, end_hour=16",materially different,frozen M4 discovery endpoint cell vs frozen M3 validation script,different eligible six-hour urine windows and endpoint timing
+Vasoactive support,positive interval starttime; end>start,positive CareVue rate row at charttime,materially different,INPUTEVENTS source semantics,initiation versus repeated documentation
+MCS,procedure start itemids,IABP/ECMO/VAD chart-field presence,materially different,procedureevents vs CareVue chartevents,documentation frequency and onset fidelity differ
+Hypoperfusion thresholds,same lactate/creatinine/ALT/pH/oliguria rules,same shared thresholds/helpers,identical,endpoint reconstruction parity,source timing remains different
+Composite logic,pressure AND hypoperfusion; both >360 <=960; <=360 min separation,same,identical,shared pair_domain_events,none at logical level
+Later endpoint,primary composite event time >480; a component may occur during minutes 360-480,composite re-paired with both components strictly >480,materially different,M4 objective_shock_lead4 vs M3 later_events construction,later-event counts are descriptive but not definitionally interchangeable
+Covariate list,"age,male_sex,hr_level,sbp_level,map_level,resp_rate_level,spo2_level,temperature_c_level,baseline_creatinine,baseline_lactate,lactate_observed,bp_measurement_density,urine_measurement_density","age,male_sex,hr_level,sbp_level,map_level,resp_rate_level,spo2_level,temperature_c_level,baseline_creatinine,baseline_lactate,lactate_observed,bp_measurement_density,urine_measurement_density",identical,locked protocols,none
+Covariate preparation,"within-cohort p1/p99, median imputation, z scaling, missing flags",same shared function,identical,prepare_adjustment_covariates,dataset-specific covariate transforms occur in both by design
+Model,"modified Poisson log link, HC0","modified Poisson log link, HC0",identical,fit_fixed_scale_model,single-hospital inference in both

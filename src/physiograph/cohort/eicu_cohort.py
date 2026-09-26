@@ -1,12 +1,7 @@
-"""eICU heart-failure / cardiogenic-shock cohort builder.
+"""eICU cohort builder using the cross-database harmonized HF phenotype.
 
-Extracts the eICU HF-shock phenotype definition from the
-PhysioGraph External Pipeline notebook (Cells 33–35).  The logic is
-reproduced *exactly* as-is — no new exclusion criteria or phenotype
-changes.
-
-Key differences from MIMIC
----------------------------
+Implementation notes
+--------------------
 - Diagnosis matching uses **token-based** string matching on
   ``diagnosisstring`` and ``admitdxname``/``admitdxtext`` rather than
   ICD code prefixes.
@@ -16,6 +11,8 @@ Key differences from MIMIC
   becomes ``89.0``).
 - Death offset is derived from discharge status/location fields rather
   than a single ``deathtime`` column.
+- Cardiomyopathy, acute MI, and shock matches are retained as covariates;
+  they never substitute for an explicit heart-failure match.
 
 The public entry-point is :func:`build_cohort`, which returns a
 :class:`CohortResult`.
@@ -57,6 +54,8 @@ _EICU_COHORT_FLAG_COLUMNS: list[str] = [
 _EICU_PATIENT_COLUMNS: list[str] = [
     "patientunitstayid",
     "patienthealthsystemstayid",
+    "uniquepid",
+    "unitvisitnumber",
     "gender",
     "age",
     "hospitaladmitoffset",
@@ -173,12 +172,8 @@ def derive_death_offset_minutes(patient_row: pd.Series) -> float | None:
 
     if any(token in hospital_status or token in hospital_location for token in ["expired", "death"]):
         hospital_offset = pd.to_numeric(patient_row.get("hospitaldischargeoffset"), errors="coerce")
-        hospital_admit_offset = pd.to_numeric(patient_row.get("hospitaladmitoffset"), errors="coerce")
         if pd.notna(hospital_offset):
-            if pd.notna(hospital_admit_offset):
-                candidates.append(float(hospital_offset - hospital_admit_offset))
-            else:
-                candidates.append(float(hospital_offset))
+            candidates.append(float(hospital_offset))
 
     return min(candidates) if candidates else None
 
@@ -214,7 +209,7 @@ class CohortResult:
 # ---------------------------------------------------------------------------
 
 class EICUCohortBuilder:
-    """Build the eICU HF-shock cohort from raw CSV tables.
+    """Build the production-aligned eICU HF-shock cohort from raw CSV tables.
 
     This reproduces the phenotype definition from Cells 33–35 of the
     PhysioGraph External Pipeline notebook.  The logic is:
@@ -222,10 +217,10 @@ class EICUCohortBuilder:
     1. Load patient table and parse demographics.
     2. Build diagnosis flags via token-based matching on
        ``diagnosisstring`` and ``admissionDx`` text fields.
-    3. Include stays where **any** cohort flag is set (HF, shock,
-       cardiomyopathy, or acute MI).
-    4. Apply exclusion criteria (age < 16, LOS < 2 h, pre-landmark
-       death).
+    3. Propagate diagnosis flags across a hospital encounter and retain its
+       first ICU unit.
+    4. Include adults with HF and early ICU care, or cardiogenic shock under
+       the production phenotype, then exclude loss of follow-up/death by 4 h.
 
     Parameters
     ----------
@@ -267,16 +262,47 @@ class EICUCohortBuilder:
             Container with ``cohort_df``, ``valid_stay_ids``, and
             ``anchors``.
         """
-        patients = self._load_patients()
-        diagnosis_flags = self._build_diagnosis_flags(patients)
+        from physiograph.etl.audit import AuditLogger
+        from physiograph.etl.eicu_extractor import (
+            _build_eicu_cohort,
+            _build_eicu_diagnosis_flags,
+            _load_eicu_patients,
+        )
 
-        cohort_df, cohort_ids = self._build_cohort_df(patients, diagnosis_flags)
-
-        # Apply exclusion criteria
-        cohort_df = self._apply_exclusions(cohort_df)
+        audit = AuditLogger(dataset="eicu")
+        patients = _load_eicu_patients(self.data_root, audit)
+        diagnosis_flags = _build_eicu_diagnosis_flags(self.data_root, patients)
+        cohort_df, cohort_ids = _build_eicu_cohort(
+            self.data_root,
+            patients,
+            diagnosis_flags,
+            audit,
+            max_stays=self.max_stays,
+            preferred_stay_ids=None,
+        )
+        death = pd.to_numeric(cohort_df["death_offset_minutes"], errors="coerce")
+        followup = pd.to_numeric(
+            cohort_df["followup_end_offset_minutes"], errors="coerce"
+        )
+        early_death = death.between(0, 240, inclusive="both")
+        early_discharge = followup.le(240)
+        cohort_df["excluded_before_landmark_flag"] = (
+            early_death | early_discharge
+        ).astype(int)
+        cohort_df["exclusion_reason"] = [
+            ";".join(
+                reason
+                for condition, reason in (
+                    (bool(death_flag), "death_before_or_at_4h"),
+                    (bool(discharge_flag), "icu_discharge_before_or_at_4h"),
+                )
+                if condition
+            )
+            for death_flag, discharge_flag in zip(early_death, early_discharge)
+        ]
         valid_ids = cohort_df.loc[
-            cohort_df["excluded_before_landmark_flag"] == 0, "stay_id"
-        ].values
+            cohort_df["excluded_before_landmark_flag"].eq(0), "stay_id"
+        ].astype(int).to_numpy()
 
         logger.info(
             "eICU cohort: %d candidate stays, %d after exclusions",
@@ -398,39 +424,82 @@ class EICUCohortBuilder:
             ``(cohort_df, cohort_ids)`` — the cohort DataFrame and
             the list of included stay IDs.
         """
-        # Include stays where any cohort flag is set
-        cohort_ids = diagnosis_flags.loc[
-            diagnosis_flags[_EICU_COHORT_FLAG_COLUMNS].any(axis=1), "stay_id"
-        ].astype(int).tolist()
-
+        merged = patients.merge(
+            diagnosis_flags,
+            left_on="patientunitstayid",
+            right_on="stay_id",
+            how="inner",
+            validate="one_to_one",
+        )
+        merged["age"] = merged["age"].map(parse_eicu_age)
+        merged["is_male"] = np.where(
+            merged["gender"].fillna("").str.lower().eq("male"),
+            1.0,
+            np.where(
+                merged["gender"].fillna("").str.lower().eq("female"),
+                0.0,
+                np.nan,
+            ),
+        )
+        encounter = merged["patienthealthsystemstayid"].astype("string")
+        merged["_encounter"] = encounter.where(
+            encounter.notna() & encounter.str.strip().ne(""),
+            "stay:" + merged["patientunitstayid"].astype("string"),
+        )
+        for flag in _EICU_COHORT_FLAG_COLUMNS:
+            if flag not in merged:
+                merged[flag] = 0
+            merged[flag] = merged.groupby("_encounter", sort=False)[flag].transform(
+                "max"
+            )
+        visit = pd.to_numeric(
+            merged.get(
+                "unitvisitnumber",
+                pd.Series(np.nan, index=merged.index),
+            ),
+            errors="coerce",
+        )
+        merged["_visit"] = visit.fillna(np.inf)
+        merged = (
+            merged.sort_values(["_encounter", "_visit", "patientunitstayid"])
+            .drop_duplicates("_encounter", keep="first")
+            .copy()
+        )
+        merged["early_icu_flag"] = (
+            -pd.to_numeric(merged["hospitaladmitoffset"], errors="coerce")
+        ).between(0, 24 * 60, inclusive="both").fillna(False).astype(int)
+        # Identical to MIMIC: adult + explicit HF + (early ICU or shock).
+        merged = merged.loc[
+            pd.to_numeric(merged["age"], errors="coerce").ge(18)
+            & merged["cohort_hf_flag"].eq(1)
+            & (merged["early_icu_flag"].eq(1) | merged["shock_icd_flag"].eq(1))
+        ].copy()
         if self.max_stays is not None:
-            cohort_ids = sorted(cohort_ids)[: self.max_stays]
-
-        patients = patients.loc[patients["patientunitstayid"].isin(cohort_ids)].copy()
-        diagnosis_flags = diagnosis_flags.loc[diagnosis_flags["stay_id"].isin(cohort_ids)].copy()
-
-        # Parse demographics
-        patients["age"] = patients["age"].map(parse_eicu_age)
-        patients["is_male"] = patients["gender"].fillna("").str.lower().eq("male").astype(int)
-        patients["death_offset_minutes"] = patients.apply(derive_death_offset_minutes, axis=1)
+            merged = merged.sort_values("patientunitstayid").head(self.max_stays)
+        merged["death_offset_minutes"] = merged.apply(
+            derive_death_offset_minutes, axis=1
+        )
+        cohort_ids = merged["patientunitstayid"].astype(int).tolist()
 
         cohort_df = pd.DataFrame(
             {
                 "dataset": "eicu",
-                "stay_id": patients["patientunitstayid"].astype(int),
-                "person_id": patients["patienthealthsystemstayid"].astype(int),
+                "stay_id": merged["patientunitstayid"].astype(int),
+                "person_id": merged["patienthealthsystemstayid"].astype("string"),
+                "hospital_encounter_id": merged["patienthealthsystemstayid"],
                 "admit_time": pd.NaT,
-                "admit_year": pd.to_numeric(patients["hospitaldischargeyear"], errors="coerce"),
-                "age": patients["age"],
-                "is_male": patients["is_male"],
-                "cohort_hf_flag": patients["patientunitstayid"].isin(
-                    diagnosis_flags.loc[diagnosis_flags["cohort_hf_flag"] == 1, "stay_id"]
-                ).astype(int),
-                "shock_icd_flag": patients["patientunitstayid"].isin(
-                    diagnosis_flags.loc[diagnosis_flags["shock_icd_flag"] == 1, "stay_id"]
-                ).astype(int),
-                "early_icu_flag": 1,
-                "death_offset_minutes": patients["death_offset_minutes"],
+                "admit_year": pd.to_numeric(merged["hospitaldischargeyear"], errors="coerce"),
+                "age": merged["age"],
+                "is_male": merged["is_male"],
+                "cohort_hf_flag": merged["cohort_hf_flag"].astype(int),
+                "shock_icd_flag": merged["shock_icd_flag"].astype(int),
+                "cardiomyopathy_flag": merged["cardiomyopathy_flag"].astype(int),
+                "acute_mi_flag": merged["acute_mi_flag"].astype(int),
+                "early_icu_flag": merged["early_icu_flag"].astype(int),
+                "death_offset_minutes": merged["death_offset_minutes"],
+                "unitdischargeoffset": pd.to_numeric(
+                    merged["unitdischargeoffset"], errors="coerce"
+                ),
                 "excluded_before_landmark_flag": 0,
                 "exclusion_reason": "",
             }
@@ -439,7 +508,7 @@ class EICUCohortBuilder:
         return cohort_df, cohort_ids
 
     def _apply_exclusions(self, cohort_df: pd.DataFrame) -> pd.DataFrame:
-        """Apply exclusion criteria: age < 16, LOS < 2h, pre-landmark death.
+        """Apply adult, four-hour follow-up, and pre-landmark-death exclusions.
 
         Parameters
         ----------
@@ -458,15 +527,15 @@ class EICUCohortBuilder:
         for idx, row in cohort_df.iterrows():
             r: list[str] = []
 
-            # Age < 16 exclusion
+            # Adult cohort rule (normally already enforced by the builder).
             age = row.get("age")
-            if pd.notna(age) and float(age) < 16:
-                r.append("age_lt_16")
+            if pd.isna(age) or float(age) < 18:
+                r.append("age_lt_18_or_missing")
 
-            # LOS < 2 hours exclusion (unit discharge within 120 min)
+            # Four-hour landmark requires follow-up beyond minute 240.
             unit_discharge = pd.to_numeric(row.get("unitdischargeoffset", pd.NA), errors="coerce")
-            if pd.notna(unit_discharge) and float(unit_discharge) < 120:
-                r.append("los_lt_2h")
+            if pd.notna(unit_discharge) and float(unit_discharge) <= 240:
+                r.append("icu_discharge_before_or_at_4h")
 
             # Pre-landmark death exclusion
             death_offset = row.get("death_offset_minutes")

@@ -1,0 +1,142 @@
+[
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "concept": "troponin_i",
+    "upper_bound": "0.01",
+    "people": 5
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "concept": "troponin_i",
+    "upper_bound": "0.015",
+    "people": 10
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "concept": "troponin_i",
+    "upper_bound": "0.02",
+    "people": 54
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "concept": "troponin_i",
+    "upper_bound": "0.03",
+    "people": 12
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "concept": "troponin_i",
+    "upper_bound": "0.04",
+    "people": 45
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "concept": "troponin_i",
+    "upper_bound": "0.06",
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "concept": "troponin_i",
+    "upper_bound": "0.3",
+    "people": 79
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "concept": "troponin_t",
+    "upper_bound": "0.01",
+    "people": 45
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_i",
+    "upper_bound": "0.01",
+    "people": 6
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_i",
+    "upper_bound": "0.015",
+    "people": 6
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_i",
+    "upper_bound": "0.017",
+    "people": 2
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_i",
+    "upper_bound": "0.02",
+    "people": 46
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_i",
+    "upper_bound": "0.03",
+    "people": 8
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_i",
+    "upper_bound": "0.04",
+    "people": 35
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_i",
+    "upper_bound": "0.05",
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_i",
+    "upper_bound": "0.06",
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_i",
+    "upper_bound": "0.3",
+    "people": 58
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "concept": "troponin_t",
+    "upper_bound": "0.01",
+    "people": 39
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "concept": "troponin_t",
+    "upper_bound": "0.01",
+    "people": 109
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "concept": "troponin_t",
+    "upper_bound": "0.01",
+    "people": 62
+  }
+]

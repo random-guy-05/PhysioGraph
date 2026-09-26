@@ -1,0 +1,50 @@
+{
+  "utc": "2026-09-05T07:40:26.907942+00:00",
+  "cells": 31,
+  "code_cells": 24,
+  "all_sources_match_builder": true,
+  "all_code_cells_have_local_execution": true,
+  "no_error_outputs": true,
+  "nbformat_valid": true,
+  "latest_notebook_single_fresh_execution": false,
+  "colab_execution": false,
+  "independent_care_validation": [
+    {
+      "dataset": "eicu",
+      "independent_normalization_and_aggregation_match": true,
+      "fio2_challenge_fields_contribute_no_rows": null,
+      "invasive_ventilation_patient_set_matches": true,
+      "positive_rate_patient_set_matches": true
+    },
+    {
+      "dataset": "mimic",
+      "independent_normalization_and_aggregation_match": true,
+      "fio2_challenge_fields_contribute_no_rows": true,
+      "invasive_ventilation_patient_set_matches": true,
+      "positive_rate_patient_set_matches": true
+    }
+  ],
+  "independent_model_validation": {
+    "primary_model_checks": [
+      {
+        "dataset": "eicu",
+        "endpoint": "troponin_rise_12h",
+        "independent_GLM_max_beta_error": 8.260059303211165e-14,
+        "manually_reconstructed_cluster_covariance_max_error": 1.0818013151947525e-12,
+        "passed": true
+      },
+      {
+        "dataset": "mimic",
+        "endpoint": "hospital_mortality",
+        "independent_GLM_max_beta_error": 5.329070518200751e-15,
+        "manually_reconstructed_cluster_covariance_max_error": 1.2501111257279263e-13,
+        "passed": true
+      }
+    ],
+    "all_estimable_primary_models_checked": true,
+    "patient_level_outputs_private": true,
+    "environment": "local"
+  },
+  "notebook_sha256": "380f8f16cce09f803b546f283076d93339ee6144479352c1ba83c4c113e2bb21",
+  "builder_sha256": "d6c9c7aeb83f7435fcee5614d683a3f507b1425c586ad00634eca898baad341e"
+}

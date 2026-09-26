@@ -1,0 +1,122 @@
+[
+  {
+    "split": 0,
+    "analysis": "primary",
+    "n": 124,
+    "unexposed": 94,
+    "exposed": 30,
+    "gate_failures": [],
+    "columns": [
+      "intercept",
+      "exposed",
+      "pre_jtcf",
+      "pre_qrs",
+      "pre_rr_interval",
+      "age",
+      "spo2_mean",
+      "hypoxic_fraction",
+      "spo2_readings",
+      "vent_documented",
+      "vasoactive_documented",
+      "sex_male",
+      "elapsed_hours"
+    ],
+    "missing": {
+      "pre_jtcf": 0,
+      "pre_qrs": 0,
+      "pre_rr_interval": 0,
+      "age": 0,
+      "spo2_mean": 0,
+      "hypoxic_fraction": 0,
+      "spo2_readings": 0,
+      "vent_documented": 0,
+      "vasoactive_documented": 0,
+      "sex_male": 0,
+      "elapsed_hours": 0
+    },
+    "removed_constant_nuisance": [],
+    "rank": 13,
+    "condition_number": 4.017467038264372,
+    "residual_df": 111
+  },
+  {
+    "split": 1,
+    "analysis": "primary",
+    "n": 85,
+    "unexposed": 59,
+    "exposed": 26,
+    "gate_failures": [],
+    "columns": [
+      "intercept",
+      "exposed",
+      "pre_jtcf",
+      "pre_qrs",
+      "pre_rr_interval",
+      "age",
+      "spo2_mean",
+      "hypoxic_fraction",
+      "spo2_readings",
+      "vent_documented",
+      "vasoactive_documented",
+      "sex_male",
+      "elapsed_hours"
+    ],
+    "missing": {
+      "pre_jtcf": 0,
+      "pre_qrs": 0,
+      "pre_rr_interval": 0,
+      "age": 0,
+      "spo2_mean": 0,
+      "hypoxic_fraction": 0,
+      "spo2_readings": 0,
+      "vent_documented": 0,
+      "vasoactive_documented": 0,
+      "sex_male": 0,
+      "elapsed_hours": 0
+    },
+    "removed_constant_nuisance": [],
+    "rank": 13,
+    "condition_number": 4.105114349181108,
+    "residual_df": 72
+  },
+  {
+    "split": 0,
+    "analysis": "margin",
+    "n": 76,
+    "unexposed": 62,
+    "exposed": 14,
+    "gate_failures": [
+      "fixed sample support"
+    ]
+  },
+  {
+    "split": 1,
+    "analysis": "margin",
+    "n": 49,
+    "unexposed": 33,
+    "exposed": 16,
+    "gate_failures": [
+      "fixed sample support"
+    ]
+  },
+  {
+    "split": 0,
+    "analysis": "same_device",
+    "n": 3,
+    "unexposed": 2,
+    "exposed": 1,
+    "gate_failures": [
+      "fixed sample support"
+    ]
+  },
+  {
+    "split": 1,
+    "analysis": "same_device",
+    "n": 2,
+    "unexposed": 2,
+    "exposed": 0,
+    "gate_failures": [
+      "fixed sample support"
+    ]
+  }
+]

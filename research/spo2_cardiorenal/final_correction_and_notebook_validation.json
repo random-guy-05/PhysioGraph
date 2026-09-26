@@ -1,0 +1,42 @@
+{
+  "utc": "2026-09-05T10:58:49.757747+00:00",
+  "correction_comparison": [
+    {
+      "dataset": "eicu",
+      "horizon": "12h",
+      "all_patient_ids_exposure_covariates_and_other_endpoints_unchanged": true,
+      "creatinine_zero_to_one_corrections": 6,
+      "n": 656
+    },
+    {
+      "dataset": "eicu",
+      "horizon": "24h",
+      "all_patient_ids_exposure_covariates_and_other_endpoints_unchanged": true,
+      "creatinine_zero_to_one_corrections": 9,
+      "n": 926
+    },
+    {
+      "dataset": "mimic",
+      "horizon": "12h",
+      "all_patient_ids_exposure_covariates_and_other_endpoints_unchanged": true,
+      "creatinine_zero_to_one_corrections": 22,
+      "n": 621
+    },
+    {
+      "dataset": "mimic",
+      "horizon": "24h",
+      "all_patient_ids_exposure_covariates_and_other_endpoints_unchanged": true,
+      "creatinine_zero_to_one_corrections": 22,
+      "n": 654
+    }
+  ],
+  "notebook": {
+    "cells": 50,
+    "code_cells": 37,
+    "all_sources_match": true,
+    "all_code_cells_have_execution_counts": true,
+    "error_outputs": 0,
+    "execution": "local incremental execution; not one uninterrupted latest notebook run; not Google Colab",
+    "sha256": "c462c10b8a4c808caa87b45012cadf2a61858751b82cc34775fc5e01bb4491ca"
+  }
+}

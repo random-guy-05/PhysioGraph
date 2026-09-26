@@ -1,0 +1,47 @@
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[IPKernelApp] ERROR | Exception in message handler:
+Traceback (most recent call last):
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 478, in dispatch_shell
+    await result
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/ipykernel/ipkernel.py", line 372, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/ipykernel/kernelbase.py", line 857, in execute_request
+    reply_msg: dict[str, t.Any] = self.session.send(  # type:ignore[assignment]
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/jupyter_client/session.py", line 867, in send
+    stream.send_multipart(to_send, copy=copy)
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/zmq/sugar/socket.py", line 765, in send_multipart
+    self.send(msg, zmq.SNDMORE | flags, copy=copy, track=track)
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/zmq/sugar/socket.py", line 713, in send
+    return super().send(data, flags=flags, copy=copy, track=track)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1152, in zmq.backend.cython._zmq.Socket.send
+    def send(self, data, flags=0, copy: bint = True, track: bint = False):
+    ^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1194, in zmq.backend.cython._zmq.Socket.send
+    _check_closed(self)
+    ^^^^^^^^^^^
+  File "zmq/backend/cython/_zmq.py", line 1339, in zmq.backend.cython._zmq._check_closed
+    raise ZMQError(ENOTSOCK)
+    ^^^^^^^^^^^
+zmq.error.ZMQError: Socket operation on non-socket
+Traceback (most recent call last):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_observation_notebook.py", line 645, in <module>
+    main()
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_observation_notebook.py", line 626, in main
+    client.execute()
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.12/3.12.13_4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/nbclient/client.py", line 1005, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.cache/uv/archive-v0/3ZDiPMk1gD31tkfq/lib/python3.12/site-packages/nbclient/client.py", line 770, in _async_poll_for_reply
+    assert self.kc is not None
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError

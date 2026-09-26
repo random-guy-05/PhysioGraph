@@ -1,0 +1,154 @@
+[
+  {
+    "itemid": 224842,
+    "split": 0,
+    "stage": "selected",
+    "people": 2178,
+    "exposed": 637,
+    "unexposed": 1541
+  },
+  {
+    "itemid": 224842,
+    "split": 0,
+    "stage": "baseline",
+    "people": 73,
+    "exposed": 9,
+    "unexposed": 64
+  },
+  {
+    "itemid": 224842,
+    "split": 0,
+    "stage": "followup",
+    "people": 86,
+    "exposed": 11,
+    "unexposed": 75
+  },
+  {
+    "itemid": 224842,
+    "split": 0,
+    "stage": "paired",
+    "people": 73,
+    "exposed": 9,
+    "unexposed": 64,
+    "followup_minutes_quantiles": {
+      "0.1": 241.77666666666664,
+      "0.5": 254.0,
+      "0.9": 291.52666666666664
+    },
+    "support_floor_pass": false
+  },
+  {
+    "itemid": 224842,
+    "split": 1,
+    "stage": "selected",
+    "people": 2127,
+    "exposed": 639,
+    "unexposed": 1488
+  },
+  {
+    "itemid": 224842,
+    "split": 1,
+    "stage": "baseline",
+    "people": 96,
+    "exposed": 5,
+    "unexposed": 91
+  },
+  {
+    "itemid": 224842,
+    "split": 1,
+    "stage": "followup",
+    "people": 111,
+    "exposed": 11,
+    "unexposed": 100
+  },
+  {
+    "itemid": 224842,
+    "split": 1,
+    "stage": "paired",
+    "people": 95,
+    "exposed": 5,
+    "unexposed": 90,
+    "followup_minutes_quantiles": {
+      "0.1": 243.91333333333333,
+      "0.5": 253.83333333333334,
+      "0.9": 293.47333333333336
+    },
+    "support_floor_pass": false
+  },
+  {
+    "itemid": 220088,
+    "split": 0,
+    "stage": "selected",
+    "people": 2178,
+    "exposed": 637,
+    "unexposed": 1541
+  },
+  {
+    "itemid": 220088,
+    "split": 0,
+    "stage": "baseline",
+    "people": 75,
+    "exposed": 6,
+    "unexposed": 69
+  },
+  {
+    "itemid": 220088,
+    "split": 0,
+    "stage": "followup",
+    "people": 97,
+    "exposed": 14,
+    "unexposed": 83
+  },
+  {
+    "itemid": 220088,
+    "split": 0,
+    "stage": "paired",
+    "people": 73,
+    "exposed": 6,
+    "unexposed": 67,
+    "followup_minutes_quantiles": {
+      "0.1": 248.90666666666667,
+      "0.5": 296.05,
+      "0.9": 428.0966666666666
+    },
+    "support_floor_pass": false
+  },
+  {
+    "itemid": 220088,
+    "split": 1,
+    "stage": "selected",
+    "people": 2127,
+    "exposed": 639,
+    "unexposed": 1488
+  },
+  {
+    "itemid": 220088,
+    "split": 1,
+    "stage": "baseline",
+    "people": 80,
+    "exposed": 12,
+    "unexposed": 68
+  },
+  {
+    "itemid": 220088,
+    "split": 1,
+    "stage": "followup",
+    "people": 94,
+    "exposed": 15,
+    "unexposed": 79
+  },
+  {
+    "itemid": 220088,
+    "split": 1,
+    "stage": "paired",
+    "people": 75,
+    "exposed": 12,
+    "unexposed": 63,
+    "followup_minutes_quantiles": {
+      "0.1": 258.16,
+      "0.5": 312.05,
+      "0.9": 578.2100000000004
+    },
+    "support_floor_pass": false
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-09-06T01:04:59.178744+00:00",
+  "environment": "local",
+  "interruption": "Original process/session missing after turn interruption; pgrep found no biological notebook runner. No source or protocol change.",
+  "recovered_tables": {
+    "eicu_raw": 7385,
+    "mimic_raw": 3005
+  },
+  "raw_tables_committed": true,
+  "numeric_amplitudes_selected": false,
+  "change": "Separated completed raw extraction from unfinished source hashing so verification and original timing support can resume without repeating scans.",
+  "original_scan_completed_cell": false,
+  "original_scan_terminal_handle_missing": true,
+  "zero_coverage_category_reporting_added_before_support": true,
+  "google_colab_execution": false,
+  "single_uninterrupted_current_notebook_run": false
+}

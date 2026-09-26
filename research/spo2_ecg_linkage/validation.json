@@ -1,0 +1,10 @@
+{
+  "independent_hospital_links_match": true,
+  "independent_all_encounter_flags_match": true,
+  "independent_all_nominal_icu_offsets_match": true,
+  "source_hashes_unchanged": true,
+  "publisher_metadata_hashes_verified": true,
+  "mortality_accessed": false,
+  "ecg_measurements_accessed": false,
+  "clinical_clock_synchronization_validated": false
+}

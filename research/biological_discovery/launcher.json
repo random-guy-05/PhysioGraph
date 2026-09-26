@@ -1,0 +1,1 @@
+{"pid": 22429, "command": ["uv", "run", "--no-project", "--python", "3.12", "--with", "duckdb==1.4.3", "--with", "numpy==2.2.6", "--with", "pandas==2.2.3", "--with", "scipy==1.15.3", "--with", "statsmodels==0.14.4", "--with", "nbformat", "python", "-u", "scripts/build_biological_notebook.py", "--execute"]}

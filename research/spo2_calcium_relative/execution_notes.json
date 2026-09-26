@@ -1,0 +1,16 @@
+{
+  "environment": "local",
+  "google_colab_execution": false,
+  "single_uninterrupted_execution_of_entire_current_notebook": false,
+  "separate_protocol_locked_before_calcium_ph_effects": true,
+  "original_support_and_metadata_attrition_known": true,
+  "fixed_people_assays_and_sample_times_retained": true,
+  "qualified_people": {"eicu": 98, "mimic": 526},
+  "eicu_hospitals": 17,
+  "bootstrap_draws_per_source": 20000,
+  "directly_expanded_bootstrap_draws_per_source": 100,
+  "missing_group_bootstrap_draws": 0,
+  "ratio_interpretation": "A common multiplicative unit conversion cancels. Neither the absolute calcium unit nor stable analyzer calibration is established by that identity.",
+  "joint_directional_gate_passed": false,
+  "biological_discovery": false
+}

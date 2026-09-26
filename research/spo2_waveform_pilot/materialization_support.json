@@ -1,0 +1,9 @@
+{
+  "encounters": 11,
+  "exposed": 5,
+  "records_with_numeric_spo2": 11,
+  "downloaded_files": 487,
+  "downloaded_bytes": 120349023,
+  "all_downloads_match_official_checksums": true,
+  "clinical_outcomes_read": false
+}

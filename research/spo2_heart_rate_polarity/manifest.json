@@ -1,0 +1,7 @@
+{
+  "protocol_sha256": "d8a0c5f55b3837c956458ebaf7dfc668375d6c5055db56aea2451b8efb55c28f",
+  "script_sha256": "4d373cebe50b621d695bf6bf5dedf1a00339249cfb20f0bca0adbb53ce2b2fde",
+  "environment": "local",
+  "source": "existing audited first-four-hour bins and original cohort outcomes",
+  "goal_complete": false
+}

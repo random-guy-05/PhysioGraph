@@ -1,0 +1,9 @@
+{
+  "utc": "2026-09-05T08:38:51.559190+00:00",
+  "environment": "local",
+  "clinical_inputs_used": false,
+  "independent_scipy_coherence_match": true,
+  "surrogate_array_shape_verified": true,
+  "whole_missing_run_interpolation_verified": true,
+  "cell_module_sha256": "125bbd1377f1604abcde78d3526ff651596ed1d464e0b64f8f6144ee1c33daff"
+}

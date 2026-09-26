@@ -1,0 +1,34 @@
+[
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "original_encounters": 7143,
+    "any_available_baseline": 1960,
+    "bound_eligible_encounters": 257,
+    "selected_people": 251
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "original_encounters": 4309,
+    "any_available_baseline": 1266,
+    "bound_eligible_encounters": 212,
+    "selected_people": 202
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "original_encounters": 3313,
+    "any_available_baseline": 633,
+    "bound_eligible_encounters": 109,
+    "selected_people": 109
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "original_encounters": 1398,
+    "any_available_baseline": 325,
+    "bound_eligible_encounters": 63,
+    "selected_people": 62
+  }
+]

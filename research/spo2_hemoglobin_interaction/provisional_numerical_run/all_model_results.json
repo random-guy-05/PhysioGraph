@@ -1,0 +1,3754 @@
+[
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_12h",
+    "variant": "primary",
+    "n": 659,
+    "events": 159,
+    "non_events": 500,
+    "persons": 644,
+    "parameters": 22,
+    "events_per_parameter": 7.2272727272727275,
+    "hb_sd": 2.4754948079501715,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 247.92752289119943,
+    "medians": {
+      "age": 7.2,
+      "mean_spo2": 0.4833333333333343,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 3.8501476017100584,
+      "mean_hr": 4.28125,
+      "mean_map": 3.8566964285714285,
+      "log_creatinine": 0.412109650826833,
+      "log_lactate": 0.6418538861723947,
+      "fio2": 2.5
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 8.271585015975019e-05,
+    "interaction_log_OR": -0.17465919582879938,
+    "robust_se": 0.1841445849806556,
+    "interaction_OR": 0.8397431599793778,
+    "interaction_OR_ci95": [
+      0.5853281888989109,
+      1.204740499613862
+    ],
+    "p": 0.34288034194973926,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 42,
+        "hb8_X1": 29,
+        "hb12_X0": 111,
+        "hb12_X1": 87
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.27909933873751025,
+          "ci95": [
+            0.19174331861539737,
+            0.3664553588596231
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.2388219265997357,
+          "ci95": [
+            0.13430164356494553,
+            0.3433422096345259
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.23306397991746977,
+          "ci95": [
+            0.194310933193513,
+            0.27181702664142654
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.24947374115711657,
+          "ci95": [
+            0.19472333829068567,
+            0.30422414402354747
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": -0.040277412137774554,
+          "ci95": [
+            -0.17753398683504618,
+            0.09697916255949707
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.016409761239646797,
+          "ci95": [
+            -0.052928938070925094,
+            0.08574846055021869
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": -0.05668717337742135,
+        "ci95": [
+          -0.17330498624232865,
+          0.05993063948748596
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -0.9869804585069183,
+        "robust_se": 2.2436017001623094
+      },
+      "X": {
+        "beta": 0.10290315476376882,
+        "robust_se": 0.22035483124750257
+      },
+      "H": {
+        "beta": -0.045830043956256346,
+        "robust_se": 0.1684240269957626
+      },
+      "X_H": {
+        "beta": -0.17465919582879938,
+        "robust_se": 0.1841445849806556
+      },
+      "age": {
+        "beta": 0.13083444747166376,
+        "robust_se": 0.07587291768521913
+      },
+      "mean_spo2": {
+        "beta": 0.37487427541020196,
+        "robust_se": 0.26437536556651725
+      },
+      "hypoxic_fraction": {
+        "beta": -0.92949426035034,
+        "robust_se": 1.575807029540101
+      },
+      "log_readings": {
+        "beta": -0.23978674584776163,
+        "robust_se": 0.4203082450192518
+      },
+      "mean_hr": {
+        "beta": 0.07981625787146131,
+        "robust_se": 0.10869175037453764
+      },
+      "mean_map": {
+        "beta": -0.3759238973065617,
+        "robust_se": 0.3387276278851354
+      },
+      "mean_map_missing": {
+        "beta": 0.057385720353918916,
+        "robust_se": 0.35653930357118163
+      },
+      "log_creatinine": {
+        "beta": 0.31939105583811045,
+        "robust_se": 0.22402374545475026
+      },
+      "log_creatinine_missing": {
+        "beta": -0.6006454747692725,
+        "robust_se": 0.20814494939682068
+      },
+      "log_lactate": {
+        "beta": 0.49206397360722304,
+        "robust_se": 0.26591399626864226
+      },
+      "log_lactate_missing": {
+        "beta": -0.5741132277876086,
+        "robust_se": 0.22494894096512277
+      },
+      "fio2": {
+        "beta": 0.30682781657581104,
+        "robust_se": 0.11451377021520456
+      },
+      "fio2_missing": {
+        "beta": -0.2173594259184733,
+        "robust_se": 0.23065248288393617
+      },
+      "male": {
+        "beta": 0.2723165466751033,
+        "robust_se": 0.20678378169676515
+      },
+      "vent_documented": {
+        "beta": -0.3742695615906222,
+        "robust_se": 0.29745330340984466
+      },
+      "vasoactive_documented": {
+        "beta": 0.9423038170448839,
+        "robust_se": 0.34527461551929867
+      },
+      "H_mean_spo2": {
+        "beta": 0.26272753931691156,
+        "robust_se": 0.20653117364035697
+      },
+      "H_hypoxic_fraction": {
+        "beta": 2.4018613572615983,
+        "robust_se": 1.3307060287624348
+      }
+    },
+    "holm_p": 1.0
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "hospital_mortality",
+    "variant": "primary",
+    "n": 3945,
+    "events": 474,
+    "non_events": 3471,
+    "persons": 3611,
+    "parameters": 23,
+    "events_per_parameter": 20.608695652173914,
+    "hb_sd": 2.514804889324721,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_hr_missing",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "sex_unknown"
+    ],
+    "rank": 23,
+    "condition_number": 464.83467362922903,
+    "medians": {
+      "age": 7.2,
+      "mean_spo2": 0.45,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 3.8501476017100584,
+      "mean_hr": 4.228571428571429,
+      "mean_map": 3.8200000000000003,
+      "log_creatinine": 0.412109650826833,
+      "log_lactate": 0.5877866649021191,
+      "fio2": 2.5
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 2.3232528634347346e-05,
+    "interaction_log_OR": 0.06632062660444225,
+    "robust_se": 0.08969866409677237,
+    "interaction_OR": 1.068569273984573,
+    "interaction_OR_ci95": [
+      0.8962922430891,
+      1.2739598073152212
+    ],
+    "p": 0.4596815057084964,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 287,
+        "hb8_X1": 191,
+        "hb12_X0": 731,
+        "hb12_X1": 474
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.1159902310861147,
+          "ci95": [
+            0.091623962782008,
+            0.1403564993902214
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.1528351132010326,
+          "ci95": [
+            0.12153227022937972,
+            0.18413795617268547
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.10986767305978992,
+          "ci95": [
+            0.09675353273561192,
+            0.12298181338396792
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.13145708192523314,
+          "ci95": [
+            0.11430388426656213,
+            0.14861027958390416
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.036844882114917904,
+          "ci95": [
+            -0.0042963789804126365,
+            0.07798614321024844
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.02158940886544322,
+          "ci95": [
+            -0.001133614953292495,
+            0.044312432684178935
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": 0.015255473249474683,
+        "ci95": [
+          -0.021377185626430283,
+          0.05188813212537965
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -5.092707618579592,
+        "robust_se": 1.2159430815282568
+      },
+      "X": {
+        "beta": 0.22799707449491086,
+        "robust_se": 0.12023112791059667
+      },
+      "H": {
+        "beta": 0.038840145751281044,
+        "robust_se": 0.08035151399369936
+      },
+      "X_H": {
+        "beta": 0.06632062660444225,
+        "robust_se": 0.08969866409677237
+      },
+      "age": {
+        "beta": 0.3734575053688109,
+        "robust_se": 0.04417836498820627
+      },
+      "mean_spo2": {
+        "beta": -0.10585633431759753,
+        "robust_se": 0.1360713537134291
+      },
+      "hypoxic_fraction": {
+        "beta": 1.0491709963573979,
+        "robust_se": 0.602990942297038
+      },
+      "log_readings": {
+        "beta": -0.16311134285556506,
+        "robust_se": 0.20045850306549767
+      },
+      "mean_hr": {
+        "beta": 0.3759994626283982,
+        "robust_se": 0.0582312363007262
+      },
+      "mean_hr_missing": {
+        "beta": -20.780034297152824,
+        "robust_se": 0.9273375793526428
+      },
+      "mean_map": {
+        "beta": -0.32175575254011346,
+        "robust_se": 0.19539030857964412
+      },
+      "mean_map_missing": {
+        "beta": -0.6596922981051444,
+        "robust_se": 0.169223644627356
+      },
+      "log_creatinine": {
+        "beta": 0.25510454920296555,
+        "robust_se": 0.1391552018721726
+      },
+      "log_creatinine_missing": {
+        "beta": 0.08887980981068141,
+        "robust_se": 0.12560590769886285
+      },
+      "log_lactate": {
+        "beta": 0.894766782790062,
+        "robust_se": 0.1848002004259326
+      },
+      "log_lactate_missing": {
+        "beta": -0.2437283109276947,
+        "robust_se": 0.1578597115284206
+      },
+      "fio2": {
+        "beta": 0.19549555710100447,
+        "robust_se": 0.05774070877832348
+      },
+      "fio2_missing": {
+        "beta": -0.3750704728765607,
+        "robust_se": 0.11966534515745926
+      },
+      "male": {
+        "beta": 0.12862667629936542,
+        "robust_se": 0.10930540662388777
+      },
+      "vent_documented": {
+        "beta": 0.1379207633276076,
+        "robust_se": 0.16485589411573204
+      },
+      "vasoactive_documented": {
+        "beta": 0.3681901652881519,
+        "robust_se": 0.1783620006106102
+      },
+      "H_mean_spo2": {
+        "beta": -0.04737204470043492,
+        "robust_se": 0.10735183149020869
+      },
+      "H_hypoxic_fraction": {
+        "beta": 0.12452233711055875,
+        "robust_se": 0.4799557505042982
+      }
+    },
+    "holm_p": 1.0
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_rise_12h",
+    "variant": "primary",
+    "n": 516,
+    "events": 145,
+    "non_events": 371,
+    "persons": 509,
+    "parameters": 22,
+    "events_per_parameter": 6.590909090909091,
+    "hb_sd": 2.677639521217224,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 237.8318099148869,
+    "medians": {
+      "age": 7.5,
+      "mean_spo2": 0.48090909090909123,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 2.0794415416798357,
+      "mean_hr": 4.178571428571429,
+      "mean_map": 3.81,
+      "log_creatinine": 0.5306282510621704,
+      "log_lactate": 0.7419373447293773,
+      "fio2": 3.0
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 9.313444888384135e-05,
+    "interaction_log_OR": -0.02670981485726718,
+    "robust_se": 0.18998288080047004,
+    "interaction_OR": 0.9736437374812216,
+    "interaction_OR_ci95": [
+      0.6709395327309153,
+      1.412917381209964
+    ],
+    "p": 0.8881933427537233,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 54,
+        "hb8_X1": 32,
+        "hb12_X0": 97,
+        "hb12_X1": 50
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.3330413668724947,
+          "ci95": [
+            0.25070825608646263,
+            0.41537447765852675
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.3448241114238321,
+          "ci95": [
+            0.23563703617585957,
+            0.4540111866718047
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.2555915355897086,
+          "ci95": [
+            0.2028578018001782,
+            0.308325269379239
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.2754244802712173,
+          "ci95": [
+            0.2005460460649091,
+            0.3503029144775255
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.011782744551337432,
+          "ci95": [
+            -0.12950702667878228,
+            0.15307251578145714
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.019832944681508702,
+          "ci95": [
+            -0.075847631305737,
+            0.11551352066875441
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": -0.00805020013017127,
+        "ci95": [
+          -0.1566855661674865,
+          0.14058516590714396
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -4.809157352086431,
+        "robust_se": 1.5628309313079727
+      },
+      "X": {
+        "beta": 0.11035287896753825,
+        "robust_se": 0.2689745712374119
+      },
+      "H": {
+        "beta": 0.285440480998501,
+        "robust_se": 0.15209344768653102
+      },
+      "X_H": {
+        "beta": -0.02670981485726718,
+        "robust_se": 0.18998288080047004
+      },
+      "age": {
+        "beta": 0.019219099564033202,
+        "robust_se": 0.08550283234693336
+      },
+      "mean_spo2": {
+        "beta": -0.2851072118454582,
+        "robust_se": 0.283548209651285
+      },
+      "hypoxic_fraction": {
+        "beta": 0.012822294193852408,
+        "robust_se": 1.175480283109653
+      },
+      "log_readings": {
+        "beta": 0.2499875224791624,
+        "robust_se": 0.2754749545731517
+      },
+      "mean_hr": {
+        "beta": 0.23319050140633363,
+        "robust_se": 0.11981630840427096
+      },
+      "mean_map": {
+        "beta": 0.16459577556907654,
+        "robust_se": 0.17319524043510365
+      },
+      "mean_map_missing": {
+        "beta": -21.55604987287649,
+        "robust_se": 1.050089237980408
+      },
+      "log_creatinine": {
+        "beta": 0.04846605549384286,
+        "robust_se": 0.17480212042633606
+      },
+      "log_creatinine_missing": {
+        "beta": -0.6896844348219655,
+        "robust_se": 0.36110416534069406
+      },
+      "log_lactate": {
+        "beta": 0.404665386042782,
+        "robust_se": 0.2468809897594401
+      },
+      "log_lactate_missing": {
+        "beta": 0.11816792378839006,
+        "robust_se": 0.23325869154922627
+      },
+      "fio2": {
+        "beta": 0.2735190348833248,
+        "robust_se": 0.11491502953985795
+      },
+      "fio2_missing": {
+        "beta": -0.00029582979870971404,
+        "robust_se": 0.3268714791546561
+      },
+      "male": {
+        "beta": 0.137812088242415,
+        "robust_se": 0.215433707934722
+      },
+      "vent_documented": {
+        "beta": 0.37228055342833694,
+        "robust_se": 0.35106664757588285
+      },
+      "vasoactive_documented": {
+        "beta": 0.13520687323869154,
+        "robust_se": 0.26917755902203694
+      },
+      "H_mean_spo2": {
+        "beta": -0.12549454981856564,
+        "robust_se": 0.20214532686116723
+      },
+      "H_hypoxic_fraction": {
+        "beta": -0.9695269058270697,
+        "robust_se": 0.81124781386373
+      }
+    },
+    "holm_p": 1.0
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "hospital_mortality",
+    "variant": "primary",
+    "n": 3450,
+    "events": 512,
+    "non_events": 2938,
+    "persons": 3138,
+    "parameters": 22,
+    "events_per_parameter": 23.272727272727273,
+    "hb_sd": 2.530056210351528,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 151.89760116551815,
+    "medians": {
+      "age": 7.6,
+      "mean_spo2": 0.45714285714285835,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 2.0794415416798357,
+      "mean_hr": 4.15,
+      "mean_map": 3.8392857142857144,
+      "log_creatinine": 0.33647223662121284,
+      "log_lactate": 0.6418538861723947,
+      "fio2": 3.0
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 2.323777469554888e-05,
+    "interaction_log_OR": 0.09543896708109084,
+    "robust_se": 0.09486837297305832,
+    "interaction_OR": 1.1001416751272237,
+    "interaction_OR_ci95": [
+      0.9134715533385456,
+      1.3249582878944617
+    ],
+    "p": 0.3144085530871805,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 421,
+        "hb8_X1": 195,
+        "hb12_X0": 703,
+        "hb12_X1": 290
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.14505290099011148,
+          "ci95": [
+            0.12330349561586744,
+            0.16680230636435553
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.18142167525946348,
+          "ci95": [
+            0.14637120232607218,
+            0.2164721481928548
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.1402011412894581,
+          "ci95": [
+            0.12501667519165052,
+            0.15538560738726567
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.15276997079685747,
+          "ci95": [
+            0.12952769426274358,
+            0.17601224733097137
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.036368774269352006,
+          "ci95": [
+            -0.006902163552056362,
+            0.07963971209076037
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.012568829507399376,
+          "ci95": [
+            -0.015730824896966894,
+            0.040868483911765646
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": 0.02379994476195263,
+        "ci95": [
+          -0.020761433414992675,
+          0.06836132293889793
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -5.220715334673637,
+        "robust_se": 0.7368003694754869
+      },
+      "X": {
+        "beta": 0.1145756866580675,
+        "robust_se": 0.12989090017875735
+      },
+      "H": {
+        "beta": 0.010419789294343795,
+        "robust_se": 0.07671900263928802
+      },
+      "X_H": {
+        "beta": 0.09543896708109084,
+        "robust_se": 0.09486837297305832
+      },
+      "age": {
+        "beta": 0.36214339117543104,
+        "robust_se": 0.04711915697575067
+      },
+      "mean_spo2": {
+        "beta": -0.14745127687822704,
+        "robust_se": 0.14862255325370527
+      },
+      "hypoxic_fraction": {
+        "beta": 0.13682917576100842,
+        "robust_se": 0.6955951540272758
+      },
+      "log_readings": {
+        "beta": 0.1764502768399995,
+        "robust_se": 0.13487765133987553
+      },
+      "mean_hr": {
+        "beta": 0.22856027055526504,
+        "robust_se": 0.055105918508643874
+      },
+      "mean_map": {
+        "beta": -0.1933370276580631,
+        "robust_se": 0.0887485514338564
+      },
+      "mean_map_missing": {
+        "beta": 0.7884012935869182,
+        "robust_se": 0.4206307017181829
+      },
+      "log_creatinine": {
+        "beta": 0.342185926614315,
+        "robust_se": 0.10544343957331496
+      },
+      "log_creatinine_missing": {
+        "beta": 0.005989134516494745,
+        "robust_se": 0.12045661141525572
+      },
+      "log_lactate": {
+        "beta": 1.097660301483899,
+        "robust_se": 0.12113886359002145
+      },
+      "log_lactate_missing": {
+        "beta": -0.27624992930421116,
+        "robust_se": 0.1250922014238052
+      },
+      "fio2": {
+        "beta": -0.16204311595688858,
+        "robust_se": 0.06011514431400688
+      },
+      "fio2_missing": {
+        "beta": -0.5668408840882846,
+        "robust_se": 0.14733708367381493
+      },
+      "male": {
+        "beta": -0.11613777413325392,
+        "robust_se": 0.10545854065906049
+      },
+      "vent_documented": {
+        "beta": 0.1632958224360436,
+        "robust_se": 0.17852807014119412
+      },
+      "vasoactive_documented": {
+        "beta": 0.3253635072633895,
+        "robust_se": 0.13419754072366938
+      },
+      "H_mean_spo2": {
+        "beta": 0.03148570070836394,
+        "robust_se": 0.0996678187162919
+      },
+      "H_hypoxic_fraction": {
+        "beta": 0.010055181827321041,
+        "robust_se": 0.44367020178814404
+      }
+    },
+    "holm_p": 1.0
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_12h",
+    "variant": "explicit_id_only",
+    "n": 659,
+    "events": 159,
+    "non_events": 500,
+    "persons": 644,
+    "parameters": 22,
+    "events_per_parameter": 7.2272727272727275,
+    "hb_sd": 2.4754948079501715,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 247.92752289119943,
+    "medians": {
+      "age": 7.2,
+      "mean_spo2": 0.4833333333333343,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 3.8501476017100584,
+      "mean_hr": 4.28125,
+      "mean_map": 3.8566964285714285,
+      "log_creatinine": 0.412109650826833,
+      "log_lactate": 0.6418538861723947,
+      "fio2": 2.5
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 8.271585015975019e-05,
+    "interaction_log_OR": -0.17465919582879938,
+    "robust_se": 0.1841445849806556,
+    "interaction_OR": 0.8397431599793778,
+    "interaction_OR_ci95": [
+      0.5853281888989109,
+      1.204740499613862
+    ],
+    "p": 0.34288034194973926,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 42,
+        "hb8_X1": 29,
+        "hb12_X0": 111,
+        "hb12_X1": 87
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.27909933873751025,
+          "ci95": [
+            0.19174331861539737,
+            0.3664553588596231
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.2388219265997357,
+          "ci95": [
+            0.13430164356494553,
+            0.3433422096345259
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.23306397991746977,
+          "ci95": [
+            0.194310933193513,
+            0.27181702664142654
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.24947374115711657,
+          "ci95": [
+            0.1947233382906857,
+            0.30422414402354747
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": -0.040277412137774554,
+          "ci95": [
+            -0.17753398683504618,
+            0.09697916255949707
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.016409761239646797,
+          "ci95": [
+            -0.052928938070925094,
+            0.08574846055021869
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": -0.05668717337742135,
+        "ci95": [
+          -0.17330498624232865,
+          0.05993063948748595
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -0.9869804585069183,
+        "robust_se": 2.2436017001623094
+      },
+      "X": {
+        "beta": 0.10290315476376882,
+        "robust_se": 0.22035483124750257
+      },
+      "H": {
+        "beta": -0.045830043956256346,
+        "robust_se": 0.1684240269957626
+      },
+      "X_H": {
+        "beta": -0.17465919582879938,
+        "robust_se": 0.1841445849806556
+      },
+      "age": {
+        "beta": 0.13083444747166376,
+        "robust_se": 0.07587291768521913
+      },
+      "mean_spo2": {
+        "beta": 0.37487427541020196,
+        "robust_se": 0.26437536556651725
+      },
+      "hypoxic_fraction": {
+        "beta": -0.92949426035034,
+        "robust_se": 1.575807029540101
+      },
+      "log_readings": {
+        "beta": -0.23978674584776163,
+        "robust_se": 0.4203082450192518
+      },
+      "mean_hr": {
+        "beta": 0.07981625787146131,
+        "robust_se": 0.10869175037453764
+      },
+      "mean_map": {
+        "beta": -0.3759238973065617,
+        "robust_se": 0.3387276278851354
+      },
+      "mean_map_missing": {
+        "beta": 0.057385720353918916,
+        "robust_se": 0.35653930357118163
+      },
+      "log_creatinine": {
+        "beta": 0.31939105583811045,
+        "robust_se": 0.22402374545475026
+      },
+      "log_creatinine_missing": {
+        "beta": -0.6006454747692725,
+        "robust_se": 0.20814494939682068
+      },
+      "log_lactate": {
+        "beta": 0.49206397360722304,
+        "robust_se": 0.26591399626864226
+      },
+      "log_lactate_missing": {
+        "beta": -0.5741132277876086,
+        "robust_se": 0.22494894096512277
+      },
+      "fio2": {
+        "beta": 0.30682781657581104,
+        "robust_se": 0.11451377021520456
+      },
+      "fio2_missing": {
+        "beta": -0.2173594259184733,
+        "robust_se": 0.23065248288393617
+      },
+      "male": {
+        "beta": 0.2723165466751033,
+        "robust_se": 0.20678378169676515
+      },
+      "vent_documented": {
+        "beta": -0.3742695615906222,
+        "robust_se": 0.29745330340984466
+      },
+      "vasoactive_documented": {
+        "beta": 0.9423038170448839,
+        "robust_se": 0.34527461551929867
+      },
+      "H_mean_spo2": {
+        "beta": 0.26272753931691156,
+        "robust_se": 0.20653117364035697
+      },
+      "H_hypoxic_fraction": {
+        "beta": 2.4018613572615983,
+        "robust_se": 1.3307060287624348
+      }
+    }
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_12h",
+    "variant": "entered_by_icu_admission",
+    "n": 645,
+    "events": 158,
+    "non_events": 487,
+    "persons": 630,
+    "parameters": 22,
+    "events_per_parameter": 7.181818181818182,
+    "hb_sd": 2.4757993566967147,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 247.31922198707392,
+    "medians": {
+      "age": 7.2,
+      "mean_spo2": 0.4923076923076934,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 3.8501476017100584,
+      "mean_hr": 4.275,
+      "mean_map": 3.83125,
+      "log_creatinine": 0.415409992842509,
+      "log_lactate": 0.6418538861723947,
+      "fio2": 2.5
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 8.374061422838553e-05,
+    "interaction_log_OR": -0.16264256954618334,
+    "robust_se": 0.1854283557458673,
+    "interaction_OR": 0.8498949124555013,
+    "interaction_OR_ci95": [
+      0.5909155608605585,
+      1.222376613616026
+    ],
+    "p": 0.38042248725935546,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 40,
+        "hb8_X1": 28,
+        "hb12_X0": 109,
+        "hb12_X1": 85
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.28338910159160224,
+          "ci95": [
+            0.19464426875244342,
+            0.37213393443076104
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.24114978132760204,
+          "ci95": [
+            0.1353260585834438,
+            0.3469735040717603
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.23845180682665776,
+          "ci95": [
+            0.19896815359934963,
+            0.27793546005396585
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.24956388841879143,
+          "ci95": [
+            0.19411307374059467,
+            0.3050147030969882
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": -0.04223932026400021,
+          "ci95": [
+            -0.18140206005010492,
+            0.09692341952210451
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.011112081592133671,
+          "ci95": [
+            -0.05937655907083027,
+            0.08160072225509761
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": -0.05335140185613388,
+        "ci95": [
+          -0.1718864130443579,
+          0.06518360933209014
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -0.8907830182381105,
+        "robust_se": 2.258564761123916
+      },
+      "X": {
+        "beta": 0.06923746175054413,
+        "robust_se": 0.22302972529677792
+      },
+      "H": {
+        "beta": -0.04939066950830093,
+        "robust_se": 0.16910441952606628
+      },
+      "X_H": {
+        "beta": -0.16264256954618334,
+        "robust_se": 0.1854283557458673
+      },
+      "age": {
+        "beta": 0.11789264169110165,
+        "robust_se": 0.07649951616551512
+      },
+      "mean_spo2": {
+        "beta": 0.334451065124979,
+        "robust_se": 0.26629469197669386
+      },
+      "hypoxic_fraction": {
+        "beta": -1.1547487458171255,
+        "robust_se": 1.5858726184053582
+      },
+      "log_readings": {
+        "beta": -0.2339183579326784,
+        "robust_se": 0.4138828011859388
+      },
+      "mean_hr": {
+        "beta": 0.07354053819263832,
+        "robust_se": 0.1095361488675379
+      },
+      "mean_map": {
+        "beta": -0.4077138306443828,
+        "robust_se": 0.3579535211852272
+      },
+      "mean_map_missing": {
+        "beta": 0.12023174033622265,
+        "robust_se": 0.3671264377501154
+      },
+      "log_creatinine": {
+        "beta": 0.3032863960886964,
+        "robust_se": 0.22767820374989872
+      },
+      "log_creatinine_missing": {
+        "beta": -0.5964625960509683,
+        "robust_se": 0.210221145375905
+      },
+      "log_lactate": {
+        "beta": 0.4963591604985212,
+        "robust_se": 0.26884404008769003
+      },
+      "log_lactate_missing": {
+        "beta": -0.546270092162541,
+        "robust_se": 0.2272895370330932
+      },
+      "fio2": {
+        "beta": 0.3303121834700213,
+        "robust_se": 0.11509857083972508
+      },
+      "fio2_missing": {
+        "beta": -0.18909393206772188,
+        "robust_se": 0.23215355500551957
+      },
+      "male": {
+        "beta": 0.2924365371366035,
+        "robust_se": 0.208045861979227
+      },
+      "vent_documented": {
+        "beta": -0.42852150131682676,
+        "robust_se": 0.3014586451370226
+      },
+      "vasoactive_documented": {
+        "beta": 1.057268914600338,
+        "robust_se": 0.36209756012820615
+      },
+      "H_mean_spo2": {
+        "beta": 0.2654594770692251,
+        "robust_se": 0.20742694129135744
+      },
+      "H_hypoxic_fraction": {
+        "beta": 2.326106024604992,
+        "robust_se": 1.3248925657028567
+      }
+    }
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_12h",
+    "variant": "without_care_covariates",
+    "n": 659,
+    "events": 159,
+    "non_events": 500,
+    "persons": 644,
+    "parameters": 18,
+    "events_per_parameter": 8.833333333333334,
+    "hb_sd": 2.4754948079501715,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "male",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 18,
+    "condition_number": 233.61000311973206,
+    "medians": {
+      "age": 7.2,
+      "mean_spo2": 0.4833333333333343,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 3.8501476017100584,
+      "mean_hr": 4.28125,
+      "mean_map": 3.8566964285714285,
+      "log_creatinine": 0.412109650826833,
+      "log_lactate": 0.6418538861723947
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 8.785035811258168e-05,
+    "interaction_log_OR": -0.16954320058143682,
+    "robust_se": 0.1815445302299235,
+    "interaction_OR": 0.8440502902294299,
+    "interaction_OR_ci95": [
+      0.5913362456267977,
+      1.2047644596539848
+    ],
+    "p": 0.35035899168748785,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 42,
+        "hb8_X1": 29,
+        "hb12_X0": 111,
+        "hb12_X1": 87
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.2673701663973926,
+          "ci95": [
+            0.17979262130181048,
+            0.35494771149297466
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.23469369997787354,
+          "ci95": [
+            0.1268564213619231,
+            0.342530978593824
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.23080690437876925,
+          "ci95": [
+            0.19169090743397987,
+            0.2699229013235586
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.2541621125248687,
+          "ci95": [
+            0.19777122384326587,
+            0.31055300120647156
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": -0.032676466419519046,
+          "ci95": [
+            -0.17419027001841877,
+            0.10883733717938068
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.023355208146099454,
+          "ci95": [
+            -0.0473615776800365,
+            0.09407199397223541
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": -0.0560316745656185,
+        "ci95": [
+          -0.17256840691538772,
+          0.06050505778415073
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": 0.5632226571204612,
+        "robust_se": 2.116969757796412
+      },
+      "X": {
+        "beta": 0.14164112624167677,
+        "robust_se": 0.21678395821112717
+      },
+      "H": {
+        "beta": -0.05645099239714228,
+        "robust_se": 0.1712619546644231
+      },
+      "X_H": {
+        "beta": -0.16954320058143682,
+        "robust_se": 0.1815445302299235
+      },
+      "age": {
+        "beta": 0.10849683591624053,
+        "robust_se": 0.07433237416243829
+      },
+      "mean_spo2": {
+        "beta": 0.43271155321577953,
+        "robust_se": 0.257241425368168
+      },
+      "hypoxic_fraction": {
+        "beta": -0.17674256786171258,
+        "robust_se": 1.5096019090310344
+      },
+      "log_readings": {
+        "beta": -0.21513280883026686,
+        "robust_se": 0.39683183741485534
+      },
+      "mean_hr": {
+        "beta": 0.07008450867749959,
+        "robust_se": 0.10700300360515112
+      },
+      "mean_map": {
+        "beta": -0.4723692230656321,
+        "robust_se": 0.3365425920300446
+      },
+      "mean_map_missing": {
+        "beta": -0.278812842805547,
+        "robust_se": 0.32196479293859126
+      },
+      "log_creatinine": {
+        "beta": 0.271275427110311,
+        "robust_se": 0.22187356883553214
+      },
+      "log_creatinine_missing": {
+        "beta": -0.6424057819821072,
+        "robust_se": 0.19900902056165368
+      },
+      "log_lactate": {
+        "beta": 0.6089613170697593,
+        "robust_se": 0.24524125750590212
+      },
+      "log_lactate_missing": {
+        "beta": -0.685183181133627,
+        "robust_se": 0.21090767370466962
+      },
+      "male": {
+        "beta": 0.27116068880388194,
+        "robust_se": 0.2029834127208776
+      },
+      "H_mean_spo2": {
+        "beta": 0.22896555552981562,
+        "robust_se": 0.2103992080621122
+      },
+      "H_hypoxic_fraction": {
+        "beta": 2.1936346715626227,
+        "robust_se": 1.1975315715113144
+      }
+    }
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "hospital_mortality",
+    "variant": "explicit_id_only",
+    "n": 3945,
+    "events": 474,
+    "non_events": 3471,
+    "persons": 3611,
+    "parameters": 23,
+    "events_per_parameter": 20.608695652173914,
+    "hb_sd": 2.514804889324721,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_hr_missing",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "sex_unknown"
+    ],
+    "rank": 23,
+    "condition_number": 464.83467362922903,
+    "medians": {
+      "age": 7.2,
+      "mean_spo2": 0.45,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 3.8501476017100584,
+      "mean_hr": 4.228571428571429,
+      "mean_map": 3.8200000000000003,
+      "log_creatinine": 0.412109650826833,
+      "log_lactate": 0.5877866649021191,
+      "fio2": 2.5
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 2.3232528634347346e-05,
+    "interaction_log_OR": 0.06632062660444225,
+    "robust_se": 0.08969866409677237,
+    "interaction_OR": 1.068569273984573,
+    "interaction_OR_ci95": [
+      0.8962922430891,
+      1.2739598073152212
+    ],
+    "p": 0.4596815057084964,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 287,
+        "hb8_X1": 191,
+        "hb12_X0": 731,
+        "hb12_X1": 474
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.1159902310861147,
+          "ci95": [
+            0.091623962782008,
+            0.1403564993902214
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.1528351132010326,
+          "ci95": [
+            0.12153227022937972,
+            0.18413795617268547
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.10986767305978992,
+          "ci95": [
+            0.09675353273561192,
+            0.12298181338396792
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.13145708192523314,
+          "ci95": [
+            0.11430388426656213,
+            0.14861027958390416
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.036844882114917904,
+          "ci95": [
+            -0.0042963789804126365,
+            0.07798614321024844
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.02158940886544322,
+          "ci95": [
+            -0.001133614953292495,
+            0.044312432684178935
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": 0.015255473249474683,
+        "ci95": [
+          -0.021377185626430283,
+          0.05188813212537965
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -5.092707618579592,
+        "robust_se": 1.2159430815282568
+      },
+      "X": {
+        "beta": 0.22799707449491086,
+        "robust_se": 0.12023112791059667
+      },
+      "H": {
+        "beta": 0.038840145751281044,
+        "robust_se": 0.08035151399369936
+      },
+      "X_H": {
+        "beta": 0.06632062660444225,
+        "robust_se": 0.08969866409677237
+      },
+      "age": {
+        "beta": 0.3734575053688109,
+        "robust_se": 0.04417836498820627
+      },
+      "mean_spo2": {
+        "beta": -0.10585633431759753,
+        "robust_se": 0.1360713537134291
+      },
+      "hypoxic_fraction": {
+        "beta": 1.0491709963573979,
+        "robust_se": 0.602990942297038
+      },
+      "log_readings": {
+        "beta": -0.16311134285556506,
+        "robust_se": 0.20045850306549767
+      },
+      "mean_hr": {
+        "beta": 0.3759994626283982,
+        "robust_se": 0.0582312363007262
+      },
+      "mean_hr_missing": {
+        "beta": -20.780034297152824,
+        "robust_se": 0.9273375793526428
+      },
+      "mean_map": {
+        "beta": -0.32175575254011346,
+        "robust_se": 0.19539030857964412
+      },
+      "mean_map_missing": {
+        "beta": -0.6596922981051444,
+        "robust_se": 0.169223644627356
+      },
+      "log_creatinine": {
+        "beta": 0.25510454920296555,
+        "robust_se": 0.1391552018721726
+      },
+      "log_creatinine_missing": {
+        "beta": 0.08887980981068141,
+        "robust_se": 0.12560590769886285
+      },
+      "log_lactate": {
+        "beta": 0.894766782790062,
+        "robust_se": 0.1848002004259326
+      },
+      "log_lactate_missing": {
+        "beta": -0.2437283109276947,
+        "robust_se": 0.1578597115284206
+      },
+      "fio2": {
+        "beta": 0.19549555710100447,
+        "robust_se": 0.05774070877832348
+      },
+      "fio2_missing": {
+        "beta": -0.3750704728765607,
+        "robust_se": 0.11966534515745926
+      },
+      "male": {
+        "beta": 0.12862667629936542,
+        "robust_se": 0.10930540662388777
+      },
+      "vent_documented": {
+        "beta": 0.1379207633276076,
+        "robust_se": 0.16485589411573204
+      },
+      "vasoactive_documented": {
+        "beta": 0.3681901652881519,
+        "robust_se": 0.1783620006106102
+      },
+      "H_mean_spo2": {
+        "beta": -0.04737204470043492,
+        "robust_se": 0.10735183149020869
+      },
+      "H_hypoxic_fraction": {
+        "beta": 0.12452233711055875,
+        "robust_se": 0.4799557505042982
+      }
+    }
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "hospital_mortality",
+    "variant": "entered_by_icu_admission",
+    "n": 3730,
+    "events": 444,
+    "non_events": 3286,
+    "persons": 3412,
+    "parameters": 23,
+    "events_per_parameter": 19.304347826086957,
+    "hb_sd": 2.5216180359539178,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_hr_missing",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "sex_unknown"
+    ],
+    "rank": 23,
+    "condition_number": 452.83293898056417,
+    "medians": {
+      "age": 7.1,
+      "mean_spo2": 0.4375,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 3.8501476017100584,
+      "mean_hr": 4.234495192307692,
+      "mean_map": 3.875,
+      "log_creatinine": 0.412109650826833,
+      "log_lactate": 0.5877866649021191,
+      "fio2": 2.5
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 2.485007147948027e-05,
+    "interaction_log_OR": 0.07330986699413654,
+    "robust_se": 0.09139032914897341,
+    "interaction_OR": 1.0760639219525203,
+    "interaction_OR_ci95": [
+      0.8995908967769679,
+      1.2871557151994133
+    ],
+    "p": 0.42245914196904655,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 258,
+        "hb8_X1": 180,
+        "hb12_X0": 686,
+        "hb12_X1": 457
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.111256338163709,
+          "ci95": [
+            0.0866788556205716,
+            0.1358338207068464
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.1514900569665827,
+          "ci95": [
+            0.1196146405012104,
+            0.18336547343195497
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.10775777365311856,
+          "ci95": [
+            0.09434793340130385,
+            0.12116761390493327
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.13166797795843158,
+          "ci95": [
+            0.1141615066386334,
+            0.14917444927822976
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.040233718802873686,
+          "ci95": [
+            -0.0014092548415214276,
+            0.0818766924472688
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.023910204305313015,
+          "ci95": [
+            0.0007322741414537669,
+            0.04708813446917226
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": 0.01632351449756067,
+        "ci95": [
+          -0.02041864218619395,
+          0.05306567118131529
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -4.910762911831998,
+        "robust_se": 1.2254228522726518
+      },
+      "X": {
+        "beta": 0.25459617304326504,
+        "robust_se": 0.12355105159175035
+      },
+      "H": {
+        "beta": 0.016122252016074836,
+        "robust_se": 0.08144499120069448
+      },
+      "X_H": {
+        "beta": 0.07330986699413654,
+        "robust_se": 0.09139032914897341
+      },
+      "age": {
+        "beta": 0.37321997975934984,
+        "robust_se": 0.04572702423010208
+      },
+      "mean_spo2": {
+        "beta": -0.09034163919312685,
+        "robust_se": 0.1398627149886969
+      },
+      "hypoxic_fraction": {
+        "beta": 0.980100257327779,
+        "robust_se": 0.6260543244955326
+      },
+      "log_readings": {
+        "beta": -0.21982969158500631,
+        "robust_se": 0.20482446447173341
+      },
+      "mean_hr": {
+        "beta": 0.36896826598020394,
+        "robust_se": 0.06043090452584811
+      },
+      "mean_hr_missing": {
+        "beta": -20.80898745889805,
+        "robust_se": 0.9281716832888517
+      },
+      "mean_map": {
+        "beta": -0.28382621968543736,
+        "robust_se": 0.19594585177335033
+      },
+      "mean_map_missing": {
+        "beta": -0.707234592767885,
+        "robust_se": 0.1751121499425675
+      },
+      "log_creatinine": {
+        "beta": 0.28843604423733604,
+        "robust_se": 0.14448825303380536
+      },
+      "log_creatinine_missing": {
+        "beta": 0.17498221289613333,
+        "robust_se": 0.1323595154321655
+      },
+      "log_lactate": {
+        "beta": 0.8846749714223459,
+        "robust_se": 0.18653536518283326
+      },
+      "log_lactate_missing": {
+        "beta": -0.2987396593359826,
+        "robust_se": 0.1612945340732401
+      },
+      "fio2": {
+        "beta": 0.16501659936218346,
+        "robust_se": 0.05948000915081671
+      },
+      "fio2_missing": {
+        "beta": -0.38388807938702607,
+        "robust_se": 0.12220831395085141
+      },
+      "male": {
+        "beta": 0.13819472973211985,
+        "robust_se": 0.11274453387723599
+      },
+      "vent_documented": {
+        "beta": 0.2000049414970167,
+        "robust_se": 0.16870527343077998
+      },
+      "vasoactive_documented": {
+        "beta": 0.4599486327769898,
+        "robust_se": 0.18870330304723754
+      },
+      "H_mean_spo2": {
+        "beta": -0.022678612135469112,
+        "robust_se": 0.1096135643997202
+      },
+      "H_hypoxic_fraction": {
+        "beta": 0.16508965296844383,
+        "robust_se": 0.4905778769169448
+      }
+    }
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "hospital_mortality",
+    "variant": "without_care_covariates",
+    "n": 3945,
+    "events": 474,
+    "non_events": 3471,
+    "persons": 3611,
+    "parameters": 19,
+    "events_per_parameter": 24.94736842105263,
+    "hb_sd": 2.514804889324721,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_hr_missing",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "male",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "sex_unknown"
+    ],
+    "rank": 19,
+    "condition_number": 447.7215185718898,
+    "medians": {
+      "age": 7.2,
+      "mean_spo2": 0.45,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 3.8501476017100584,
+      "mean_hr": 4.228571428571429,
+      "mean_map": 3.8200000000000003,
+      "log_creatinine": 0.412109650826833,
+      "log_lactate": 0.5877866649021191
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 2.471904844776972e-05,
+    "interaction_log_OR": 0.06502622250019995,
+    "robust_se": 0.08801566910741944,
+    "interaction_OR": 1.0671870083288257,
+    "interaction_OR_ci95": [
+      0.8980904526683747,
+      1.2681218326750998
+    ],
+    "p": 0.4600267532703405,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 287,
+        "hb8_X1": 191,
+        "hb12_X0": 731,
+        "hb12_X1": 474
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.11135059686265338,
+          "ci95": [
+            0.0877453505197428,
+            0.13495584320556395
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.15517535989833367,
+          "ci95": [
+            0.1234046149706931,
+            0.18694610482597424
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.10752520883166691,
+          "ci95": [
+            0.09465426654020133,
+            0.1203961511231325
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.13623325704271697,
+          "ci95": [
+            0.11871797336965054,
+            0.1537485407157834
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.043824763035680295,
+          "ci95": [
+            0.002890633167657461,
+            0.08475889290370313
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.028708048211050052,
+          "ci95": [
+            0.006060410310279145,
+            0.05135568611182096
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": 0.015116714824630242,
+        "ci95": [
+          -0.021450293987119083,
+          0.05168372363637957
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -4.021023122538676,
+        "robust_se": 1.138920821212574
+      },
+      "X": {
+        "beta": 0.29516728040257756,
+        "robust_se": 0.11610007905014276
+      },
+      "H": {
+        "beta": 0.03323953518169659,
+        "robust_se": 0.07904886041081782
+      },
+      "X_H": {
+        "beta": 0.06502622250019995,
+        "robust_se": 0.08801566910741944
+      },
+      "age": {
+        "beta": 0.3567432099338351,
+        "robust_se": 0.042790286659201045
+      },
+      "mean_spo2": {
+        "beta": 0.01213463539486105,
+        "robust_se": 0.13384525938233935
+      },
+      "hypoxic_fraction": {
+        "beta": 1.5261075784476053,
+        "robust_se": 0.5767396606456182
+      },
+      "log_readings": {
+        "beta": -0.18205095320267506,
+        "robust_se": 0.1892633823096479
+      },
+      "mean_hr": {
+        "beta": 0.35667590190588433,
+        "robust_se": 0.05714909703644181
+      },
+      "mean_hr_missing": {
+        "beta": -21.101326512024677,
+        "robust_se": 0.9228806083411226
+      },
+      "mean_map": {
+        "beta": -0.3549721166061795,
+        "robust_se": 0.18601224288044196
+      },
+      "mean_map_missing": {
+        "beta": -0.9358467249706919,
+        "robust_se": 0.14943331571376087
+      },
+      "log_creatinine": {
+        "beta": 0.26586224119018687,
+        "robust_se": 0.1365459759271048
+      },
+      "log_creatinine_missing": {
+        "beta": 0.03496315836429471,
+        "robust_se": 0.12368413293817747
+      },
+      "log_lactate": {
+        "beta": 0.9638904753115197,
+        "robust_se": 0.17562682414356628
+      },
+      "log_lactate_missing": {
+        "beta": -0.34473558853114805,
+        "robust_se": 0.15334902724377464
+      },
+      "male": {
+        "beta": 0.10919561752942691,
+        "robust_se": 0.10754286815317024
+      },
+      "H_mean_spo2": {
+        "beta": -0.07014428099066362,
+        "robust_se": 0.10626892952753553
+      },
+      "H_hypoxic_fraction": {
+        "beta": 0.08952563296303777,
+        "robust_se": 0.4522346700507487
+      }
+    }
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_rise_12h",
+    "variant": "explicit_id_only",
+    "n": 133,
+    "events": 49,
+    "non_events": 84,
+    "persons": 133,
+    "parameters": 22,
+    "events_per_parameter": 2.227272727272727,
+    "hb_sd": 2.4903767851953025,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 179.9303600112145,
+    "medians": {
+      "age": 7.5,
+      "mean_spo2": 0.425,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 2.1972245773362196,
+      "mean_hr": 4.042857142857143,
+      "mean_map": 3.77375,
+      "log_creatinine": 0.5877866649021191,
+      "log_lactate": 0.6931471805599453,
+      "fio2": 3.0
+    },
+    "estimable": false,
+    "reason": "Prespecified information, exposure variation or full-rank gate failed"
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_rise_12h",
+    "variant": "entered_by_icu_admission",
+    "n": 508,
+    "events": 140,
+    "non_events": 368,
+    "persons": 501,
+    "parameters": 22,
+    "events_per_parameter": 6.363636363636363,
+    "hb_sd": 2.6688792503822416,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 235.85536083836845,
+    "medians": {
+      "age": 7.5,
+      "mean_spo2": 0.48257575757575777,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 2.0794415416798357,
+      "mean_hr": 4.176785714285714,
+      "mean_map": 3.81,
+      "log_creatinine": 0.5306282510621704,
+      "log_lactate": 0.7419373447293773,
+      "fio2": 3.0
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 9.533190891290341e-05,
+    "interaction_log_OR": -0.0384049208257504,
+    "robust_se": 0.1928321590741998,
+    "interaction_OR": 0.9623231972851899,
+    "interaction_OR_ci95": [
+      0.6594454973560977,
+      1.4043100449484438
+    ],
+    "p": 0.842135689433712,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 52,
+        "hb8_X1": 31,
+        "hb12_X0": 96,
+        "hb12_X1": 49
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.3281013081283952,
+          "ci95": [
+            0.2436939496602038,
+            0.41250866659658664
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.33249029603015295,
+          "ci95": [
+            0.22311421964999942,
+            0.44186637241030646
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.25337194045319006,
+          "ci95": [
+            0.20104712125045063,
+            0.30569675965592946
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.27095709663707285,
+          "ci95": [
+            0.19586130834258747,
+            0.3460528849315582
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.004388987901757735,
+          "ci95": [
+            -0.13826531882667412,
+            0.14704329463018959
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.01758515618388279,
+          "ci95": [
+            -0.0777386993964834,
+            0.11290901176424897
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": -0.013196168282125054,
+        "ci95": [
+          -0.16246305547889428,
+          0.13607071891464417
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -4.679066660313186,
+        "robust_se": 1.5677862530325821
+      },
+      "X": {
+        "beta": 0.09830779821048037,
+        "robust_se": 0.26942827635330163
+      },
+      "H": {
+        "beta": 0.29440175953624964,
+        "robust_se": 0.15513895098016223
+      },
+      "X_H": {
+        "beta": -0.0384049208257504,
+        "robust_se": 0.1928321590741998
+      },
+      "age": {
+        "beta": 0.007636916291150661,
+        "robust_se": 0.0851682082815174
+      },
+      "mean_spo2": {
+        "beta": -0.3214125231486029,
+        "robust_se": 0.28362884461649446
+      },
+      "hypoxic_fraction": {
+        "beta": -0.030580224080072174,
+        "robust_se": 1.1654421045741454
+      },
+      "log_readings": {
+        "beta": 0.27002477237699796,
+        "robust_se": 0.2821098271813387
+      },
+      "mean_hr": {
+        "beta": 0.23483589869469018,
+        "robust_se": 0.12100647553139632
+      },
+      "mean_map": {
+        "beta": 0.1746530092466514,
+        "robust_se": 0.1752018608748604
+      },
+      "mean_map_missing": {
+        "beta": -21.51910433574414,
+        "robust_se": 1.0510199889759604
+      },
+      "log_creatinine": {
+        "beta": 0.04789465705628367,
+        "robust_se": 0.1775808047759023
+      },
+      "log_creatinine_missing": {
+        "beta": -0.6341582170039359,
+        "robust_se": 0.36006005117502426
+      },
+      "log_lactate": {
+        "beta": 0.36492588922898184,
+        "robust_se": 0.24989589945694612
+      },
+      "log_lactate_missing": {
+        "beta": 0.08131971562897936,
+        "robust_se": 0.2362635924124025
+      },
+      "fio2": {
+        "beta": 0.25162616732557885,
+        "robust_se": 0.1167627705985617
+      },
+      "fio2_missing": {
+        "beta": 0.001123190142515289,
+        "robust_se": 0.32731876431372947
+      },
+      "male": {
+        "beta": 0.12435464671877552,
+        "robust_se": 0.2177759316037725
+      },
+      "vent_documented": {
+        "beta": 0.29781669616252665,
+        "robust_se": 0.35460730327438317
+      },
+      "vasoactive_documented": {
+        "beta": 0.19383553239487933,
+        "robust_se": 0.27299584404553984
+      },
+      "H_mean_spo2": {
+        "beta": -0.16515627785248335,
+        "robust_se": 0.2058280968680517
+      },
+      "H_hypoxic_fraction": {
+        "beta": -1.0088308985168497,
+        "robust_se": 0.807961665982863
+      }
+    }
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_rise_12h",
+    "variant": "without_care_covariates",
+    "n": 516,
+    "events": 145,
+    "non_events": 371,
+    "persons": 509,
+    "parameters": 18,
+    "events_per_parameter": 8.055555555555555,
+    "hb_sd": 2.677639521217224,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "male",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 18,
+    "condition_number": 224.6035498370404,
+    "medians": {
+      "age": 7.5,
+      "mean_spo2": 0.48090909090909123,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 2.0794415416798357,
+      "mean_hr": 4.178571428571429,
+      "mean_map": 3.81,
+      "log_creatinine": 0.5306282510621704,
+      "log_lactate": 0.7419373447293773
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 0.00010278054580437744,
+    "interaction_log_OR": -0.054066383268461096,
+    "robust_se": 0.18343712373383605,
+    "interaction_OR": 0.9473692149494203,
+    "interaction_OR_ci95": [
+      0.6612633243368508,
+      1.3572632813621548
+    ],
+    "p": 0.7681919818697233,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 54,
+        "hb8_X1": 32,
+        "hb12_X0": 97,
+        "hb12_X1": 50
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.32942565109055677,
+          "ci95": [
+            0.24704700702341864,
+            0.4118042951576949
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.33019451823434404,
+          "ci95": [
+            0.22043737838477762,
+            0.43995165808391046
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.25726629850106614,
+          "ci95": [
+            0.204047908087547,
+            0.3104846889145853
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.2779426189619773,
+          "ci95": [
+            0.20279280638326358,
+            0.35309243154069103
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.0007688671437872663,
+          "ci95": [
+            -0.1411584078352771,
+            0.14269614212285164
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.02067632046091117,
+          "ci95": [
+            -0.07567535464273793,
+            0.11702799556456027
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": -0.019907453317123902,
+        "ci95": [
+          -0.16574805324153805,
+          0.12593314660729024
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -3.553681083561484,
+        "robust_se": 1.4093544619319185
+      },
+      "X": {
+        "beta": 0.11180667044649435,
+        "robust_se": 0.2632170242099581
+      },
+      "H": {
+        "beta": 0.25846725681179616,
+        "robust_se": 0.15233980793921434
+      },
+      "X_H": {
+        "beta": -0.054066383268461096,
+        "robust_se": 0.18343712373383605
+      },
+      "age": {
+        "beta": -0.00976188308688408,
+        "robust_se": 0.08145050629059623
+      },
+      "mean_spo2": {
+        "beta": -0.19576930332436449,
+        "robust_se": 0.27738892351852723
+      },
+      "hypoxic_fraction": {
+        "beta": 0.9143555571397634,
+        "robust_se": 1.1315377476154156
+      },
+      "log_readings": {
+        "beta": 0.3049234656931045,
+        "robust_se": 0.27230676155457667
+      },
+      "mean_hr": {
+        "beta": 0.21469403766209152,
+        "robust_se": 0.11580596279756593
+      },
+      "mean_map": {
+        "beta": 0.15152341550585605,
+        "robust_se": 0.1597734496114488
+      },
+      "mean_map_missing": {
+        "beta": -21.980910070266447,
+        "robust_se": 1.0287464733499214
+      },
+      "log_creatinine": {
+        "beta": 0.04447481792193034,
+        "robust_se": 0.16859460206363008
+      },
+      "log_creatinine_missing": {
+        "beta": -0.7176315619252804,
+        "robust_se": 0.35721385548048207
+      },
+      "log_lactate": {
+        "beta": 0.48248405122194277,
+        "robust_se": 0.23311401991345126
+      },
+      "log_lactate_missing": {
+        "beta": -0.08988297523041361,
+        "robust_se": 0.2217301445383826
+      },
+      "male": {
+        "beta": 0.17266439615778936,
+        "robust_se": 0.20892902002634783
+      },
+      "H_mean_spo2": {
+        "beta": -0.10990229806299119,
+        "robust_se": 0.1984337282810915
+      },
+      "H_hypoxic_fraction": {
+        "beta": -0.8660780336744792,
+        "robust_se": 0.7857995959626825
+      }
+    }
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "hospital_mortality",
+    "variant": "explicit_id_only",
+    "n": 1113,
+    "events": 155,
+    "non_events": 958,
+    "persons": 1087,
+    "parameters": 22,
+    "events_per_parameter": 7.045454545454546,
+    "hb_sd": 2.380976354940805,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 195.61992380812217,
+    "medians": {
+      "age": 7.5,
+      "mean_spo2": 0.49000000000000055,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 2.1972245773362196,
+      "mean_hr": 4.1,
+      "mean_map": 3.79,
+      "log_creatinine": 0.26236426446749106,
+      "log_lactate": 0.6418538861723947,
+      "fio2": 5.0
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 7.098051136363008e-05,
+    "interaction_log_OR": 0.05450677205729054,
+    "robust_se": 0.1838660696607678,
+    "interaction_OR": 1.0560196278149294,
+    "interaction_OR_ci95": [
+      0.7364818223744317,
+      1.5141954905757598
+    ],
+    "p": 0.7668877926340901,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 150,
+        "hb8_X1": 74,
+        "hb12_X0": 229,
+        "hb12_X1": 81
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.12482853167711845,
+          "ci95": [
+            0.09319814969455176,
+            0.15645891365968514
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.20066413199596805,
+          "ci95": [
+            0.14205521396436516,
+            0.25927305002757095
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.11116148512388313,
+          "ci95": [
+            0.0840898591249781,
+            0.13823311112278816
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.1678090818726274,
+          "ci95": [
+            0.12175804310012647,
+            0.21386012064512835
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.0758356003188496,
+          "ci95": [
+            0.006339238646563272,
+            0.14533196199113593
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.05664759674874428,
+          "ci95": [
+            0.001173018774506221,
+            0.11212217472298235
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": 0.01918800357010532,
+        "ci95": [
+          -0.064057842952423,
+          0.10243385009263364
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -5.357370476706286,
+        "robust_se": 1.4212578359120231
+      },
+      "X": {
+        "beta": 0.5647540825273245,
+        "robust_se": 0.2688917574427798
+      },
+      "H": {
+        "beta": -0.02527777031463314,
+        "robust_se": 0.14850660904933335
+      },
+      "X_H": {
+        "beta": 0.05450677205729054,
+        "robust_se": 0.1838660696607678
+      },
+      "age": {
+        "beta": 0.31313172395802463,
+        "robust_se": 0.08341952009582827
+      },
+      "mean_spo2": {
+        "beta": 0.29112757756824764,
+        "robust_se": 0.3406217380534593
+      },
+      "hypoxic_fraction": {
+        "beta": 2.1887832402175795,
+        "robust_se": 1.5467166609569716
+      },
+      "log_readings": {
+        "beta": 0.3488704286099687,
+        "robust_se": 0.23437359424178744
+      },
+      "mean_hr": {
+        "beta": 0.3256086760918588,
+        "robust_se": 0.1053990458258643
+      },
+      "mean_map": {
+        "beta": -0.5021744799455832,
+        "robust_se": 0.1671294153046587
+      },
+      "mean_map_missing": {
+        "beta": 0.22173785320036024,
+        "robust_se": 0.7557754543013179
+      },
+      "log_creatinine": {
+        "beta": 0.6964167924655188,
+        "robust_se": 0.18517885057929798
+      },
+      "log_creatinine_missing": {
+        "beta": 0.15291958141159576,
+        "robust_se": 0.23473862892102768
+      },
+      "log_lactate": {
+        "beta": 1.3025500058319381,
+        "robust_se": 0.21569215345693935
+      },
+      "log_lactate_missing": {
+        "beta": 0.07206228367472808,
+        "robust_se": 0.21471192559526822
+      },
+      "fio2": {
+        "beta": -0.26390561964492215,
+        "robust_se": 0.12951018495980854
+      },
+      "fio2_missing": {
+        "beta": 0.2953952579919745,
+        "robust_se": 0.3530654172558658
+      },
+      "male": {
+        "beta": -0.249523729267033,
+        "robust_se": 0.19802605148445832
+      },
+      "vent_documented": {
+        "beta": -0.17914155902515683,
+        "robust_se": 0.3281387887142205
+      },
+      "vasoactive_documented": {
+        "beta": 0.514035074927485,
+        "robust_se": 0.2264408918895883
+      },
+      "H_mean_spo2": {
+        "beta": 0.20089669896753423,
+        "robust_se": 0.2106085695775913
+      },
+      "H_hypoxic_fraction": {
+        "beta": 0.5114131210982349,
+        "robust_se": 0.9691046296982889
+      }
+    }
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "hospital_mortality",
+    "variant": "entered_by_icu_admission",
+    "n": 3316,
+    "events": 485,
+    "non_events": 2831,
+    "persons": 3021,
+    "parameters": 22,
+    "events_per_parameter": 22.045454545454547,
+    "hb_sd": 2.5268147246662114,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 153.01162164549223,
+    "medians": {
+      "age": 7.6,
+      "mean_spo2": 0.45714285714285835,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 2.0794415416798357,
+      "mean_hr": 4.147077922077922,
+      "mean_map": 3.85,
+      "log_creatinine": 0.33647223662121284,
+      "log_lactate": 0.6418538861723947,
+      "fio2": 3.0
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 2.4330393292148e-05,
+    "interaction_log_OR": 0.08513518573593579,
+    "robust_se": 0.09647719179659463,
+    "interaction_OR": 1.0888642556649863,
+    "interaction_OR_ci95": [
+      0.9012612478482642,
+      1.3155179700619681
+    ],
+    "p": 0.37753973861514545,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 397,
+        "hb8_X1": 177,
+        "hb12_X0": 684,
+        "hb12_X1": 285
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.14372026071088656,
+          "ci95": [
+            0.12146524184637619,
+            0.16597527957539693
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.1874510568549064,
+          "ci95": [
+            0.15045521031821701,
+            0.2244469033915958
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.13436324609850164,
+          "ci95": [
+            0.11927870062611128,
+            0.14944779157089202
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.15524999878575815,
+          "ci95": [
+            0.1313356251103191,
+            0.1791643724611972
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.04373079614401984,
+          "ci95": [
+            -0.0014157531126540585,
+            0.08887734540069374
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.02088675268725651,
+          "ci95": [
+            -0.0077953216449623275,
+            0.04956882701947535
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": 0.02284404345676333,
+        "ci95": [
+          -0.023388857172021334,
+          0.06907694408554799
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -5.381782365531409,
+        "robust_se": 0.7566632796522954
+      },
+      "X": {
+        "beta": 0.19093038474997207,
+        "robust_se": 0.13085680649702724
+      },
+      "H": {
+        "beta": 0.03574898610954239,
+        "robust_se": 0.0779144379127215
+      },
+      "X_H": {
+        "beta": 0.08513518573593579,
+        "robust_se": 0.09647719179659463
+      },
+      "age": {
+        "beta": 0.3612175664974873,
+        "robust_se": 0.048094565255821065
+      },
+      "mean_spo2": {
+        "beta": -0.13927583935635585,
+        "robust_se": 0.15134152330204664
+      },
+      "hypoxic_fraction": {
+        "beta": -0.22931600368938654,
+        "robust_se": 0.6931237591512814
+      },
+      "log_readings": {
+        "beta": 0.20612293955307015,
+        "robust_se": 0.13661530232457797
+      },
+      "mean_hr": {
+        "beta": 0.2355786461081363,
+        "robust_se": 0.0565132190803105
+      },
+      "mean_map": {
+        "beta": -0.18081939824063792,
+        "robust_se": 0.09053767514971015
+      },
+      "mean_map_missing": {
+        "beta": 0.8172044772345567,
+        "robust_se": 0.43352705397086216
+      },
+      "log_creatinine": {
+        "beta": 0.31620954222787057,
+        "robust_se": 0.10706723157585071
+      },
+      "log_creatinine_missing": {
+        "beta": -0.015237176825874272,
+        "robust_se": 0.12403615916592263
+      },
+      "log_lactate": {
+        "beta": 1.070393589123048,
+        "robust_se": 0.12612045399636243
+      },
+      "log_lactate_missing": {
+        "beta": -0.31402214497539027,
+        "robust_se": 0.12795756281495285
+      },
+      "fio2": {
+        "beta": -0.1467196213059463,
+        "robust_se": 0.06202473518473635
+      },
+      "fio2_missing": {
+        "beta": -0.5381393290178144,
+        "robust_se": 0.15007229950300965
+      },
+      "male": {
+        "beta": -0.12909568653884054,
+        "robust_se": 0.10812666385194049
+      },
+      "vent_documented": {
+        "beta": 0.1770830261015794,
+        "robust_se": 0.18205917272104727
+      },
+      "vasoactive_documented": {
+        "beta": 0.29794518720099705,
+        "robust_se": 0.13802771534355163
+      },
+      "H_mean_spo2": {
+        "beta": 0.026692303122276908,
+        "robust_se": 0.10148657479348817
+      },
+      "H_hypoxic_fraction": {
+        "beta": -0.05758028053631739,
+        "robust_se": 0.45933512522439907
+      }
+    }
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "hospital_mortality",
+    "variant": "without_care_covariates",
+    "n": 3450,
+    "events": 512,
+    "non_events": 2938,
+    "persons": 3138,
+    "parameters": 18,
+    "events_per_parameter": 28.444444444444443,
+    "hb_sd": 2.530056210351528,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "male",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 18,
+    "condition_number": 141.10922471410586,
+    "medians": {
+      "age": 7.6,
+      "mean_spo2": 0.45714285714285835,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 2.0794415416798357,
+      "mean_hr": 4.15,
+      "mean_map": 3.8392857142857144,
+      "log_creatinine": 0.33647223662121284,
+      "log_lactate": 0.6418538861723947
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 2.5362583175899595e-05,
+    "interaction_log_OR": 0.09244228998110966,
+    "robust_se": 0.09297397195518306,
+    "interaction_OR": 1.0968498405087534,
+    "interaction_OR_ci95": [
+      0.9141261521090035,
+      1.3160979694634296
+    ],
+    "p": 0.3200858937396168,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 421,
+        "hb8_X1": 195,
+        "hb12_X0": 703,
+        "hb12_X1": 290
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.1419423315614886,
+          "ci95": [
+            0.12054741974386576,
+            0.16333724337911146
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.17594792399620673,
+          "ci95": [
+            0.1415300731664666,
+            0.21036577482594687
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.14209339154987566,
+          "ci95": [
+            0.1266572027411259,
+            0.1575295803586254
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.15348000973207845,
+          "ci95": [
+            0.12998436541176897,
+            0.17697565405238794
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.034005592434718124,
+          "ci95": [
+            -0.008520554426442839,
+            0.07653173929587909
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.011386618182202796,
+          "ci95": [
+            -0.017218677827814912,
+            0.03999191419222051
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": 0.022618974252515328,
+        "ci95": [
+          -0.02123749259005065,
+          0.0664754410950813
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -5.702413120542135,
+        "robust_se": 0.6786660919911882
+      },
+      "X": {
+        "beta": 0.10121811347404833,
+        "robust_se": 0.12822368831348238
+      },
+      "H": {
+        "beta": -0.01258486546249878,
+        "robust_se": 0.07553187758304813
+      },
+      "X_H": {
+        "beta": 0.09244228998110966,
+        "robust_se": 0.09297397195518306
+      },
+      "age": {
+        "beta": 0.3384970700051996,
+        "robust_se": 0.04485363849160438
+      },
+      "mean_spo2": {
+        "beta": 0.06696146661322694,
+        "robust_se": 0.1449460096158879
+      },
+      "hypoxic_fraction": {
+        "beta": 0.8628573530899568,
+        "robust_se": 0.6702154390862841
+      },
+      "log_readings": {
+        "beta": 0.26196446956731606,
+        "robust_se": 0.13109567968874394
+      },
+      "mean_hr": {
+        "beta": 0.20956899556001063,
+        "robust_se": 0.054318216102906956
+      },
+      "mean_map": {
+        "beta": -0.22797512709852671,
+        "robust_se": 0.08593830526071945
+      },
+      "mean_map_missing": {
+        "beta": 0.7584828029967676,
+        "robust_se": 0.4052587717263981
+      },
+      "log_creatinine": {
+        "beta": 0.2965868400983314,
+        "robust_se": 0.10330524241223842
+      },
+      "log_creatinine_missing": {
+        "beta": -0.04976617799191561,
+        "robust_se": 0.1163431485286513
+      },
+      "log_lactate": {
+        "beta": 1.145350025813169,
+        "robust_se": 0.11821046346073329
+      },
+      "log_lactate_missing": {
+        "beta": -0.45085653181443663,
+        "robust_se": 0.11819675851514902
+      },
+      "male": {
+        "beta": -0.09637126924102415,
+        "robust_se": 0.1042077703073012
+      },
+      "H_mean_spo2": {
+        "beta": 0.029915146888541296,
+        "robust_se": 0.09946075055635045
+      },
+      "H_hypoxic_fraction": {
+        "beta": 0.02100630801199337,
+        "robust_se": 0.43092770840065636
+      }
+    }
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_12h",
+    "variant": "observation_weighted",
+    "n": 659,
+    "events": 159,
+    "non_events": 500,
+    "persons": 644,
+    "parameters": 22,
+    "events_per_parameter": 7.2272727272727275,
+    "hb_sd": 2.4754948079501715,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 247.92752289119943,
+    "medians": {
+      "age": 7.2,
+      "mean_spo2": 0.4833333333333343,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 3.8501476017100584,
+      "mean_hr": 4.28125,
+      "mean_map": 3.8566964285714285,
+      "log_creatinine": 0.412109650826833,
+      "log_lactate": 0.6418538861723947,
+      "fio2": 2.5
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 8.395430635513073e-05,
+    "interaction_log_OR": -0.023361637126401477,
+    "robust_se": 0.20354816662124833,
+    "interaction_OR": 0.976909133273086,
+    "interaction_OR_ci95": [
+      0.6555268315238574,
+      1.4558541447553843
+    ],
+    "p": 0.9086258160772563,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 42,
+        "hb8_X1": 29,
+        "hb12_X0": 111,
+        "hb12_X1": 87
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.24130466676362425,
+          "ci95": [
+            0.15346077698951333,
+            0.32914855653773517
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.2544133687536385,
+          "ci95": [
+            0.1404418182868889,
+            0.36838491922038813
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.2320039959106504,
+          "ci95": [
+            0.1912763193148036,
+            0.2727316725064972
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.2524514253260915,
+          "ci95": [
+            0.19581825991232277,
+            0.3090845907398602
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.013108701990014265,
+          "ci95": [
+            -0.1359853807463385,
+            0.16220278472636704
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.020447429415441087,
+          "ci95": [
+            -0.05341203433307609,
+            0.09430689316395827
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": -0.007338727425426822,
+        "ci95": [
+          -0.13623799622072585,
+          0.12156054136987221
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -0.7526328453481899,
+        "robust_se": 2.3127377656208825
+      },
+      "X": {
+        "beta": 0.12815502703190262,
+        "robust_se": 0.234475076727453
+      },
+      "H": {
+        "beta": -0.05401054581434425,
+        "robust_se": 0.20145239593761433
+      },
+      "X_H": {
+        "beta": -0.023361637126401477,
+        "robust_se": 0.20354816662124833
+      },
+      "age": {
+        "beta": 0.1454978363491673,
+        "robust_se": 0.08299554570977437
+      },
+      "mean_spo2": {
+        "beta": 0.44083317500234864,
+        "robust_se": 0.27465772487639895
+      },
+      "hypoxic_fraction": {
+        "beta": -0.5087752394410384,
+        "robust_se": 1.5688730647553961
+      },
+      "log_readings": {
+        "beta": -0.3994690994451131,
+        "robust_se": 0.45918325099542157
+      },
+      "mean_hr": {
+        "beta": 0.1565637740073518,
+        "robust_se": 0.12119227330490719
+      },
+      "mean_map": {
+        "beta": -0.3564528363385625,
+        "robust_se": 0.33360979538393587
+      },
+      "mean_map_missing": {
+        "beta": 0.10136530447178277,
+        "robust_se": 0.4027826689152079
+      },
+      "log_creatinine": {
+        "beta": 0.2304775624181802,
+        "robust_se": 0.23895547513081
+      },
+      "log_creatinine_missing": {
+        "beta": -0.47367791293408246,
+        "robust_se": 0.22829450103339535
+      },
+      "log_lactate": {
+        "beta": 0.37460277486280125,
+        "robust_se": 0.29841015127521314
+      },
+      "log_lactate_missing": {
+        "beta": -0.6096213972805518,
+        "robust_se": 0.24309023405753563
+      },
+      "fio2": {
+        "beta": 0.30270120854337923,
+        "robust_se": 0.11968660269517074
+      },
+      "fio2_missing": {
+        "beta": -0.4228663163846754,
+        "robust_se": 0.25001383791719745
+      },
+      "male": {
+        "beta": 0.17639056750747437,
+        "robust_se": 0.2242936537668915
+      },
+      "vent_documented": {
+        "beta": -0.38864861343247503,
+        "robust_se": 0.308456677853268
+      },
+      "vasoactive_documented": {
+        "beta": 1.0356299369208815,
+        "robust_se": 0.40373393198222374
+      },
+      "H_mean_spo2": {
+        "beta": 0.13158797191932342,
+        "robust_se": 0.23899084836264534
+      },
+      "H_hypoxic_fraction": {
+        "beta": 0.9589959626493213,
+        "robust_se": 1.3583506104646847
+      }
+    }
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_rise_12h",
+    "variant": "observation_weighted",
+    "n": 516,
+    "events": 145,
+    "non_events": 371,
+    "persons": 509,
+    "parameters": 22,
+    "events_per_parameter": 6.590909090909091,
+    "hb_sd": 2.677639521217224,
+    "columns": [
+      "intercept",
+      "X",
+      "H",
+      "X_H",
+      "age",
+      "mean_spo2",
+      "hypoxic_fraction",
+      "log_readings",
+      "mean_hr",
+      "mean_map",
+      "mean_map_missing",
+      "log_creatinine",
+      "log_creatinine_missing",
+      "log_lactate",
+      "log_lactate_missing",
+      "fio2",
+      "fio2_missing",
+      "male",
+      "vent_documented",
+      "vasoactive_documented",
+      "H_mean_spo2",
+      "H_hypoxic_fraction"
+    ],
+    "constant_columns_omitted": [
+      "age_missing",
+      "mean_spo2_missing",
+      "hypoxic_fraction_missing",
+      "log_readings_missing",
+      "mean_hr_missing",
+      "sex_unknown"
+    ],
+    "rank": 22,
+    "condition_number": 237.8318099148869,
+    "medians": {
+      "age": 7.5,
+      "mean_spo2": 0.48090909090909123,
+      "hypoxic_fraction": 0.0,
+      "log_readings": 2.0794415416798357,
+      "mean_hr": 4.178571428571429,
+      "mean_map": 3.81,
+      "log_creatinine": 0.5306282510621704,
+      "log_lactate": 0.7419373447293773,
+      "fio2": 3.0
+    },
+    "estimable": true,
+    "converged": true,
+    "warnings": [],
+    "robust_covariance_min_eigenvalue": 0.00010067541393671899,
+    "interaction_log_OR": 0.16100140217798786,
+    "robust_se": 0.22425678577100858,
+    "interaction_OR": 1.1746866159324323,
+    "interaction_OR_ci95": [
+      0.7568865551032462,
+      1.8231115830331541
+    ],
+    "p": 0.4727984474658903,
+    "standardized": {
+      "neighborhoods": {
+        "hb8_X0": 54,
+        "hb8_X1": 32,
+        "hb12_X0": 97,
+        "hb12_X1": 50
+      },
+      "support_pass": true,
+      "risks": {
+        "hb8_X0": {
+          "risk": 0.3025934767587653,
+          "ci95": [
+            0.21293043077514817,
+            0.39225652274238243
+          ]
+        },
+        "hb8_X1": {
+          "risk": 0.43505613443625585,
+          "ci95": [
+            0.29430041350539665,
+            0.575811855367115
+          ]
+        },
+        "hb12_X0": {
+          "risk": 0.23741450818150536,
+          "ci95": [
+            0.18053292723458522,
+            0.29429608912842553
+          ]
+        },
+        "hb12_X1": {
+          "risk": 0.2913691070898643,
+          "ci95": [
+            0.2060995229385294,
+            0.3766386912411992
+          ]
+        }
+      },
+      "contrasts": {
+        "RD_hb8": {
+          "value": 0.13246265767749055,
+          "ci95": [
+            -0.041732439965956325,
+            0.3066577553209374
+          ]
+        },
+        "RD_hb12": {
+          "value": 0.053954598908358936,
+          "ci95": [
+            -0.05430849646629361,
+            0.16221769428301147
+          ]
+        }
+      },
+      "difference_in_differences": {
+        "value": 0.07850805876913161,
+        "ci95": [
+          -0.10066281299803609,
+          0.2576789305362993
+        ]
+      }
+    },
+    "coefficients": {
+      "intercept": {
+        "beta": -6.608184381994829,
+        "robust_se": 1.946289210235097
+      },
+      "X": {
+        "beta": 0.3042570840061675,
+        "robust_se": 0.30401303914935646
+      },
+      "H": {
+        "beta": 0.22965762901618422,
+        "robust_se": 0.18522702729151852
+      },
+      "X_H": {
+        "beta": 0.16100140217798786,
+        "robust_se": 0.22425678577100858
+      },
+      "age": {
+        "beta": 0.08671472460911388,
+        "robust_se": 0.09714120399385136
+      },
+      "mean_spo2": {
+        "beta": -0.3272941992750652,
+        "robust_se": 0.32961934987128394
+      },
+      "hypoxic_fraction": {
+        "beta": -0.4257171981106033,
+        "robust_se": 1.24540869418484
+      },
+      "log_readings": {
+        "beta": 0.42847189879345526,
+        "robust_se": 0.37437973976076594
+      },
+      "mean_hr": {
+        "beta": 0.3341196692085078,
+        "robust_se": 0.16346885114966475
+      },
+      "mean_map": {
+        "beta": 0.3346916012896691,
+        "robust_se": 0.2372662030494518
+      },
+      "mean_map_missing": {
+        "beta": -25.484298234815682,
+        "robust_se": 1.0741880233174292
+      },
+      "log_creatinine": {
+        "beta": 0.12477197042747133,
+        "robust_se": 0.19208094186750632
+      },
+      "log_creatinine_missing": {
+        "beta": -0.7307361166245349,
+        "robust_se": 0.3543835318888611
+      },
+      "log_lactate": {
+        "beta": 0.4003765599698444,
+        "robust_se": 0.28353935131109287
+      },
+      "log_lactate_missing": {
+        "beta": 0.12687091681255996,
+        "robust_se": 0.27050542966641056
+      },
+      "fio2": {
+        "beta": 0.25232169698663737,
+        "robust_se": 0.1332314822168231
+      },
+      "fio2_missing": {
+        "beta": -0.14346696253596952,
+        "robust_se": 0.38531244145786153
+      },
+      "male": {
+        "beta": 0.06277962932909548,
+        "robust_se": 0.2984479305979845
+      },
+      "vent_documented": {
+        "beta": 0.4402958381538757,
+        "robust_se": 0.3981806919705955
+      },
+      "vasoactive_documented": {
+        "beta": -0.25620283500990854,
+        "robust_se": 0.31588488654622354
+      },
+      "H_mean_spo2": {
+        "beta": -0.020210369018579404,
+        "robust_se": 0.24331818009026984
+      },
+      "H_hypoxic_fraction": {
+        "beta": -1.0675498159593524,
+        "robust_se": 0.8457804153934099
+      }
+    }
+  }
+]

@@ -9,6 +9,7 @@ from __future__ import annotations
 import math
 import re
 from dataclasses import dataclass
+from itertools import islice
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -128,11 +129,20 @@ def _iter_csv_chunks(
     Yields:
         DataFrame chunks from the CSV.
     """
-    for chunk_index, chunk in enumerate(
-        pd.read_csv(path, usecols=usecols, chunksize=chunksize)
-    ):
-        if max_chunks is not None and chunk_index >= max_chunks:
-            break
+    # ``low_memory=True`` performs a second internal sub-chunk concatenation.
+    # On mixed numeric/text eICU respiratory values, pandas can fail inside
+    # that concatenation with ``IndexError: list index out of range`` before a
+    # DataFrame is yielded.  We already bound memory explicitly with
+    # ``chunksize``; disabling the nested inference pass is both stable and
+    # still memory safe.
+    reader = pd.read_csv(
+        path,
+        usecols=usecols,
+        chunksize=chunksize,
+        low_memory=False,
+    )
+    chunks = reader if max_chunks is None else islice(reader, max_chunks)
+    for chunk in chunks:
         yield chunk
 
 
@@ -469,7 +479,7 @@ def ordered_columns(df: pd.DataFrame, required: list[str]) -> pd.DataFrame:
 
 
 def sanitize_events(events_df: pd.DataFrame) -> pd.DataFrame:
-    """Sanitize events: convert Fahrenheit temperatures to Celsius.
+    """Normalize temperature and null impossible physiological measurements.
 
     Temperatures above 50°C are assumed to be in Fahrenheit and are
     converted to Celsius using (F - 32) * 5/9.
@@ -481,10 +491,32 @@ def sanitize_events(events_df: pd.DataFrame) -> pd.DataFrame:
         Copy of events_df with sanitized temperature values.
     """
     events_df = events_df.copy()
+    events_df["value_numeric"] = pd.to_numeric(
+        events_df["value_numeric"], errors="coerce"
+    )
     temp_mask = (events_df["concept"] == "temp") & (
         events_df["value_numeric"] > 50
     )
     events_df.loc[temp_mask, "value_numeric"] = (
         events_df.loc[temp_mask, "value_numeric"] - 32.0
     ) * (5.0 / 9.0)
+    plausible_bounds = {
+        "lactate": (0.0, 30.0),
+        "hr": (20.0, 300.0),
+        "sbp": (20.0, 300.0),
+        "map": (20.0, 250.0),
+        "ph": (6.5, 8.0),
+        "creatinine": (0.1, 30.0),
+        "bilirubin_total": (0.0, 60.0),
+        "spo2": (50.0, 100.0),
+        "resp_rate": (1.0, 100.0),
+        "temp": (25.0, 45.0),
+    }
+    concept = events_df["concept"].fillna("").astype(str).str.lower()
+    for name, (lower, upper) in plausible_bounds.items():
+        selected = concept.eq(name)
+        impossible = selected & ~events_df["value_numeric"].between(
+            lower, upper, inclusive="both"
+        )
+        events_df.loc[impossible, "value_numeric"] = np.nan
     return events_df

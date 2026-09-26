@@ -1,0 +1,14 @@
+{
+  "hemoglobin_interaction": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/hemoglobin_interaction.duckdb",
+    "sha256": "5a40a1e164c1554574537e916a90d692b682c25775a82eb52e209cb5c61455da",
+    "bytes": 6303744,
+    "mtime_ns": 1788593845873116200
+  },
+  "spo2_context": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_context.duckdb",
+    "sha256": "7902a93985c6024dfb38a1a7555c54418492bfb3ebf4b93104a78148316d3352",
+    "bytes": 39333888,
+    "mtime_ns": 1788588260012526832
+  }
+}

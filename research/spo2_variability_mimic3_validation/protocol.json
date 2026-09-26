@@ -1,0 +1,202 @@
+{
+  "status": "FROZEN_BEFORE_MIMIC3_ENDPOINT_SUPPORT_OR_ASSOCIATION",
+  "dataset": "MIMIC-III_v1.4",
+  "interpretation": "same_institution_historical_database_version_replication_not_independent_external_validation",
+  "population": "adult_explicit_HF_first_ICU_per_hospital_admission",
+  "timeline_origin": "ICUSTAYS.intime",
+  "exposure": {
+    "source": "CHARTEVENTS itemid 646",
+    "window_minutes": [
+      0,
+      240
+    ],
+    "value_bounds": [
+      50,
+      100
+    ],
+    "hourly_aggregation": "median",
+    "minimum_bins": 3,
+    "minimum_span_hours": 2,
+    "feature": "RMS residual around within-stay OLS line",
+    "transform": {
+      "lower": 1.160311428702309e-14,
+      "upper": 4.300141942983509,
+      "center": 0.8776215724100497,
+      "scale": 0.8227000137550243
+    }
+  },
+  "endpoint": {
+    "name": "pressure_support_plus_hypoperfusion",
+    "primary_window_minutes": {
+      "lower_exclusive": 360,
+      "upper_inclusive": 960
+    },
+    "later_window_minutes": {
+      "lower_exclusive": 480,
+      "upper_inclusive": 960
+    },
+    "maximum_domain_separation_minutes": 360,
+    "pressure_support_components": [
+      "sustained_cuff_hypotension",
+      "continuous_support",
+      "mcs"
+    ],
+    "hypoperfusion_components": [
+      "lactate",
+      "creatinine",
+      "alt",
+      "ph",
+      "oliguria"
+    ]
+  },
+  "mapping": {
+    "timeline_origin": "ICUSTAYS.intime",
+    "heart_failure": {
+      "diagnoses_icd.icd9_prefix": "428"
+    },
+    "vitals": {
+      "hr": [
+        211
+      ],
+      "sbp_cuff": [
+        455
+      ],
+      "map_cuff": [
+        456
+      ],
+      "resp_rate": [
+        614,
+        615,
+        618
+      ],
+      "spo2": [
+        646
+      ],
+      "temperature_c": [
+        676,
+        677
+      ],
+      "temperature_f": [
+        678,
+        679
+      ]
+    },
+    "labs": {
+      "lactate": [
+        50813
+      ],
+      "ph": [
+        50820
+      ],
+      "alt": [
+        50861
+      ],
+      "creatinine": [
+        50912
+      ]
+    },
+    "continuous_support": {
+      "source": "INPUTEVENTS_CV positive recorded rate/originalrate",
+      "itemids": [
+        30042,
+        30306,
+        30043,
+        30307,
+        30044,
+        30309,
+        30119,
+        30047,
+        30120,
+        30125,
+        30127,
+        30128,
+        30051,
+        42802,
+        42273
+      ]
+    },
+    "mcs": {
+      "source": "CareVue CHARTEVENTS recorded IABP/ECMO/VAD support fields",
+      "itemids": [
+        224,
+        225,
+        429,
+        600,
+        2515,
+        2865,
+        2957,
+        3265,
+        5798,
+        5931,
+        5937,
+        6424,
+        6758,
+        6931,
+        7015,
+        7449
+      ]
+    },
+    "urine_output": {
+      "source": "OUTPUTEVENTS direct urine-volume fields",
+      "itemids": [
+        40055,
+        40056,
+        40057,
+        40069,
+        40085,
+        40094,
+        40096,
+        40405,
+        40428,
+        40473,
+        40651,
+        40715,
+        43175
+      ]
+    },
+    "site_identifier": null,
+    "released_site_count": 1
+  },
+  "adjustment_covariates": [
+    "age",
+    "male_sex",
+    "hr_level",
+    "sbp_level",
+    "map_level",
+    "resp_rate_level",
+    "spo2_level",
+    "temperature_c_level",
+    "baseline_creatinine",
+    "baseline_lactate",
+    "lactate_observed",
+    "bp_measurement_density",
+    "urine_measurement_density"
+  ],
+  "gates": {
+    "minimum_exposure_coverage": 0.7,
+    "minimum_modeled_primary_events": 50,
+    "minimum_contributing_sites": 20,
+    "exact_composite_required": true
+  },
+  "user_authorized_waivers": {
+    "minimum_70_percent_exposure_coverage": true,
+    "minimum_20_contributing_sites": true,
+    "minimum_50_modeled_primary_events": false,
+    "exact_composite_required": false
+  },
+  "primary_covariance": "HC0_due_single_hospital_and_user_site_waiver",
+  "confirmation": {
+    "primary_rr_gt_1": true,
+    "primary_two_sided_95_ci_excludes_1": true,
+    "primary_p_lt": 0.05,
+    "later_window_rr_gt_1": true
+  },
+  "prohibited": [
+    "alternate_exposure",
+    "dataset_specific_exposure_scaling",
+    "alternate_endpoint",
+    "threshold_or_time_window_search",
+    "subgroup_or_unit_rescue"
+  ],
+  "association_inspected": false
+}

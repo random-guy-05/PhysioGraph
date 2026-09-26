@@ -1,0 +1,39 @@
+Executing notebook cell 38
+care-context extraction setup running
+
+Executing notebook cell 39
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell39", line 87 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1714 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1728 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell39", line 87 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1714 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1728 in <module>
+eICU respiratory oxygen extraction running
+eICU documented circulatory support extraction running
+eICU invasive ventilation documentation extraction running
+MIMIC vasoactive infusion extraction running
+MIMIC invasive ventilation extraction running
+MIMIC FiO2 dictionary and chart extraction running
+[
+  {
+    "dataset": "eicu",
+    "eligible": 11452.0,
+    "fio2_observed": 4224.0,
+    "documented_invasive_ventilation": 1596.0,
+    "documented_vasoactive": 956.0
+  },
+  {
+    "dataset": "mimic",
+    "eligible": 4711.0,
+    "fio2_observed": 1883.0,
+    "documented_invasive_ventilation": 1450.0,
+    "documented_vasoactive": 1526.0
+  }
+]
+care-context extraction complete
+
+Locally executed selected notebook cells: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb

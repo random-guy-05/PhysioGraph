@@ -1,0 +1,13 @@
+{
+  "amendment_sha256": "bbbcd2db065fe5a8c01d6d5a0739c6f3c6d46f5fd93608b7a7fa5993985f8ed9",
+  "original_hemoglobin_protocol_sha256": "e983447d8971cb9a8c5b633be8cb4e5934b7f7a0b6909174f51b749007870628",
+  "original_direction_protocol_sha256": "cb137c6444593ddfa99eff90fd85c0216f92750c33f8f9c0d25290774f140490",
+  "original_direction_boundary_sha256": "e9105d2d2973387c0181882f02e006d284d297a70efa73f4d34dc5b6b3e1fc2b",
+  "environment": "local",
+  "completed_utc": "2026-09-05T06:53:59.043832+00:00",
+  "hemoglobin_feasibility_pass": true,
+  "ordering_feasibility_pass": false,
+  "biological_associations_examined": false,
+  "troponin_directions_examined": false,
+  "biological_discovery": false
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "gate_pass": true,
+    "primary_people": 1058,
+    "hospitals": 161,
+    "missing_hospital_identifiers": 0
+  },
+  {
+    "dataset": "mimic",
+    "gate_pass": true,
+    "primary_people": 478,
+    "hospitals": 1,
+    "missing_hospital_identifiers": 0
+  }
+]

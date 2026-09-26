@@ -1,0 +1,31 @@
+[
+  {
+    "exposed": false,
+    "encounters": 6,
+    "blocks": 72,
+    "usable_blocks": 33,
+    "encounters_with_usable_blocks": 6,
+    "statuses": {
+      "usable": 33,
+      "incomplete_waveform_extent": 20,
+      "spo2_gap_exceeds_limit": 11,
+      "spo2_observed_below_90pct": 7,
+      "pleth_finite_below_95pct": 1
+    }
+  },
+  {
+    "exposed": true,
+    "encounters": 5,
+    "blocks": 60,
+    "usable_blocks": 18,
+    "encounters_with_usable_blocks": 5,
+    "statuses": {
+      "usable": 18,
+      "spo2_observed_below_90pct": 15,
+      "spo2_gap_exceeds_limit": 13,
+      "incomplete_waveform_extent": 8,
+      "resp_finite_below_95pct": 4,
+      "spo2_range_uninformative": 2
+    }
+  }
+]

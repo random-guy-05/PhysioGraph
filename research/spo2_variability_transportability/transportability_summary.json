@@ -1,0 +1,282 @@
+{
+  "status": "complete",
+  "environment": "LOCAL",
+  "frozen_validation_classification": "POST_HOC_SIGNAL_NOT_EXTERNALLY_VALIDATED",
+  "transportability_decision": "THIRD_COHORT_STRONGLY_JUSTIFIED",
+  "precision": {
+    "source": "locked_eicu_hospital_clustered_model",
+    "estimate": {
+      "rr": 1.1042124729105849,
+      "log_rr": 0.09913238668390854,
+      "cluster_robust_se": 0.10983971737060261,
+      "ci_low": 0.8903385820221175,
+      "ci_high": 1.3694623707781992,
+      "rr_scale_ci_width": 0.47912378875608175,
+      "log_scale_ci_width": 0.4305716920927622,
+      "multiplicative_95_ci_factor": 1.2402163572454894,
+      "events": 85,
+      "hospitals": 194
+    },
+    "power": [
+      {
+        "true_rr": 1.1,
+        "log_rr": 0.09531017980432493,
+        "power": 0.13970735681464747,
+        "method": "two_sided_normal_approximation_observed_cluster_robust_se"
+      },
+      {
+        "true_rr": 1.15,
+        "log_rr": 0.13976194237515863,
+        "power": 0.2464829213490205,
+        "method": "two_sided_normal_approximation_observed_cluster_robust_se"
+      },
+      {
+        "true_rr": 1.2,
+        "log_rr": 0.1823215567939546,
+        "power": 0.38220673476009037,
+        "method": "two_sided_normal_approximation_observed_cluster_robust_se"
+      },
+      {
+        "true_rr": 1.25,
+        "log_rr": 0.22314355131420976,
+        "power": 0.5285623376858789,
+        "method": "two_sided_normal_approximation_observed_cluster_robust_se"
+      },
+      {
+        "true_rr": 1.3,
+        "log_rr": 0.26236426446749106,
+        "power": 0.6659164817024976,
+        "method": "two_sided_normal_approximation_observed_cluster_robust_se"
+      }
+    ],
+    "required_events": [
+      {
+        "true_rr": 1.2,
+        "target_power": 0.8,
+        "required_events": 243,
+        "event_multiplier_vs_observed": 2.848724476289703,
+        "method": "inverse_event_scaling_of_observed_cluster_robust_se"
+      },
+      {
+        "true_rr": 1.2,
+        "target_power": 0.9,
+        "required_events": 325,
+        "event_multiplier_vs_observed": 3.813633826858365,
+        "method": "inverse_event_scaling_of_observed_cluster_robust_se"
+      },
+      {
+        "true_rr": 1.25,
+        "target_power": 0.8,
+        "required_events": 162,
+        "event_multiplier_vs_observed": 1.9017691887179755,
+        "method": "inverse_event_scaling_of_observed_cluster_robust_se"
+      },
+      {
+        "true_rr": 1.25,
+        "target_power": 0.9,
+        "required_events": 217,
+        "event_multiplier_vs_observed": 2.545929369209484,
+        "method": "inverse_event_scaling_of_observed_cluster_robust_se"
+      }
+    ],
+    "distinguish_rr_1_10_from": [
+      {
+        "rr_a": 1.1,
+        "rr_b": 1.2,
+        "log_scale_difference": 0.08701137698962966,
+        "difference_in_observed_se_units": 0.7921667960602136
+      },
+      {
+        "rr_a": 1.1,
+        "rr_b": 1.25,
+        "log_scale_difference": 0.12783337150988483,
+        "difference_in_observed_se_units": 1.1638173747167528
+      }
+    ],
+    "limitations": [
+      "Power is a labeled normal approximation, not a new fitted or simulated outcome model.",
+      "It holds the observed exposure distribution, covariate information, event prevalence relationship, and hospital-clustering design effect constant through the observed robust SE.",
+      "Inverse-event scaling assumes information grows linearly with event count and a similar hospital structure."
+    ]
+  },
+  "degradation": {
+    "status": "POST_HOC_MEASUREMENT_PROCESS_DIAGNOSTIC",
+    "degradation_lock_sha256": "57683ba0d46bad959a0a146f4025df7323b926ffe73a774db6c81272a7d1d585",
+    "agreement": {
+      "n_paired": 5957,
+      "pearson_correlation": 0.8112131779623386,
+      "spearman_rank_correlation": 0.7540084754564338,
+      "reliability_slope_degraded_on_original": 0.7959853549822212,
+      "original_sd": 0.9535740961692932,
+      "degraded_sd": 0.9356739215550587,
+      "original_iqr": 0.930298179126646,
+      "degraded_iqr": 0.9213167454046086,
+      "same_quartile_fraction": 0.6343797213362431,
+      "moved_two_or_more_quartiles_fraction": 0.08309551787812658
+    },
+    "original_locked_mimic": {
+      "n": 5957,
+      "events": 158,
+      "coverage": 0.7268179599804783,
+      "rr_per_mimic_sd": 1.2510878230694424,
+      "ci_low": 1.1039551264449385,
+      "ci_high": 1.4178300399519945,
+      "p_value": 0.00044924317040548063,
+      "log_rr": 0.22401343131442733,
+      "hospitals": null,
+      "covariance": "HC0"
+    },
+    "degraded_mimic_single_fit": {
+      "n": 5957,
+      "events": 158,
+      "coverage": 0.7268179599804783,
+      "rr_per_mimic_sd": 1.0611030125327117,
+      "ci_low": 0.9092973414778941,
+      "ci_high": 1.238252386591156,
+      "p_value": 0.4514954547191521,
+      "log_rr": 0.05930894495916914,
+      "hospitals": null,
+      "covariance": "HC0"
+    },
+    "percent_attenuation_of_log_rr": 73.52437993955704,
+    "outcome_fit_count": 1,
+    "interpretation_guard": "The degradation rule was not modified after this effect estimate."
+  },
+  "synthesis": {
+    "studies": [
+      {
+        "dataset": "MIMIC",
+        "log_rr": 0.22401343131442733,
+        "se": 0.06383374011311983,
+        "rr": 1.2510878230694424
+      },
+      {
+        "dataset": "eICU",
+        "log_rr": 0.09913238668390854,
+        "se": 0.10983971737060261,
+        "rr": 1.1042124729105849
+      }
+    ],
+    "fixed_effect": {
+      "log_rr": 0.19248468058740764,
+      "se": 0.05519052517974279,
+      "rr": 1.212257932485758,
+      "ci_low": 1.0879674723341262,
+      "ci_high": 1.3507474554563932
+    },
+    "random_effects_dl": {
+      "log_rr": 0.19248468058740764,
+      "se": 0.05519052517974279,
+      "rr": 1.212257932485758,
+      "ci_low": 1.0879674723341262,
+      "ci_high": 1.3507474554563932,
+      "tau_squared": 0.0
+    },
+    "heterogeneity": {
+      "q": 0.9662793613548064,
+      "df": 1,
+      "p_value": 0.3256098516027558,
+      "i_squared_percent": 0.0,
+      "warning": "I-squared and tau-squared are highly unstable with only two datasets."
+    },
+    "database_by_exposure_interaction": {
+      "z": 0.982995097319822,
+      "p_value": 0.32560985160275857,
+      "method": "independent_summary_estimate_difference"
+    },
+    "interpretation_guard": "Pooling does not convert a failed external validation into successful external validation."
+  },
+  "outcome_hospital_summary": {
+    "status": "complete_after_interrupted_reporting_resume",
+    "environment": "LOCAL",
+    "degradation": {
+      "status": "POST_HOC_MEASUREMENT_PROCESS_DIAGNOSTIC",
+      "degradation_lock_sha256": "57683ba0d46bad959a0a146f4025df7323b926ffe73a774db6c81272a7d1d585",
+      "agreement": {
+        "n_paired": 5957,
+        "pearson_correlation": 0.8112131779623386,
+        "spearman_rank_correlation": 0.7540084754564338,
+        "reliability_slope_degraded_on_original": 0.7959853549822212,
+        "original_sd": 0.9535740961692932,
+        "degraded_sd": 0.9356739215550587,
+        "original_iqr": 0.930298179126646,
+        "degraded_iqr": 0.9213167454046086,
+        "same_quartile_fraction": 0.6343797213362431,
+        "moved_two_or_more_quartiles_fraction": 0.08309551787812658
+      },
+      "original_locked_mimic": {
+        "n": 5957,
+        "events": 158,
+        "coverage": 0.7268179599804783,
+        "rr_per_mimic_sd": 1.2510878230694424,
+        "ci_low": 1.1039551264449385,
+        "ci_high": 1.4178300399519945,
+        "p_value": 0.00044924317040548063,
+        "log_rr": 0.22401343131442733,
+        "hospitals": null,
+        "covariance": "HC0"
+      },
+      "degraded_mimic_single_fit": {
+        "n": 5957,
+        "events": 158,
+        "coverage": 0.7268179599804783,
+        "rr_per_mimic_sd": 1.0611030125327117,
+        "ci_low": 0.9092973414778941,
+        "ci_high": 1.238252386591156,
+        "p_value": 0.4514954547191521,
+        "log_rr": 0.05930894495916914,
+        "hospitals": null,
+        "covariance": "HC0"
+      },
+      "percent_attenuation_of_log_rr": 73.52437993955704,
+      "outcome_fit_count": 1,
+      "interpretation_guard": "The degradation rule was not modified after this effect estimate."
+    },
+    "hospital_event_concentration": [
+      {
+        "top_hospital_fraction": 0.01,
+        "hospitals": 2,
+        "events": 21,
+        "fraction_of_modeled_events": 0.24705882352941178
+      },
+      {
+        "top_hospital_fraction": 0.05,
+        "hospitals": 10,
+        "events": 43,
+        "fraction_of_modeled_events": 0.5058823529411764
+      },
+      {
+        "top_hospital_fraction": 0.1,
+        "hospitals": 20,
+        "events": 58,
+        "fraction_of_modeled_events": 0.6823529411764706
+      }
+    ],
+    "mimic_endpoint_events": 238,
+    "eicu_endpoint_events": 95,
+    "degraded_outcome_model_refit_during_resume": false,
+    "status_metadata_correction": "risk-set-restricted counts read from validated composition CSV; no model refit"
+  },
+  "artifact_hashes": {
+    "FINAL_REPORT.md": "ce1d240e9dd8eac44661c4bd9132a091a577591f7cad8180fd4e0f4d6a8767aa",
+    "THIRD_COHORT_VALIDATION_PROTOCOL.md": "8cb8a4c784ce0bd9471d21c172fe3251cae16000cf4110134359bf8e74be2d6b",
+    "clinical_context_comparison.csv": "84c68f4faf9adf41452d720a46780ea983bb59111488a5e556399550c48247b1",
+    "cross_database_effect_synthesis.json": "6947cfaa8c722a58a6a8c1d430081ea2a58cce0ed00aa08b287efc43accf65ee",
+    "degradation_outcome_read_receipt.json": "f15d520732c6081f3b64949cf216a921a76552cb178e009d559704bfcacf8c92",
+    "eicu_hospital_heterogeneity.csv": "096ed74bec883fa8e4026010da9d19936ce3a67a90c4f0c64f0a9f27f7175475",
+    "eicu_precision_analysis.json": "e2a95deedd2c2bfdd0e28d1854aeb862cd067721277d6f6a3cb92322121f2435",
+    "eicu_precision_report.md": "6394e7d2a963642f315a3cc95d11e76d1f6eff117464612aa5629a0f89f7eb78",
+    "execution_continuation.json": "f0631f86644c360ded00955cb25bef840254819f7034ee9d581346f512bd2c17",
+    "feature_distribution_comparison.csv": "2f44c5b9c2fb5cb6b289dac05630bfd460858994683b50736c75946612d3cacd",
+    "frozen_result_verification.json": "01cf3a92328f07a7bc685cdc624ba83379638a298b60cc3198f2507de8898b69",
+    "implementation_correction_001.json": "24630165ea4c26f67f7d354c50d9732bb5a6a6c99004114d2028bdd9805fc2a8",
+    "measurement_degradation_lock.json": "57683ba0d46bad959a0a146f4025df7323b926ffe73a774db6c81272a7d1d585",
+    "measurement_degradation_lock.sha256": "dc5260ccff060cb153fdcd4bdbe45a9ef76190a74a015cec6b40ef3f473f6d0f",
+    "measurement_process_comparison.csv": "89e8c2eab7bcecd1740e41f5f7bb9a9331133d8ab13978aa8e30dc3b097604e5",
+    "measurement_stage_status.json": "c2683d13c15c02382c21eed4d7d9ff35fcfbdccb8570b1651dad734cda4c4b1c",
+    "mimic_degradation_results.json": "bfb157b59ab6db14ada33aa0ea37d182c7e57b18742bbaeace1ea1c96bcce5fd",
+    "outcome_composition_comparison.csv": "0c0be6a63ca43cf2d12b46fb5cf228f88fc016b96bea4ca72c62f7f8e5683fe6",
+    "outcome_stage_status.json": "0ea47f24a49a5341f20e5a11676c7afb76696297cf22b813336def820eac9274",
+    "third_cohort_decision.json": "68a3d111d35f522a9c1b4ebb7c26504b03711e93b183bd6570918c5f6a151ca1"
+  }
+}

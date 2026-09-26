@@ -1,0 +1,9 @@
+{
+  "status": "running",
+  "stage": "protocol_verified",
+  "environment": "local",
+  "protocol_freeze_utc": "2026-09-07T18:04:48Z",
+  "mimic_associations_inspected": false,
+  "eicu_associations_inspected": false,
+  "start_utc": "2026-09-07T19:46:16.469815+00:00"
+}

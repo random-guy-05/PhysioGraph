@@ -1,0 +1,46 @@
+[
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_12h",
+    "planning": [
+      {
+        "assumed_constant_outcome_risk": 0.1,
+        "independent_fisher_se": 0.23725007695666697,
+        "interaction_OR_for_80_percent_power_bonferroni4": 2.2083718365100595
+      },
+      {
+        "assumed_constant_outcome_risk": 0.3,
+        "independent_fisher_se": 0.15531663375543212,
+        "interaction_OR_for_80_percent_power_bonferroni4": 1.6797634556505536
+      },
+      {
+        "assumed_constant_outcome_risk": 0.5,
+        "independent_fisher_se": 0.1423500461740002,
+        "interaction_OR_for_80_percent_power_bonferroni4": 1.6085824270803233
+      }
+    ],
+    "limitation": "Independent-observation null-risk approximation, not empirical clustered power"
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "hospital_mortality",
+    "planning": [
+      {
+        "assumed_constant_outcome_risk": 0.1,
+        "independent_fisher_se": 0.10523385341365823,
+        "interaction_OR_for_80_percent_power_bonferroni4": 1.4210701539061776
+      },
+      {
+        "assumed_constant_outcome_risk": 0.3,
+        "independent_fisher_se": 0.06889172841999656,
+        "interaction_OR_for_80_percent_power_bonferroni4": 1.2586654445736947
+      },
+      {
+        "assumed_constant_outcome_risk": 0.5,
+        "independent_fisher_se": 0.06314031204819495,
+        "interaction_OR_for_80_percent_power_bonferroni4": 1.2347223541760783
+      }
+    ],
+    "limitation": "Independent-observation null-risk approximation, not empirical clustered power"
+  }
+]

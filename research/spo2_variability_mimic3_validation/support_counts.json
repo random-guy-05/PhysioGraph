@@ -1,0 +1,38 @@
+{
+  "preliminary_cohort_before_pre360_exclusions": 5405,
+  "at_risk": 2368,
+  "pre_pressure_support_excluded_unique_stays": 2425,
+  "pre_hypoperfusion_excluded_unique_stays": 1464,
+  "valid_frozen_exposure": 1799,
+  "exposure_coverage": 0.7597128378378378,
+  "primary_events_at_risk": 103,
+  "primary_events_modeled": 72,
+  "later_events_modeled": 53,
+  "released_sites": 1,
+  "component_counts": {
+    "pressure_support_post360": {
+      "continuous_support": 35150,
+      "mcs": 5180,
+      "sustained_hypotension": 4609
+    },
+    "hypoperfusion_post360": {
+      "oliguria": 776,
+      "lactate": 612,
+      "creatinine": 356,
+      "ph": 113,
+      "alt": 21
+    },
+    "paired_pressure_support": {
+      "continuous_support": 519,
+      "sustained_hypotension": 224,
+      "mcs": 18
+    },
+    "paired_hypoperfusion": {
+      "oliguria": 397,
+      "lactate": 182,
+      "creatinine": 146,
+      "ph": 25,
+      "alt": 11
+    }
+  }
+}

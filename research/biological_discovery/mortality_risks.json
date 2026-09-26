@@ -1,0 +1,98 @@
+[
+  {
+    "dataset": "eicu",
+    "analysis": "primary",
+    "phosphate_rise": 0,
+    "n": 16,
+    "deaths": 2,
+    "mortality_risk": 0.125
+  },
+  {
+    "dataset": "eicu",
+    "analysis": "primary",
+    "phosphate_rise": 1,
+    "n": 2,
+    "deaths": 0,
+    "mortality_risk": 0.0
+  },
+  {
+    "dataset": "eicu",
+    "analysis": "renal_restriction",
+    "phosphate_rise": 0,
+    "n": 12,
+    "deaths": 1,
+    "mortality_risk": 0.08333333333333333
+  },
+  {
+    "dataset": "eicu",
+    "analysis": "renal_restriction",
+    "phosphate_rise": 1,
+    "n": 2,
+    "deaths": 0,
+    "mortality_risk": 0.0
+  },
+  {
+    "dataset": "eicu",
+    "analysis": "available_by_landmark",
+    "phosphate_rise": 0,
+    "n": 14,
+    "deaths": 2,
+    "mortality_risk": 0.14285714285714285
+  },
+  {
+    "dataset": "eicu",
+    "analysis": "available_by_landmark",
+    "phosphate_rise": 1,
+    "n": 2,
+    "deaths": 0,
+    "mortality_risk": 0.0
+  },
+  {
+    "dataset": "mimic",
+    "analysis": "primary",
+    "phosphate_rise": 0,
+    "n": 170,
+    "deaths": 37,
+    "mortality_risk": 0.21764705882352942
+  },
+  {
+    "dataset": "mimic",
+    "analysis": "primary",
+    "phosphate_rise": 1,
+    "n": 54,
+    "deaths": 19,
+    "mortality_risk": 0.35185185185185186
+  },
+  {
+    "dataset": "mimic",
+    "analysis": "renal_restriction",
+    "phosphate_rise": 0,
+    "n": 82,
+    "deaths": 13,
+    "mortality_risk": 0.15853658536585366
+  },
+  {
+    "dataset": "mimic",
+    "analysis": "renal_restriction",
+    "phosphate_rise": 1,
+    "n": 26,
+    "deaths": 6,
+    "mortality_risk": 0.23076923076923078
+  },
+  {
+    "dataset": "mimic",
+    "analysis": "available_by_landmark",
+    "phosphate_rise": 0,
+    "n": 118,
+    "deaths": 27,
+    "mortality_risk": 0.2288135593220339
+  },
+  {
+    "dataset": "mimic",
+    "analysis": "available_by_landmark",
+    "phosphate_rise": 1,
+    "n": 43,
+    "deaths": 14,
+    "mortality_risk": 0.32558139534883723
+  }
+]

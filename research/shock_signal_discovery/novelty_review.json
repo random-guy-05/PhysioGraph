@@ -1,0 +1,21 @@
+{
+  "review_utc": "2026-09-07T20:51:42.909421+00:00",
+  "reviewed_candidate": "sbp_level",
+  "novelty_passed": false,
+  "classification": "KNOWN_SIGNAL_NO_NOVEL_WINNER",
+  "reason": "Lower systolic pressure is an established hemodynamic warning marker. The exact fitted coefficient in this cohort is not a novel physiological signal.",
+  "scope": "Only the sole eligible candidate was reviewed. No runner-up was substituted.",
+  "sources": [
+    {
+      "title": "SCAI SHOCK Stage Classification Expert Consensus Update (2022)",
+      "url": "https://www.jacc.org/doi/10.1016/j.jacc.2022.01.018",
+      "finding": "Stage B includes relative hypotension without hypoperfusion; the framework already treats low pressure as a warning state."
+    },
+    {
+      "title": "2025 ACC Concise Clinical Guidance on Cardiogenic Shock",
+      "url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.02.018",
+      "finding": "Low systolic pressure and a substantial fall from baseline are established reasons to suspect cardiogenic shock."
+    }
+  ],
+  "limitation": "These sources establish the marker's lack of conceptual novelty; they do not independently validate this exact four-hour coefficient or endpoint."
+}

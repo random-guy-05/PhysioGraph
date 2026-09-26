@@ -1,0 +1,42 @@
+[
+  {
+    "dataset": "eicu",
+    "passes_minimal_feasibility": true,
+    "groups": [
+      {
+        "exposed": 0,
+        "eligible": 7143,
+        "pre_icu_hemoglobin": 2445,
+        "paired_endpoint_observed": 409.0,
+        "result_entered_after_icu_admission": 151.0
+      },
+      {
+        "exposed": 1,
+        "eligible": 4309,
+        "pre_icu_hemoglobin": 1539,
+        "paired_endpoint_observed": 250.0,
+        "result_entered_after_icu_admission": 69.0
+      }
+    ]
+  },
+  {
+    "dataset": "mimic",
+    "passes_minimal_feasibility": false,
+    "groups": [
+      {
+        "exposed": 0,
+        "eligible": 3313,
+        "pre_icu_hemoglobin": 774,
+        "paired_endpoint_observed": 80.0,
+        "result_entered_after_icu_admission": 60.0
+      },
+      {
+        "exposed": 1,
+        "eligible": 1398,
+        "pre_icu_hemoglobin": 339,
+        "paired_endpoint_observed": 53.0,
+        "result_entered_after_icu_admission": 29.0
+      }
+    ]
+  }
+]

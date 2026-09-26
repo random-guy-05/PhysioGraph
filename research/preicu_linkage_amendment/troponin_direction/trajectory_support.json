@@ -1,0 +1,18 @@
+[
+  {
+    "dataset": "eicu",
+    "episodes_with_hospital_boundary": 4309,
+    "any_pre_episode_assay": 1326,
+    "serial_pre_episode": 224,
+    "complete_pre_post_trajectories": 133,
+    "passes_count_gate": true
+  },
+  {
+    "dataset": "mimic",
+    "episodes_with_hospital_boundary": 1398,
+    "any_pre_episode_assay": 608,
+    "serial_pre_episode": 132,
+    "complete_pre_post_trajectories": 76,
+    "passes_count_gate": false
+  }
+]

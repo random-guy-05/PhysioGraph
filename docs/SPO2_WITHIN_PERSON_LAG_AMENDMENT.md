@@ -1,0 +1,9 @@
+# Pre-estimate short-panel limitation and sensitivity
+
+This amendment was written after the timing gate (1,090 eICU / 293 MIMIC people) but before oxygen-feature counts, troponin changes or primary coefficients. The current run had stopped at an extraction SQL alias error. It preserves the frozen primary model and its gates.
+
+The primary outcome log(troponin_t / troponin_previous), combined with a log(previous troponin) covariate and patient fixed effects, has the structure of a dynamic panel model. The short series per patient make finite-time bias a material concern. Cluster-robust standard errors and correct numerical implementation do not remove it. See [Nickell's original paper](https://ora.ox.ac.uk/objects/uuid%3Aa700a01d-f5e9-43c3-b0d6-3c6ad38d4dfa) and the [Phillips–Sul original methodological study](https://cowles.yale.edu/sites/default/files/2022-08/d1438.pdf).
+
+Before seeing estimates, add one diagnostic per database: use exactly the same primary modeled intervals, outcomes, fixed effects, imputation and retained nuisance columns, removing only log baseline troponin. If a primary model does not fit, skip this sensitivity; it cannot rescue a failed gate. Use the same independently validated patient-clustered estimator and residual degrees of freedom. Report both datasets, Holm-adjust the two diagnostic p-values as their own explicitly secondary family, and compare primary versus secondary coefficients without selecting whichever is favorable.
+
+Omission of the lag is not a validated bias correction: it can introduce omitted-dynamics bias and does not remove time-varying confounding or selective testing. Both models remain descriptive conditional within-person associations. A positive sensitivity cannot rescue a failed original replication criterion, and concordance cannot establish an unbiased causal effect. Do not make a biological or mortality-benefit claim from these coefficients alone.

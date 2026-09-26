@@ -1,0 +1,149 @@
+{
+  "assessed_at_utc": "2026-09-06T01:10:04.682656+00:00",
+  "goal_status": "active",
+  "goal_achieved": false,
+  "assessment": "research_resumed_with_new_evidence",
+  "consecutive_impasse_assessments": 0,
+  "active_research_update": {
+    "date_utc": "2026-09-06",
+    "completed_action": "Recovered committed full capnography metadata scans; completed full native hash checks and original-episode timing support with independent SQL/Python validation.",
+    "new_evidence": "Five-minute CO2 timing pairs: 43 eICU people across 25 hospitals and five MIMIC people. Both frozen support gates fail; no numeric CO2 or mortality analysis.",
+    "current_turn_classification": "progress",
+    "previous_turn_classification": "progress: confirmed interrupted process absent and identified recovery state",
+    "live_analysis_sessions_remaining": false,
+    "new_biological_effect_established": false,
+    "historical_audits_below": true
+  },
+  "resumed_audit": {
+    "started_at_utc": "2026-09-05T20:59:36+00:00",
+    "previous_run_consecutive_impasse_assessments": 3,
+    "previous_run_terminal_goal_status": "blocked",
+    "current_run_assessment_number": 3,
+    "third_resumed_assessment": {
+      "date_utc": "2026-09-05",
+      "changed_research_evidence": [],
+      "hr_advancement_gate_pass": false,
+      "ecg_advancement_gate_pass": false,
+      "new_patient_experiment": false,
+      "same_impasse_persists": true,
+      "goal_tool_confirmed_status": "blocked"
+    },
+    "second_resumed_assessment": {
+      "date_utc": "2026-09-05",
+      "changed_research_evidence": [],
+      "raw_filename_inventory_added_or_missing": false,
+      "inventory_limit": "Filename check only; no claim that all raw file contents are unchanged.",
+      "new_patient_experiment": false,
+      "same_impasse_persists": true
+    },
+    "previous_turn_classification": "no_progress",
+    "seven_research_evidence_fingerprints_rechecked_unchanged": true,
+    "status_documents_excluded_from_unchanged_check": [
+      "PROJECT_GOAL.md",
+      "docs/SPO2_RESEARCH_DECISION.md"
+    ],
+    "same_impasse_persists": true,
+    "new_patient_experiment": false,
+    "biological_progress": false,
+    "blocked_threshold_met_in_resumed_run": true
+  },
+  "third_assessment": {
+    "date_utc": "2026-09-05",
+    "previous_turn_classification": "no_progress",
+    "changed_evidence_before_status_documentation": [],
+    "primary_result_files_rechecked": true,
+    "heart_rate_advancement_gate_pass": false,
+    "ecg_primary_prioritization_gate_pass": false,
+    "new_patient_experiment": false,
+    "same_impasse_persists": true,
+    "blocked_threshold_met": true,
+    "goal_tool_confirmed_status": "blocked",
+    "fingerprint_note": "Fingerprints below preserve the initial assessment. PROJECT_GOAL.md and SPO2_RESEARCH_DECISION.md were subsequently updated only to record blocked status."
+  },
+  "prior_turn_made_meaningful_progress": false,
+  "continuation_revalidation": {
+    "assessment_number": 2,
+    "date_utc": "2026-09-05",
+    "prior_goal_turn_classification": "no_progress",
+    "changed_fingerprinted_evidence_files": [],
+    "raw_filename_inventory": {
+      "eICU": {
+        "files": 12,
+        "added": [],
+        "missing": []
+      },
+      "MIMIC": {
+        "files": 16,
+        "added": [],
+        "missing": []
+      }
+    },
+    "raw_inventory_limitation": "Filename inventory only; raw patient files were not rehashed or re-extracted.",
+    "primary_result_content_rechecked": true,
+    "new_patient_experiment": false,
+    "biological_progress": false,
+    "same_impasse_persists": true,
+    "blocked_threshold_met": false
+  },
+  "new_patient_experiment_in_this_assessment": false,
+  "reason": "No completed biological contrast meets its positive validation criterion and no presently supported next mechanistic experiment has been identified in the inspected original-cohort measurements.",
+  "scope": "Original SpO2 HF project; MIMIC and eICU only.",
+  "non_exhaustiveness": "This does not establish absence of relevant measurements in unexamined raw data or impossibility of discovery in MIMIC/eICU.",
+  "unblocking_evidence": [
+    "New independently supported biological lead with adequate measurements in original cohorts",
+    "Additional aligned measurements or documented raw-source recovery resolving a specific measurement failure"
+  ],
+  "source_fingerprints": [
+    {
+      "path": "PROJECT_GOAL.md",
+      "sha256": "e12243d8bb81253c7ebffaea41dc29e34a97411d686e196ec3c1d64339ddee48",
+      "bytes": 24705
+    },
+    {
+      "path": "docs/SPO2_RESEARCH_DECISION.md",
+      "sha256": "0184038e019182ddfd2ca747603f9f841771370251051fbbcbaac897e5f2bc46",
+      "bytes": 4925
+    },
+    {
+      "path": "docs/SPO2_DISCOVERY_CANDIDATE_TRIAGE.md",
+      "sha256": "1e8532302667a45149383ce5b9af611fac2ef74b7589ec81a53f4c88d7606e73",
+      "bytes": 20897
+    },
+    {
+      "path": "docs/SPO2_ARTERIAL_PAIRING_RESULTS.md",
+      "sha256": "5c58dd476ccc84d4bb173f6eb7edc56a221f754692856dad497b24a36409394e",
+      "bytes": 1803
+    },
+    {
+      "path": "docs/SPO2_WAVEFORM_PILOT_RESULTS.md",
+      "sha256": "86b4d8a9ef6676d7db1b9ab57c80c69f79e0d06e840040dd88d614503ae27961",
+      "bytes": 2190
+    },
+    {
+      "path": "research/spo2_heart_rate_polarity/results.json",
+      "sha256": "a4f06f435797063b1d4274d63667c263defc2e6e1c9429aa7d90c6df953605ef",
+      "bytes": 1583
+    },
+    {
+      "path": "research/spo2_ecg_repolarization/results.json",
+      "sha256": "3a0bb2d722d94b0dcde0edbecc95260d47fdefa3427b2832c35c7a86eac88277",
+      "bytes": 1996
+    },
+    {
+      "path": "research/spo2_heart_rate_polarity/notebook_validation.json",
+      "sha256": "5fd43b961f71024497bd91f14305af83be90df1c315b6748b404236734c223c1",
+      "bytes": 1026
+    },
+    {
+      "path": "PhysioGraph_Biological_Discovery.ipynb",
+      "sha256": "235a6f589d83bc2fbde6a32d3e281b879c2e87befe329df39773075cba71cdeb",
+      "bytes": 660429
+    }
+  ],
+  "notebook_check": {
+    "cells": 99,
+    "code_cells": 70,
+    "error_outputs": 0,
+    "execution": "Existing locally executed incremental sections; no new analysis or Colab execution in this assessment."
+  }
+}

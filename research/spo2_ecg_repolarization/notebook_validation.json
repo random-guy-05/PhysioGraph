@@ -1,0 +1,21 @@
+{
+  "cells": 95,
+  "code_cells": 67,
+  "all_sources_match": true,
+  "all_sources_compile": true,
+  "error_outputs": 0,
+  "all_code_cells_have_execution_counts": true,
+  "notebook_sha256": "429db78ed96de5d8ecf49a2bd6fb5946a6eadcd2ecedbf8e246ddfcf867a1c26",
+  "execution": "local incremental; current full notebook not run uninterrupted; not Google Colab",
+  "validation": {
+    "independent_pairs_match": true,
+    "registry_identifiers_and_times_match": true,
+    "independent_durations_match": true,
+    "independent_fitted_coefficients_and_hc3_match": true,
+    "max_hc3_difference": 1.4210854715202004e-13,
+    "source_hashes_unchanged": true,
+    "outcomes_computed": true,
+    "mortality_accessed": false
+  },
+  "goal_complete": false
+}

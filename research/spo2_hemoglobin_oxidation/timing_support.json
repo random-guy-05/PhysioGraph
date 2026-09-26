@@ -1,0 +1,101 @@
+[
+  {
+    "dataset": "eicu",
+    "assay": "Methemoglobin",
+    "stage": "selected",
+    "people": 10167,
+    "exposed": 3798,
+    "unexposed": 6369
+  },
+  {
+    "dataset": "eicu",
+    "assay": "Methemoglobin",
+    "stage": "baseline",
+    "people": 952,
+    "exposed": 375,
+    "unexposed": 577
+  },
+  {
+    "dataset": "eicu",
+    "assay": "Methemoglobin",
+    "stage": "followup",
+    "people": 965,
+    "exposed": 398,
+    "unexposed": 567
+  },
+  {
+    "dataset": "eicu",
+    "assay": "Methemoglobin",
+    "stage": "paired",
+    "people": 346,
+    "exposed": 141,
+    "unexposed": 205,
+    "gate": true
+  },
+  {
+    "dataset": "mimic",
+    "assay": "50814",
+    "stage": "selected",
+    "people": 4305,
+    "exposed": 1276,
+    "unexposed": 3029
+  },
+  {
+    "dataset": "mimic",
+    "assay": "50814",
+    "stage": "baseline",
+    "people": 85,
+    "exposed": 31,
+    "unexposed": 54
+  },
+  {
+    "dataset": "mimic",
+    "assay": "50814",
+    "stage": "followup",
+    "people": 12,
+    "exposed": 3,
+    "unexposed": 9
+  },
+  {
+    "dataset": "mimic",
+    "assay": "50814",
+    "stage": "paired",
+    "people": 0,
+    "exposed": 0,
+    "unexposed": 0,
+    "gate": false
+  },
+  {
+    "dataset": "mimic",
+    "assay": "52144",
+    "stage": "selected",
+    "people": 4305,
+    "exposed": 1276,
+    "unexposed": 3029
+  },
+  {
+    "dataset": "mimic",
+    "assay": "52144",
+    "stage": "baseline",
+    "people": 0,
+    "exposed": 0,
+    "unexposed": 0
+  },
+  {
+    "dataset": "mimic",
+    "assay": "52144",
+    "stage": "followup",
+    "people": 0,
+    "exposed": 0,
+    "unexposed": 0
+  },
+  {
+    "dataset": "mimic",
+    "assay": "52144",
+    "stage": "paired",
+    "people": 0,
+    "exposed": 0,
+    "unexposed": 0,
+    "gate": false
+  }
+]

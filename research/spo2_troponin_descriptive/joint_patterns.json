@@ -1,0 +1,130 @@
+[
+  {
+    "dataset": "eicu",
+    "sample": "all_complete_encounters",
+    "pattern": "neither",
+    "n": 74,
+    "denominator": 133,
+    "percent": 55.6390977443609
+  },
+  {
+    "dataset": "eicu",
+    "sample": "all_complete_encounters",
+    "pattern": "pre_only",
+    "n": 25,
+    "denominator": 133,
+    "percent": 18.796992481203006
+  },
+  {
+    "dataset": "eicu",
+    "sample": "all_complete_encounters",
+    "pattern": "post_only",
+    "n": 15,
+    "denominator": 133,
+    "percent": 11.278195488721805
+  },
+  {
+    "dataset": "eicu",
+    "sample": "all_complete_encounters",
+    "pattern": "both",
+    "n": 19,
+    "denominator": 133,
+    "percent": 14.285714285714286
+  },
+  {
+    "dataset": "eicu",
+    "sample": "one_per_person",
+    "pattern": "neither",
+    "n": 74,
+    "denominator": 133,
+    "percent": 55.6390977443609
+  },
+  {
+    "dataset": "eicu",
+    "sample": "one_per_person",
+    "pattern": "pre_only",
+    "n": 25,
+    "denominator": 133,
+    "percent": 18.796992481203006
+  },
+  {
+    "dataset": "eicu",
+    "sample": "one_per_person",
+    "pattern": "post_only",
+    "n": 15,
+    "denominator": 133,
+    "percent": 11.278195488721805
+  },
+  {
+    "dataset": "eicu",
+    "sample": "one_per_person",
+    "pattern": "both",
+    "n": 19,
+    "denominator": 133,
+    "percent": 14.285714285714286
+  },
+  {
+    "dataset": "mimic",
+    "sample": "all_complete_encounters",
+    "pattern": "neither",
+    "n": 33,
+    "denominator": 76,
+    "percent": 43.421052631578945
+  },
+  {
+    "dataset": "mimic",
+    "sample": "all_complete_encounters",
+    "pattern": "pre_only",
+    "n": 17,
+    "denominator": 76,
+    "percent": 22.36842105263158
+  },
+  {
+    "dataset": "mimic",
+    "sample": "all_complete_encounters",
+    "pattern": "post_only",
+    "n": 11,
+    "denominator": 76,
+    "percent": 14.473684210526315
+  },
+  {
+    "dataset": "mimic",
+    "sample": "all_complete_encounters",
+    "pattern": "both",
+    "n": 15,
+    "denominator": 76,
+    "percent": 19.736842105263158
+  },
+  {
+    "dataset": "mimic",
+    "sample": "one_per_person",
+    "pattern": "neither",
+    "n": 33,
+    "denominator": 76,
+    "percent": 43.421052631578945
+  },
+  {
+    "dataset": "mimic",
+    "sample": "one_per_person",
+    "pattern": "pre_only",
+    "n": 17,
+    "denominator": 76,
+    "percent": 22.36842105263158
+  },
+  {
+    "dataset": "mimic",
+    "sample": "one_per_person",
+    "pattern": "post_only",
+    "n": 11,
+    "denominator": 76,
+    "percent": 14.473684210526315
+  },
+  {
+    "dataset": "mimic",
+    "sample": "one_per_person",
+    "pattern": "both",
+    "n": 15,
+    "denominator": 76,
+    "percent": 19.736842105263158
+  }
+]

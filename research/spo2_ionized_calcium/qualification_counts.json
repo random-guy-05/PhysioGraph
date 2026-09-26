@@ -1,0 +1,30 @@
+[
+  {
+    "dataset": "eicu",
+    "assay": "calcium",
+    "rows": 2985,
+    "unit_rejected_rows": 2192,
+    "explicit_censor_rows": 11
+  },
+  {
+    "dataset": "eicu",
+    "assay": "ph",
+    "rows": 12275,
+    "unit_rejected_rows": 492,
+    "explicit_censor_rows": 3
+  },
+  {
+    "dataset": "mimic",
+    "assay": "calcium",
+    "rows": 6663,
+    "unit_rejected_rows": 0,
+    "explicit_censor_rows": 0
+  },
+  {
+    "dataset": "mimic",
+    "assay": "ph",
+    "rows": 15118,
+    "unit_rejected_rows": 0,
+    "explicit_censor_rows": 0
+  }
+]

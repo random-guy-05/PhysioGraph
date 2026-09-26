@@ -1,0 +1,107 @@
+[
+  {
+    "concept": "creatinine",
+    "raw_name": "creatinine",
+    "unit": "mg/dl",
+    "records": 18308,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "lactate",
+    "raw_name": "lactate",
+    "unit": "mmol/l",
+    "records": 5876,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "ph",
+    "raw_name": "pH",
+    "unit": "",
+    "records": 8752,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "ph",
+    "raw_name": "pH",
+    "unit": "[ph]",
+    "records": 6,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "ph",
+    "raw_name": "pH",
+    "unit": "ph units",
+    "records": 138,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "ph",
+    "raw_name": "pH",
+    "unit": "unit",
+    "records": 54,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "ph",
+    "raw_name": "pH",
+    "unit": "unit(s)",
+    "records": 477,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "ph",
+    "raw_name": "pH",
+    "unit": "units",
+    "records": 1015,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "troponin_i",
+    "raw_name": "troponin - I",
+    "unit": "ng/ml",
+    "records": 10745,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "troponin_t",
+    "raw_name": "troponin - T",
+    "unit": "ng/ml",
+    "records": 1603,
+    "dataset": "eicu"
+  },
+  {
+    "concept": "creatinine",
+    "raw_name": "50912",
+    "unit": "mg/dl",
+    "records": 42876,
+    "dataset": "mimic"
+  },
+  {
+    "concept": "creatinine",
+    "raw_name": "52024",
+    "unit": "mg/dl",
+    "records": 295,
+    "dataset": "mimic"
+  },
+  {
+    "concept": "lactate",
+    "raw_name": "50813",
+    "unit": "mmol/l",
+    "records": 33525,
+    "dataset": "mimic"
+  },
+  {
+    "concept": "ph",
+    "raw_name": "50820",
+    "unit": "units",
+    "records": 43345,
+    "dataset": "mimic"
+  },
+  {
+    "concept": "troponin_t",
+    "raw_name": "51003",
+    "unit": "ng/ml",
+    "records": 15000,
+    "dataset": "mimic"
+  }
+]

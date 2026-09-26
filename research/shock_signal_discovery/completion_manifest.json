@@ -1,0 +1,20 @@
+{
+  "completed_utc": "2026-09-07T20:51:42.909421+00:00",
+  "classification": "KNOWN_SIGNAL_NO_NOVEL_WINNER",
+  "locked_analysis_code_verified_unchanged": true,
+  "candidate_count": 36,
+  "notebook_code_cells_executed": 7,
+  "notebook_error_outputs": 0,
+  "execution_environment": "local",
+  "files": {
+    "FINAL_REPORT.md": "4a2a991ae4b5a5ee54b8698977b5cb10336f231dd8a83fe9ca13bdc8a26d91b0",
+    "novelty_review.json": "cb5ca7c83adbf4eaae1d071ceee1bf736dcd2dfd3032b72753fe18d57ce1c5a8",
+    "decision_gate_summary.json": "3abb10b58e8c75906791423130974578b379f7ae2db4209fb8dbb25579868676",
+    "run_status.json": "7c45f0a3110d51c99864d334bff2f72103ee4cd7116b1e3bbd9de6928eba3670",
+    "mimic_candidate_screen.json": "e3ee2fe9e509c838f81a723c65d73d873c256f93d88c9a204c93cf70ab35c720",
+    "analysis_lock.json": "4d3a0e618ee1f4e872d9ec5bdabf21c9af6f2b0743011d82b3000708cbb3bac3",
+    "analysis_config.json": "5041d8085d3f5f7b5221b7fc2aeda194990950291f7a02cb8a7b9ddb9f00037d"
+  },
+  "notebook_sha256": "a83560f3c328a64bfabc06df928d5d54aa549c28e1d26c2a36edaa5964dddc9f",
+  "note": "Original artifact_hashes.json records the pre-novelty statistical output. This completion manifest records the final adjudicated state."
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "people": 1090,
+    "intervals": 2450,
+    "minimum_people": 100,
+    "passes": true
+  },
+  {
+    "dataset": "mimic",
+    "people": 293,
+    "intervals": 640,
+    "minimum_people": 100,
+    "passes": true
+  }
+]

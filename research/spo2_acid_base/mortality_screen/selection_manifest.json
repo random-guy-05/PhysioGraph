@@ -1,0 +1,12 @@
+{
+  "utc": "2026-09-05T09:27:28.284717+00:00",
+  "selected_before_mortality_join": true,
+  "selected_people": {
+    "eicu": 1681,
+    "mimic": 748
+  },
+  "private_selection_sha256": {
+    "eicu": "8416185fb51d6265409ae0c441f23f1ac54f24e9c633b83036820b28c3405b06",
+    "mimic": "f868b556ba9b91f504f0f06f71bca3751cd7721deb1ac4791dc857ba19d8440b"
+  }
+}

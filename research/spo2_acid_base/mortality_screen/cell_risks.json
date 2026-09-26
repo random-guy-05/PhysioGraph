@@ -1,0 +1,98 @@
+[
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "respiratory_alkalemia": false,
+    "selected_patients": 967,
+    "known_mortality": 957,
+    "missing_mortality": 10,
+    "deaths": 105,
+    "risk": 0.109717868338558,
+    "simultaneous_lower": 0.08380549357134721,
+    "simultaneous_upper": 0.14006721607002148
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "respiratory_alkalemia": true,
+    "selected_patients": 61,
+    "known_mortality": 58,
+    "missing_mortality": 3,
+    "deaths": 9,
+    "risk": 0.15517241379310345,
+    "simultaneous_lower": 0.052533893380740354,
+    "simultaneous_upper": 0.32317080067129317
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "respiratory_alkalemia": false,
+    "selected_patients": 604,
+    "known_mortality": 594,
+    "missing_mortality": 10,
+    "deaths": 119,
+    "risk": 0.20033670033670034,
+    "simultaneous_lower": 0.15745202666096567,
+    "simultaneous_upper": 0.24870053540936563
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "respiratory_alkalemia": true,
+    "selected_patients": 49,
+    "known_mortality": 47,
+    "missing_mortality": 2,
+    "deaths": 11,
+    "risk": 0.23404255319148937,
+    "simultaneous_lower": 0.0922996550613071,
+    "simultaneous_upper": 0.43722436837434464
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "respiratory_alkalemia": false,
+    "selected_patients": 550,
+    "known_mortality": 550,
+    "missing_mortality": 0,
+    "deaths": 38,
+    "risk": 0.06909090909090909,
+    "simultaneous_lower": 0.0428874392545491,
+    "simultaneous_upper": 0.10392470812782599
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "respiratory_alkalemia": true,
+    "selected_patients": 52,
+    "known_mortality": 52,
+    "missing_mortality": 0,
+    "deaths": 5,
+    "risk": 0.09615384615384616,
+    "simultaneous_lower": 0.01908660135136362,
+    "simultaneous_upper": 0.25940550508454807
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "respiratory_alkalemia": false,
+    "selected_patients": 133,
+    "known_mortality": 133,
+    "missing_mortality": 0,
+    "deaths": 14,
+    "risk": 0.10526315789473684,
+    "simultaneous_lower": 0.045579506997573474,
+    "simultaneous_upper": 0.19791718121945054
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "respiratory_alkalemia": true,
+    "selected_patients": 13,
+    "known_mortality": 13,
+    "missing_mortality": 0,
+    "deaths": 5,
+    "risk": 0.38461538461538464,
+    "simultaneous_lower": 0.0846162134744486,
+    "simultaneous_upper": 0.7712244431302704
+  }
+]

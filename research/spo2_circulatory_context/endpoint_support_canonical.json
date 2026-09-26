@@ -1,0 +1,44 @@
+[
+  {
+    "dataset": "eicu",
+    "endpoint": "hospital_mortality",
+    "cohort": 12028,
+    "observed": 11910,
+    "events": 1344
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_12h",
+    "cohort": 12028,
+    "observed": 2405,
+    "events": 605
+  },
+  {
+    "dataset": "eicu",
+    "endpoint": "troponin_rise_24h",
+    "cohort": 12028,
+    "observed": 2215,
+    "events": 668
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "hospital_mortality",
+    "cohort": 17758,
+    "observed": 17758,
+    "events": 2558
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_rise_12h",
+    "cohort": 17758,
+    "observed": 2781,
+    "events": 674
+  },
+  {
+    "dataset": "mimic",
+    "endpoint": "troponin_rise_24h",
+    "cohort": 17758,
+    "observed": 2624,
+    "events": 804
+  }
+]

@@ -1,0 +1,1 @@
+{"status": "failed", "cell": 61, "error_type": "ParserException", "message": "Parser Error: syntax error at or near \"family\"\n\nLINE 6: ... concept LIKE 'troponin%' THEN 'troponin' ELSE concept END family\n                                                                      ^"}

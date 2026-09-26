@@ -1,0 +1,368 @@
+{
+  "status": "LOCKED_BEFORE_MIMIC3_ENDPOINT_SUPPORT_OR_ASSOCIATION",
+  "lock_utc": "2026-09-10T16:41:52.525435+00:00",
+  "specification": {
+    "protocol_sha256": "7d5a79995b281727239680367de046fb786d35b670c5fad1e9b06a29194f37c5",
+    "documentation_sha256": "76975bce1a5ca9a0d754cf139b5ae9ae29319719a452e4467fb5a2dfffc51568",
+    "source_manifest_sha256": "8dbae4fb5eb3aa7fb6d482eeda0662972ef4da430caa0e19ce636837213eb0b4",
+    "frozen_ancestors": {
+      "external_validation_config_sha256": "e96fa15be41ee3daa8f04f5a79f195d759ab8522cc0a22193caa22e6cf74f3ff",
+      "external_validation_lock_sha256": "9fbd4e8cf687ea6e5084b9c55b6ccd224b4548c738c3bb6ea4ad8c512cd015d4",
+      "third_cohort_protocol_sha256": "8cb8a4c784ce0bd9471d21c172fe3251cae16000cf4110134359bf8e74be2d6b"
+    },
+    "protected_artifact_tree_hashes": {
+      "research/spo2_variability_validation": "097319d82eaef7f1acf1893ad1508806984c14d7891e282ce266649885ffadbe",
+      "research/spo2_variability_transportability": "d6177aa9bcf12ceeb4e5da794b6b15221af9d6ff29f4d4775b5a8fcf6061f2f6",
+      "research/spo2_variability_nwicu_validation": "49df25c99ae2c161e2aa3dcda1c98be95b1cbb5433bfb56759d7f86a8a6dbc32",
+      "research/spo2_variability_inspire_validation": "04ff5a67088574ceb1d97e73bb817bc33bc8d3acec6d4eac9bcf926d5a257b22"
+    },
+    "endpoint": {
+      "name": "pressure_support_plus_hypoperfusion",
+      "primary_window_minutes": {
+        "lower_exclusive": 360,
+        "upper_inclusive": 960
+      },
+      "later_window_minutes": {
+        "lower_exclusive": 480,
+        "upper_inclusive": 960
+      },
+      "maximum_domain_separation_minutes": 360,
+      "pressure_support_components": [
+        "sustained_cuff_hypotension",
+        "continuous_support",
+        "mcs"
+      ],
+      "hypoperfusion_components": [
+        "lactate",
+        "creatinine",
+        "alt",
+        "ph",
+        "oliguria"
+      ]
+    },
+    "mapping": {
+      "timeline_origin": "ICUSTAYS.intime",
+      "heart_failure": {
+        "diagnoses_icd.icd9_prefix": "428"
+      },
+      "vitals": {
+        "hr": [
+          211
+        ],
+        "sbp_cuff": [
+          455
+        ],
+        "map_cuff": [
+          456
+        ],
+        "resp_rate": [
+          614,
+          615,
+          618
+        ],
+        "spo2": [
+          646
+        ],
+        "temperature_c": [
+          676,
+          677
+        ],
+        "temperature_f": [
+          678,
+          679
+        ]
+      },
+      "labs": {
+        "lactate": [
+          50813
+        ],
+        "ph": [
+          50820
+        ],
+        "alt": [
+          50861
+        ],
+        "creatinine": [
+          50912
+        ]
+      },
+      "continuous_support": {
+        "source": "INPUTEVENTS_CV positive recorded rate/originalrate",
+        "itemids": [
+          30042,
+          30306,
+          30043,
+          30307,
+          30044,
+          30309,
+          30119,
+          30047,
+          30120,
+          30125,
+          30127,
+          30128,
+          30051,
+          42802,
+          42273
+        ]
+      },
+      "mcs": {
+        "source": "CareVue CHARTEVENTS recorded IABP/ECMO/VAD support fields",
+        "itemids": [
+          224,
+          225,
+          429,
+          600,
+          2515,
+          2865,
+          2957,
+          3265,
+          5798,
+          5931,
+          5937,
+          6424,
+          6758,
+          6931,
+          7015,
+          7449
+        ]
+      },
+      "urine_output": {
+        "source": "OUTPUTEVENTS direct urine-volume fields",
+        "itemids": [
+          40055,
+          40056,
+          40057,
+          40069,
+          40085,
+          40094,
+          40096,
+          40405,
+          40428,
+          40473,
+          40651,
+          40715,
+          43175
+        ]
+      },
+      "site_identifier": null,
+      "released_site_count": 1
+    },
+    "exposure_parameters": {
+      "lower": 1.160311428702309e-14,
+      "upper": 4.300141942983509,
+      "center": 0.8776215724100497,
+      "scale": 0.8227000137550243
+    },
+    "code_hashes": {
+      "scripts/run_spo2_variability_mimic3_validation.py": "48ad1995a45a70aa3349c6fc4dbb15cab28342c1b91bb6ac560dbde7a8115f71",
+      "scripts/report_spo2_variability_mimic3_validation.py": "45f2a17e754171948b16570842f82e18b74f8b07e1be413dc30ec0c8a8deb0f6",
+      "src/physiograph/analysis/spo2_variability_mimic3_validation.py": "5be3d9ae97a712bdab8b5b190d8f89fe90f6b2ff5dbcf9306d4fd98e608bcecd",
+      "src/physiograph/analysis/spo2_variability_nwicu_validation.py": "bf70402aace2915309926191a779e35a821a62a5dbeb950048fd0f52cc6bbfa5",
+      "src/physiograph/analysis/spo2_variability_validation.py": "202643ef397844467e73afd17613254faebc323481c1defb37573f1852e9e165",
+      "src/physiograph/analysis/shock_signal_discovery.py": "016c251dbeb6a9adb11ad433c05e0788afe62d4bef983c6f25936e528494934d",
+      "tests/unit/test_spo2_variability_mimic3_validation.py": "a00a51a46861c8fa4edfe2249bd5e60c187dfb14a8fd074454b81c3fb2a4a46f"
+    }
+  },
+  "specification_sha256": "e4da48ea98cdd8c6c570f4f9f06f777bd36ccb9bc75020059855df4e00c59515",
+  "source_checks": [
+    {
+      "relative_path": "ADMISSIONS.csv.gz",
+      "bytes": 1061461,
+      "expected_sha256": "3430fbb3cc9ad69952b6ec0615ac41a143dc5eb34c16832c0a6cd6f5d5cc3159",
+      "actual_sha256": "3430fbb3cc9ad69952b6ec0615ac41a143dc5eb34c16832c0a6cd6f5d5cc3159",
+      "match": true
+    },
+    {
+      "relative_path": "CALLOUT.csv.gz",
+      "bytes": 205830,
+      "expected_sha256": "4b4233f83815c3106a3fd6534a1f04342833f66e75f50c43c315cef343a57f2f",
+      "actual_sha256": "4b4233f83815c3106a3fd6534a1f04342833f66e75f50c43c315cef343a57f2f",
+      "match": true
+    },
+    {
+      "relative_path": "CAREGIVERS.csv.gz",
+      "bytes": 48639,
+      "expected_sha256": "6b556c91871337cadac88a7163fdf7fcaefeefe235ed7d7f3d698895cb5c4ad7",
+      "actual_sha256": "6b556c91871337cadac88a7163fdf7fcaefeefe235ed7d7f3d698895cb5c4ad7",
+      "match": true
+    },
+    {
+      "relative_path": "CHARTEVENTS.csv.gz",
+      "bytes": 1801233558,
+      "expected_sha256": "1e076574589854dc6af28c4e8b5fab7528f1777567bf675052257c05ec0f490a",
+      "actual_sha256": "1e076574589854dc6af28c4e8b5fab7528f1777567bf675052257c05ec0f490a",
+      "match": true
+    },
+    {
+      "relative_path": "CPTEVENTS.csv.gz",
+      "bytes": 1408796,
+      "expected_sha256": "69e1f01b426ecf9aa39e4702e301fb8e3a03bb72ebc54e4fe1350f6cd4cfb0cd",
+      "actual_sha256": "69e1f01b426ecf9aa39e4702e301fb8e3a03bb72ebc54e4fe1350f6cd4cfb0cd",
+      "match": true
+    },
+    {
+      "relative_path": "DATETIMEEVENTS.csv.gz",
+      "bytes": 16756817,
+      "expected_sha256": "590682590e03358295e5e7c02a54ae10e61b70f9b7e2d5695c77ae5e5a87c05a",
+      "actual_sha256": "590682590e03358295e5e7c02a54ae10e61b70f9b7e2d5695c77ae5e5a87c05a",
+      "match": true
+    },
+    {
+      "relative_path": "DIAGNOSES_ICD.csv.gz",
+      "bytes": 1636144,
+      "expected_sha256": "6bcd6bab5806b4c2558336a6de37b484106499a31e51600f369954578ced7c78",
+      "actual_sha256": "6bcd6bab5806b4c2558336a6de37b484106499a31e51600f369954578ced7c78",
+      "match": true
+    },
+    {
+      "relative_path": "DRGCODES.csv.gz",
+      "bytes": 549047,
+      "expected_sha256": "1352ea2cd5075d9a4ce381118733fa5623d8f6c5216b278763b31d307092b50f",
+      "actual_sha256": "1352ea2cd5075d9a4ce381118733fa5623d8f6c5216b278763b31d307092b50f",
+      "match": true
+    },
+    {
+      "relative_path": "D_CPT.csv.gz",
+      "bytes": 3853,
+      "expected_sha256": "f93e3819d770e9649e33011380f198baf7cbeda304b1c64518c385d5b3de5935",
+      "actual_sha256": "f93e3819d770e9649e33011380f198baf7cbeda304b1c64518c385d5b3de5935",
+      "match": true
+    },
+    {
+      "relative_path": "D_ICD_DIAGNOSES.csv.gz",
+      "bytes": 279812,
+      "expected_sha256": "1a218e302cc133879d71dcc54153012fbc37bdd9e0b46d9a661dc511209979d0",
+      "actual_sha256": "1a218e302cc133879d71dcc54153012fbc37bdd9e0b46d9a661dc511209979d0",
+      "match": true
+    },
+    {
+      "relative_path": "D_ICD_PROCEDURES.csv.gz",
+      "bytes": 74692,
+      "expected_sha256": "53407617a515b667ffe886a49ca8b0561496b40d4758c9a87e264ee666df8f18",
+      "actual_sha256": "53407617a515b667ffe886a49ca8b0561496b40d4758c9a87e264ee666df8f18",
+      "match": true
+    },
+    {
+      "relative_path": "D_ITEMS.csv.gz",
+      "bytes": 175236,
+      "expected_sha256": "e4eacfa298da5e424c4952905c5a205e95813c2eec3fbba4c837990e26bbf958",
+      "actual_sha256": "e4eacfa298da5e424c4952905c5a205e95813c2eec3fbba4c837990e26bbf958",
+      "match": true
+    },
+    {
+      "relative_path": "D_LABITEMS.csv.gz",
+      "bytes": 11089,
+      "expected_sha256": "4d53931b8044249ee5b16f18d798b35845615a26637e02d7248998d100b60e1d",
+      "actual_sha256": "4d53931b8044249ee5b16f18d798b35845615a26637e02d7248998d100b60e1d",
+      "match": true
+    },
+    {
+      "relative_path": "ICUSTAYS.csv.gz",
+      "bytes": 908665,
+      "expected_sha256": "ed056623ad5077b1686744f5e9127ceeb248a23533a57c36a379dc7d327a5dd1",
+      "actual_sha256": "ed056623ad5077b1686744f5e9127ceeb248a23533a57c36a379dc7d327a5dd1",
+      "match": true
+    },
+    {
+      "relative_path": "INPUTEVENTS_CV.csv.gz",
+      "bytes": 285705165,
+      "expected_sha256": "9274830c87bfaf1753ffcb471e2d62d0b4c8f3870ec20118355e524d79e4be17",
+      "actual_sha256": "9274830c87bfaf1753ffcb471e2d62d0b4c8f3870ec20118355e524d79e4be17",
+      "match": true
+    },
+    {
+      "relative_path": "INPUTEVENTS_MV.csv.gz",
+      "bytes": 234,
+      "expected_sha256": "4c127888e6ff27b93814b04f649ec792e46b75bc11c1ae2496ce5cf43dc259ea",
+      "actual_sha256": "4c127888e6ff27b93814b04f649ec792e46b75bc11c1ae2496ce5cf43dc259ea",
+      "match": true
+    },
+    {
+      "relative_path": "LABEVENTS.csv.gz",
+      "bytes": 115847926,
+      "expected_sha256": "e33d185d56f4716aa6f8cf17f6c59887934b696210526fe69ee63a32f09f6d5b",
+      "actual_sha256": "e33d185d56f4716aa6f8cf17f6c59887934b696210526fe69ee63a32f09f6d5b",
+      "match": true
+    },
+    {
+      "relative_path": "LICENSE.txt",
+      "bytes": 2518,
+      "expected_sha256": "8b03bc615781808a5446efd5b4edf7858f6128270fb493919871b58f2ed8000e",
+      "actual_sha256": "8b03bc615781808a5446efd5b4edf7858f6128270fb493919871b58f2ed8000e",
+      "match": true
+    },
+    {
+      "relative_path": "MICROBIOLOGYEVENTS.csv.gz",
+      "bytes": 3183291,
+      "expected_sha256": "45b527051a200c3b8fe1d2e2f78d77da6711d41c2568a1abf4ecea97a5a4e9d8",
+      "actual_sha256": "45b527051a200c3b8fe1d2e2f78d77da6711d41c2568a1abf4ecea97a5a4e9d8",
+      "match": true
+    },
+    {
+      "relative_path": "NOTEEVENTS.csv.gz",
+      "bytes": 281213134,
+      "expected_sha256": "e2459956b06fccb6fab272089c5eb4dd8e40271f1dfa0d5ea637a7ce776799d4",
+      "actual_sha256": "e2459956b06fccb6fab272089c5eb4dd8e40271f1dfa0d5ea637a7ce776799d4",
+      "match": true
+    },
+    {
+      "relative_path": "OUTPUTEVENTS.csv.gz",
+      "bytes": 26302150,
+      "expected_sha256": "ee827dcfe2ab0bf64c52941b2e3077603535b7e4ddc7d24afda78113dbec7a7f",
+      "actual_sha256": "ee827dcfe2ab0bf64c52941b2e3077603535b7e4ddc7d24afda78113dbec7a7f",
+      "match": true
+    },
+    {
+      "relative_path": "PATIENTS.csv.gz",
+      "bytes": 292030,
+      "expected_sha256": "7a13a8edbeb0e4c0218126d741edcd8f549e0c6c5815974e105e31ad0f300709",
+      "actual_sha256": "7a13a8edbeb0e4c0218126d741edcd8f549e0c6c5815974e105e31ad0f300709",
+      "match": true
+    },
+    {
+      "relative_path": "PRESCRIPTIONS.csv.gz",
+      "bytes": 30732289,
+      "expected_sha256": "111245858c74eaf272a01bca181beaf03ffe18df25d3377ac76df8114a3d27c5",
+      "actual_sha256": "111245858c74eaf272a01bca181beaf03ffe18df25d3377ac76df8114a3d27c5",
+      "match": true
+    },
+    {
+      "relative_path": "PROCEDUREEVENTS_MV.csv.gz",
+      "bytes": 204,
+      "expected_sha256": "d83b32cc165ef0334d479daace8a4cca2698012a3224ee8dea912d4a2b38f02d",
+      "actual_sha256": "d83b32cc165ef0334d479daace8a4cca2698012a3224ee8dea912d4a2b38f02d",
+      "match": true
+    },
+    {
+      "relative_path": "PROCEDURES_ICD.csv.gz",
+      "bytes": 829416,
+      "expected_sha256": "00f972036f1cdb14b59ca6efcc9d505247cc7075a1f06a982125e2d7758cf6b6",
+      "actual_sha256": "00f972036f1cdb14b59ca6efcc9d505247cc7075a1f06a982125e2d7758cf6b6",
+      "match": true
+    },
+    {
+      "relative_path": "SERVICES.csv.gz",
+      "bytes": 507406,
+      "expected_sha256": "cf9c0e1a85ff8d5838d8ff3c5a5050127b9db2be1e02fbd76fc48347617fb505",
+      "actual_sha256": "cf9c0e1a85ff8d5838d8ff3c5a5050127b9db2be1e02fbd76fc48347617fb505",
+      "match": true
+    },
+    {
+      "relative_path": "TRANSFERS.csv.gz",
+      "bytes": 2439853,
+      "expected_sha256": "4cd5eddb28811dca38d6ba2c698d8cc95575422ac7a670a02031696932e0e60f",
+      "actual_sha256": "4cd5eddb28811dca38d6ba2c698d8cc95575422ac7a670a02031696932e0e60f",
+      "match": true
+    }
+  ],
+  "dictionary_verification": {
+    "mapped_itemids_present": true,
+    "mapped_lab_itemids_present": true,
+    "inputevents_mv_header_only": true,
+    "procedureevents_mv_header_only": true,
+    "released_site_count": 1
+  },
+  "first_mimic3_association_read_utc": null,
+  "mimic3_association_inspected": false
+}

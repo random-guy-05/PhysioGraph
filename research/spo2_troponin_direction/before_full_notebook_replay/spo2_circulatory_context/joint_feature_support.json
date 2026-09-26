@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "eicu",
+    "cohort": 12028,
+    "spo2_observed": 11731,
+    "spo2_dynamics": 11454,
+    "jointly_observed": 1029,
+    "synchronous": 76,
+    "simultaneous_drop": 36,
+    "simultaneous_rise": 43
+  },
+  {
+    "dataset": "mimic",
+    "cohort": 17776,
+    "spo2_observed": 17192,
+    "spo2_dynamics": 4738,
+    "jointly_observed": 2877,
+    "synchronous": 228,
+    "simultaneous_drop": 132,
+    "simultaneous_rise": 110
+  }
+]

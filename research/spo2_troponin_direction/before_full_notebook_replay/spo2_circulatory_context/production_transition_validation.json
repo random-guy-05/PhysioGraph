@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "eicu",
+    "production_transition_helper_eligible": 11452,
+    "rebuilt_eligible": 11452,
+    "patient_sets_equal": true,
+    "historical_report_eligible": 11452,
+    "historical_count_difference": 0,
+    "raw_spo2_records": 492959,
+    "plausible_raw_records": 492624
+  },
+  {
+    "dataset": "mimic",
+    "production_transition_helper_eligible": 4711,
+    "rebuilt_eligible": 4711,
+    "patient_sets_equal": true,
+    "historical_report_eligible": 4708,
+    "historical_count_difference": 3,
+    "raw_spo2_records": 95997,
+    "plausible_raw_records": 95957
+  }
+]

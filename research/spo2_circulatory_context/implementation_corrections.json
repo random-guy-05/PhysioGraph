@@ -1,0 +1,28 @@
+{
+  "recorded_utc": "2026-09-05T04:21:42.144950+00:00",
+  "before_new_exposure_outcome_cross_tabulations": true,
+  "corrections": [
+    {
+      "issue": "Cohort follow-up cutoff initially used ICU discharge alone",
+      "production_rule": "Earlier of ICU and hospital discharge; exclude follow-up <=240 minutes",
+      "independent_verification": "Exactly 18 MIMIC encounters excluded; 17758 remain"
+    },
+    {
+      "issue": "Initial vital scan included the exact four-hour timestamp",
+      "production_rule": "SpO2 dynamic feature window is [0,240) minutes",
+      "source": "src/physiograph/analysis/spo2_protocol.py:_first_instability",
+      "verification": "Reconciliation cell checks exposed patient sets against the production helper before analysis"
+    }
+  ],
+  "new_hypothesis_thresholds_changed": false,
+  "additional_corrections": [
+    {
+      "recorded_utc": "2026-09-05T04:38:55.501611+00:00",
+      "issue": "Initial MIMIC vital scan omitted production warning !=1 quality filter",
+      "source": "src/physiograph/etl/mimic_extractor.py:_stream_mimic_measurement_events",
+      "cross_tabulations_previously_seen": true,
+      "no_models_fitted": true,
+      "reason": "Faithfully reproduce production source extraction; not threshold selection"
+    }
+  ]
+}

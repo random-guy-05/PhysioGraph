@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "dataset": "eicu",
+      "endpoint": "within_desaturation_hr_or",
+      "estimable": true,
+      "or_per_10_bpm": 1.1556150138426489,
+      "lower95": 0.927633962785335,
+      "upper95": 1.4396260958457194,
+      "p": 0.19705636268371252,
+      "holm_p": 0.7882254507348501
+    },
+    {
+      "dataset": "eicu",
+      "endpoint": "desaturation_specificity_or",
+      "estimable": true,
+      "or_per_10_bpm": 1.0254033609086752,
+      "lower95": 0.7785321947170781,
+      "upper95": 1.350556932260083,
+      "p": 0.8583208037564714,
+      "holm_p": 0.8583208037564714
+    },
+    {
+      "dataset": "mimic",
+      "endpoint": "within_desaturation_hr_or",
+      "estimable": true,
+      "or_per_10_bpm": 1.305218476749669,
+      "lower95": 0.8357091532763299,
+      "upper95": 2.0385025883346137,
+      "p": 0.24160608492015467,
+      "holm_p": 0.7882254507348501
+    },
+    {
+      "dataset": "mimic",
+      "endpoint": "desaturation_specificity_or",
+      "estimable": true,
+      "or_per_10_bpm": 1.311039238817173,
+      "lower95": 0.7762393554951208,
+      "upper95": 2.214296239362881,
+      "p": 0.3111788983231838,
+      "holm_p": 0.7882254507348501
+    }
+  ],
+  "advancement_gate_pass": false,
+  "biological_discovery": false,
+  "mortality_benefit_established": false
+}

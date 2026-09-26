@@ -1,0 +1,22 @@
+{
+  "correction_id": "implementation_correction_001",
+  "recorded_utc": "2026-09-07T19:36:00Z",
+  "protocol_changed": false,
+  "candidate_family_changed": false,
+  "outcome_definition_changed": false,
+  "winner_gates_changed": false,
+  "failed_attempt": {
+    "analysis_config_sha256": "0c6f3db8aac1709d03d7fdc5b89b762995a940c0a28c6a71cd0c9a2feaeecd9a",
+    "analysis_lock_utc": "2026-09-07T19:32:30.432593+00:00",
+    "first_mimic_candidate_outcome_read_utc": "2026-09-07T19:32:30.447739+00:00",
+    "failed_cell": 194,
+    "error_type": "KeyError",
+    "error_message": "['hr_level']",
+    "candidate_screen_artifact_created": false,
+    "decision_artifact_created": false,
+    "eicu_candidate_outcome_associations_inspected": false
+  },
+  "root_cause": "The model base already contained every current-level candidate. Merging the same level candidate again caused pandas to suffix both copies, so the requested unsuffixed feature column was absent.",
+  "correction": "Reuse a level candidate already present in model_base; merge only non-level candidate columns. Add a regression test for both paths. Remove the diagnostic faulthandler timer that deadlocked during post-cell cleanup.",
+  "required_rerun": "Regenerate the notebook, create a new code/config lock, and rerun the complete MIMIC pipeline before interpreting any association. Do not access eICU."
+}

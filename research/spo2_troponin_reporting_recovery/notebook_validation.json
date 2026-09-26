@@ -1,0 +1,17 @@
+{
+  "cells": 70,
+  "code_cells": 50,
+  "source_match": true,
+  "error_outputs": 0,
+  "all_code_cells_have_execution_counts": true,
+  "notebook_sha256": "dc100da1fcb293351ecbab21c93c9bbd6e882ac5789ace70752caddf66306160",
+  "execution": "local incremental; not full uninterrupted run or Google Colab",
+  "strict_parser_sql_python_fixture_cases_passed": 15,
+  "template_whitelist_python_counterexamples_passed": 11,
+  "template_sql_python_source_classifications_match": true,
+  "source_comment_rows_checked": 4758,
+  "both_stage_statuses_complete": true,
+  "validation": "nbformat structure; exact ordered source/id comparison with notebook builder; all code cells compile; original source identity; independent source classifications and eICU selection flags; unchanged comments and reference hashes",
+  "status_repair": "Template-only setup initially reset the already completed parent stage to running. The setup now preserves parent status in this mode, the parent status was corrected against its completed results, and both stages were verified complete after the rerun. Scientific classifications and counts were unchanged.",
+  "goal_complete": false
+}

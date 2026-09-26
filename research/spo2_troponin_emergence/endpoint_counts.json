@@ -1,0 +1,178 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 0,
+    "baseline_people": 251,
+    "definite_people": 190,
+    "positive": 7,
+    "risk": 0.03684210526315789,
+    "wilson95": [
+      0.017958892122649724,
+      0.0740826088505642
+    ],
+    "first_specimen_minute_quantiles": [
+      369.0,
+      440.5,
+      540.0
+    ],
+    "negative": 183,
+    "indeterminate": 0,
+    "unavailable": 2,
+    "not_remeasured": 59
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "exposed": 1,
+    "baseline_people": 202,
+    "definite_people": 147,
+    "positive": 6,
+    "risk": 0.04081632653061224,
+    "wilson95": [
+      0.01883856143572737,
+      0.08618202736356907
+    ],
+    "first_specimen_minute_quantiles": [
+      379.0,
+      445.0,
+      509.5
+    ],
+    "negative": 141,
+    "indeterminate": 0,
+    "unavailable": 3,
+    "not_remeasured": 52
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 0,
+    "baseline_people": 251,
+    "definite_people": 194,
+    "positive": 8,
+    "risk": 0.041237113402061855,
+    "wilson95": [
+      0.021041162477955316,
+      0.07924852876758212
+    ],
+    "first_specimen_minute_quantiles": [
+      369.25,
+      444.0,
+      542.25
+    ],
+    "negative": 186,
+    "indeterminate": 0,
+    "unavailable": 0,
+    "not_remeasured": 57
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "exposed": 1,
+    "baseline_people": 202,
+    "definite_people": 152,
+    "positive": 6,
+    "risk": 0.039473684210526314,
+    "wilson95": [
+      0.01821460470781579,
+      0.08343651522247675
+    ],
+    "first_specimen_minute_quantiles": [
+      379.0,
+      447.5,
+      513.75
+    ],
+    "negative": 146,
+    "indeterminate": 0,
+    "unavailable": 0,
+    "not_remeasured": 50
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 0,
+    "baseline_people": 109,
+    "definite_people": 44,
+    "positive": 9,
+    "risk": 0.20454545454545456,
+    "wilson95": [
+      0.11153253070081293,
+      0.34500578061101655
+    ],
+    "first_specimen_minute_quantiles": [
+      409.65,
+      472.98333333333335,
+      558.0
+    ],
+    "negative": 35,
+    "indeterminate": 0,
+    "unavailable": 1,
+    "not_remeasured": 64
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "exposed": 1,
+    "baseline_people": 62,
+    "definite_people": 18,
+    "positive": 2,
+    "risk": 0.1111111111111111,
+    "wilson95": [
+      0.031019522645612366,
+      0.32799765130178804
+    ],
+    "first_specimen_minute_quantiles": [
+      379.9,
+      514.0833333333334,
+      655.2666666666667
+    ],
+    "negative": 16,
+    "indeterminate": 0,
+    "unavailable": 1,
+    "not_remeasured": 43
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 0,
+    "baseline_people": 109,
+    "definite_people": 46,
+    "positive": 10,
+    "risk": 0.21739130434782608,
+    "wilson95": [
+      0.12260905324562552,
+      0.3557368737157895
+    ],
+    "first_specimen_minute_quantiles": [
+      416.10833333333335,
+      474.0,
+      570.4
+    ],
+    "negative": 36,
+    "indeterminate": 0,
+    "unavailable": 1,
+    "not_remeasured": 62
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "exposed": 1,
+    "baseline_people": 62,
+    "definite_people": 21,
+    "positive": 4,
+    "risk": 0.19047619047619047,
+    "wilson95": [
+      0.07667565052761793,
+      0.40000564690204926
+    ],
+    "first_specimen_minute_quantiles": [
+      398.26666666666665,
+      515.0,
+      710.0
+    ],
+    "negative": 17,
+    "indeterminate": 0,
+    "unavailable": 0,
+    "not_remeasured": 41
+  }
+]

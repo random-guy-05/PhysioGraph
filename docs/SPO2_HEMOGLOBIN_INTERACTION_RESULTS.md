@@ -1,0 +1,61 @@
+# Prespecified hemoglobin interaction results
+
+**Actual execution: local. No established biological discovery or mortality-reduction finding.**
+
+Only the existing MIMIC/eICU HF cohorts and SpO2 exposure were used. The protocol was frozen before opening Hb-by-outcome associations. Hb came from the pre-ICU CBC selection with the validated linkage-only amendment.
+
+The interaction is the ratio of SpO2-exposure **odds ratios per 2 g/dL lower hemoglobin**, adjusted for absolute oxygenation, hypoxemic burden, sampling, physiology and documented treatment. It is not a risk ratio or a transfusion effect.
+
+| Database | Endpoint | N | Events | Interaction OR (95% CI) | Holm p |
+|---|---|---:|---:|---|---:|
+| eicu | troponin_rise_12h | 659 | 159 | 0.840 (0.585–1.205) | 1 |
+| eicu | hospital_mortality | 3945 | 474 | Not estimable | 1 |
+| mimic | troponin_rise_12h | 516 | 145 | Not estimable | 1 |
+| mimic | hospital_mortality | 3450 | 512 | 1.100 (0.913–1.325) | 1 |
+
+Holm correction covers all four source/endpoint primary tests. Non-estimable models use p=1 only as conservative family placeholders, not as valid hypothesis tests. Both databases were previously explored and are not untouched validation samples.
+
+An independent optimizer check exposed quasi-complete separation in provisional fits. A documented post-fit numerical correction now tests for likelihood recession directions by linear programming. Such models are non-estimable; no covariate was removed to rescue them. Provisional output is preserved in research/spo2_hemoglobin_interaction/provisional_numerical_run.
+
+- eicu hospital_mortality: Complete/quasi-complete separation: no finite unpenalized model estimate
+- mimic troponin_rise_12h: Complete/quasi-complete separation: no finite unpenalized model estimate
+
+## Prespecified sensitivities
+
+| Database | Endpoint | Analysis | N | Interaction OR (95% CI) |
+|---|---|---|---:|---|
+| eicu | troponin_rise_12h | explicit_id_only | 659 | 0.840 (0.585–1.205) |
+| eicu | troponin_rise_12h | entered_by_icu_admission | 645 | 0.850 (0.591–1.222) |
+| eicu | troponin_rise_12h | without_care_covariates | 659 | 0.844 (0.591–1.205) |
+| eicu | hospital_mortality | explicit_id_only | 3945 | Complete/quasi-complete separation: no finite unpenalized model estimate |
+| eicu | hospital_mortality | entered_by_icu_admission | 3730 | Complete/quasi-complete separation: no finite unpenalized model estimate |
+| eicu | hospital_mortality | without_care_covariates | 3945 | Complete/quasi-complete separation: no finite unpenalized model estimate |
+| mimic | troponin_rise_12h | explicit_id_only | 133 | Prespecified information, exposure variation or full-rank gate failed |
+| mimic | troponin_rise_12h | entered_by_icu_admission | 508 | Complete/quasi-complete separation: no finite unpenalized model estimate |
+| mimic | troponin_rise_12h | without_care_covariates | 516 | Complete/quasi-complete separation: no finite unpenalized model estimate |
+| mimic | hospital_mortality | explicit_id_only | 1113 | 1.056 (0.736–1.514) |
+| mimic | hospital_mortality | entered_by_icu_admission | 3316 | 1.089 (0.901–1.316) |
+| mimic | hospital_mortality | without_care_covariates | 3450 | 1.097 (0.914–1.316) |
+| eicu | troponin_rise_12h | observation_weighted | 659 | 0.977 (0.656–1.456) |
+| mimic | troponin_rise_12h | observation_weighted | 516 | Complete/quasi-complete separation: no finite unpenalized model estimate |
+
+These are sensitivity analyses, not additional confirmatory tests. The weighted analysis assumes troponin ascertainment is explainable by measured covariates. Its reported covariance conditions on estimated weights.
+
+- eicu: 0.1% of observation probabilities below 0.02; weighted ESS 555.3, unexposed/exposed 348.5/208.0; frozen weight-support gate passed.
+- mimic: 0.4% of observation probabilities below 0.02; weighted ESS 281.5, unexposed/exposed 183.7/108.4; frozen weight-support gate passed.
+
+## Absolute mortality contrasts
+
+These standardize conditional model predictions at Hb 8 and 12 g/dL over the same observed covariate distribution. They are associative contrasts, not the effect of changing Hb.
+
+- mimic: exposure risk difference at Hb 8 = 3.64 percentage points; at Hb 12 = 1.26. Difference in differences 2.38 points (95% CI -2.08 to 6.84).
+
+## Decision and limits
+
+No endpoint passed the prespecified positive, multiplicity-adjusted replication requirement across both databases. This candidate does not establish that low hemoglobin amplifies the existing SpO2 association. Wide intervals remain inconclusive rather than proving the absence of an effect.
+
+Incomplete eICU pressure/treatment documentation, selective Hb/troponin testing, inferred MIMIC admission links, bleeding/transfusion confounding, and care variables measured during the exposure window limit mechanistic interpretation. Revision/store times do not uniformly identify first clinical availability. The 12-hour troponin endpoint indicates assay-matched rise, not adjudicated MI; hospital mortality does not measure a fixed-time treatment response.
+
+The broad anemia–hypoxemia hypothesis is prior knowledge: [COVID-19 interaction study](https://pmc.ncbi.nlm.nih.gov/articles/PMC9447453/) and [MINT HF analysis](https://pmc.ncbi.nlm.nih.gov/articles/PMC11999761/). Neither supplies patient data to this experiment.
+
+Every estimable primary GEE model was checked against a separately fitted GLM, and its robust covariance was independently reconstructed from patient-level scores. Aggregate evidence is in research/spo2_hemoglobin_interaction; patient records remain in private Drive Data. The runnable workflow is PhysioGraph_Biological_Discovery.ipynb. The overall biological-discovery goal remains incomplete.

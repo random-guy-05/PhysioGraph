@@ -37,7 +37,7 @@ _COHORT_COLUMNS: dict[str, Column] = {
 MIMICCohortSchema = DataFrameSchema(
     columns=_COHORT_COLUMNS,
     coerce=True,
-    description="MIMIC-III cohort definition with patient demographics and flags",
+    description="MIMIC-IV cohort definition with patient demographics and flags",
 )
 
 EICUCohortSchema = DataFrameSchema(

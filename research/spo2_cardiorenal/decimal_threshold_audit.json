@@ -1,0 +1,34 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "n": 656,
+    "creatinine_threshold_mismatches": 6,
+    "max_peak_quantization": 0.0,
+    "max_baseline_quantization": 0.0
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "n": 926,
+    "creatinine_threshold_mismatches": 9,
+    "max_peak_quantization": 0.0,
+    "max_baseline_quantization": 8.881784197001252e-16
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "n": 621,
+    "creatinine_threshold_mismatches": 22,
+    "max_peak_quantization": 0.0,
+    "max_baseline_quantization": 0.0
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "n": 654,
+    "creatinine_threshold_mismatches": 22,
+    "max_peak_quantization": 0.0,
+    "max_baseline_quantization": 0.0
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "stage": "completed_including_novelty_review",
+  "environment": "local",
+  "classification": "KNOWN_SIGNAL_NO_NOVEL_WINNER",
+  "protocol_freeze_utc": "2026-09-07T18:04:48Z",
+  "first_mimic_candidate_outcome_read_utc": "2026-09-07T20:17:55.565810+00:00",
+  "eicu_candidate_outcome_associations_inspected": false,
+  "end_utc": "2026-09-07T20:19:55.889317+00:00",
+  "novelty_review_utc": "2026-09-07T20:51:42.909421+00:00"
+}

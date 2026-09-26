@@ -1,0 +1,15 @@
+{
+  "protocol_sha256": "4e0b978408f42b1ca580563599bfbe994692058359a36e5821a43837480ee588",
+  "references": {
+    "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/within_person_troponin.duckdb": {
+      "sha256": "3f06a2f29fe687006a7ac18da6fbdbba9c05317f8e4ba9b9894968609c677180",
+      "bytes": 11284480,
+      "mtime_ns": 1788634152191813942
+    },
+    "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/patient.csv": {
+      "sha256": "cc022f6bb49ae477f20aace2540480a7b1933a0698860156b9b496d66a00b2d5",
+      "bytes": 48277161,
+      "mtime_ns": 1773720137963999986
+    }
+  }
+}

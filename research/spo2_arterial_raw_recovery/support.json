@@ -1,0 +1,386 @@
+[
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 5,
+    "stage": "full_windows",
+    "encounters": 4302,
+    "people": 4051
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 5,
+    "stage": "pre",
+    "encounters": 72,
+    "people": 72
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 5,
+    "stage": "post",
+    "encounters": 82,
+    "people": 82
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 5,
+    "stage": "both",
+    "encounters": 0,
+    "people": 0
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 10,
+    "stage": "full_windows",
+    "encounters": 4189,
+    "people": 3949
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 10,
+    "stage": "pre",
+    "encounters": 139,
+    "people": 139
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 10,
+    "stage": "post",
+    "encounters": 125,
+    "people": 125
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 10,
+    "stage": "both",
+    "encounters": 1,
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 15,
+    "stage": "full_windows",
+    "encounters": 4101,
+    "people": 3871
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 15,
+    "stage": "pre",
+    "encounters": 165,
+    "people": 165
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 15,
+    "stage": "post",
+    "encounters": 149,
+    "people": 149
+  },
+  {
+    "dataset": "eicu",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 15,
+    "stage": "both",
+    "encounters": 2,
+    "people": 2
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 5,
+    "stage": "full_windows",
+    "encounters": 4302,
+    "people": 4051
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 5,
+    "stage": "pre",
+    "encounters": 72,
+    "people": 72
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 5,
+    "stage": "post",
+    "encounters": 82,
+    "people": 82
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 5,
+    "stage": "both",
+    "encounters": 0,
+    "people": 0
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 10,
+    "stage": "full_windows",
+    "encounters": 4189,
+    "people": 3949
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 10,
+    "stage": "pre",
+    "encounters": 139,
+    "people": 139
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 10,
+    "stage": "post",
+    "encounters": 125,
+    "people": 125
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 10,
+    "stage": "both",
+    "encounters": 1,
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 15,
+    "stage": "full_windows",
+    "encounters": 4101,
+    "people": 3871
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 15,
+    "stage": "pre",
+    "encounters": 165,
+    "people": 165
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 15,
+    "stage": "post",
+    "encounters": 149,
+    "people": 149
+  },
+  {
+    "dataset": "eicu",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 15,
+    "stage": "both",
+    "encounters": 2,
+    "people": 2
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 5,
+    "stage": "full_windows",
+    "encounters": 1371,
+    "people": 1317
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 5,
+    "stage": "pre",
+    "encounters": 49,
+    "people": 49
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 5,
+    "stage": "post",
+    "encounters": 58,
+    "people": 58
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 5,
+    "stage": "both",
+    "encounters": 2,
+    "people": 2
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 10,
+    "stage": "full_windows",
+    "encounters": 1322,
+    "people": 1270
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 10,
+    "stage": "pre",
+    "encounters": 73,
+    "people": 72
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 10,
+    "stage": "post",
+    "encounters": 84,
+    "people": 84
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 10,
+    "stage": "both",
+    "encounters": 4,
+    "people": 4
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 15,
+    "stage": "full_windows",
+    "encounters": 1291,
+    "people": 1241
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 15,
+    "stage": "pre",
+    "encounters": 90,
+    "people": 89
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 15,
+    "stage": "post",
+    "encounters": 103,
+    "people": 103
+  },
+  {
+    "dataset": "mimic",
+    "tier": "canonical_explicit",
+    "tolerance_minutes": 15,
+    "stage": "both",
+    "encounters": 9,
+    "people": 9
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 5,
+    "stage": "full_windows",
+    "encounters": 1371,
+    "people": 1317
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 5,
+    "stage": "pre",
+    "encounters": 49,
+    "people": 49
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 5,
+    "stage": "post",
+    "encounters": 58,
+    "people": 58
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 5,
+    "stage": "both",
+    "encounters": 2,
+    "people": 2
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 10,
+    "stage": "full_windows",
+    "encounters": 1322,
+    "people": 1270
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 10,
+    "stage": "pre",
+    "encounters": 73,
+    "people": 72
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 10,
+    "stage": "post",
+    "encounters": 84,
+    "people": 84
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 10,
+    "stage": "both",
+    "encounters": 4,
+    "people": 4
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 15,
+    "stage": "full_windows",
+    "encounters": 1291,
+    "people": 1241
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 15,
+    "stage": "pre",
+    "encounters": 90,
+    "people": 89
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 15,
+    "stage": "post",
+    "encounters": 103,
+    "people": 103
+  },
+  {
+    "dataset": "mimic",
+    "tier": "all_recovered_pao2_labels",
+    "tolerance_minutes": 15,
+    "stage": "both",
+    "encounters": 9,
+    "people": 9
+  }
+]

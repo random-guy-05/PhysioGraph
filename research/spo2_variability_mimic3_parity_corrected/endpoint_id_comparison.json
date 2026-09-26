@@ -1,0 +1,21 @@
+{
+  "guard": "Endpoint-membership comparison only; no SpO2 association was estimated in this phase.",
+  "later": {
+    "corrected_event_ids": 96,
+    "corrected_only": 17,
+    "jaccard_overlap": 0.8061224489795918,
+    "original_event_ids": 81,
+    "original_only": 2,
+    "shared": 79,
+    "shared_event_time_assignments_changed": 4
+  },
+  "primary": {
+    "corrected_event_ids": 100,
+    "corrected_only": 1,
+    "jaccard_overlap": 0.9519230769230769,
+    "original_event_ids": 103,
+    "original_only": 4,
+    "shared": 99,
+    "shared_event_time_assignments_changed": 8
+  }
+}

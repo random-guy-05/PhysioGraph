@@ -1,0 +1,43 @@
+{
+  "status": "POST_HOC_MEASUREMENT_PROCESS_DIAGNOSTIC",
+  "degradation_lock_sha256": "57683ba0d46bad959a0a146f4025df7323b926ffe73a774db6c81272a7d1d585",
+  "agreement": {
+    "n_paired": 5957,
+    "pearson_correlation": 0.8112131779623386,
+    "spearman_rank_correlation": 0.7540084754564338,
+    "reliability_slope_degraded_on_original": 0.7959853549822212,
+    "original_sd": 0.9535740961692932,
+    "degraded_sd": 0.9356739215550587,
+    "original_iqr": 0.930298179126646,
+    "degraded_iqr": 0.9213167454046086,
+    "same_quartile_fraction": 0.6343797213362431,
+    "moved_two_or_more_quartiles_fraction": 0.08309551787812658
+  },
+  "original_locked_mimic": {
+    "n": 5957,
+    "events": 158,
+    "coverage": 0.7268179599804783,
+    "rr_per_mimic_sd": 1.2510878230694424,
+    "ci_low": 1.1039551264449385,
+    "ci_high": 1.4178300399519945,
+    "p_value": 0.00044924317040548063,
+    "log_rr": 0.22401343131442733,
+    "hospitals": null,
+    "covariance": "HC0"
+  },
+  "degraded_mimic_single_fit": {
+    "n": 5957,
+    "events": 158,
+    "coverage": 0.7268179599804783,
+    "rr_per_mimic_sd": 1.0611030125327117,
+    "ci_low": 0.9092973414778941,
+    "ci_high": 1.238252386591156,
+    "p_value": 0.4514954547191521,
+    "log_rr": 0.05930894495916914,
+    "hospitals": null,
+    "covariance": "HC0"
+  },
+  "percent_attenuation_of_log_rr": 73.52437993955704,
+  "outcome_fit_count": 1,
+  "interpretation_guard": "The degradation rule was not modified after this effect estimate."
+}

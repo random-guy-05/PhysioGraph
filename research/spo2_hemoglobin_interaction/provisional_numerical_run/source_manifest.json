@@ -1,0 +1,46 @@
+{
+  "eICU/respiratoryCharting": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/respiratoryCharting.csv",
+    "bytes": 1230466869,
+    "mtime_ns": 1773720212232000112,
+    "sha256": "a9b65f79128ffa891116ddaf30f7a0aed3d7db8ed25a7d7108d7b84ca96ce38d"
+  },
+  "eICU/infusionDrug": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/infusionDrug.csv",
+    "bytes": 278645140,
+    "mtime_ns": 1773720182937000036,
+    "sha256": "cfe273bcdb31751b951348400f5b4190614f1a4164ace057bfeac7a8fa0de45d"
+  },
+  "eICU/treatment": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/treatment.csv",
+    "bytes": 338269723,
+    "mtime_ns": 1773720143288000106,
+    "sha256": "598a28d516d2a2827c45ebfaeb48afbfb867be12918756c27a37e7f16d417bf6"
+  },
+  "MIMIC/inputevents": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/inputevents.csv",
+    "bytes": 2868896449,
+    "mtime_ns": 1773614657088999986,
+    "sha256": "d0440445f74b2edeeef17106c941d08d29a3fed1f6f0625f3c956bed6237c9c2"
+  },
+  "MIMIC/procedureevents": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/procedureevents.csv",
+    "bytes": 150454128,
+    "mtime_ns": 1773618915000000000,
+    "sha256": "4858144bf33be198a002658556fd0352143653802a93d965de4f891b0beb1450"
+  },
+  "MIMIC/d_items": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/d_items.csv",
+    "bytes": 375225,
+    "mtime_ns": 1773614198105000019,
+    "sha256": "2e8987d8ac98e48358e582708f953710f50bdea7fb4a8bb427acb364a7212894",
+    "fingerprint_reused_from": "spo2_circulatory_context/input_manifest.json"
+  },
+  "MIMIC/chartevents": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/chartevents.csv",
+    "bytes": 41935806083,
+    "mtime_ns": 1773621199698999881,
+    "sha256": "0d1932df345c2d135ce715df1f6afa603f7124894a5aa8c6ba56aa6ee02160d4",
+    "fingerprint_reused_from": "spo2_circulatory_context/input_manifest.json"
+  }
+}

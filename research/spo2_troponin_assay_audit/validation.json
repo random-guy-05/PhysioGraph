@@ -1,0 +1,34 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "original_keys_values_and_availability_match": true,
+    "sql_python_source_medians_and_used_flags_match": true,
+    "legacy_labels_and_ratios_match": true,
+    "encounters": 2294
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "original_keys_values_and_availability_match": true,
+    "sql_python_source_medians_and_used_flags_match": true,
+    "legacy_labels_and_ratios_match": true,
+    "encounters": 2042
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "original_keys_values_and_availability_match": true,
+    "sql_python_source_medians_and_used_flags_match": true,
+    "legacy_labels_and_ratios_match": true,
+    "encounters": 774
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "original_keys_values_and_availability_match": true,
+    "sql_python_source_medians_and_used_flags_match": true,
+    "legacy_labels_and_ratios_match": true,
+    "encounters": 718
+  }
+]

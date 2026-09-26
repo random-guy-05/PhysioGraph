@@ -1,0 +1,19 @@
+{
+  "at_risk_n": 8196,
+  "objective_shock_events": 238,
+  "lead4_events": 221,
+  "no_hypotension_events": 87,
+  "no_urine_events": 123,
+  "pressure_component_counts": {
+    "continuous_support": 45136,
+    "sustained_hypotension": 24929,
+    "mcs": 493
+  },
+  "perfusion_component_counts": {
+    "lactate": 4281,
+    "oliguria": 1771,
+    "creatinine": 1312,
+    "ph": 567,
+    "alt": 152
+  }
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "dataset": "eicu",
+    "observed": 659,
+    "target": 3984,
+    "brier": 0.1342634428424768,
+    "auc": 0.6236457608360811,
+    "fraction_target_below_floor": 0.000502008032128514,
+    "ess_by_exposure": {
+      "0": 348.47484403766214,
+      "1": 208.009054068268
+    },
+    "ess_total": 555.2772994088863,
+    "weight_max": 16.39678546912635,
+    "support_pass": true,
+    "calibration": [
+      {
+        "n": 399,
+        "predicted": 0.07735035780242377,
+        "observed": 0.08771929824561403
+      },
+      {
+        "n": 398,
+        "predicted": 0.10062673857983581,
+        "observed": 0.11557788944723618
+      },
+      {
+        "n": 398,
+        "predicted": 0.11238668620006423,
+        "observed": 0.12814070351758794
+      },
+      {
+        "n": 399,
+        "predicted": 0.12283381955958035,
+        "observed": 0.15538847117794485
+      },
+      {
+        "n": 398,
+        "predicted": 0.1341193393715252,
+        "observed": 0.11557788944723618
+      },
+      {
+        "n": 398,
+        "predicted": 0.1470188540314979,
+        "observed": 0.12060301507537688
+      },
+      {
+        "n": 399,
+        "predicted": 0.16571187040284233,
+        "observed": 0.16290726817042606
+      },
+      {
+        "n": 398,
+        "predicted": 0.19830216337825224,
+        "observed": 0.1934673366834171
+      },
+      {
+        "n": 398,
+        "predicted": 0.24336362046559237,
+        "observed": 0.25879396984924624
+      },
+      {
+        "n": 399,
+        "predicted": 0.3530122364933131,
+        "observed": 0.3157894736842105
+      }
+    ],
+    "folds": [
+      {
+        "fold": 0,
+        "train": 3177,
+        "test": 807,
+        "person_disjoint": true,
+        "iterations": 14
+      },
+      {
+        "fold": 1,
+        "train": 3191,
+        "test": 793,
+        "person_disjoint": true,
+        "iterations": 14
+      },
+      {
+        "fold": 2,
+        "train": 3183,
+        "test": 801,
+        "person_disjoint": true,
+        "iterations": 12
+      },
+      {
+        "fold": 3,
+        "train": 3185,
+        "test": 799,
+        "person_disjoint": true,
+        "iterations": 12
+      },
+      {
+        "fold": 4,
+        "train": 3200,
+        "test": 784,
+        "person_disjoint": true,
+        "iterations": 13
+      }
+    ],
+    "uncertainty": "Robust outcome-model covariance conditional on fitted cross-fold observation weights; does not include weight estimation uncertainty"
+  },
+  {
+    "dataset": "mimic",
+    "observed": 516,
+    "target": 3450,
+    "brier": 0.11935321004925224,
+    "auc": 0.7011765296470676,
+    "fraction_target_below_floor": 0.004347826086956522,
+    "ess_by_exposure": {
+      "0": 183.65906254855634,
+      "1": 108.3563525186886
+    },
+    "ess_total": 281.52387291168395,
+    "weight_max": 50.0,
+    "support_pass": true,
+    "calibration": [
+      {
+        "n": 345,
+        "predicted": 0.03502900726051263,
+        "observed": 0.05507246376811594
+      },
+      {
+        "n": 345,
+        "predicted": 0.04336260112690197,
+        "observed": 0.043478260869565216
+      },
+      {
+        "n": 345,
+        "predicted": 0.05080315365500281,
+        "observed": 0.05217391304347826
+      },
+      {
+        "n": 345,
+        "predicted": 0.06453201799436664,
+        "observed": 0.043478260869565216
+      },
+      {
+        "n": 345,
+        "predicted": 0.12586613756376447,
+        "observed": 0.1565217391304348
+      },
+      {
+        "n": 345,
+        "predicted": 0.16376107725214667,
+        "observed": 0.1826086956521739
+      },
+      {
+        "n": 345,
+        "predicted": 0.1893000748844803,
+        "observed": 0.17391304347826086
+      },
+      {
+        "n": 345,
+        "predicted": 0.2183395279375798,
+        "observed": 0.2028985507246377
+      },
+      {
+        "n": 345,
+        "predicted": 0.25881969613689576,
+        "observed": 0.2782608695652174
+      },
+      {
+        "n": 345,
+        "predicted": 0.34609095567071735,
+        "observed": 0.3072463768115942
+      }
+    ],
+    "folds": [
+      {
+        "fold": 0,
+        "train": 2765,
+        "test": 685,
+        "person_disjoint": true,
+        "iterations": 13
+      },
+      {
+        "fold": 1,
+        "train": 2778,
+        "test": 672,
+        "person_disjoint": true,
+        "iterations": 12
+      },
+      {
+        "fold": 2,
+        "train": 2743,
+        "test": 707,
+        "person_disjoint": true,
+        "iterations": 16
+      },
+      {
+        "fold": 3,
+        "train": 2772,
+        "test": 678,
+        "person_disjoint": true,
+        "iterations": 13
+      },
+      {
+        "fold": 4,
+        "train": 2742,
+        "test": 708,
+        "person_disjoint": true,
+        "iterations": 13
+      }
+    ],
+    "uncertainty": "Robust outcome-model covariance conditional on fitted cross-fold observation weights; does not include weight estimation uncertainty"
+  }
+]

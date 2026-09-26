@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "independent_normalization_and_aggregation_match": true,
+    "fio2_challenge_fields_contribute_no_rows": null,
+    "invasive_ventilation_patient_set_matches": true,
+    "positive_rate_patient_set_matches": true
+  },
+  {
+    "dataset": "mimic",
+    "independent_normalization_and_aggregation_match": true,
+    "fio2_challenge_fields_contribute_no_rows": true,
+    "invasive_ventilation_patient_set_matches": true,
+    "positive_rate_patient_set_matches": true
+  }
+]

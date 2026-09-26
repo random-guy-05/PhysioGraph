@@ -1,0 +1,17 @@
+{
+  "spo2_context": {
+    "bytes": 39333888,
+    "mtime_ns": 1788588260012526832,
+    "sha256": "7902a93985c6024dfb38a1a7555c54418492bfb3ebf4b93104a78148316d3352"
+  },
+  "spo2_hemoglobin": {
+    "bytes": 2895872,
+    "mtime_ns": 1788589057123969680,
+    "sha256": "5057336258d20fb35fc9e195bf70b41a48fdee32a023ee6823eac7c2d3ff1991"
+  },
+  "hemoglobin_interaction": {
+    "bytes": 6303744,
+    "mtime_ns": 1788593845873116200,
+    "sha256": "5a40a1e164c1554574537e916a90d692b682c25775a82eb52e209cb5c61455da"
+  }
+}

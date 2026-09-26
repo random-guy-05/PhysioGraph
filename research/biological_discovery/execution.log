@@ -1,0 +1,97 @@
+Executing notebook cell 2
+setup running
+Data source: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data
+Patient-level intermediates: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905
+
+Executing notebook cell 3
+
+Executing notebook cell 5
+eICU cohort running
+MIMIC cohort running
+dataset     n  patients  encounters
+   eicu 11596     10281       11596
+  mimic 16659     12772       16659
+
+Executing notebook cell 7
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell7", line 3 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 349 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 363 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell7", line 26 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 349 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 363 in <module>
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell7", line 26 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 349 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 363 in <module>
+eICU raw lab scan running
+MIMIC raw lab scan running
+    marker   unit     n dataset
+creatinine  mg/dL 10092    eicu
+   lactate mmol/L  4019    eicu
+ phosphate  mg/dL  3527    eicu
+creatinine  mg/dL 23424   mimic
+   lactate mmol/L 19348   mimic
+ phosphate  mg/dL 21150   mimic
+
+Executing notebook cell 8
+feature construction and support audit running
+dataset                 stage     n  known_outcomes  deaths  sites  patients
+   eicu                cohort 11596           11492    1228    200     10281
+   eicu        paired_lactate   405             404     102     87       403
+   eicu           normalizers    92              92      13     48        92
+   eicu primary_complete_labs    18              18       2      9        18
+  mimic                cohort 16659           16659    2209      1     12772
+  mimic        paired_lactate  2540            2540     644      1      2432
+  mimic           normalizers   506             506     102      1       497
+  mimic primary_complete_labs   224             224      56      1       223
+
+Executing notebook cell 10
+locked mortality models running
+dataset              analysis  phosphate_rise   n  deaths  mortality_risk
+   eicu               primary               0  16       2        0.125000
+   eicu               primary               1   2       0        0.000000
+   eicu     renal_restriction               0  12       1        0.083333
+   eicu     renal_restriction               1   2       0        0.000000
+   eicu available_by_landmark               0  14       2        0.142857
+   eicu available_by_landmark               1   2       0        0.000000
+  mimic               primary               0 170      37        0.217647
+  mimic               primary               1  54      19        0.351852
+  mimic     renal_restriction               0  82      13        0.158537
+  mimic     renal_restriction               1  26       6        0.230769
+  mimic available_by_landmark               0 118      27        0.228814
+  mimic available_by_landmark               1  43      14        0.325581
+dataset              analysis   n  patients  deaths               status  biological_claim_ready
+   eicu               primary  18        18       2 insufficient_support                   False
+   eicu     renal_restriction  14        14       1 insufficient_support                   False
+   eicu available_by_landmark  16        16       2 insufficient_support                   False
+  mimic               primary 224       223      56 insufficient_support                   False
+  mimic     renal_restriction 108       108      19 insufficient_support                   False
+  mimic available_by_landmark 161       160      41 insufficient_support                   False
+No significance or clinical claim is manufactured when data are sparse.
+
+Executing notebook cell 11
+Timeout (0:03:00)!
+Thread 0x00007ff84598f180 (most recent call first):
+  File "PhysioGraph_Biological_Discovery.ipynb:cell11", line 7 in <module>
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 349 in main
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 363 in <module>
+provenance and output verification running
+Fingerprinted eICU/patient
+Fingerprinted eICU/diagnosis
+Fingerprinted eICU/admissionDx
+Fingerprinted MIMIC/diagnoses_icd
+Fingerprinted MIMIC/patients
+Fingerprinted MIMIC/admissions
+Fingerprinted MIMIC/icustays
+Fingerprinted eICU/lab
+Fingerprinted MIMIC/d_labitems
+Fingerprinted MIMIC/labevents
+initial locked experiment complete
+The discovery goal remains open. Review the actual results before advancing or rejecting this candidate.
+
+Locally executed all notebook cells: /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb

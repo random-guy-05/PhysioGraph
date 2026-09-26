@@ -1,0 +1,258 @@
+[
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "potassium_fall": false,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": false,
+    "people": 55
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "potassium_fall": false,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": true,
+    "people": 0
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "potassium_fall": false,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": false,
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "potassium_fall": false,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": true,
+    "people": 12
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "potassium_fall": true,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": false,
+    "people": 23
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "potassium_fall": true,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": true,
+    "people": 0
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "potassium_fall": true,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": false,
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 0,
+    "potassium_fall": true,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": true,
+    "people": 4
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "potassium_fall": false,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": false,
+    "people": 34
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "potassium_fall": false,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": true,
+    "people": 0
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "potassium_fall": false,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": false,
+    "people": 2
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "potassium_fall": false,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": true,
+    "people": 5
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "potassium_fall": true,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": false,
+    "people": 14
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "potassium_fall": true,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": true,
+    "people": 0
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "potassium_fall": true,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": false,
+    "people": 1
+  },
+  {
+    "dataset": "eicu",
+    "exposed": 1,
+    "potassium_fall": true,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": true,
+    "people": 0
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "potassium_fall": false,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": false,
+    "people": 53
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "potassium_fall": false,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": true,
+    "people": 0
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "potassium_fall": false,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": false,
+    "people": 5
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "potassium_fall": false,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": true,
+    "people": 14
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "potassium_fall": true,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": false,
+    "people": 20
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "potassium_fall": true,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": true,
+    "people": 1
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "potassium_fall": true,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": false,
+    "people": 1
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 0,
+    "potassium_fall": true,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": true,
+    "people": 3
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "potassium_fall": false,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": false,
+    "people": 25
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "potassium_fall": false,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": true,
+    "people": 1
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "potassium_fall": false,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": false,
+    "people": 1
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "potassium_fall": false,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": true,
+    "people": 5
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "potassium_fall": true,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": false,
+    "people": 3
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "potassium_fall": true,
+    "glucose_absolute_rise": false,
+    "glucose_relative_rise": true,
+    "people": 0
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "potassium_fall": true,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": false,
+    "people": 1
+  },
+  {
+    "dataset": "mimic",
+    "exposed": 1,
+    "potassium_fall": true,
+    "glucose_absolute_rise": true,
+    "glucose_relative_rise": true,
+    "people": 1
+  }
+]

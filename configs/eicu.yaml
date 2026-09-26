@@ -7,6 +7,7 @@ paths:
 
 cohort:
   icu_anchor: "patientunitstayid offset zero"
+  inclusion_rule: "age >= 18 AND explicit heart failure AND (ICU within 24h of hospital admission OR cardiogenic shock)"
   heart_failure_signal:
     - "congestive heart failure"
     - "heart failure"
@@ -23,5 +24,7 @@ source_tables:
   admission_dx: admissionDx.csv
   lab: lab.csv
   vital_periodic: vitalPeriodic.csv
+  vital_aperiodic: vitalAperiodic.csv
+  nurse_charting: nurseCharting.csv
   infusion_drug: infusionDrug.csv
   treatment: treatment.csv

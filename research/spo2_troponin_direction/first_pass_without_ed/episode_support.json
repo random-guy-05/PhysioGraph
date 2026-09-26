@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "cohort": 12028,
+    "episodes": 4309,
+    "missing_hospital_start": 0,
+    "anchors": 4309
+  },
+  {
+    "dataset": "mimic",
+    "cohort": 17758,
+    "episodes": 1398,
+    "missing_hospital_start": 0,
+    "anchors": 1398
+  }
+]

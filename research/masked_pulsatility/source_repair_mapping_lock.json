@@ -1,0 +1,34 @@
+{
+  "protocol_sha256": "cd7015536a64d7435304c6c10e60705e77967092a37fea3eb62738b4c0fa917b",
+  "frozen_utc": "2026-09-07T05:52:10.644970+00:00",
+  "frozen_before_crossing_prevalence": true,
+  "exact_nurse_mapping": [
+    {
+      "category": "Vital Signs",
+      "label": "Non-Invasive BP",
+      "name": "Non-Invasive BP Systolic",
+      "concept": "SBP"
+    },
+    {
+      "category": "Vital Signs",
+      "label": "Non-Invasive BP",
+      "name": "Non-Invasive BP Diastolic",
+      "concept": "DBP"
+    },
+    {
+      "category": "Vital Signs",
+      "label": "Non-Invasive BP",
+      "name": "Non-Invasive BP Mean",
+      "concept": "MAP"
+    }
+  ],
+  "aperiodic_mapping": {
+    "noninvasivesystolic": "SBP",
+    "noninvasivediastolic": "DBP",
+    "noninvasivemean": "MAP"
+  },
+  "deduplication_rule": "retain vitalAperiodic; drop nurse pair only for same stay within +/-1 minute with identical SBP/DBP and compatible MAP; fill missing aperiodic MAP from matched nurse row",
+  "threshold": 0.25,
+  "outcomes_prohibited": true,
+  "lock_sha256": "ef912bbe530c69cf492b53cbf877ccadc6eb805e59653a20e77fa8a856010359"
+}

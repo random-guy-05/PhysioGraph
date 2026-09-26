@@ -1,0 +1,8 @@
+{
+  "channel": "pleth",
+  "samples_per_frame": 2,
+  "gain": 4096.0,
+  "physical_average_error": 0.0001220703125,
+  "digital_truncation_error": 0.0,
+  "digital_truncation_matches": true
+}

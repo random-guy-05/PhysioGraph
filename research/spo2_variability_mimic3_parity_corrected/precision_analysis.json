@@ -1,0 +1,58 @@
+{
+  "guard": "Passing the retained 50-event credibility gate does not establish adequate power.",
+  "log_ci_width": 0.4969459755760215,
+  "log_rr": -0.07797118621109142,
+  "method": "two-sided normal approximation using corrected observed HC0 robust SE; inverse-event information scaling",
+  "modeled_events": 64,
+  "multiplicative_95_ci_factor": 1.282066190457849,
+  "power": [
+    {
+      "approximate_power": 0.11684277772566717,
+      "true_rr": 1.1
+    },
+    {
+      "approximate_power": 0.19668302675052554,
+      "true_rr": 1.15
+    },
+    {
+      "approximate_power": 0.30125150690730745,
+      "true_rr": 1.2
+    },
+    {
+      "approximate_power": 0.42093088552269164,
+      "true_rr": 1.25
+    },
+    {
+      "approximate_power": 0.5436697633625462,
+      "true_rr": 1.3
+    }
+  ],
+  "required_events": [
+    {
+      "required_events": 243,
+      "target_power": 0.8,
+      "true_rr": 1.2
+    },
+    {
+      "required_events": 326,
+      "target_power": 0.9,
+      "true_rr": 1.2
+    },
+    {
+      "required_events": 163,
+      "target_power": 0.8,
+      "true_rr": 1.25
+    },
+    {
+      "required_events": 218,
+      "target_power": 0.9,
+      "true_rr": 1.25
+    }
+  ],
+  "robust_se": 0.12677193254490343,
+  "rr_95_ci": [
+    0.7214846515271688,
+    1.185899788421592
+  ],
+  "rr_ci_width": 0.46441513689442326
+}

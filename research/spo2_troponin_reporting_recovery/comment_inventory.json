@@ -1,0 +1,16 @@
+[
+  {
+    "comment_class": "unparsed",
+    "numeric_accepted": false,
+    "source_rows": 621,
+    "exact_numeric_matches": 0,
+    "placeholder_comments": 13
+  },
+  {
+    "comment_class": "unparsed",
+    "numeric_accepted": true,
+    "source_rows": 4137,
+    "exact_numeric_matches": 0,
+    "placeholder_comments": 680
+  }
+]

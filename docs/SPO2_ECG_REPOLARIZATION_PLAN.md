@@ -1,0 +1,33 @@
+# Paired ECG repolarization-versus-conduction experiment
+
+Specified September 5, 2026, before downloading or inspecting machine measurements. Metadata support is already known: 341 original MIMIC encounters have nominal pre-ICU/later ECGs, including 95 with the original early SpO2 instability exposure. Prior troponin experiments failed positive validation. The study is MIMIC-only; there is no equivalent linked diagnostic-ECG dataset established in eICU, and an internal split is not external replication.
+
+## Biological question and novelty boundary
+
+Does early charted oxygen instability accompany a subsequent repolarization change greater than the concomitant change in ventricular conduction? The distinction matters because a prolonged QT can reflect either component; a QT association alone cannot localize the electrical change. Hypoxia-related QT changes and sleep-disordered-breathing/QRS–T associations are already reported ([repolarization study](https://pmc.ncbi.nlm.nih.gov/articles/PMC11380986/), [MESA study](https://pmc.ncbi.nlm.nih.gov/articles/PMC6931493/)). This experiment is a direct cardiac discriminator for the current project's unconfirmed injury interpretation, not a claim to have discovered hypoxic electrophysiology. A positive observational result would not identify an ion channel, establish ischemia, or show that treatment improves survival.
+
+## Fixed cohort and pairing
+
+Use only the original MIMIC cohort in spo2_cardiorenal.duckdb. Use the last nominal ECG in [-1440,0) minutes relative to ICU admission and the first in [240,1680], within the recorded hospital admission. Resolve exact-time ties by smallest study_id. Choose the smallest eligible stay_id per person using metadata before ECG quality or values; do not replace rejected pairs with later or earlier ECGs or other encounters.
+
+The previously measured ECG/charted-procedure disagreement remains unresolved. No clock corrections are applied. A fixed sensitivity retains pairs whose recorded baseline is at least 60 minutes before admission and whose follow-up is at least 60 minutes after the 240-minute landmark and at least 60 minutes before 1680. This margin is an assumption check, not proof of bounded clock error. A second sensitivity retains pairs collected on the same nonmissing cart with identical nonmissing bandwidth/filter settings. Neither can rescue the primary analysis.
+
+## Sources, measurements and exclusions
+
+Download only the official MIMIC-IV-ECG v1.0 machine_measurements.csv, verify its SHA256 against the previously downloaded publisher list, and save it under Drive Data. Match subject/study IDs and ecg_time against the registry. No mortality or troponin endpoint is accessed. Machine report text is used only for the frozen rhythm exclusions below, never as an adjudicated diagnosis.
+
+Calculate QRS=qrs_end−qrs_onset; QT=t_end−qrs_onset; QTcF=QT/(RR/1000)^(1/3); JTcF=QTcF−QRS, all durations in milliseconds. This QT-based rate correction minus QRS is an operational repolarization measure, not a direct action-potential recording. Require finite values, 0≤qrs_onset<qrs_end<t_end≤5000, RR in [300,2000], QRS in [40,240], QT in [200,800] and JTcF in [100,650]. Exclude a pair if either machine report contains case-insensitive paced/pacing/pacemaker, or atrial fibrillation/flutter (allow intervening whitespace). Absence of these phrases does not establish sinus rhythm. Report every exclusion and missingness count, with no waveform-quality claim at this stage.
+
+Primary outcomes are (1) follow-up minus baseline JTcF and (2) that change minus the follow-up minus baseline QRS change. The second is a paired specificity contrast in milliseconds; QRS is not asserted to be biologically unaffected. Also report QRS change separately without a confirmatory p-value.
+
+## Analysis and falsification
+
+Assign people by parity of the first SHA256 byte of the literal `PhysioGraph paired ECG repolarization v1|` plus canonical integer person ID, before measurements. Even=discovery, odd=validation; no seed search or rebalancing. Require at least 80 complete-quality people, at least 20 exposed and 20 unexposed in each split. This minimum only supports a coarse screen for a large effect; it is not a power guarantee. If either split fails, retain quality/support counts and do not compute outcome changes or effect models.
+
+Fit the same prespecified OLS model separately in each split, with HC3 uncertainty and residual-degree-of-freedom t inference. Covariates: original instability, baseline JTcF, baseline QRS, baseline RR, age, sex, first-four-hour mean SpO2, hypoxic fraction, log1p SpO2 reading count, recorded ventilation and vasoactive indicators, and elapsed ECG hours. Numeric continuous nuisance covariates are median-imputed separately within each split with missingness flags. Expose missingness; documentation indicators are not complete treatment adjustment. Drop only constant nuisance columns, never a nonconstant covariate based on significance. Require full rank and at least 30 residual degrees of freedom. Standardize continuous nuisance columns to assess the design; reject condition number >1e8. Use identical design for both primary outcomes and the descriptive QRS change.
+
+Apply Holm adjustment to the four primary tests (two outcomes, two splits). For research prioritization, both splits must show JTcF point estimates ≥20 ms, positive lower 95% limits, positive lower limits for the paired specificity contrast, and all four Holm p<0.05. The 20-ms threshold is investigator-selected for a large screen signal, not a validated HF risk threshold. Sensitivities use the same models only with ≥80 people/20 per arm, without a claim-rescuing p-value. No outcome-driven threshold, ECG substitution, subgroup, spline or interaction search.
+
+Compare all selected pairs against independent Python selection; independently recompute all ECG durations. Validate coefficients and HC3 covariance against an independent NumPy implementation. Save source hashes, denominators, all estimates, failures and outputs in the single primary notebook; patient rows remain in Drive Data. Actual execution must be labeled local or Colab accurately.
+
+If the primary fails, stop promoting this electrical-change specification. If it passes, do not claim discovery: independently derive blinded waveform measurements, address rhythm/lead-placement/drug/electrolyte and informative-testing explanations, validate timing assumptions, and obtain an independent biological/clinical replication before considering mortality relevance. These checks are required work, not satisfied by machine estimates or the present plan.

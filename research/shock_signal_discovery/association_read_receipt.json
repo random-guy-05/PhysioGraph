@@ -1,0 +1,14 @@
+{
+  "protocol_freeze_utc": "2026-09-07T18:04:48Z",
+  "receipt_utc": "2026-09-07T18:05:52Z",
+  "documentation_sha256": "164d6091b44657d4674857a83cf063388546dc3f4b6b95b822a98f1f74f2c03b",
+  "protocol_json_sha256": "ac46b95fc53530ee2c6a9bd7034cdd1761d2b7670f8deb9073f161bd40e0dabc",
+  "mimic_candidate_outcome_associations_inspected": true,
+  "first_mimic_candidate_outcome_read_utc": "2026-09-07T20:17:55.565810+00:00",
+  "eicu_candidate_outcome_associations_inspected": false,
+  "first_eicu_candidate_outcome_read_utc": null,
+  "prior_masked_pulsatility_results_are_archived": true,
+  "historical_first_association_attempt_utc": "2026-09-07T19:32:30.447739+00:00",
+  "analysis_lock_utc": "2026-09-07T20:17:55.382086+00:00",
+  "analysis_config_sha256": "5041d8085d3f5f7b5221b7fc2aeda194990950291f7a02cb8a7b9ddb9f00037d"
+}

@@ -1,0 +1,115 @@
+{
+  "analysis_character": "post_hoc_to_original_mimic3_null_prelocked_before_corrected_associations",
+  "association_models_fitted": 2,
+  "authorized_models_fitted": [
+    "objective_shock_corrected",
+    "objective_shock_corrected_later"
+  ],
+  "availability_branch": "AVAILABILITY_PARITY_APPLIED",
+  "classification": "MIMIC3_PARITY_CORRECTED_INVERSE",
+  "dataset": "MIMIC-III_v1.4_CareVue",
+  "endpoint_id_comparison": {
+    "guard": "Endpoint-membership comparison only; no SpO2 association was estimated in this phase.",
+    "later": {
+      "corrected_event_ids": 96,
+      "corrected_only": 17,
+      "jaccard_overlap": 0.8061224489795918,
+      "original_event_ids": 81,
+      "original_only": 2,
+      "shared": 79,
+      "shared_event_time_assignments_changed": 4
+    },
+    "primary": {
+      "corrected_event_ids": 100,
+      "corrected_only": 1,
+      "jaccard_overlap": 0.9519230769230769,
+      "original_event_ids": 103,
+      "original_only": 4,
+      "shared": 99,
+      "shared_event_time_assignments_changed": 8
+    }
+  },
+  "first_corrected_association_read_utc": "2026-09-11T01:52:34.067786+00:00",
+  "flags": {
+    "corrected_later_association_fitted": true,
+    "corrected_later_event_gate_passed": true,
+    "corrected_primary_association_fitted": true,
+    "corrected_primary_event_gate_passed": true,
+    "endpoint_logically_equivalent_after_correction": true,
+    "endpoint_observability_fully_equivalent": false,
+    "exposure_availability_parity_applied": true,
+    "exposure_availability_parity_supportable": true,
+    "exposure_mathematics_identical": true,
+    "forensic_classification_preserved": true,
+    "later_endpoint_parity_corrected": true,
+    "oliguria_parity_corrected": true,
+    "original_replication_preserved": true,
+    "outcome_peek_before_lock": false,
+    "unauthorized_models_fitted": false
+  },
+  "forensic_classification_preserved": "IMPLEMENTATION_OR_MAPPING_CONCERN",
+  "interpretation": "same_institution_historical_database_version_replication_not_independent_external_validation",
+  "later_window": {
+    "ci_high": 1.2057754636646831,
+    "ci_low": 0.7273909247427615,
+    "covariance": "HC0",
+    "coverage": 0.6735641891891891,
+    "events": 63,
+    "hospitals": null,
+    "log_rr": -0.06558416226542679,
+    "n": 1595,
+    "p_value": 0.6109822846495383,
+    "rr_per_mimic_sd": 0.9365202237790629
+  },
+  "original_mimic3_classification_preserved": "MIMIC3_HISTORICAL_REPLICATION_DID_NOT_CONFIRM_POST_HOC_SIGNAL",
+  "primary": {
+    "ci_high": 1.185899788421592,
+    "ci_low": 0.7214846515271688,
+    "covariance": "HC0",
+    "coverage": 0.6735641891891891,
+    "events": 64,
+    "hospitals": null,
+    "log_rr": -0.07797118621109142,
+    "n": 1595,
+    "p_value": 0.5385211324218588,
+    "rr_per_mimic_sd": 0.924991078657246
+  },
+  "support": {
+    "at_risk_cohort": 2368,
+    "corrected_component_counts": {
+      "paired_hypoperfusion": {
+        "creatinine": 15,
+        "lactate": 16,
+        "oliguria": 65,
+        "ph": 4
+      },
+      "paired_pressure_support": {
+        "continuous_support": 35,
+        "mcs": 1,
+        "sustained_hypotension": 64
+      }
+    },
+    "corrected_later_window_events_at_risk": 96,
+    "corrected_oliguria_events_all_stays": 916,
+    "corrected_primary_events_at_risk": 100,
+    "exposure_coverage": 0.6735641891891891,
+    "later_event_gate_passed": true,
+    "modeled_later_window_events": 63,
+    "modeled_primary_events": 64,
+    "new_waiver_created": false,
+    "preliminary_cohort": 5405,
+    "primary_event_gate_passed": true,
+    "released_sites": 1,
+    "retained_support_gates": {
+      "minimum_contributing_sites": 20,
+      "minimum_exposure_coverage": 0.7,
+      "minimum_modeled_later_events": 50,
+      "minimum_modeled_primary_events": 50
+    },
+    "retained_waivers": {
+      "minimum_contributing_sites": true,
+      "minimum_exposure_coverage": true
+    },
+    "valid_frozen_exposure_n": 1595
+  }
+}

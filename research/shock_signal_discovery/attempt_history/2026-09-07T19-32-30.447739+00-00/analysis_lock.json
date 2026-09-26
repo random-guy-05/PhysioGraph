@@ -1,0 +1,10 @@
+{
+  "lock_utc": "2026-09-07T19:32:30.432593+00:00",
+  "protocol_freeze_utc": "2026-09-07T18:04:48Z",
+  "protocol_sha256": "ac46b95fc53530ee2c6a9bd7034cdd1761d2b7670f8deb9073f161bd40e0dabc",
+  "analysis_config_sha256": "0c6f3db8aac1709d03d7fdc5b89b762995a940c0a28c6a71cd0c9a2feaeecd9a",
+  "code_aggregate_sha256": "42d7ed7f73e9ae30106714b2d7af424f7eab3ef0c8836bc8d042cfd62b116f1b",
+  "first_mimic_candidate_outcome_read_utc": null,
+  "mimic_candidate_outcome_associations_inspected": false,
+  "eicu_candidate_outcome_associations_inspected": false
+}

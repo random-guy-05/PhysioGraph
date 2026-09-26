@@ -1,0 +1,217 @@
+{
+  "audit_status": "completed",
+  "classification": "invalid_for_intended_routine_bp_hypothesis_missing_sources",
+  "frozen_analysis_changed": false,
+  "clinical_outcomes_inspected": false,
+  "post_anchor_lactate_values_inspected": false,
+  "source_rows": [
+    {
+      "dataset": "eicu",
+      "source": "invasive_arterial",
+      "source_available": true,
+      "unavailable_reason": null,
+      "any_sbp_or_dbp_stays": 1116,
+      "paired_sbp_dbp_stays": 1106,
+      "ge3_hourly_pair_bins": 873,
+      "initially_low": 48,
+      "incident_pair_crossings": 25
+    },
+    {
+      "dataset": "eicu",
+      "source": "noninvasive_cuff_vitalAperiodic",
+      "source_available": false,
+      "unavailable_reason": "vitalAperiodic.csv absent from local eICU export",
+      "any_sbp_or_dbp_stays": null,
+      "paired_sbp_dbp_stays": null,
+      "ge3_hourly_pair_bins": null,
+      "initially_low": null,
+      "incident_pair_crossings": null
+    },
+    {
+      "dataset": "eicu",
+      "source": "noninvasive_nurseCharting",
+      "source_available": false,
+      "unavailable_reason": "nurseCharting.csv absent from local eICU export",
+      "any_sbp_or_dbp_stays": null,
+      "paired_sbp_dbp_stays": null,
+      "ge3_hourly_pair_bins": null,
+      "initially_low": null,
+      "incident_pair_crossings": null
+    },
+    {
+      "dataset": "mimic",
+      "source": "invasive_arterial",
+      "source_available": true,
+      "unavailable_reason": null,
+      "any_sbp_or_dbp_stays": 3062,
+      "paired_sbp_dbp_stays": 3058,
+      "ge3_hourly_pair_bins": 1898,
+      "initially_low": 91,
+      "incident_pair_crossings": 80
+    },
+    {
+      "dataset": "mimic",
+      "source": "noninvasive_cuff",
+      "source_available": true,
+      "unavailable_reason": null,
+      "any_sbp_or_dbp_stays": 15187,
+      "paired_sbp_dbp_stays": 15180,
+      "ge3_hourly_pair_bins": 12869,
+      "initially_low": 1150,
+      "incident_pair_crossings": 1645
+    },
+    {
+      "dataset": "eicu",
+      "source": "source_consistent_union",
+      "source_available": true,
+      "unavailable_reason": null,
+      "any_sbp_or_dbp_stays": 1116,
+      "paired_sbp_dbp_stays": 1106,
+      "ge3_hourly_pair_bins": 873,
+      "initially_low": 48,
+      "incident_pair_crossings": 25
+    },
+    {
+      "dataset": "mimic",
+      "source": "source_consistent_union",
+      "source_available": true,
+      "unavailable_reason": null,
+      "any_sbp_or_dbp_stays": 16917,
+      "paired_sbp_dbp_stays": 16913,
+      "ge3_hourly_pair_bins": 14446,
+      "initially_low": 1138,
+      "incident_pair_crossings": 1674
+    }
+  ],
+  "frozen_attrition": [
+    {
+      "dataset": "eicu",
+      "hf_cohort": 12028,
+      "valid_source_selected_triplet_stays": 1103,
+      "ge3_hourly_triplet_bins": 872,
+      "incident_crossings_before_compensation": 24,
+      "compensated_crossings": 16,
+      "crossings_no_preanchor_lactate": 13,
+      "crossings_lactate_lt2": 2,
+      "crossings_lactate_ge2": 1,
+      "crossings_without_prior_pressor_mcs": 14,
+      "crossings_lactate_lt2_without_prior_support": 2,
+      "subsequent_pressor_6h": 0,
+      "subsequent_pressor_12h": 2
+    },
+    {
+      "dataset": "mimic",
+      "hf_cohort": 17758,
+      "valid_source_selected_triplet_stays": 16902,
+      "ge3_hourly_triplet_bins": 14258,
+      "incident_crossings_before_compensation": 1644,
+      "compensated_crossings": 1382,
+      "crossings_no_preanchor_lactate": 943,
+      "crossings_lactate_lt2": 211,
+      "crossings_lactate_ge2": 228,
+      "crossings_without_prior_pressor_mcs": 1132,
+      "crossings_lactate_lt2_without_prior_support": 160,
+      "subsequent_pressor_6h": 43,
+      "subsequent_pressor_12h": 73
+    }
+  ],
+  "triplet_concentration": [
+    {
+      "dataset": "eicu",
+      "source": "invasive_arterial",
+      "complete_triplets": 39625,
+      "instrumented_stays": 1116,
+      "median_triplets_per_instrumented_stay": 42.0,
+      "maximum_triplets_per_stay": 48
+    },
+    {
+      "dataset": "mimic",
+      "source": "invasive_arterial",
+      "complete_triplets": 16850,
+      "instrumented_stays": 3031,
+      "median_triplets_per_instrumented_stay": 5.0,
+      "maximum_triplets_per_stay": 58
+    },
+    {
+      "dataset": "mimic",
+      "source": "noninvasive_cuff",
+      "complete_triplets": 71895,
+      "instrumented_stays": 15174,
+      "median_triplets_per_instrumented_stay": 4.0,
+      "maximum_triplets_per_stay": 55
+    }
+  ],
+  "candidate_lactate_coverage": [
+    {
+      "dataset": "eicu",
+      "compensated_stays": 966,
+      "earliest_candidate_no_lactate": 765,
+      "earliest_candidate_lactate_lt2": 68,
+      "earliest_candidate_lactate_ge2": 133,
+      "any_candidate_anchor_no_lactate": 812,
+      "any_candidate_anchor_lactate_lt2": 136,
+      "any_candidate_anchor_lactate_ge2": 175,
+      "any_anchor_counts_are_nonexclusive": true
+    },
+    {
+      "dataset": "mimic",
+      "compensated_stays": 14500,
+      "earliest_candidate_no_lactate": 11313,
+      "earliest_candidate_lactate_lt2": 1504,
+      "earliest_candidate_lactate_ge2": 1683,
+      "any_candidate_anchor_no_lactate": 11683,
+      "any_candidate_anchor_lactate_lt2": 3153,
+      "any_candidate_anchor_lactate_ge2": 2640,
+      "any_anchor_counts_are_nonexclusive": true
+    }
+  ],
+  "mapping": [
+    {
+      "dataset": "eicu",
+      "source": "vitalPeriodic.systemic*",
+      "file_present": true,
+      "configured": true,
+      "sbp_mapped": true,
+      "dbp_mapped": true,
+      "included_in_prior_notebook": true
+    },
+    {
+      "dataset": "eicu",
+      "source": "vitalAperiodic.noninvasive*",
+      "file_present": false,
+      "configured": true,
+      "sbp_mapped": true,
+      "dbp_mapped": false,
+      "included_in_prior_notebook": false
+    },
+    {
+      "dataset": "eicu",
+      "source": "nurseCharting NIBP",
+      "file_present": false,
+      "configured": false,
+      "sbp_mapped": false,
+      "dbp_mapped": false,
+      "included_in_prior_notebook": false
+    },
+    {
+      "dataset": "mimic",
+      "source": "chartevents invasive",
+      "file_present": true,
+      "configured": true,
+      "sbp_mapped": true,
+      "dbp_mapped": true,
+      "included_in_prior_notebook": true
+    },
+    {
+      "dataset": "mimic",
+      "source": "chartevents cuff",
+      "file_present": true,
+      "configured": true,
+      "sbp_mapped": true,
+      "dbp_mapped": true,
+      "included_in_prior_notebook": true
+    }
+  ],
+  "interpretation": "The prior eICU gate evaluated an invasive arterial-line subset. Routine eICU cuff BP was not available to or included by the notebook, and the package vitalAperiodic mapping omits DBP. The biological hypothesis is not falsified.",
+  "recommended_action": "obtain_complete_eicu_vitalAperiodic_and_nurseCharting_then_rerun_source_audit"
+}

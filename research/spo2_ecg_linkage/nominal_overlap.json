@@ -1,0 +1,128 @@
+[
+  {
+    "exposed": "all",
+    "criterion": "any_subject_ecg",
+    "encounters": 3880,
+    "people": 3512,
+    "eligible_encounters": 4711
+  },
+  {
+    "exposed": "all",
+    "criterion": "nominal_hospital_ecg",
+    "encounters": 2921,
+    "people": 2713,
+    "eligible_encounters": 4711
+  },
+  {
+    "exposed": "all",
+    "criterion": "pre_icu_ecg",
+    "encounters": 623,
+    "people": 609,
+    "eligible_encounters": 4711
+  },
+  {
+    "exposed": "all",
+    "criterion": "first4h_ecg",
+    "encounters": 1251,
+    "people": 1216,
+    "eligible_encounters": 4711
+  },
+  {
+    "exposed": "all",
+    "criterion": "later_ecg",
+    "encounters": 1595,
+    "people": 1526,
+    "eligible_encounters": 4711
+  },
+  {
+    "exposed": "all",
+    "criterion": "nominal_pre_later_pair",
+    "encounters": 341,
+    "people": 338,
+    "eligible_encounters": 4711
+  },
+  {
+    "exposed": 0,
+    "criterion": "any_subject_ecg",
+    "encounters": 2749,
+    "people": 2559,
+    "eligible_encounters": 3313
+  },
+  {
+    "exposed": 0,
+    "criterion": "nominal_hospital_ecg",
+    "encounters": 2113,
+    "people": 2001,
+    "eligible_encounters": 3313
+  },
+  {
+    "exposed": 0,
+    "criterion": "pre_icu_ecg",
+    "encounters": 436,
+    "people": 432,
+    "eligible_encounters": 3313
+  },
+  {
+    "exposed": 0,
+    "criterion": "first4h_ecg",
+    "encounters": 909,
+    "people": 887,
+    "eligible_encounters": 3313
+  },
+  {
+    "exposed": 0,
+    "criterion": "later_ecg",
+    "encounters": 1159,
+    "people": 1119,
+    "eligible_encounters": 3313
+  },
+  {
+    "exposed": 0,
+    "criterion": "nominal_pre_later_pair",
+    "encounters": 246,
+    "people": 245,
+    "eligible_encounters": 3313
+  },
+  {
+    "exposed": 1,
+    "criterion": "any_subject_ecg",
+    "encounters": 1131,
+    "people": 1081,
+    "eligible_encounters": 1398
+  },
+  {
+    "exposed": 1,
+    "criterion": "nominal_hospital_ecg",
+    "encounters": 808,
+    "people": 783,
+    "eligible_encounters": 1398
+  },
+  {
+    "exposed": 1,
+    "criterion": "pre_icu_ecg",
+    "encounters": 187,
+    "people": 186,
+    "eligible_encounters": 1398
+  },
+  {
+    "exposed": 1,
+    "criterion": "first4h_ecg",
+    "encounters": 342,
+    "people": 340,
+    "eligible_encounters": 1398
+  },
+  {
+    "exposed": 1,
+    "criterion": "later_ecg",
+    "encounters": 436,
+    "people": 429,
+    "eligible_encounters": 1398
+  },
+  {
+    "exposed": 1,
+    "criterion": "nominal_pre_later_pair",
+    "encounters": 95,
+    "people": 95,
+    "eligible_encounters": 1398
+  }
+]

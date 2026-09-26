@@ -1,0 +1,53 @@
+{
+  "beta_quantiles_match_binomial_test_inversion": true,
+  "rows": [
+    {
+      "dataset": "eicu",
+      "exposed": 0,
+      "respiratory_alkalemia": false,
+      "maximum_interval_difference": 2.2398749521812533e-13
+    },
+    {
+      "dataset": "eicu",
+      "exposed": 0,
+      "respiratory_alkalemia": true,
+      "maximum_interval_difference": 3.3306690738754696e-16
+    },
+    {
+      "dataset": "eicu",
+      "exposed": 1,
+      "respiratory_alkalemia": false,
+      "maximum_interval_difference": 3.608224830031759e-16
+    },
+    {
+      "dataset": "eicu",
+      "exposed": 1,
+      "respiratory_alkalemia": true,
+      "maximum_interval_difference": 3.969047313034935e-15
+    },
+    {
+      "dataset": "mimic",
+      "exposed": 0,
+      "respiratory_alkalemia": false,
+      "maximum_interval_difference": 5.329070518200751e-15
+    },
+    {
+      "dataset": "mimic",
+      "exposed": 0,
+      "respiratory_alkalemia": true,
+      "maximum_interval_difference": 7.28583859910259e-16
+    },
+    {
+      "dataset": "mimic",
+      "exposed": 1,
+      "respiratory_alkalemia": false,
+      "maximum_interval_difference": 1.1105699693203519e-13
+    },
+    {
+      "dataset": "mimic",
+      "exposed": 1,
+      "respiratory_alkalemia": true,
+      "maximum_interval_difference": 1.2212453270876722e-15
+    }
+  ]
+}

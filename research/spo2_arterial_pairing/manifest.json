@@ -1,0 +1,23 @@
+{
+  "inputs": {
+    "spo2_context": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_context.duckdb",
+      "bytes": 39333888,
+      "mtime_ns": 1788588260012526832,
+      "sha256": "7902a93985c6024dfb38a1a7555c54418492bfb3ebf4b93104a78148316d3352"
+    },
+    "spo2_acid_base": {
+      "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/PhysioGraph_Biological_Discovery_20260905/spo2_acid_base.duckdb",
+      "bytes": 5779456,
+      "mtime_ns": 1788600281891520546,
+      "sha256": "ae6dcd50eddc5d1d7f84be956d247b97d569221a3c223301ed195eeb287b7872"
+    }
+  },
+  "protocol_sha256": "da325fa0fe28548045482079ea43e210d6bb263f1f7c1164a0571ef776349fd5",
+  "environment": "local",
+  "primary_gate_passed": false,
+  "oxygen_values_read": false,
+  "mortality_read": false,
+  "association_models": 0,
+  "goal_complete": false
+}

@@ -1,0 +1,12 @@
+{
+  "source": {
+    "path": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/MIMIC/Full/chartevents.csv",
+    "bytes": 41935806083,
+    "mtime_ns": 1773621199698999881,
+    "dictionary_sha256": "2e8987d8ac98e48358e582708f953710f50bdea7fb4a8bb427acb364a7212894",
+    "sha256": "0d1932df345c2d135ce715df1f6afa603f7124894a5aa8c6ba56aa6ee02160d4"
+  },
+  "full_raw_scan": true,
+  "cardiac_output_values_selected": false,
+  "mortality_selected": false
+}

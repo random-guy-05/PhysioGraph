@@ -1,0 +1,30 @@
+[
+  {
+    "dataset": "eicu",
+    "sample": "all_complete_encounters",
+    "n": 133,
+    "pre_rises": 44,
+    "post_rises": 34
+  },
+  {
+    "dataset": "eicu",
+    "sample": "one_per_person",
+    "n": 133,
+    "pre_rises": 44,
+    "post_rises": 34
+  },
+  {
+    "dataset": "mimic",
+    "sample": "all_complete_encounters",
+    "n": 76,
+    "pre_rises": 32,
+    "post_rises": 26
+  },
+  {
+    "dataset": "mimic",
+    "sample": "one_per_person",
+    "n": 76,
+    "pre_rises": 32,
+    "post_rises": 26
+  }
+]

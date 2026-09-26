@@ -1,0 +1,38 @@
+{
+  "at_risk_cohort": 2368,
+  "corrected_component_counts": {
+    "paired_hypoperfusion": {
+      "creatinine": 15,
+      "lactate": 16,
+      "oliguria": 65,
+      "ph": 4
+    },
+    "paired_pressure_support": {
+      "continuous_support": 35,
+      "mcs": 1,
+      "sustained_hypotension": 64
+    }
+  },
+  "corrected_later_window_events_at_risk": 96,
+  "corrected_oliguria_events_all_stays": 916,
+  "corrected_primary_events_at_risk": 100,
+  "exposure_coverage": 0.6735641891891891,
+  "later_event_gate_passed": true,
+  "modeled_later_window_events": 63,
+  "modeled_primary_events": 64,
+  "new_waiver_created": false,
+  "preliminary_cohort": 5405,
+  "primary_event_gate_passed": true,
+  "released_sites": 1,
+  "retained_support_gates": {
+    "minimum_contributing_sites": 20,
+    "minimum_exposure_coverage": 0.7,
+    "minimum_modeled_later_events": 50,
+    "minimum_modeled_primary_events": 50
+  },
+  "retained_waivers": {
+    "minimum_contributing_sites": true,
+    "minimum_exposure_coverage": true
+  },
+  "valid_frozen_exposure_n": 1595
+}

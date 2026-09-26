@@ -1,0 +1,25 @@
+{
+  "primary_timing_ceiling": [
+    {
+      "dataset": "eicu",
+      "tier": "all_recovered_pao2_labels",
+      "tolerance_minutes": 5,
+      "stage": "both",
+      "encounters": 0,
+      "people": 0
+    },
+    {
+      "dataset": "mimic",
+      "tier": "all_recovered_pao2_labels",
+      "tolerance_minutes": 5,
+      "stage": "both",
+      "encounters": 2,
+      "people": 2
+    }
+  ],
+  "optimistic_ceiling_reaches_prior_gate": false,
+  "arterial_qualification_performed": false,
+  "numeric_oxygen_values_selected": false,
+  "outcomes_selected": false,
+  "biological_discovery": false
+}

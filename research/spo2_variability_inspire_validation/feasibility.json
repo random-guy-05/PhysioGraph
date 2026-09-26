@@ -1,0 +1,25 @@
+{
+  "eligible_stays": 85,
+  "valid_exposures": 54,
+  "exposure_coverage": 0.6352941176470588,
+  "modeled_primary_events": 0,
+  "exact_composite_observable": true,
+  "contributing_sites": 1,
+  "gates": {
+    "exact_composite": true,
+    "coverage_observed": false,
+    "coverage_effective_after_waiver": true,
+    "events": false,
+    "sites_observed": false,
+    "sites_effective_after_waiver": true
+  },
+  "waivers": {
+    "minimum_70_percent_exposure_coverage": true,
+    "minimum_20_contributing_sites": true
+  },
+  "failures": [
+    "minimum_50_modeled_events_not_demonstrable"
+  ],
+  "association_authorized": false,
+  "classification": "INSPIRE_EXTERNAL_VALIDATION_NOT_RUN_FEASIBILITY_FAILURE"
+}

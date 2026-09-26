@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "eligible": 11452.0,
+    "fio2_observed": 4224.0,
+    "documented_invasive_ventilation": 1596.0,
+    "documented_vasoactive": 956.0
+  },
+  {
+    "dataset": "mimic",
+    "eligible": 4711.0,
+    "fio2_observed": 1883.0,
+    "documented_invasive_ventilation": 1450.0,
+    "documented_vasoactive": 1526.0
+  }
+]

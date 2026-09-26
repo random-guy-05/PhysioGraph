@@ -1,0 +1,58 @@
+[
+  {
+    "family": "blood_gas_hemoglobin",
+    "itemid": 50811,
+    "unit": "g/dL",
+    "missing_hadm_id": false,
+    "records": 1380,
+    "positive_numeric_records": 1380
+  },
+  {
+    "family": "blood_gas_hemoglobin",
+    "itemid": 50811,
+    "unit": "g/dL",
+    "missing_hadm_id": true,
+    "records": 576,
+    "positive_numeric_records": 576
+  },
+  {
+    "family": "cbc_hemoglobin",
+    "itemid": 51222,
+    "unit": "g/dL",
+    "missing_hadm_id": true,
+    "records": 2906,
+    "positive_numeric_records": 2892
+  },
+  {
+    "family": "cbc_hemoglobin",
+    "itemid": 51222,
+    "unit": "g/dL",
+    "missing_hadm_id": false,
+    "records": 1479,
+    "positive_numeric_records": 1476
+  },
+  {
+    "family": "troponin",
+    "itemid": 51003,
+    "unit": "ng/mL",
+    "missing_hadm_id": false,
+    "records": 741,
+    "positive_numeric_records": 572
+  },
+  {
+    "family": "troponin",
+    "itemid": 51003,
+    "unit": "ng/mL",
+    "missing_hadm_id": true,
+    "records": 2092,
+    "positive_numeric_records": 1508
+  },
+  {
+    "family": "troponin",
+    "itemid": 52642,
+    "unit": "ng/mL",
+    "missing_hadm_id": true,
+    "records": 1,
+    "positive_numeric_records": 1
+  }
+]

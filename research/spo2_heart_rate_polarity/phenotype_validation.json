@@ -1,0 +1,6 @@
+{
+  "original_exposed_sets_match": true,
+  "all_first_transitions_match": true,
+  "all_person_selections_and_hr_directions_match": true,
+  "mortality_not_joined": true
+}

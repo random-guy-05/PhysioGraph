@@ -1,0 +1,50 @@
+{
+  "status": "implementation_sanity_checks_not_discovery",
+  "checks": [
+    {
+      "variable": "spo2_level",
+      "event_median": 98.0,
+      "nonevent_median": 98.0,
+      "event_minus_nonevent": 0.0,
+      "expected": "plausible_range_only",
+      "direction_plausible": true,
+      "inferential_test": false
+    },
+    {
+      "variable": "sbp_level",
+      "event_median": 114.0,
+      "nonevent_median": 124.0,
+      "event_minus_nonevent": -10.0,
+      "expected": "lower_in_events",
+      "direction_plausible": true,
+      "inferential_test": false
+    },
+    {
+      "variable": "map_level",
+      "event_median": 73.0,
+      "nonevent_median": 79.0,
+      "event_minus_nonevent": -6.0,
+      "expected": "lower_in_events",
+      "direction_plausible": true,
+      "inferential_test": false
+    },
+    {
+      "variable": "baseline_lactate",
+      "event_median": 1.3,
+      "nonevent_median": 1.3,
+      "event_minus_nonevent": 0.0,
+      "expected": "higher_in_events",
+      "direction_plausible": false,
+      "inferential_test": false
+    }
+  ],
+  "endpoint_temporal_alignment": {
+    "events": 103,
+    "all_endpoint_times_after_360": true,
+    "all_endpoint_times_by_960": true,
+    "pairing_helper_requires_each_component_after_360": true,
+    "pairing_helper_requires_each_component_by_960": true,
+    "pairing_helper_requires_separation_le_360": true,
+    "evidence": "pair_domain_events source guard plus exact 103-stay frozen MIMIC-III primary replay"
+  }
+}

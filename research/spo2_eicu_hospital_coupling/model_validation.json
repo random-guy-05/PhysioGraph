@@ -1,0 +1,46 @@
+[
+  {
+    "split": 0,
+    "variant": "primary",
+    "people": 608,
+    "hospitals": 68,
+    "intervals": 1363,
+    "slopes": 11,
+    "residual_df": 744,
+    "max_coefficient_error": 1.9492740754856186e-13,
+    "max_covariance_error": 4.523985352999915e-14
+  },
+  {
+    "split": 0,
+    "variant": "omit_lag",
+    "people": 608,
+    "hospitals": 68,
+    "intervals": 1363,
+    "slopes": 10,
+    "residual_df": 745,
+    "max_coefficient_error": 5.330735852737689e-13,
+    "max_covariance_error": 4.676814491233472e-14
+  },
+  {
+    "split": 1,
+    "variant": "primary",
+    "people": 460,
+    "hospitals": 70,
+    "intervals": 1034,
+    "slopes": 11,
+    "residual_df": 563,
+    "max_coefficient_error": 3.6970426720017713e-13,
+    "max_covariance_error": 7.725287423654414e-14
+  },
+  {
+    "split": 1,
+    "variant": "omit_lag",
+    "people": 460,
+    "hospitals": 70,
+    "intervals": 1034,
+    "slopes": 10,
+    "residual_df": 564,
+    "max_coefficient_error": 2.437217094808375e-12,
+    "max_covariance_error": 3.20932169728394e-12
+  }
+]

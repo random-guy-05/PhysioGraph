@@ -1,0 +1,132 @@
+{
+  "status": "FROZEN_BEFORE_INSPIRE_ENDPOINT_SUPPORT_OR_ASSOCIATION",
+  "dataset": "INSPIRE_v1.4.2",
+  "population": "adult_explicit_HF_first_ICU_bearing_operation_per_hospital_admission",
+  "timeline_origin": "operations.icuin_time",
+  "exposure": {
+    "source": "ward_vitals.spo2",
+    "window_minutes": [
+      0,
+      240
+    ],
+    "value_bounds": [
+      50,
+      100
+    ],
+    "hourly_aggregation": "median",
+    "minimum_bins": 3,
+    "minimum_span_hours": 2,
+    "feature": "RMS residual around within-stay OLS line",
+    "transform": {
+      "lower": 1.160311428702309e-14,
+      "upper": 4.300141942983509,
+      "center": 0.8776215724100497,
+      "scale": 0.8227000137550243
+    }
+  },
+  "endpoint": {
+    "name": "pressure_support_plus_hypoperfusion",
+    "primary_window_minutes": {
+      "lower_exclusive": 360,
+      "upper_inclusive": 960
+    },
+    "later_window_minutes": {
+      "lower_exclusive": 480,
+      "upper_inclusive": 960
+    },
+    "maximum_domain_separation_minutes": 360,
+    "pressure_support_components": [
+      "sustained_cuff_hypotension",
+      "continuous_support",
+      "mcs"
+    ],
+    "hypoperfusion_components": [
+      "lactate",
+      "creatinine",
+      "alt",
+      "ph",
+      "oliguria"
+    ]
+  },
+  "mapping": {
+    "timeline_origin": "operations.icuin_time",
+    "heart_failure": {
+      "icd10_prefix": "I50"
+    },
+    "vitals": {
+      "hr": "hr",
+      "sbp_cuff": "nibp_sbp",
+      "map_cuff": "nibp_mbp",
+      "resp_rate": "rr",
+      "spo2": "spo2",
+      "temperature_c": "bt",
+      "urine_output": "uo"
+    },
+    "labs": {
+      "creatinine": "creatinine",
+      "lactate": "lacate",
+      "alt": "alt",
+      "ph": "ph"
+    },
+    "continuous_support": {
+      "source": "administered medications with route=iv",
+      "drug_names": [
+        "norepinephrine",
+        "epinephrine",
+        "dopamine",
+        "dobutamine",
+        "milrinone",
+        "vasopressin",
+        "phenylephrine"
+      ]
+    },
+    "mcs": {
+      "iabp": "iabp",
+      "ecmo": "ecmo"
+    },
+    "site_identifier": null,
+    "released_site_count": 1
+  },
+  "adjustment_covariates": [
+    "age",
+    "male_sex",
+    "hr_level",
+    "sbp_level",
+    "map_level",
+    "resp_rate_level",
+    "spo2_level",
+    "temperature_c_level",
+    "baseline_creatinine",
+    "baseline_lactate",
+    "lactate_observed",
+    "bp_measurement_density",
+    "urine_measurement_density"
+  ],
+  "gates": {
+    "minimum_exposure_coverage": 0.7,
+    "minimum_modeled_primary_events": 50,
+    "minimum_contributing_sites": 20,
+    "exact_composite_required": true
+  },
+  "user_authorized_waivers": {
+    "minimum_70_percent_exposure_coverage": true,
+    "minimum_20_contributing_sites": true,
+    "minimum_50_modeled_primary_events": false,
+    "exact_composite_required": false
+  },
+  "primary_covariance": "HC0_due_single_released_site_and_user_site_waiver",
+  "confirmation": {
+    "primary_rr_gt_1": true,
+    "primary_two_sided_95_ci_excludes_1": true,
+    "primary_p_lt": 0.05,
+    "later_window_rr_gt_1": true
+  },
+  "prohibited": [
+    "alternate_exposure",
+    "dataset_specific_exposure_scaling",
+    "alternate_endpoint",
+    "threshold_or_time_window_search",
+    "subgroup_or_department_rescue"
+  ],
+  "association_inspected": false
+}

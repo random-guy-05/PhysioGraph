@@ -1,0 +1,42 @@
+[
+  {
+    "template_class": "interpretation_only",
+    "numeric_accepted": true,
+    "unit": "ng/ml",
+    "source_rows": 3446,
+    "missing_numeric_rows": 0,
+    "coexisting_magnitude_disagreements": 0
+  },
+  {
+    "template_class": "lower_bound_25",
+    "numeric_accepted": false,
+    "unit": "ng/ml",
+    "source_rows": 3,
+    "missing_numeric_rows": 3,
+    "coexisting_magnitude_disagreements": 0
+  },
+  {
+    "template_class": "unrecognized",
+    "numeric_accepted": false,
+    "unit": "ng/ml",
+    "source_rows": 20,
+    "missing_numeric_rows": 20,
+    "coexisting_magnitude_disagreements": 0
+  },
+  {
+    "template_class": "unrecognized",
+    "numeric_accepted": true,
+    "unit": "ng/ml",
+    "source_rows": 691,
+    "missing_numeric_rows": 0,
+    "coexisting_magnitude_disagreements": 0
+  },
+  {
+    "template_class": "upper_bound_0.01",
+    "numeric_accepted": false,
+    "unit": "ng/ml",
+    "source_rows": 598,
+    "missing_numeric_rows": 598,
+    "coexisting_magnitude_disagreements": 0
+  }
+]

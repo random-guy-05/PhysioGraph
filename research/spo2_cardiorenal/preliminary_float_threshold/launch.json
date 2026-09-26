@@ -1,0 +1,29 @@
+{
+  "pid": 15912,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "nbformat",
+    "--with",
+    "statsmodels==0.14.4",
+    "--with",
+    "scipy==1.15.2",
+    "python",
+    "-u",
+    "scripts/build_biological_notebook.py",
+    "--cardiorenal-only"
+  ],
+  "utc": "2026-09-05T10:39:11.082552+00:00",
+  "builder_sha256": "c51bb9b9625618b20d1900f2fdbca962c30075b7aa51f01cf4f9afd36c64fca1",
+  "cell_module_sha256": "8a1aefd5c81313cf8c16da213d87f4802e86d436f2371294a6c4928755ce9d94"
+}

@@ -1,0 +1,169 @@
+dataset,stratum,scale,statistic,value,n
+MIMIC-IV,all_valid,raw,mean,0.8980059256257116,5957
+MIMIC-IV,all_valid,raw,sd,0.9535740961692932,5957
+MIMIC-IV,all_valid,raw,p1,1.160311428702309e-14,5957
+MIMIC-IV,all_valid,raw,p5,3.014577520672848e-14,5957
+MIMIC-IV,all_valid,raw,p25,0.27386127875258176,5957
+MIMIC-IV,all_valid,raw,median,0.670820393249939,5957
+MIMIC-IV,all_valid,raw,p75,1.2041594578792278,5957
+MIMIC-IV,all_valid,raw,p95,2.5396850198400585,5957
+MIMIC-IV,all_valid,raw,p99,4.300141942983509,5957
+MIMIC-IV,all_valid,raw,iqr,0.930298179126646,5957
+MIMIC-IV,all_valid,raw,skewness,3.6696567091243635,5957
+MIMIC-IV,all_valid,mimic_standardized,mean,2.2662937685818204e-17,5957
+MIMIC-IV,all_valid,mimic_standardized,sd,1.0,5957
+MIMIC-IV,all_valid,mimic_standardized,p1,-1.0667576975042663,5957
+MIMIC-IV,all_valid,mimic_standardized,p5,-1.0667576975042439,5957
+MIMIC-IV,all_valid,mimic_standardized,p25,-0.733876605765136,5957
+MIMIC-IV,all_valid,mimic_standardized,median,-0.25136887772277333,5957
+MIMIC-IV,all_valid,mimic_standardized,p75,0.3969100279684831,5957
+MIMIC-IV,all_valid,mimic_standardized,p95,2.020254551648667,5957
+MIMIC-IV,all_valid,mimic_standardized,p99,4.156843033858812,5957
+MIMIC-IV,all_valid,mimic_standardized,iqr,1.1307866337336192,5957
+MIMIC-IV,all_valid,mimic_standardized,skewness,1.6975848780585772,5957
+MIMIC-IV,all_valid,raw,fraction_clipped_low,0.006219063332910267,7879
+MIMIC-IV,all_valid,raw,fraction_clipped_high,0.007615179591318695,7879
+MIMIC-IV,bins_3,raw,mean,0.7365266345331279,2794
+MIMIC-IV,bins_3,raw,sd,0.8644383521201315,2794
+MIMIC-IV,bins_3,raw,p1,1.136522114259803e-14,2794
+MIMIC-IV,bins_3,raw,p5,2.2118062788033346e-14,2794
+MIMIC-IV,bins_3,raw,p25,0.23570226039551248,2794
+MIMIC-IV,bins_3,raw,median,0.4714045207910317,2794
+MIMIC-IV,bins_3,raw,p75,0.9428090415820634,2794
+MIMIC-IV,bins_3,raw,p95,2.1213203435596424,2794
+MIMIC-IV,bins_3,raw,p99,3.771236166328254,2794
+MIMIC-IV,bins_3,raw,iqr,0.7071067811865509,2794
+MIMIC-IV,bins_4,raw,mean,1.0407392633110215,3162
+MIMIC-IV,bins_4,raw,sd,1.0046693982821304,3162
+MIMIC-IV,bins_4,raw,p1,2.517674473401287e-14,3162
+MIMIC-IV,bins_4,raw,p5,3.014577520672848e-14,3162
+MIMIC-IV,bins_4,raw,p25,0.4183300132670378,3162
+MIMIC-IV,bins_4,raw,median,0.8215838362577492,3162
+MIMIC-IV,bins_4,raw,p75,1.369306393762914,3162
+MIMIC-IV,bins_4,raw,p95,2.7004627345486467,3162
+MIMIC-IV,bins_4,raw,p99,4.486290405034034,3162
+MIMIC-IV,bins_4,raw,iqr,0.9509763804958762,3162
+MIMIC-IV,bins_5,raw,mean,0.7483314773547867,1
+MIMIC-IV,bins_5,raw,sd,0.0,1
+MIMIC-IV,bins_5,raw,p1,0.7483314773547867,1
+MIMIC-IV,bins_5,raw,p5,0.7483314773547867,1
+MIMIC-IV,bins_5,raw,p25,0.7483314773547867,1
+MIMIC-IV,bins_5,raw,median,0.7483314773547867,1
+MIMIC-IV,bins_5,raw,p75,0.7483314773547867,1
+MIMIC-IV,bins_5,raw,p95,0.7483314773547867,1
+MIMIC-IV,bins_5,raw,p99,0.7483314773547867,1
+MIMIC-IV,bins_5,raw,iqr,0.0,1
+MIMIC-IV,all_valid,raw,fraction_clipped_low_valid,0.008225616921269096,5957
+MIMIC-IV,all_valid,raw,fraction_clipped_high_valid,0.010072183985227464,5957
+MIMIC-IV,icu_type:Cardiac Vascular Intensive Care Unit (CVICU),mimic_standardized,mean,-0.10948187478927755,418
+MIMIC-IV,icu_type:Cardiac Vascular Intensive Care Unit (CVICU),mimic_standardized,sd,0.868602368554905,418
+MIMIC-IV,icu_type:Cardiac Vascular Intensive Care Unit (CVICU),mimic_standardized,median,-0.2657796213573094,418
+MIMIC-IV,icu_type:Cardiac Vascular Intensive Care Unit (CVICU),mimic_standardized,iqr,0.9518537684227648,418
+MIMIC-IV,icu_type:Coronary Care Unit (CCU),mimic_standardized,mean,-0.021677789766581367,1615
+MIMIC-IV,icu_type:Coronary Care Unit (CCU),mimic_standardized,sd,0.9343634293532239,1615
+MIMIC-IV,icu_type:Coronary Care Unit (CCU),mimic_standardized,median,-0.2513688777227721,1615
+MIMIC-IV,icu_type:Coronary Care Unit (CCU),mimic_standardized,iqr,1.0603197636379664,1615
+MIMIC-IV,icu_type:Medical Intensive Care Unit (MICU),mimic_standardized,mean,0.08074403966297437,1618
+MIMIC-IV,icu_type:Medical Intensive Care Unit (MICU),mimic_standardized,sd,1.0610471730389222,1618
+MIMIC-IV,icu_type:Medical Intensive Care Unit (MICU),mimic_standardized,median,-0.20726241445557622,1618
+MIMIC-IV,icu_type:Medical Intensive Care Unit (MICU),mimic_standardized,iqr,1.3231174121734046,1618
+MIMIC-IV,icu_type:Medical/Surgical Intensive Care Unit (MICU/SICU),mimic_standardized,mean,0.06371641444452199,924
+MIMIC-IV,icu_type:Medical/Surgical Intensive Care Unit (MICU/SICU),mimic_standardized,sd,1.069543923462114,924
+MIMIC-IV,icu_type:Medical/Surgical Intensive Care Unit (MICU/SICU),mimic_standardized,median,-0.20726241445557622,924
+MIMIC-IV,icu_type:Medical/Surgical Intensive Care Unit (MICU/SICU),mimic_standardized,iqr,1.1925717085750303,924
+MIMIC-IV,icu_type:Neuro Intermediate,mimic_standardized,mean,-0.08334563161128145,243
+MIMIC-IV,icu_type:Neuro Intermediate,mimic_standardized,sd,0.9365966989153337,243
+MIMIC-IV,icu_type:Neuro Intermediate,mimic_standardized,median,-0.350511628297027,243
+MIMIC-IV,icu_type:Neuro Intermediate,mimic_standardized,iqr,1.1459937107316014,243
+MIMIC-IV,icu_type:Neuro Stepdown,mimic_standardized,mean,-0.05870648619335122,48
+MIMIC-IV,icu_type:Neuro Stepdown,mimic_standardized,sd,0.9498784262076816,48
+MIMIC-IV,icu_type:Neuro Stepdown,mimic_standardized,median,-0.30403129734719386,48
+MIMIC-IV,icu_type:Neuro Stepdown,mimic_standardized,iqr,0.8024428655931827,48
+MIMIC-IV,icu_type:Neuro Surgical Intensive Care Unit (Neuro SICU),mimic_standardized,mean,-0.1935058792810671,130
+MIMIC-IV,icu_type:Neuro Surgical Intensive Care Unit (Neuro SICU),mimic_standardized,sd,0.9425796786333258,130
+MIMIC-IV,icu_type:Neuro Surgical Intensive Care Unit (Neuro SICU),mimic_standardized,median,-0.4937608421384736,130
+MIMIC-IV,icu_type:Neuro Surgical Intensive Care Unit (Neuro SICU),mimic_standardized,iqr,1.03061225621866,130
+MIMIC-IV,icu_type:Surgical Intensive Care Unit (SICU),mimic_standardized,mean,-0.09439229177636872,582
+MIMIC-IV,icu_type:Surgical Intensive Care Unit (SICU),mimic_standardized,sd,0.943899430561654,582
+MIMIC-IV,icu_type:Surgical Intensive Care Unit (SICU),mimic_standardized,median,-0.35051162829702703,582
+MIMIC-IV,icu_type:Surgical Intensive Care Unit (SICU),mimic_standardized,iqr,1.0450259392736805,582
+MIMIC-IV,icu_type:Trauma SICU (TSICU),mimic_standardized,mean,-0.01688445447066029,366
+MIMIC-IV,icu_type:Trauma SICU (TSICU),mimic_standardized,sd,1.0637123599676104,366
+MIMIC-IV,icu_type:Trauma SICU (TSICU),mimic_standardized,median,-0.3364622881241145,366
+MIMIC-IV,icu_type:Trauma SICU (TSICU),mimic_standardized,iqr,1.0612739278236463,366
+MIMIC-III,all_valid,raw,mean,0.8214611262759307,1799
+MIMIC-III,all_valid,raw,sd,0.9793329584921588,1799
+MIMIC-III,all_valid,raw,p1,1.160311428702309e-14,1799
+MIMIC-III,all_valid,raw,p5,2.958225308398898e-14,1799
+MIMIC-III,all_valid,raw,p25,0.23570226039551584,1799
+MIMIC-III,all_valid,raw,median,0.5590169943749442,1799
+MIMIC-III,all_valid,raw,p75,1.0606601717798247,1799
+MIMIC-III,all_valid,raw,p95,2.486325165223782,1799
+MIMIC-III,all_valid,raw,p99,4.2505160635748895,1799
+MIMIC-III,all_valid,raw,iqr,0.8249579113843089,1799
+MIMIC-III,all_valid,raw,skewness,3.9772009712668277,1799
+MIMIC-III,all_valid,mimic_standardized,mean,-0.09999119168982755,1799
+MIMIC-III,all_valid,mimic_standardized,sd,0.9879168323535056,1799
+MIMIC-III,all_valid,mimic_standardized,p1,-1.0667576975042663,1799
+MIMIC-III,all_valid,mimic_standardized,p5,-1.0667576975042445,1799
+MIMIC-III,all_valid,mimic_standardized,p25,-0.7802592698213792,1799
+MIMIC-III,all_valid,mimic_standardized,median,-0.38726701435303057,1799
+MIMIC-III,all_valid,mimic_standardized,p75,0.22248522706878007,1799
+MIMIC-III,all_valid,mimic_standardized,p95,1.9553951208426217,1799
+MIMIC-III,all_valid,mimic_standardized,p99,4.097749950256607,1799
+MIMIC-III,all_valid,mimic_standardized,iqr,1.0027444968901593,1799
+MIMIC-III,all_valid,mimic_standardized,skewness,1.8620994857792863,1799
+MIMIC-III,all_valid,raw,fraction_clipped_low,0.008018867924528302,2120
+MIMIC-III,all_valid,raw,fraction_clipped_high,0.008490566037735849,2120
+MIMIC-III,bins_3,raw,mean,0.6284705711295291,501
+MIMIC-III,bins_3,raw,sd,0.8996829574479109,501
+MIMIC-III,bins_3,raw,p1,8.204640795236539e-15,501
+MIMIC-III,bins_3,raw,p5,2.0097183471152322e-14,501
+MIMIC-III,bins_3,raw,p25,0.11785113019775457,501
+MIMIC-III,bins_3,raw,median,0.3535533905932738,501
+MIMIC-III,bins_3,raw,p75,0.8249579113843021,501
+MIMIC-III,bins_3,raw,p95,2.1602468994692887,501
+MIMIC-III,bins_3,raw,p99,4.006938426723773,501
+MIMIC-III,bins_3,raw,iqr,0.7071067811865475,501
+MIMIC-III,bins_4,raw,mean,0.8930119021759219,1295
+MIMIC-III,bins_4,raw,sd,0.995039800605715,1295
+MIMIC-III,bins_4,raw,p1,1.7404671430534633e-14,1295
+MIMIC-III,bins_4,raw,p5,3.014577520672848e-14,1295
+MIMIC-III,bins_4,raw,p25,0.27386127875258437,1295
+MIMIC-III,bins_4,raw,median,0.6708203932499348,1295
+MIMIC-III,bins_4,raw,p75,1.1374313166077326,1295
+MIMIC-III,bins_4,raw,p95,2.560493185563067,1295
+MIMIC-III,bins_4,raw,p99,4.25596110094683,1295
+MIMIC-III,bins_4,raw,iqr,0.8635700378551482,1295
+MIMIC-III,bins_5,raw,mean,2.164798905562238,3
+MIMIC-III,bins_5,raw,sd,1.5270818680771088,3
+MIMIC-III,bins_5,raw,p1,0.5885184586081811,3
+MIMIC-III,bins_5,raw,p5,0.6798505932439531,3
+MIMIC-III,bins_5,raw,p25,1.1365112664228136,3
+MIMIC-III,bins_5,raw,median,1.7073371078963895,3
+MIMIC-III,bins_5,raw,p75,2.964355645868738,3
+MIMIC-III,bins_5,raw,p95,3.9699704762466164,3
+MIMIC-III,bins_5,raw,p99,4.171093442322192,3
+MIMIC-III,bins_5,raw,iqr,1.8278443794459243,3
+MIMIC-III,all_valid,raw,fraction_clipped_low_valid,0.009449694274596998,1799
+MIMIC-III,all_valid,raw,fraction_clipped_high_valid,0.010005558643690939,1799
+MIMIC-III,icu_type:CCU,mimic_standardized,mean,-0.12350926261799319,522
+MIMIC-III,icu_type:CCU,mimic_standardized,sd,0.9232509161879315,522
+MIMIC-III,icu_type:CCU,mimic_standardized,median,-0.36483654968117407,522
+MIMIC-III,icu_type:CCU,mimic_standardized,iqr,0.959028568140248,522
+MIMIC-III,icu_type:CSRU,mimic_standardized,mean,-0.3041688504192098,124
+MIMIC-III,icu_type:CSRU,mimic_standardized,sd,0.8791213220432226,124
+MIMIC-III,icu_type:CSRU,mimic_standardized,median,-0.5628547453142245,124
+MIMIC-III,icu_type:CSRU,mimic_standardized,iqr,0.8738799605550488,124
+MIMIC-III,icu_type:MICU,mimic_standardized,mean,-0.023957216380650195,848
+MIMIC-III,icu_type:MICU,mimic_standardized,sd,1.0254764612856333,848
+MIMIC-III,icu_type:MICU,mimic_standardized,median,-0.3040312973471925,848
+MIMIC-III,icu_type:MICU,mimic_standardized,iqr,1.0496779183381615,848
+MIMIC-III,icu_type:SICU,mimic_standardized,mean,-0.18700311572824607,183
+MIMIC-III,icu_type:SICU,mimic_standardized,sd,0.9740427150114916,183
+MIMIC-III,icu_type:SICU,mimic_standardized,median,-0.4937608421384736,183
+MIMIC-III,icu_type:SICU,mimic_standardized,iqr,1.1169876195824957,183
+MIMIC-III,icu_type:TSICU,mimic_standardized,mean,-0.189820423298073,122
+MIMIC-III,icu_type:TSICU,mimic_standardized,sd,1.059279222392661,122
+MIMIC-III,icu_type:TSICU,mimic_standardized,median,-0.5231651509832813,122
+MIMIC-III,icu_type:TSICU,mimic_standardized,iqr,0.9560828246507276,122

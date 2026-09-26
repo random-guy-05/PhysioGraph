@@ -1,0 +1,30 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "independent_coefficient_max_error": 3.3306690738754696e-16,
+    "independent_cluster_covariance_max_error": 3.61039323437673e-17,
+    "condition_number": 9.642392734335912
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "independent_coefficient_max_error": 3.885780586188048e-16,
+    "independent_cluster_covariance_max_error": 2.949029909160572e-17,
+    "condition_number": 9.99645164378363
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "independent_coefficient_max_error": 3.3306690738754696e-16,
+    "independent_cluster_covariance_max_error": 2.0925101928970236e-17,
+    "condition_number": 18.382649547190987
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "independent_coefficient_max_error": 5.828670879282072e-16,
+    "independent_cluster_covariance_max_error": 1.491862189340054e-16,
+    "condition_number": 18.76399377660501
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "dataset": "eicu",
+    "variant": "pooled",
+    "jointly_observed": 1022,
+    "both_component_events": 185,
+    "synchronous": 76,
+    "asynchronous_both": 109,
+    "joint_transitions": 11766,
+    "median_absolute_within_bin_time_difference": 0.0
+  },
+  {
+    "dataset": "mimic",
+    "variant": "pooled",
+    "jointly_observed": 2846,
+    "both_component_events": 477,
+    "synchronous": 223,
+    "asynchronous_both": 254,
+    "joint_transitions": 17645,
+    "median_absolute_within_bin_time_difference": 0.0
+  },
+  {
+    "dataset": "mimic",
+    "variant": "arterial",
+    "jointly_observed": 1061,
+    "both_component_events": 105,
+    "synchronous": 51,
+    "asynchronous_both": 54,
+    "joint_transitions": 5612,
+    "median_absolute_within_bin_time_difference": 0.0
+  }
+]

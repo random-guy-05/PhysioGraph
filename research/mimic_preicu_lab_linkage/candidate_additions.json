@@ -1,0 +1,23 @@
+[
+  {
+    "family": "blood_gas_hemoglobin",
+    "candidate_records": 461,
+    "eligible_encounters": 386,
+    "records_before_inpatient_admission": 352,
+    "encounters_with_pre_inpatient_records": 318
+  },
+  {
+    "family": "cbc_hemoglobin",
+    "candidate_records": 2681,
+    "eligible_encounters": 2506,
+    "records_before_inpatient_admission": 2532,
+    "encounters_with_pre_inpatient_records": 2416
+  },
+  {
+    "family": "troponin",
+    "candidate_records": 2009,
+    "eligible_encounters": 1821,
+    "records_before_inpatient_admission": 1891,
+    "encounters_with_pre_inpatient_records": 1753
+  }
+]

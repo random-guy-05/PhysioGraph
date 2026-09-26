@@ -1,0 +1,644 @@
+{
+  "eicu_fio2": [
+    {
+      "raw_label": "respFlowSettings FiO2",
+      "records": 11362,
+      "accepted": 11302,
+      "numeric_min": 0.0,
+      "numeric_max": 174.0
+    },
+    {
+      "raw_label": "respFlowCareData FIO2 (%)",
+      "records": 450,
+      "accepted": 449,
+      "numeric_min": 2.0,
+      "numeric_max": 100.0
+    },
+    {
+      "raw_label": "respFlowCareData FiO2",
+      "records": 71,
+      "accepted": 71,
+      "numeric_min": 21.0,
+      "numeric_max": 100.0
+    },
+    {
+      "raw_label": "respFlowCareData Set Fraction of Inspired Oxygen (FIO2)",
+      "records": 18,
+      "accepted": 18,
+      "numeric_min": 25.0,
+      "numeric_max": 100.0
+    }
+  ],
+  "eicu_pressor": [
+    {
+      "raw_label": "Norepinephrine (mcg/min)",
+      "records": 1110,
+      "positive_records": 1012
+    },
+    {
+      "raw_label": "Norepinephrine (mcg/kg/min)",
+      "records": 680,
+      "positive_records": 614
+    },
+    {
+      "raw_label": "Norepinephrine (ml/hr)",
+      "records": 446,
+      "positive_records": 422
+    },
+    {
+      "raw_label": "Dopamine (mcg/kg/min)",
+      "records": 379,
+      "positive_records": 346
+    },
+    {
+      "raw_label": "Dopamine (ml/hr)",
+      "records": 225,
+      "positive_records": 213
+    },
+    {
+      "raw_label": "Dobutamine (mcg/kg/min)",
+      "records": 216,
+      "positive_records": 211
+    },
+    {
+      "raw_label": "Milrinone (mcg/kg/min)",
+      "records": 216,
+      "positive_records": 216
+    },
+    {
+      "raw_label": "Phenylephrine (mcg/min)",
+      "records": 181,
+      "positive_records": 163
+    },
+    {
+      "raw_label": "Vasopressin (units/min)",
+      "records": 174,
+      "positive_records": 167
+    },
+    {
+      "raw_label": "Milrinone (ml/hr)",
+      "records": 171,
+      "positive_records": 168
+    },
+    {
+      "raw_label": "Dobutamine (ml/hr)",
+      "records": 152,
+      "positive_records": 148
+    },
+    {
+      "raw_label": "Norepinephrine ()",
+      "records": 105,
+      "positive_records": 94
+    },
+    {
+      "raw_label": "Phenylephrine (ml/hr)",
+      "records": 103,
+      "positive_records": 96
+    },
+    {
+      "raw_label": "Epinephrine (mcg/min)",
+      "records": 87,
+      "positive_records": 64
+    },
+    {
+      "raw_label": "Phenylephrine (mcg/kg/min)",
+      "records": 67,
+      "positive_records": 65
+    },
+    {
+      "raw_label": "Epinephrine (mcg/kg/min)",
+      "records": 62,
+      "positive_records": 53
+    },
+    {
+      "raw_label": "Epinephrine (ml/hr)",
+      "records": 47,
+      "positive_records": 45
+    },
+    {
+      "raw_label": "Vasopressin (ml/hr)",
+      "records": 42,
+      "positive_records": 40
+    },
+    {
+      "raw_label": "Dopamine ()",
+      "records": 41,
+      "positive_records": 40
+    },
+    {
+      "raw_label": "norepinephrine Volume (ml) (ml/hr)",
+      "records": 36,
+      "positive_records": 32
+    },
+    {
+      "raw_label": "Norepinephrine STD 4 mg Dextrose 5% 250 ml (mcg/min)",
+      "records": 31,
+      "positive_records": 30
+    },
+    {
+      "raw_label": "Dobutamine ()",
+      "records": 27,
+      "positive_records": 26
+    },
+    {
+      "raw_label": "Phenylephrine  STD 20 mg Sodium Chloride 0.9% 250 ml (mcg/min)",
+      "records": 24,
+      "positive_records": 24
+    },
+    {
+      "raw_label": "Volume (ml) Phenylephrine ()",
+      "records": 21,
+      "positive_records": 21
+    },
+    {
+      "raw_label": "Milrinone ()",
+      "records": 20,
+      "positive_records": 19
+    },
+    {
+      "raw_label": "Phenylephrine ()",
+      "records": 13,
+      "positive_records": 12
+    },
+    {
+      "raw_label": "DOPamine STD 400 mg Dextrose 5% 250 ml  Premix (mcg/kg/min)",
+      "records": 10,
+      "positive_records": 10
+    },
+    {
+      "raw_label": "DOBUTamine STD 500 mg Dextrose 5% 250 ml  Premix (mcg/kg/min)",
+      "records": 9,
+      "positive_records": 9
+    },
+    {
+      "raw_label": "DOBUTamine MAX 1000 mg Dextrose 5% 250 ml  Premix (mcg/kg/min)",
+      "records": 5,
+      "positive_records": 5
+    },
+    {
+      "raw_label": "EPINEPHrine(Adrenalin)STD 4 mg Sodium Chloride 0.9% 250 ml (mcg/min)",
+      "records": 5,
+      "positive_records": 5
+    },
+    {
+      "raw_label": "Epinephrine ()",
+      "records": 5,
+      "positive_records": 5
+    },
+    {
+      "raw_label": "Vasopressin ()",
+      "records": 5,
+      "positive_records": 4
+    },
+    {
+      "raw_label": "Norepinephrine",
+      "records": 5,
+      "positive_records": 0
+    },
+    {
+      "raw_label": "Phenylephrine",
+      "records": 5,
+      "positive_records": 0
+    },
+    {
+      "raw_label": "Phenylephrine  MAX 100 mg Sodium Chloride 0.9% 250 ml (mcg/min)",
+      "records": 5,
+      "positive_records": 5
+    },
+    {
+      "raw_label": "Norepinephrine STD 4 mg Dextrose 5% 500 ml (mcg/min)",
+      "records": 5,
+      "positive_records": 5
+    },
+    {
+      "raw_label": "Phenylephrine (mcg/min) (mcg/min)",
+      "records": 4,
+      "positive_records": 4
+    },
+    {
+      "raw_label": "Norepinephrine (mg/min)",
+      "records": 4,
+      "positive_records": 4
+    },
+    {
+      "raw_label": "Milrinone",
+      "records": 4,
+      "positive_records": 0
+    },
+    {
+      "raw_label": "Norepinephrine MAX 32 mg Dextrose 5% 250 ml (mcg/min)",
+      "records": 4,
+      "positive_records": 4
+    },
+    {
+      "raw_label": "Vasopressin 40 Units Sodium Chloride 0.9% 100 ml (units/min)",
+      "records": 3,
+      "positive_records": 3
+    },
+    {
+      "raw_label": "Dobutamine",
+      "records": 3,
+      "positive_records": 0
+    },
+    {
+      "raw_label": "EPINEPHrine(Adrenalin)MAX 30 mg Sodium Chloride 0.9% 250 ml (mcg/min)",
+      "records": 2,
+      "positive_records": 2
+    },
+    {
+      "raw_label": "Dopamine",
+      "records": 2,
+      "positive_records": 0
+    },
+    {
+      "raw_label": "Epinephrine",
+      "records": 2,
+      "positive_records": 0
+    },
+    {
+      "raw_label": "Vasopressin (units/hr)",
+      "records": 2,
+      "positive_records": 1
+    },
+    {
+      "raw_label": "Dopamine (mcg/min)",
+      "records": 1,
+      "positive_records": 1
+    }
+  ],
+  "eicu_vent": [
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|non-invasive ventilation",
+      "records": 1984,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation",
+      "records": 1804,
+      "accepted": 1804
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (< 40%)|nasal cannula",
+      "records": 964,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (40% to 60%)",
+      "records": 733,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (< 40%)",
+      "records": 514,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|non-invasive ventilation|face mask",
+      "records": 464,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|CPAP/PEEP therapy",
+      "records": 453,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|tracheal suctioning",
+      "records": 367,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|ventilator weaning",
+      "records": 351,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (> 60%)",
+      "records": 351,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (> 60%)|>90%",
+      "records": 184,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|assist controlled",
+      "records": 153,
+      "accepted": 153
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (40% to 60%)|face mask",
+      "records": 148,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|non-invasive ventilation",
+      "records": 144,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (< 40%)|25-30%",
+      "records": 112,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|CPAP/PEEP therapy|5-10 cm H2O",
+      "records": 107,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|tidal volume 6-10 ml/kg",
+      "records": 98,
+      "accepted": 98
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (40% to 60%)|50-60%",
+      "records": 97,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (40% to 60%)|reduce FIO2 as tolerated",
+      "records": 83,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (> 60%)|reduce FIO2 as tolerated",
+      "records": 82,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (40% to 60%)|40-50%",
+      "records": 82,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (> 60%)|non-rebreather mask",
+      "records": 81,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (< 40%)|30-40%",
+      "records": 66,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|volume controlled",
+      "records": 63,
+      "accepted": 63
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (> 60%)|face mask",
+      "records": 61,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|synchronized intermittent",
+      "records": 58,
+      "accepted": 58
+    },
+    {
+      "raw_label": "surgery|pulmonary therapies|mechanical ventilation",
+      "records": 53,
+      "accepted": 53
+    },
+    {
+      "raw_label": "pulmonary|radiologic procedures / bronchoscopy|pulmonary ventilation perfusion study",
+      "records": 49,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (< 40%)|face mask",
+      "records": 42,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|non-invasive ventilation|face mask",
+      "records": 40,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|ventilator weaning|rapid",
+      "records": 29,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|pressure controlled",
+      "records": 23,
+      "accepted": 23
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|physiotherapy of chest",
+      "records": 22,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|pressure support",
+      "records": 22,
+      "accepted": 22
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (> 60%)|60-70%",
+      "records": 22,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|non-invasive ventilation|nasal mask",
+      "records": 19,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|ventilator weaning|slow",
+      "records": 18,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|CPAP/PEEP therapy|10-15 cm H2O",
+      "records": 18,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (> 60%)|80-90%",
+      "records": 16,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (> 60%)|70-80%",
+      "records": 15,
+      "accepted": 0
+    },
+    {
+      "raw_label": "surgery|pulmonary therapies|ventilator weaning",
+      "records": 12,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|ventilator weaning|active",
+      "records": 12,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|tidal volume < 6 ml/kg",
+      "records": 9,
+      "accepted": 9
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|permissive hypercapnea",
+      "records": 9,
+      "accepted": 9
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|lung recruitment maneuver",
+      "records": 9,
+      "accepted": 0
+    },
+    {
+      "raw_label": "cardiovascular|vascular disorders|pulmonary ventilation perfusion study",
+      "records": 8,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (< 40%)|trach collar",
+      "records": 7,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (40% to 60%)|non-rebreather mask",
+      "records": 6,
+      "accepted": 0
+    },
+    {
+      "raw_label": "surgery|pulmonary therapies|mechanical ventilation|assist controlled",
+      "records": 6,
+      "accepted": 6
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|prone position",
+      "records": 5,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (40% to 60%)|trach collar",
+      "records": 5,
+      "accepted": 0
+    },
+    {
+      "raw_label": "surgery|pulmonary therapies|ventilator weaning|rapid",
+      "records": 4,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|mechanical ventilation|volume assured",
+      "records": 3,
+      "accepted": 3
+    },
+    {
+      "raw_label": "pulmonary|vascular disorders|pulmonary ventilation perfusion study",
+      "records": 3,
+      "accepted": 0
+    },
+    {
+      "raw_label": "surgery|pulmonary therapies|non-invasive ventilation|face mask",
+      "records": 3,
+      "accepted": 0
+    },
+    {
+      "raw_label": "surgery|pulmonary therapies|non-invasive ventilation",
+      "records": 3,
+      "accepted": 0
+    },
+    {
+      "raw_label": "surgery|pulmonary therapies|mechanical ventilation|non-invasive ventilation",
+      "records": 2,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|CPAP/PEEP therapy|titrate PEEP",
+      "records": 2,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|CPAP/PEEP therapy|> 15 cm H2O",
+      "records": 2,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|CPAP/PEEP therapy|reduce CPAP as tolerated",
+      "records": 2,
+      "accepted": 0
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|CPAP/PEEP therapy|reduce PEEP as tolerated",
+      "records": 2,
+      "accepted": 0
+    },
+    {
+      "raw_label": "surgery|pulmonary therapies|mechanical ventilation|tidal volume 6-10 ml/kg",
+      "records": 2,
+      "accepted": 2
+    },
+    {
+      "raw_label": "pulmonary|ventilation and oxygenation|oxygen therapy (< 40%)|non-rebreather mask",
+      "records": 1,
+      "accepted": 0
+    },
+    {
+      "raw_label": "surgery|pulmonary therapies|mechanical ventilation|volume controlled",
+      "records": 1,
+      "accepted": 1
+    }
+  ],
+  "mimic_fio2": [
+    {
+      "raw_label": "Inspired O2 Fraction",
+      "records": 2818,
+      "accepted": 2806,
+      "numeric_min": 0.0,
+      "numeric_max": 100.0
+    }
+  ],
+  "mimic_pressor": [
+    {
+      "raw_label": "221906",
+      "records": 2999,
+      "positive_records": 2999
+    },
+    {
+      "raw_label": "221749",
+      "records": 1528,
+      "positive_records": 1528
+    },
+    {
+      "raw_label": "221662",
+      "records": 564,
+      "positive_records": 564
+    },
+    {
+      "raw_label": "221289",
+      "records": 519,
+      "positive_records": 519
+    },
+    {
+      "raw_label": "222315",
+      "records": 193,
+      "positive_records": 193
+    },
+    {
+      "raw_label": "221653",
+      "records": 128,
+      "positive_records": 128
+    },
+    {
+      "raw_label": "221986",
+      "records": 92,
+      "positive_records": 92
+    }
+  ],
+  "mimic_vent": [
+    {
+      "raw_label": "225792",
+      "records": 1454,
+      "accepted": 1454
+    }
+  ]
+}

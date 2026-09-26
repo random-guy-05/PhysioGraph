@@ -1,0 +1,102 @@
+stage,variable,mimic4_n,mimic4_mean_or_prevalence,mimic4_sd,mimic3_n,mimic3_mean_or_prevalence,mimic3_sd,standardized_mean_difference_m3_minus_m4,note
+preliminary,age,17758,72.61870706160603,13.589287238287177,5405,72.62181170839844,13.305399689446384,0.00023086149741794316,continuous/binary standardized mean difference
+preliminary,male_sex,17758,0.5467394976911815,0.49781062599705134,5405,0.5359851988899167,0.4987033842484459,-0.021583829981276954,continuous/binary standardized mean difference
+preliminary,diagnosis_count,0,,,5405,11.867160037002774,5.082676695196555,,continuous/binary standardized mean difference
+preliminary,hf_code_count,0,,,5405,1.183718778908418,0.3882090219057006,,continuous/binary standardized mean difference
+preliminary,icu_group:cardiac,17758,0.26990652100461765,0.44391101689843376,5405,0.2703052728954672,0.44411747583311134,0.0008980610044307836,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,icu_group:cardiac_surgical,17758,0.12079062957540264,0.32588380349778123,5405,0.1565217391304348,0.36334925940480317,0.1035308339698451,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,icu_group:intermediate_stepdown,17758,0.0009010023651312085,0.030003175829722367,5405,0.0,0.0,-0.042469162988956206,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,icu_group:medical,17758,0.2785223561211848,0.4482718519624991,5405,0.4294172062904718,0.49499299917489564,0.3195498928197764,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,icu_group:mixed_medical_surgical,17758,0.15846379096745128,0.36517532490527777,5405,0.0,0.0,-0.6136823247555242,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,icu_group:neurologic,17758,0.02990201599279198,0.17031701451222891,5405,0.0,0.0,-0.24828897265732253,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,icu_group:other_or_general,17758,0.0003941885347449037,0.019850268263778687,5405,0.0,0.0,-0.028083588824109006,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,icu_group:perioperative,17758,0.0009010023651312085,0.030003175829722367,5405,0.0,0.0,-0.042469162988956206,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,icu_group:surgical,17758,0.08672147764387882,0.28142647878112154,5405,0.09306197964847364,0.2905192723252293,0.022168888831322456,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,icu_group:trauma_surgical,17758,0.0534970154296655,0.22502240948355262,5405,0.050693802035152634,0.21937169477937074,-0.01261486944172329,coarsely harmonized ICU category proportion; source taxonomies differ by era
+preliminary,ventilation,0,,,0,,,,not harmonized in either frozen model frame
+preliminary,respiratory_support,0,,,0,,,,not harmonized in either frozen model frame
+preliminary,fio2,0,,,0,,,,not harmonized in either frozen model frame
+preliminary,respiratory_source_available,17758,1.0,0.0,0,,,,MIMIC-IV source-availability flag; no harmonized MIMIC-III respiratory-support variable in the frozen frame
+preliminary,early_vasoactive_prevalence:MIMIC-IV,17758,0.21759207117918686,,5405,,,,dataset-specific row; value stored in mimic4_mean_or_prevalence
+preliminary,early_vasoactive_prevalence:MIMIC-III,17758,,,5405,0.25716928769657726,,,dataset-specific row; value stored in mimic3_mean_or_prevalence
+at_risk,age,8196,72.56100536847242,13.844780689210229,2368,72.58911288968694,13.546181992063895,0.002052198861862329,continuous/binary standardized mean difference
+at_risk,male_sex,8196,0.5368472425573451,0.49864043229156635,2368,0.5472972972972973,0.4977579388300814,0.020975647781311616,continuous/binary standardized mean difference
+at_risk,spo2_level,7879,96.40747556796548,3.0848011578801464,2120,97.17287735849057,3.002388235560906,0.2514564941253214,continuous/binary standardized mean difference
+at_risk,sbp_level,7429,126.75050477857047,22.245516655140875,1852,125.40847732181426,21.2401004371434,-0.06170632911664944,continuous/binary standardized mean difference
+at_risk,map_level,7433,84.12727028117853,15.46632681702693,1848,80.7963584098981,13.487033914508201,-0.22955234298349178,continuous/binary standardized mean difference
+at_risk,hr_level,7899,84.20483605519686,19.15812981147923,2134,84.0794283036551,18.28663514128048,-0.0066964660992868555,continuous/binary standardized mean difference
+at_risk,resp_rate_level,7891,20.009567862121404,5.404943217152001,2116,19.76134215500945,5.660632374492202,-0.04485251854861615,continuous/binary standardized mean difference
+at_risk,baseline_lactate,2314,1.2762532411408816,0.34836264472363676,413,1.3097094430992737,0.3434519436698324,0.0967177035405969,continuous/binary standardized mean difference
+at_risk,baseline_creatinine,4140,1.8805314009661835,1.9920270325197251,1439,1.6644892286309936,1.5400503136061918,-0.12134207467391288,continuous/binary standardized mean difference
+at_risk,diagnosis_count,0,,,2368,11.350506756756756,4.705296370303021,,continuous/binary standardized mean difference
+at_risk,hf_code_count,0,,,2368,1.192989864864865,0.39464512783551003,,continuous/binary standardized mean difference
+at_risk,icu_group:cardiac,8196,0.2648853099072718,0.4412721184287541,2368,0.28125,0.4496092053105675,0.03673659581889146,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,icu_group:cardiac_surgical,8196,0.07308443142996583,0.26027504166270815,2368,0.10684121621621621,0.30891126676386527,0.11818351159870841,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,icu_group:intermediate_stepdown,8196,0.0009760858955588092,0.03122712205572746,2368,0.0,0.0,-0.04420496737025351,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,icu_group:medical,8196,0.2733040507564666,0.44565563678312575,2368,0.4535472972972973,0.49783746987507305,0.3814934219435017,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,icu_group:mixed_medical_surgical,8196,0.16544655929721816,0.37158309341778484,2368,0.0,0.0,-0.6296754942588885,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,icu_group:neurologic,8196,0.056857003416300636,0.23156917881881306,2368,0.0,0.0,-0.34723077465390784,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,icu_group:other_or_general,8196,0.0004880429477794046,0.022086302584645702,2368,0.0,0.0,-0.03125,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,icu_group:perioperative,8196,0.0006100536847242558,0.024691729773873884,2368,0.0,0.0,-0.03494069482428839,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,icu_group:surgical,8196,0.10797950219619326,0.31035452196102375,2368,0.10050675675675676,0.3006744894449725,-0.024456475032625043,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,icu_group:trauma_surgical,8196,0.05636896046852123,0.2306328267272886,2368,0.05785472972972973,0.23346854173020753,0.006402659541347192,coarsely harmonized ICU category proportion; source taxonomies differ by era
+at_risk,ventilation,0,,,0,,,,not harmonized in either frozen model frame
+at_risk,respiratory_support,0,,,0,,,,not harmonized in either frozen model frame
+at_risk,fio2,0,,,0,,,,not harmonized in either frozen model frame
+at_risk,respiratory_source_available,8196,1.0,0.0,0,,,,MIMIC-IV source-availability flag; no harmonized MIMIC-III respiratory-support variable in the frozen frame
+at_risk,early_vasoactive_prevalence:MIMIC-IV,8196,0.0,,2368,,,,dataset-specific row; value stored in mimic4_mean_or_prevalence
+at_risk,early_vasoactive_prevalence:MIMIC-III,8196,,,2368,0.0,,,dataset-specific row; value stored in mimic3_mean_or_prevalence
+exposure_observed,age,5957,72.48195400369313,13.721915693384679,1799,72.55686066134159,13.683155138628937,0.005466622085078301,continuous/binary standardized mean difference
+exposure_observed,male_sex,5957,0.535840188014101,0.49871382668130815,1799,0.5436353529738743,0.49809231671533083,0.015640279699743947,continuous/binary standardized mean difference
+exposure_observed,spo2_level,5957,96.38249118683902,3.0445945195182498,1799,97.11978877153975,2.966688835345912,0.24528395386090313,continuous/binary standardized mean difference
+exposure_observed,sbp_level,5652,126.31360580325548,22.002436185779384,1573,125.48696757787667,21.065596741478757,-0.0383784754956753,continuous/binary standardized mean difference
+exposure_observed,map_level,5657,83.56522891992222,15.05276753934963,1571,80.80023632255957,13.142439869925223,-0.19568346490306116,continuous/binary standardized mean difference
+exposure_observed,hr_level,5955,83.88505457598657,19.173285404223652,1799,84.19983324068927,18.308279897703613,0.016791981330455445,continuous/binary standardized mean difference
+exposure_observed,resp_rate_level,5943,19.99680296146727,5.439507778187884,1784,19.838004484304932,5.716743527221918,-0.02845928505380993,continuous/binary standardized mean difference
+exposure_observed,baseline_lactate,1708,1.26480093676815,0.34601684002698574,358,1.314832402234637,0.34538999066852794,0.14472360608252474,continuous/binary standardized mean difference
+exposure_observed,baseline_creatinine,3250,1.878276923076923,1.9977499921176116,1174,1.645400340715503,1.4443068525632088,-0.13359654367405197,continuous/binary standardized mean difference
+exposure_observed,diagnosis_count,0,,,1799,11.484157865480823,4.788192960640819,,continuous/binary standardized mean difference
+exposure_observed,hf_code_count,0,,,1799,1.2040022234574763,0.40297061466300765,,continuous/binary standardized mean difference
+exposure_observed,icu_group:cardiac,5957,0.2711096189357059,0.4445325561263677,1799,0.29016120066703727,0.45383662070672587,0.04241142856026774,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,icu_group:cardiac_surgical,5957,0.07016954843041799,0.25543254080772326,1799,0.0689271817676487,0.2533302693742266,-0.004883832039899539,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,icu_group:intermediate_stepdown,5957,0.0008393486654356219,0.028959353571056334,1799,0.0,0.0,-0.04098911473649706,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,icu_group:medical,5957,0.27161322813496724,0.4447915044569416,1799,0.471372984991662,0.499179821318643,0.42253192950564356,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,icu_group:mixed_medical_surgical,5957,0.15511163337250294,0.3620110696719331,1799,0.0,0.0,-0.6059510163488352,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,icu_group:neurologic,5957,0.0488500923283532,0.21555454253590797,1799,0.0,0.0,-0.3204964380763472,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,icu_group:other_or_general,5957,0.00033573946617424877,0.018320118590912607,1799,0.0,0.0,-0.02591726162313414,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,icu_group:perioperative,5957,0.0008393486654356219,0.028959353571056334,1799,0.0,0.0,-0.04098911473649706,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,icu_group:surgical,5957,0.11952324995803257,0.32440321002958994,1799,0.10172317954419122,0.3022839299195567,-0.05677152814126702,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,icu_group:trauma_surgical,5957,0.06160819204297465,0.2404425559591534,1799,0.0678154530294608,0.2514289509182859,0.02523306636170495,coarsely harmonized ICU category proportion; source taxonomies differ by era
+exposure_observed,ventilation,0,,,0,,,,not harmonized in either frozen model frame
+exposure_observed,respiratory_support,0,,,0,,,,not harmonized in either frozen model frame
+exposure_observed,fio2,0,,,0,,,,not harmonized in either frozen model frame
+exposure_observed,respiratory_source_available,5957,1.0,0.0,0,,,,MIMIC-IV source-availability flag; no harmonized MIMIC-III respiratory-support variable in the frozen frame
+exposure_observed,early_vasoactive_prevalence:MIMIC-IV,5957,0.0,,1799,,,,dataset-specific row; value stored in mimic4_mean_or_prevalence
+exposure_observed,early_vasoactive_prevalence:MIMIC-III,5957,,,1799,0.0,,,dataset-specific row; value stored in mimic3_mean_or_prevalence
+modeled,age,5957,72.48195400369313,13.721915693384679,1799,72.55686066134159,13.683155138628937,0.005466622085078301,continuous/binary standardized mean difference
+modeled,male_sex,5957,0.535840188014101,0.49871382668130815,1799,0.5436353529738743,0.49809231671533083,0.015640279699743947,continuous/binary standardized mean difference
+modeled,spo2_level,5957,96.38249118683902,3.0445945195182498,1799,97.11978877153975,2.966688835345912,0.24528395386090313,continuous/binary standardized mean difference
+modeled,sbp_level,5652,126.31360580325548,22.002436185779384,1573,125.48696757787667,21.065596741478757,-0.0383784754956753,continuous/binary standardized mean difference
+modeled,map_level,5657,83.56522891992222,15.05276753934963,1571,80.80023632255957,13.142439869925223,-0.19568346490306116,continuous/binary standardized mean difference
+modeled,hr_level,5955,83.88505457598657,19.173285404223652,1799,84.19983324068927,18.308279897703613,0.016791981330455445,continuous/binary standardized mean difference
+modeled,resp_rate_level,5943,19.99680296146727,5.439507778187884,1784,19.838004484304932,5.716743527221918,-0.02845928505380993,continuous/binary standardized mean difference
+modeled,baseline_lactate,1708,1.26480093676815,0.34601684002698574,358,1.314832402234637,0.34538999066852794,0.14472360608252474,continuous/binary standardized mean difference
+modeled,baseline_creatinine,3250,1.878276923076923,1.9977499921176116,1174,1.645400340715503,1.4443068525632088,-0.13359654367405197,continuous/binary standardized mean difference
+modeled,diagnosis_count,0,,,1799,11.484157865480823,4.788192960640819,,continuous/binary standardized mean difference
+modeled,hf_code_count,0,,,1799,1.2040022234574763,0.40297061466300765,,continuous/binary standardized mean difference
+modeled,icu_group:cardiac,5957,0.2711096189357059,0.4445325561263677,1799,0.29016120066703727,0.45383662070672587,0.04241142856026774,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,icu_group:cardiac_surgical,5957,0.07016954843041799,0.25543254080772326,1799,0.0689271817676487,0.2533302693742266,-0.004883832039899539,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,icu_group:intermediate_stepdown,5957,0.0008393486654356219,0.028959353571056334,1799,0.0,0.0,-0.04098911473649706,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,icu_group:medical,5957,0.27161322813496724,0.4447915044569416,1799,0.471372984991662,0.499179821318643,0.42253192950564356,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,icu_group:mixed_medical_surgical,5957,0.15511163337250294,0.3620110696719331,1799,0.0,0.0,-0.6059510163488352,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,icu_group:neurologic,5957,0.0488500923283532,0.21555454253590797,1799,0.0,0.0,-0.3204964380763472,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,icu_group:other_or_general,5957,0.00033573946617424877,0.018320118590912607,1799,0.0,0.0,-0.02591726162313414,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,icu_group:perioperative,5957,0.0008393486654356219,0.028959353571056334,1799,0.0,0.0,-0.04098911473649706,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,icu_group:surgical,5957,0.11952324995803257,0.32440321002958994,1799,0.10172317954419122,0.3022839299195567,-0.05677152814126702,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,icu_group:trauma_surgical,5957,0.06160819204297465,0.2404425559591534,1799,0.0678154530294608,0.2514289509182859,0.02523306636170495,coarsely harmonized ICU category proportion; source taxonomies differ by era
+modeled,ventilation,0,,,0,,,,not harmonized in either frozen model frame
+modeled,respiratory_support,0,,,0,,,,not harmonized in either frozen model frame
+modeled,fio2,0,,,0,,,,not harmonized in either frozen model frame
+modeled,respiratory_source_available,5957,1.0,0.0,0,,,,MIMIC-IV source-availability flag; no harmonized MIMIC-III respiratory-support variable in the frozen frame
+modeled,early_vasoactive_prevalence:MIMIC-IV,5957,0.0,,1799,,,,dataset-specific row; value stored in mimic4_mean_or_prevalence
+modeled,early_vasoactive_prevalence:MIMIC-III,5957,,,1799,0.0,,,dataset-specific row; value stored in mimic3_mean_or_prevalence

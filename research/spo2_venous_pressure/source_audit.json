@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "raw_nonnull_source_rows": 30150,
+    "accepted_unique_times": 30150,
+    "encounters_with_times": 918,
+    "units": "unresolved native monitor unit; timing upper bound"
+  },
+  {
+    "dataset": "mimic",
+    "raw_nonnull_source_rows": 4632,
+    "accepted_unique_times": 3873,
+    "encounters_with_times": 767,
+    "units": "explicit mmHg"
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "dataset": "eicu",
+    "concept": "troponin_i",
+    "text_class": "exact",
+    "numeric_accepted": false,
+    "records": 1,
+    "three_underscore_placeholder_records": 0,
+    "stored_numeric_missing": 1,
+    "magnitude_disagreement": 0,
+    "numeric_reference_upper_records": null
+  },
+  {
+    "dataset": "eicu",
+    "concept": "troponin_i",
+    "text_class": "exact",
+    "numeric_accepted": true,
+    "records": 10359,
+    "three_underscore_placeholder_records": 0,
+    "stored_numeric_missing": 0,
+    "magnitude_disagreement": 0,
+    "numeric_reference_upper_records": null
+  },
+  {
+    "dataset": "eicu",
+    "concept": "troponin_i",
+    "text_class": "greater_than",
+    "numeric_accepted": false,
+    "records": 82,
+    "three_underscore_placeholder_records": 0,
+    "stored_numeric_missing": 82,
+    "magnitude_disagreement": 0,
+    "numeric_reference_upper_records": null
+  },
+  {
+    "dataset": "eicu",
+    "concept": "troponin_i",
+    "text_class": "less_than",
+    "numeric_accepted": false,
+    "records": 1461,
+    "three_underscore_placeholder_records": 0,
+    "stored_numeric_missing": 1461,
+    "magnitude_disagreement": 0,
+    "numeric_reference_upper_records": null
+  },
+  {
+    "dataset": "eicu",
+    "concept": "troponin_t",
+    "text_class": "exact",
+    "numeric_accepted": true,
+    "records": 1522,
+    "three_underscore_placeholder_records": 0,
+    "stored_numeric_missing": 0,
+    "magnitude_disagreement": 0,
+    "numeric_reference_upper_records": null
+  },
+  {
+    "dataset": "eicu",
+    "concept": "troponin_t",
+    "text_class": "greater_than",
+    "numeric_accepted": false,
+    "records": 1,
+    "three_underscore_placeholder_records": 0,
+    "stored_numeric_missing": 1,
+    "magnitude_disagreement": 0,
+    "numeric_reference_upper_records": null
+  },
+  {
+    "dataset": "eicu",
+    "concept": "troponin_t",
+    "text_class": "less_than",
+    "numeric_accepted": false,
+    "records": 256,
+    "three_underscore_placeholder_records": 0,
+    "stored_numeric_missing": 256,
+    "magnitude_disagreement": 0,
+    "numeric_reference_upper_records": null
+  },
+  {
+    "dataset": "mimic",
+    "concept": "troponin_t",
+    "text_class": "missing",
+    "numeric_accepted": false,
+    "records": 621,
+    "three_underscore_placeholder_records": 0,
+    "stored_numeric_missing": 621,
+    "magnitude_disagreement": 0,
+    "numeric_reference_upper_records": 621
+  },
+  {
+    "dataset": "mimic",
+    "concept": "troponin_t",
+    "text_class": "unparsed",
+    "numeric_accepted": true,
+    "records": 4137,
+    "three_underscore_placeholder_records": 4137,
+    "stored_numeric_missing": 0,
+    "magnitude_disagreement": 0,
+    "numeric_reference_upper_records": 4137
+  }
+]

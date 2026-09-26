@@ -1,0 +1,9 @@
+{
+  "all_source_ids_sql_python_match": true,
+  "python_counterexamples_passed": 11,
+  "comment_table_hash": "61bb45803383b86558f2a3c823f8d1e780640f5145b7aecaaa85a9904038bb5a",
+  "comment_table_unchanged": true,
+  "original_references_unchanged": true,
+  "interpretation_threshold_never_assigned_as_patient_value": true,
+  "earlier_strict_parser_unchanged": true
+}

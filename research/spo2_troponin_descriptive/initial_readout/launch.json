@@ -1,0 +1,25 @@
+{
+  "pid": 17931,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "nbformat",
+    "python",
+    "-u",
+    "scripts/build_biological_notebook.py",
+    "--troponin-descriptive-only"
+  ],
+  "utc": "2026-09-05T12:35:46.560503+00:00",
+  "builder_sha256": "3880b70555b47cff64f3a483bd3da380be98981c4cd1768a1a2c99843b2ddfa1",
+  "module_sha256": "ed8ec9a08884f2dc40c876c483dbebe6bd35cf7b0eb257aeed9a806cd8f6e784"
+}

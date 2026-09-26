@@ -1,0 +1,19 @@
+{
+  "checks": [
+    {
+      "dataset": "eicu",
+      "lowest_original_person_selection_validated": true,
+      "pair_times_sql_python_agree": true,
+      "original_exposure_reconstructed_from_spo2_bins": true,
+      "exposure_matches_independent_care_cache": true
+    },
+    {
+      "dataset": "mimic",
+      "lowest_original_person_selection_validated": true,
+      "pair_times_sql_python_agree": true,
+      "original_exposure_reconstructed_from_spo2_bins": true,
+      "exposure_matches_independent_care_cache": true
+    }
+  ],
+  "independent_ed_boundary_and_missing_hospital_checks": 67
+}

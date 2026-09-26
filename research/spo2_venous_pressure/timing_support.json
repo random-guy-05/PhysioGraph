@@ -1,0 +1,74 @@
+[
+  {
+    "dataset": "eicu",
+    "stage": "first_original_episode",
+    "encounters": 4309,
+    "people": 4057
+  },
+  {
+    "dataset": "eicu",
+    "stage": "full_windows",
+    "encounters": 1650,
+    "people": 1600
+  },
+  {
+    "dataset": "eicu",
+    "stage": "any_both_windows",
+    "encounters": 77,
+    "people": 76
+  },
+  {
+    "dataset": "eicu",
+    "stage": "two_both_windows",
+    "encounters": 74,
+    "people": 73
+  },
+  {
+    "dataset": "eicu",
+    "stage": "span_at_least_15",
+    "encounters": 66,
+    "people": 65
+  },
+  {
+    "dataset": "eicu",
+    "stage": "complete_timing",
+    "encounters": 66,
+    "people": 65
+  },
+  {
+    "dataset": "mimic",
+    "stage": "first_original_episode",
+    "encounters": 1398,
+    "people": 1344
+  },
+  {
+    "dataset": "mimic",
+    "stage": "full_windows",
+    "encounters": 423,
+    "people": 418
+  },
+  {
+    "dataset": "mimic",
+    "stage": "any_both_windows",
+    "encounters": 23,
+    "people": 23
+  },
+  {
+    "dataset": "mimic",
+    "stage": "two_both_windows",
+    "encounters": 11,
+    "people": 11
+  },
+  {
+    "dataset": "mimic",
+    "stage": "span_at_least_15",
+    "encounters": 7,
+    "people": 7
+  },
+  {
+    "dataset": "mimic",
+    "stage": "complete_timing",
+    "encounters": 6,
+    "people": 6
+  }
+]

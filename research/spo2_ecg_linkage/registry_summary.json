@@ -1,0 +1,21 @@
+{
+  "registry_records": 800035,
+  "registry_subjects": 161352,
+  "unparseable_times": 0,
+  "invalid_paths": 0,
+  "columns": [
+    "subject_id",
+    "study_id",
+    "file_name",
+    "ecg_time",
+    "path",
+    "recorded_ecg_time",
+    "path_valid"
+  ],
+  "eligible_encounters": 4711,
+  "eligible_people": 4305,
+  "subject_matched_registry_records": 60708,
+  "subject_matched_registry_people": 3512,
+  "matched_unparseable_times": 0,
+  "matched_invalid_paths": 0
+}

@@ -1,0 +1,7 @@
+{
+  "raw_rows": 3761,
+  "measurement_timestamps": 3753,
+  "qualified_timestamps": 3538,
+  "unit_rejected_rows": 2,
+  "explicit_censor_rows": 203
+}

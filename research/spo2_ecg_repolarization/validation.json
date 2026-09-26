@@ -1,0 +1,10 @@
+{
+  "independent_pairs_match": true,
+  "registry_identifiers_and_times_match": true,
+  "independent_durations_match": true,
+  "independent_fitted_coefficients_and_hc3_match": true,
+  "max_hc3_difference": 1.4210854715202004e-13,
+  "source_hashes_unchanged": true,
+  "outcomes_computed": true,
+  "mortality_accessed": false
+}

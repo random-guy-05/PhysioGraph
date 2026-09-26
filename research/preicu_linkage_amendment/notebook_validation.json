@@ -1,0 +1,12 @@
+{
+  "schema_valid": true,
+  "active_cells": 25,
+  "all_cell_sources_match_builder": true,
+  "all_code_cells_have_local_execution": true,
+  "original_databases_unchanged_sha256": true,
+  "original_eicu_support_unchanged": true,
+  "amendment_hash_matches": true,
+  "execution_scope": "14-cell full replay plus separately executed Hb, linkage audit and amendment cells",
+  "colab_execution": false,
+  "biological_discovery": false
+}

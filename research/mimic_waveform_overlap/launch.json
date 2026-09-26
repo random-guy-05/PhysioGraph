@@ -1,0 +1,27 @@
+{
+  "pid": 91544,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "nbformat",
+    "--with",
+    "wfdb==4.3.0",
+    "python",
+    "scripts/build_biological_notebook.py",
+    "--waveform-overlap-only"
+  ],
+  "started_utc": "2026-09-05T08:09:15.131842+00:00",
+  "builder_sha256": "50f60270a1c2227dfca0de9d55642b34919029f632e5c3cfaacfd1dab292dc03",
+  "cell_source_sha256": "1da42f5cc09cd4dd32f0570ac5076f0005844c84376471711a8068c4291db41c",
+  "correction": "Normalize Resp/Pleth label case; initial channel flags were case-sensitive. No waveform amplitudes or outcomes examined."
+}

@@ -1,0 +1,16 @@
+{
+  "receipt": {
+    "url": "https://physionet.org/files/mimic-iv-ecg/1.0/machine_measurements.csv",
+    "final_url": "https://physionet.org/files/mimic-iv-ecg/1.0/machine_measurements.csv",
+    "http_status": 200,
+    "etag": "\"64f09434-ae364fb\"",
+    "last_modified": "Thu, 31 Aug 2023 13:23:00 GMT",
+    "content_length": "182674683",
+    "retrieved_utc": "2026-09-05T19:49:02.183916+00:00"
+  },
+  "bytes": 182674683,
+  "sha256": "56f6b1413221bce95bd6f48b28ca1acf27ae0b073d6f2c1d12f3af7500eabbb6",
+  "publisher_sha256_verified": true,
+  "checksum_list_sha256": "bbc9b43e6eb5861f8afe42639e85182e8905648592c393e18217ffb3593646e4",
+  "signal_amplitudes_downloaded": false
+}

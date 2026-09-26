@@ -1,0 +1,17 @@
+{
+  "checks": [
+    {
+      "dataset": "eicu",
+      "first_episode_sql_python_agree": true,
+      "all_legacy_rows_reconstruct": true,
+      "all_timing_flags_sql_python_agree": true
+    },
+    {
+      "dataset": "mimic",
+      "first_episode_sql_python_agree": true,
+      "all_legacy_rows_reconstruct": true,
+      "all_timing_flags_sql_python_agree": true
+    }
+  ],
+  "missing_hospital_assignments_independently_validated": 59
+}

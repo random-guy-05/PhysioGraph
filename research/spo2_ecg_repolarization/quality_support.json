@@ -1,0 +1,30 @@
+{
+  "splits": [
+    {
+      "split": 0,
+      "metadata_people": 182,
+      "both_measured": 175,
+      "both_duration_valid": 171,
+      "rhythm_excluded": 53,
+      "quality_people": 124,
+      "unexposed": 94,
+      "exposed": 30,
+      "gate_pass": true
+    },
+    {
+      "split": 1,
+      "metadata_people": 156,
+      "both_measured": 153,
+      "both_duration_valid": 153,
+      "rhythm_excluded": 70,
+      "quality_people": 85,
+      "unexposed": 59,
+      "exposed": 26,
+      "gate_pass": true
+    }
+  ],
+  "joint_gate_pass": true,
+  "matched_machine_rows": 666,
+  "registry_id_and_time_match": true,
+  "independent_durations_match": true
+}

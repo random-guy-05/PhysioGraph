@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "legacy_common_rows": 3631,
+    "fresh_rows": 3778,
+    "additional_common_rows": 8,
+    "additional_common_encounters": 6
+  },
+  {
+    "dataset": "mimic",
+    "legacy_common_rows": 4133,
+    "fresh_rows": 4319,
+    "additional_common_rows": 40,
+    "additional_common_encounters": 38
+  }
+]

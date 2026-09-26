@@ -1,0 +1,12 @@
+{
+  "schema_valid": true,
+  "all_20_cells_match_builder": true,
+  "all_code_cells_executed_locally": true,
+  "independent_assignment_validation": true,
+  "concentrations_not_selected": true,
+  "colab_execution": false,
+  "builder_sha256": "99ab28338601c637d02b551e897aed4cb590a7fec12b649799a8a763e1bcfc56",
+  "validated_notebook_path": "research/preicu_linkage_amendment/before_amendment_notebook.ipynb",
+  "validated_notebook_sha256": "767d251ff0ca58a118cd27b2899d25ebe1b8f639709b7adccb3008137067c2a1",
+  "current_primary_extended_after_validation": true
+}

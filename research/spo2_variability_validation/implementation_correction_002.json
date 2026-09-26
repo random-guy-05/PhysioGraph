@@ -1,0 +1,9 @@
+{
+  "correction_id": "implementation_correction_002",
+  "stage": "before any eICU data read or association fit",
+  "failed_lock_config_sha256": "3710ba4694aaae7f690057af76f4e83d13dc497b69e0826c467ba045a95c3a65",
+  "failure": "DuckDB 1.4.3 rejected the unquoted internal column alias minute while parsing the first eICU extraction statement.",
+  "external_association_inspected": false,
+  "correction": "Quote the internal minute aliases and references. Also collapse urine rows to one record per stay-hour before the prespecified rolling-window function so duplicate availability timestamps cannot create duplicate hourly indices.",
+  "scientific_specification_changed": false
+}

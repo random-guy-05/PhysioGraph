@@ -1,0 +1,11 @@
+{
+  "protocol_sha256": "ecb781f84d1fc88ba67f7697aa550f6b96016ce1ddfc4897e6d363426a76dd79",
+  "script_sha256": "c1c51a198d9e55012d481698e58297c1f76c45f9b3562cbab76ff8ff34bec940",
+  "timing_gate_pass": true,
+  "exposure_gate_pass": false,
+  "models_fitted": 0,
+  "mortality_accessed": false,
+  "existing_endpoints_replaced": false,
+  "environment": "local",
+  "goal_complete": false
+}

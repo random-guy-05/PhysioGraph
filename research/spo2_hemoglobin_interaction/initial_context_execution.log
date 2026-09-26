@@ -1,0 +1,40 @@
+Executing notebook cell 38
+care-context extraction setup running
+
+Executing notebook cell 39
+PhysioGraph_Biological_Discovery.ipynb:cell39:55: SyntaxWarning: invalid escape sequence '\|'
+PhysioGraph_Biological_Discovery.ipynb:cell39:87: SyntaxWarning: invalid escape sequence '\('
+eICU respiratory oxygen extraction running
+
+Traceback (most recent call last):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1728, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1714, in main
+    exec(compile(c['source'],f'{TARGET.name}:cell{i}','exec'),namespace)
+  File "PhysioGraph_Biological_Discovery.ipynb:cell39", line 27, in <module>
+_duckdb.InvalidInputException: Invalid Input Error: CSV Error on Line: 5209397
+Original Line: 64387592,961420,4588,4588,respFlowCareData,"Minute Volume, Spontaneous",2.2
+Expected Number of Columns: 7 Found: 8
+Possible fixes:
+* Disable the parser's strict mode (strict_mode=false) to allow reading rows that do not comply with the CSV standard.
+* Enable null padding (null_padding=true) to replace missing values with NULL
+* Enable ignore errors (ignore_errors=true) to skip this row
+
+  file = /Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Data/eICU/Full/respiratoryCharting.csv
+  delimiter = , (Auto-Detected)
+  quote = (empty) (Auto-Detected)
+  escape = (empty) (Auto-Detected)
+  new_line = \n (Auto-Detected)
+  header = true (Set By User)
+  skip_rows = 0 (Auto-Detected)
+  comment = (empty) (Auto-Detected)
+  strict_mode = true (Set By User)
+  date_format =  (Auto-Detected)
+  timestamp_format =  (Auto-Detected)
+  null_padding = 0
+  sample_size = 10240
+  ignore_errors = false
+  all_varchar = 1
+
+

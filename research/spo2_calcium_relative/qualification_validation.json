@@ -1,0 +1,12 @@
+[
+  {
+    "dataset": "eicu",
+    "sql_python_quality_and_possible_units": true,
+    "sql_python_fixed_pairs": true
+  },
+  {
+    "dataset": "mimic",
+    "sql_python_quality_and_possible_units": true,
+    "sql_python_fixed_pairs": true
+  }
+]

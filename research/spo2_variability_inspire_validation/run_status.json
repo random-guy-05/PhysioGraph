@@ -1,0 +1,8 @@
+{
+  "status": "completed_without_association",
+  "classification": "INSPIRE_EXTERNAL_VALIDATION_NOT_RUN_FEASIBILITY_FAILURE",
+  "environment": "LOCAL_STANDALONE_RUNTIME",
+  "association_inspected": false,
+  "association_models_fitted": 0,
+  "reason": "minimum_50_modeled_events_not_demonstrable"
+}

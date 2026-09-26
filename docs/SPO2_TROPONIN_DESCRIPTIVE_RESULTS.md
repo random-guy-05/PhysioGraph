@@ -1,0 +1,31 @@
+# Serial troponin: descriptive amendment results
+
+Actual local execution.
+The original primary count gate remains failed. These are selected-case descriptions, without hypothesis tests, confidence intervals or population inference.
+
+| Database | Sample | Pattern | Count / denominator | Percent |
+|---|---|---|---:|---:|
+| eicu | all_complete_encounters | neither | 74 / 133 | 55.6 |
+| eicu | all_complete_encounters | pre_only | 25 / 133 | 18.8 |
+| eicu | all_complete_encounters | post_only | 15 / 133 | 11.3 |
+| eicu | all_complete_encounters | both | 19 / 133 | 14.3 |
+| eicu | one_per_person | neither | 74 / 133 | 55.6 |
+| eicu | one_per_person | pre_only | 25 / 133 | 18.8 |
+| eicu | one_per_person | post_only | 15 / 133 | 11.3 |
+| eicu | one_per_person | both | 19 / 133 | 14.3 |
+| mimic | all_complete_encounters | neither | 33 / 76 | 43.4 |
+| mimic | all_complete_encounters | pre_only | 17 / 76 | 22.4 |
+| mimic | all_complete_encounters | post_only | 11 / 76 | 14.5 |
+| mimic | all_complete_encounters | both | 15 / 76 | 19.7 |
+| mimic | one_per_person | neither | 33 / 76 | 43.4 |
+| mimic | one_per_person | pre_only | 17 / 76 | 22.4 |
+| mimic | one_per_person | post_only | 11 / 76 | 14.5 |
+| mimic | one_per_person | both | 15 / 76 | 19.7 |
+
+Pre rise compares last versus first pre-episode concentration; post rise compares the delayed post-episode peak with the last pre-episode concentration. Both use the unchanged 1.5-fold threshold. Windows differ, and the post measure is a maximum rather than a last value.
+
+A pre-episode rise means that the recorded numeric troponin values had already increased in those cases. It does not locate myocardial injury onset, identify a causal mechanism, prove infarction, or establish benefit from oxygen or another treatment. Absence of a pre-rise does not rule out prior injury. Selective repeat testing and assay kinetics limit interpretation.
+
+The episode is the first captured in the original first-four-hour ICU window, not the first possible hypoxic event in the illness. Earlier hypoxemia has not been excluded. These calculations inherit the existing numeric laboratory harmonization; assay-specific censoring and reference-limit adjudication were not newly validated here.
+
+All available complete encounters and the fixed one-per-person sensitivity are reported. SQL and Python independently agree on every first/last/peak concentration and decimal rise label. Mortality labels were not joined. See the explicit amendment for the departure from the original stop rule. No paradigm-shifting discovery is established.

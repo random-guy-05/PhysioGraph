@@ -1,0 +1,46 @@
+[
+  {
+    "dataset": "eicu",
+    "horizon": "12h",
+    "shared_pair_encounters": 656,
+    "unique_patients": 648,
+    "exposure_arm_patients": {
+      "0": 367,
+      "1": 284
+    },
+    "multiple_paired_assay_encounters": 0
+  },
+  {
+    "dataset": "eicu",
+    "horizon": "24h",
+    "shared_pair_encounters": 926,
+    "unique_patients": 906,
+    "exposure_arm_patients": {
+      "0": 537,
+      "1": 374
+    },
+    "multiple_paired_assay_encounters": 0
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "12h",
+    "shared_pair_encounters": 621,
+    "unique_patients": 613,
+    "exposure_arm_patients": {
+      "0": 395,
+      "1": 221
+    },
+    "multiple_paired_assay_encounters": 0
+  },
+  {
+    "dataset": "mimic",
+    "horizon": "24h",
+    "shared_pair_encounters": 654,
+    "unique_patients": 647,
+    "exposure_arm_patients": {
+      "0": 423,
+      "1": 226
+    },
+    "multiple_paired_assay_encounters": 0
+  }
+]

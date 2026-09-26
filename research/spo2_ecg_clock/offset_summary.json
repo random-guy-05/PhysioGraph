@@ -1,0 +1,120 @@
+{
+  "all_isolated": {
+    "signed_minutes": {
+      "n": 711,
+      "p01": -1084.5,
+      "q25": -15.0,
+      "median": -4.0,
+      "q75": 3.0,
+      "p99": 1143.5999999999979
+    },
+    "absolute_minutes": {
+      "n": 711,
+      "p01": 0.0,
+      "q25": 3.0,
+      "median": 8.0,
+      "q75": 26.0,
+      "p99": 1266.5
+    },
+    "within_minutes": [
+      {
+        "minutes": 5,
+        "n": 269,
+        "denominator": 711,
+        "fraction": 0.37834036568213786
+      },
+      {
+        "minutes": 15,
+        "n": 460,
+        "denominator": 711,
+        "fraction": 0.6469760900140648
+      },
+      {
+        "minutes": 30,
+        "n": 557,
+        "denominator": 711,
+        "fraction": 0.7834036568213784
+      },
+      {
+        "minutes": 60,
+        "n": 618,
+        "denominator": 711,
+        "fraction": 0.869198312236287
+      },
+      {
+        "minutes": 240,
+        "n": 650,
+        "denominator": 711,
+        "fraction": 0.9142053445850914
+      }
+    ]
+  },
+  "finished_running_isolated": {
+    "signed_minutes": {
+      "n": 711,
+      "p01": -1084.5,
+      "q25": -15.0,
+      "median": -4.0,
+      "q75": 3.0,
+      "p99": 1143.5999999999979
+    },
+    "absolute_minutes": {
+      "n": 711,
+      "p01": 0.0,
+      "q25": 3.0,
+      "median": 8.0,
+      "q75": 26.0,
+      "p99": 1266.5
+    },
+    "within_minutes": [
+      {
+        "minutes": 5,
+        "n": 269,
+        "denominator": 711,
+        "fraction": 0.37834036568213786
+      },
+      {
+        "minutes": 15,
+        "n": 460,
+        "denominator": 711,
+        "fraction": 0.6469760900140648
+      },
+      {
+        "minutes": 30,
+        "n": 557,
+        "denominator": 711,
+        "fraction": 0.7834036568213784
+      },
+      {
+        "minutes": 60,
+        "n": 618,
+        "denominator": 711,
+        "fraction": 0.869198312236287
+      },
+      {
+        "minutes": 240,
+        "n": 650,
+        "denominator": 711,
+        "fraction": 0.9142053445850914
+      }
+    ]
+  },
+  "all_procedure_duration_minutes": {
+    "n": 3343,
+    "p01": 1.0,
+    "q25": 1.0,
+    "median": 1.0,
+    "q75": 1.0,
+    "p99": 1.0
+  },
+  "all_procedure_documentation_delay_minutes": {
+    "n": 3343,
+    "p01": 0.0,
+    "q25": 0.0,
+    "median": 0.0,
+    "q75": 58.5,
+    "p99": 475.0
+  },
+  "negative_durations": 0,
+  "negative_documentation_delays": 18
+}

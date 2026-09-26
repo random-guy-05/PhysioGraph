@@ -1,0 +1,13 @@
+Executing notebook cell 54
+Locked outcome-blind acid-base feasibility for the original MIMIC/eICU cohorts.
+
+Executing notebook cell 57
+
+Traceback (most recent call last):
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1774, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/build_biological_notebook.py", line 1760, in main
+    exec(compile(c['source'],f'{TARGET.name}:cell{i}','exec'),namespace)
+  File "PhysioGraph_Biological_Discovery.ipynb:cell57", line 2, in <module>
+_duckdb.ConnectionException: Connection Error: Can't open a connection to same database file with a different configuration than existing connections

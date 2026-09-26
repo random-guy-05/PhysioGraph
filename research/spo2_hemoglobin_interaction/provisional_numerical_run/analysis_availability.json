@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "eicu",
+    "n": 3984,
+    "unique_persons": 3644,
+    "hb_entered_after_icu": 220,
+    "missing": {
+      "age": 0,
+      "spo2_mean": 0,
+      "hypoxic_fraction": 0,
+      "hr_mean": 2,
+      "map_mean": 3601,
+      "baseline_creatinine": 2920,
+      "baseline_lactate": 3401,
+      "fio2_max": 2302,
+      "troponin_rise_12h": 3325,
+      "hospital_mortality": 39
+    }
+  },
+  {
+    "dataset": "mimic",
+    "n": 3450,
+    "unique_persons": 3138,
+    "hb_entered_after_icu": 134,
+    "missing": {
+      "age": 0,
+      "spo2_mean": 0,
+      "hypoxic_fraction": 0,
+      "hr_mean": 0,
+      "map_mean": 33,
+      "baseline_creatinine": 1398,
+      "baseline_lactate": 1956,
+      "fio2_max": 2219,
+      "troponin_rise_12h": 2934,
+      "hospital_mortality": 0
+    }
+  }
+]

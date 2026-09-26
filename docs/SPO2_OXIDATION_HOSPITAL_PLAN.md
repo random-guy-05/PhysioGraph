@@ -1,0 +1,21 @@
+# Methemoglobin change across disjoint eICU hospitals
+
+This separate protocol follows the failed **measurement-support** gate in `SPO2_HEMOGLOBIN_OXIDATION_PLAN.md`. That original result is retained. No methemoglobin distributions, changes, exposure-specific biochemical effects, or mortality associations have been inspected. Timing counts are known: eICU has 346 paired people across 49 hospitals; MIMIC has zero primary-assay pairs. This is eICU replication across hospitals, not replication across databases or a prospectively registered study.
+
+The biological question remains whether the original early SpO2 instability precedes a larger recorded methemoglobin increase. Modified cell-free hemoglobin and newborn-red-cell experiments motivate this weakly; extrapolation to adult HF is unproven. Methemoglobin is not a specific measurement of ROS or nitric oxide flux. Drug exposure, transfusion, selection for testing, and analyzer interference can generate an association.
+
+## Frozen population, assays, and split
+
+Reuse the audited original-person selection, original binary SpO2 exposure, and original last pre-ICU / first post-four-hour sample timestamps without alteration. The first plan's exact eICU assay, percent-unit, censoring, latest-entry, duplicate-value, and numeric-range rules apply; no replacement of a selected timestamp after qualification fails. All 10,167 selected eICU people are assigned by the first byte of SHA256(`PhysioGraph oxidation hospital v1|` + integer hospital ID), modulo two. Split 0 is discovery and split 1 validation. This hash was examined once using timing metadata: raw paired support is 96 people (45 exposed / 51 unexposed), 19 hospitals versus 250 (96 / 154), 30 hospitals. Do not try another hash or reallocate hospitals to improve a result.
+
+Qualification support must include at least 20 people in each exposure group and at least ten hospitals in **each** split, with no missing hospital identifiers. These are newly declared minimum computational support limits for this smaller hospital-split study, not the original two-database limits or a power calculation. Precision will be judged from intervals. Failure stops this study before contrasts. This amendment is motivated by assay availability, not a failed biochemical effect; it does not retroactively change the first protocol.
+
+## Estimand and uncertainty
+
+For each person compute recorded follow-up minus baseline methemoglobin, in percentage points. In each hospital split estimate exposed minus unexposed mean change. This is an unadjusted descriptive association. Use 20,000 whole-hospital bootstrap draws, sampling the original number of hospitals with replacement, retaining all selected people in a sampled hospital. Seeds are 2026090563 and 2026090564. Report point estimates, conventional 95% and Bonferroni 97.5% percentile intervals for the two contrasts; bootstrap intervals provide approximate, not exact, family coverage. If any draw loses an exposure group, the bootstrap validity gate fails; do not silently discard it.
+
+Both 97.5% interval lower bounds must exceed zero to advance the biochemical candidate. No effect-size minimum is invented without an established clinically meaningful difference. A positive screen does not establish biological novelty, injury, causality, or mortality benefit and cannot complete the project. It would justify a separately locked investigation of baseline level, sample spacing, illness severity, drugs/transfusions, measurement precision, and independently measured injury. A failed screen will not trigger threshold, follow-up-window, assay, or mortality-endpoint optimization.
+
+## Verification and reporting
+
+Hash and retain the original extraction database and original assay plan. Independently reproduce hospital assignment in SQL and Python, enforce person and hospital separation, reproduce quality flags and selected pairs in both languages, verify group mean changes in SQL, and directly expand the first 100 hospital bootstrap draws per split. Keep all individual records in the private Drive Data directory; publish aggregate outputs only. Record actual local versus Colab execution. The primary notebook must contain the complete runnable workflow, including the failed original support assessment and this explicit subsequent protocol.

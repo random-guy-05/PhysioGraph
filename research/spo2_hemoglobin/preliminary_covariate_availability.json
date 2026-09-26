@@ -1,0 +1,24 @@
+{
+  "scope": "All dynamics-eligible encounters, not hemoglobin-selected patients",
+  "outcome_values_read": false,
+  "counts": [
+    {
+      "dataset": "eicu",
+      "dynamics_eligible": 11452,
+      "map_observed": 1077,
+      "hr_observed": 11450,
+      "creatinine_observed": 3694,
+      "lactate_observed": 1879,
+      "ph_observed": 2839
+    },
+    {
+      "dataset": "mimic",
+      "dynamics_eligible": 4711,
+      "map_observed": 4650,
+      "hr_observed": 4711,
+      "creatinine_observed": 3166,
+      "lactate_observed": 2240,
+      "ph_observed": 2330
+    }
+  ]
+}

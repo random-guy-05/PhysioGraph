@@ -1,0 +1,13 @@
+{
+  "utc": "2026-09-05T22:00:22.901472+00:00",
+  "cells": 111,
+  "code_cells": 79,
+  "all_sources_match_builder": true,
+  "all_code_compiles": true,
+  "error_outputs": 0,
+  "all_code_has_execution_counts": true,
+  "all_three_new_experiments_terminal_complete": true,
+  "raw_source_metadata_still_matches": true,
+  "notebook_sha256": "74af2d84d517851f8119c9e7c6fef1ef9a80a569b5d51b733de4207c07270686",
+  "execution_scope": "Incremental local sections, with previous local outputs retained. No uninterrupted full-current-notebook or Google Colab execution claimed."
+}

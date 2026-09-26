@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "eicu",
+    "raw_records": 719175,
+    "deduplicated_valid_records": 718723,
+    "first_four_hour_source_rows": 97863,
+    "first_four_hour_matches_existing_extraction": true
+  },
+  {
+    "dataset": "mimic",
+    "raw_records": 33325,
+    "deduplicated_valid_records": 33026,
+    "first_four_hour_source_rows": 7802,
+    "first_four_hour_matches_existing_extraction": true
+  }
+]

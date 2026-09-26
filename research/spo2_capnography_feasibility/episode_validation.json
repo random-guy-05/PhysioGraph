@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "eicu",
+    "selected_people": 10167,
+    "exposed_people": 3798,
+    "sql_python_times_signs_and_original_exposure_agree": true
+  },
+  {
+    "dataset": "mimic",
+    "selected_people": 4305,
+    "exposed_people": 1276,
+    "sql_python_times_signs_and_original_exposure_agree": true
+  }
+]

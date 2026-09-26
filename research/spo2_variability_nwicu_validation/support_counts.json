@@ -1,0 +1,32 @@
+{
+  "preliminary_cohort_before_available_pre360_exclusions": 1495,
+  "modified_endpoint_at_risk": 1201,
+  "pre_pressure_excluded_unique_stays": 58,
+  "pre_laboratory_hypoperfusion_excluded_unique_stays": 250,
+  "valid_frozen_exposure": 542,
+  "exposure_coverage": 0.45129059117402165,
+  "modified_endpoint_events_at_risk": 4,
+  "modified_endpoint_events_modeled": 4,
+  "later_window_events_modeled": 4,
+  "released_site_identifiers": 0,
+  "component_counts": {
+    "pressure": {
+      "sustained_hypotension": 149
+    },
+    "laboratory_hypoperfusion": {
+      "creatinine": 125,
+      "lactate": 65,
+      "alt": 8
+    },
+    "paired_pressure": {
+      "sustained_hypotension": 7
+    },
+    "paired_laboratory_hypoperfusion": {
+      "creatinine": 7
+    }
+  },
+  "structurally_unavailable": [
+    "continuous vasoactive-infusion support",
+    "oliguria"
+  ]
+}

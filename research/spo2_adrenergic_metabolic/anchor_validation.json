@@ -1,0 +1,18 @@
+[
+  {
+    "dataset": "eicu",
+    "people": 10167,
+    "exposed": 3798,
+    "sql_python_original_exposure_and_anchor_times": true,
+    "sql_python_control_hash_assignment": true,
+    "one_original_stay_per_person": true
+  },
+  {
+    "dataset": "mimic",
+    "people": 4305,
+    "exposed": 1276,
+    "sql_python_original_exposure_and_anchor_times": true,
+    "sql_python_control_hash_assignment": true,
+    "one_original_stay_per_person": true
+  }
+]

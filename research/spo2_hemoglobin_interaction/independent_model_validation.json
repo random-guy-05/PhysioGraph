@@ -1,0 +1,21 @@
+{
+  "primary_model_checks": [
+    {
+      "dataset": "eicu",
+      "endpoint": "troponin_rise_12h",
+      "independent_GLM_max_beta_error": 8.260059303211165e-14,
+      "manually_reconstructed_cluster_covariance_max_error": 1.0818013151947525e-12,
+      "passed": true
+    },
+    {
+      "dataset": "mimic",
+      "endpoint": "hospital_mortality",
+      "independent_GLM_max_beta_error": 5.329070518200751e-15,
+      "manually_reconstructed_cluster_covariance_max_error": 1.2501111257279263e-13,
+      "passed": true
+    }
+  ],
+  "all_estimable_primary_models_checked": true,
+  "patient_level_outputs_private": true,
+  "environment": "local"
+}

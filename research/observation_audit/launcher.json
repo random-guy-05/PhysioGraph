@@ -1,0 +1,1 @@
+{"pid": 12994, "command": ["uv", "run", "--no-project", "--python", "3.12", "--with", "numpy==2.2.6", "--with", "pandas==2.2.3", "--with", "scipy==1.15.3", "--with", "matplotlib==3.10.3", "--with", "wfdb==4.3.0", "--with", "nbformat", "--with", "nbclient", "--with", "ipykernel", "python", "scripts/build_observation_notebook.py", "--execute"]}

@@ -1,0 +1,30 @@
+{
+  "pid": 3576,
+  "command": [
+    "uv",
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "duckdb==1.4.3",
+    "--with",
+    "numpy==2.2.6",
+    "--with",
+    "pandas==2.2.3",
+    "--with",
+    "nbformat",
+    "--with",
+    "wfdb==4.3.0",
+    "--with",
+    "scipy==1.15.2",
+    "python",
+    "-u",
+    "scripts/build_biological_notebook.py",
+    "--waveform-analysis-only"
+  ],
+  "utc": "2026-09-05T08:56:55.360469+00:00",
+  "builder_sha256": "816ad03504c33a10f20c7851aa1dad11689e85d84bbdf470f62e130e80de5531",
+  "cell_module_sha256": "7daa7ede9ed1c069e965897886e158900489c0dc2c514a3d1ba3e7d3a7c789ce",
+  "reason": "Final report distinguishes planned from actually computed null tests; biological algorithm unchanged."
+}

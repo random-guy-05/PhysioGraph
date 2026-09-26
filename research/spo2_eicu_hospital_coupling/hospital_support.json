@@ -1,0 +1,26 @@
+[
+  {
+    "split": 0,
+    "role": "discovery",
+    "people": 608,
+    "hospitals": 68,
+    "intervals": 1363,
+    "switchers": 259,
+    "minimum_people": 100,
+    "minimum_hospitals": 20,
+    "minimum_switchers": 50,
+    "passes": "True"
+  },
+  {
+    "split": 1,
+    "role": "validation",
+    "people": 460,
+    "hospitals": 70,
+    "intervals": 1034,
+    "switchers": 160,
+    "minimum_people": 100,
+    "minimum_hospitals": 20,
+    "minimum_switchers": 50,
+    "passes": "True"
+  }
+]

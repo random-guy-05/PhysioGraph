@@ -1,0 +1,23 @@
+{
+  "utc": "2026-09-05T23:09:28.405572+00:00",
+  "notebook": "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/PhysioGraph_Biological_Discovery.ipynb",
+  "sha256": "85c27ed4330083ba96762038cd0e3506fec717facb8133e386883b5c53095bb5",
+  "cells": 129,
+  "code_cells": 93,
+  "all_sources_match_builder": true,
+  "all_code_compiles": true,
+  "all_code_cells_have_execution_counts": true,
+  "error_outputs": 0,
+  "protocol_hashes_validated": [
+    "spo2_hemoglobin_oxidation",
+    "spo2_oxidation_hospitals",
+    "spo2_ionized_calcium",
+    "spo2_calcium_relative"
+  ],
+  "all_new_run_statuses_complete": true,
+  "derived_source_database_hashes_match": true,
+  "execution": "local_incremental",
+  "google_colab_execution": false,
+  "single_uninterrupted_current_notebook_run": false,
+  "biological_discovery": false
+}

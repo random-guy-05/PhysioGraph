@@ -1,0 +1,20 @@
+[
+  {
+    "representation": "direct_raw_replay",
+    "dynamics_eligible": 4711,
+    "row_count": 95997,
+    "changed_offsets": 0
+  },
+  {
+    "representation": "default_pandas_csv_roundtrip",
+    "dynamics_eligible": 4708,
+    "row_count": 95997,
+    "changed_offsets": 9242
+  },
+  {
+    "representation": "round_trip_precision_csv",
+    "dynamics_eligible": 4711,
+    "row_count": 95997,
+    "changed_offsets": 0
+  }
+]

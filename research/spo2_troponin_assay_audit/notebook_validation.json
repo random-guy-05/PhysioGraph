@@ -1,0 +1,16 @@
+{
+  "cells": 64,
+  "code_cells": 46,
+  "source_match": true,
+  "error_outputs": 0,
+  "all_code_cells_have_execution_counts": true,
+  "notebook_sha256": "4da9499b3c15de527dc3ade2b5da8f22a69f5515e6118cda1853e3642f3d3e1b",
+  "execution": "local incremental; not full uninterrupted run or Google Colab",
+  "label_impact_sha256": "dcd032af85840338a216bdb1afb06f57b3bcaeafa08be73ced61d6b658e5c8f4",
+  "validation_sha256": "70d209e2ef5b1dcd3891bdc70b4948e180a1f0bcbe1ce128d106071bdfba5d32",
+  "impact_and_validation_unchanged_after_reporting_clarifications": true,
+  "parser_cases_passed": 11,
+  "validation": "nbformat structure; exact ordered notebook source/id comparison with builder; compilation of every code cell; independent SQL/Python source reconstruction and flag aggregation; original ratios and labels match",
+  "implementation_repair": "Raw extraction completed once. A SQL alias error stopped the initial validation, was corrected, and validation-only reruns completed. Subsequent reporting clarifications distinguish missing numeric values from disagreements and identify the literal MIMIC placeholder, without changing impact counts or the frozen classifier.",
+  "goal_complete": false
+}
