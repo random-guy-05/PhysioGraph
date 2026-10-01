@@ -6,6 +6,7 @@
 - scripts/run_dense_waveform_analysis.py is the notebook's standalone implementation.
 - FINAL_HARDENED_REPORT.md records the completed MIMIC-III analysis, including the complete-follow-up correction for 12-hour and 24-hour last-value lactate endpoints.
 - 03_landmark_lactate/ and 09_final_report/ contain aggregate result and reconciliation tables supporting the report.
+- 01_cohort/, 02_signal_qc/, 04_episode_lactate/, 05_predictive_models/, 06_mimic4_parity/, and 07_sensitivity/ contain the remaining aggregate diagnostics and sensitivity results; 08_figures/ contains the saved plots from the run.
 - ckd_corrected_full_adjusted_models/ contains the CKD-corrected full lactate and mortality model results, including the 0–4-hour mean-SpO2 sensitivity, its audit, and reconciliation.
 - FINALIZATION_ANALYSIS_LOCK.md, provenance/, and SOURCE_README.md preserve the protocol and run provenance.
 

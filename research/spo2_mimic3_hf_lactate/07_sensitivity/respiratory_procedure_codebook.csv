@@ -1,0 +1,3 @@
+ITEMID,LABEL,DBSOURCE,LINKSTO,CATEGORY,PARAM_TYPE
+225792,Invasive Ventilation,metavision,procedureevents_mv,2-Ventilation,Process
+225794,Non-invasive Ventilation,metavision,procedureevents_mv,2-Ventilation,Process

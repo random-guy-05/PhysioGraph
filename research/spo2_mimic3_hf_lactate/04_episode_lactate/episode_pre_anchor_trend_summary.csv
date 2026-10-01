@@ -1,0 +1,3 @@
+group,anchors,serial_pre_anchor_lactate_n,serial_pre_anchor_lactate_fraction,pre_anchor_delta_per_hour_mean,pre_anchor_delta_per_hour_median,pre_anchor_delta_per_hour_q1,pre_anchor_delta_per_hour_q3,pre_anchor_lactate_rising_fraction,status,interpretation
+episode,539,124,0.2300556586270872,-0.24963590472073388,-0.08637116818558413,-0.414481897627965,0.02987768235446256,0.2903225806451613,available,Descriptive temporal ordering only; serial pre-anchor draws are selected and do not establish causality.
+time_aligned_no_episode,1058,179,0.16918714555765596,-0.01949021161490926,-0.04958677685950415,-0.264401294498382,0.240633608815427,0.41899441340782123,available,Descriptive temporal ordering only; serial pre-anchor draws are selected and do not establish causality.

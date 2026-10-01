@@ -1,0 +1,6 @@
+group,stays,usable_spo2_stays,dynamics_eligible_n,exposed_n,exposure_prevalence_among_dynamics_eligible,observed_bins_median,observed_bins_q1,observed_bins_q3,transitions_median,rmssd_median,rmssd_q1,rmssd_q3,missing_bins_median,sampling_regime_discordant_n,duplicate_bin_rows_collapsed,source_duplicate_stay_bin_rows,extraction_failure_count,extraction_failure_status,status
+overall,1654.0,1654.0,1597.0,539.0,0.3375078271759549,11.0,9.0,15.0,10.0,1.1281521496355325,0.5773502691896257,2.0420572377018447,5.0,20.0,0.0,0,,,
+1_Hz,810.0,810.0,790.0,269.0,0.34050632911392403,12.0,9.0,15.0,10.0,1.1281521496355325,0.6324555320336759,1.9456912102680337,4.0,20.0,0.0,,,,
+approximately_1_per_min,843.0,843.0,806.0,270.0,0.3349875930521092,11.0,9.0,15.0,10.0,1.1296048219218398,0.5424840412446849,2.1685900007248526,5.0,0.0,0.0,,,,
+mixed,1.0,1.0,1.0,0.0,0.0,15.0,15.0,15.0,13.0,0.19404901746826436,0.19404901746826436,0.19404901746826436,1.0,0.0,0.0,,,,
+waveform_extraction_failures,,,,,,,,,,,,,,,,,0.0,available_empty_or_headerless,available

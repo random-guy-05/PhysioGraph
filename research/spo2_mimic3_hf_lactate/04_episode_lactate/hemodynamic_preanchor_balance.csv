@@ -1,0 +1,12 @@
+metric,episode_n,control_n,episode_mean,control_mean,episode_median,control_median,standardized_mean_difference,status,reason
+age_years,539,1058,72.16512059369202,70.93005671077505,75.0,73.0,0.09047234855364167,available_pre_anchor,
+sex_male,539,1058,0.5343228200371057,0.5661625708884688,1.0,1.0,-0.06399130196100414,available_pre_anchor,
+strict_pre_anchor_baseline_lactate,261,444,2.4754789272030653,2.3691441441441445,1.7,1.9,0.053092010836452125,available_pre_anchor,
+pre_anchor_delta_per_hour,84,137,-0.30539399532460976,0.00949400600453797,-0.18414442700156985,-0.0251046025104601,-0.1842166780562467,available_pre_anchor,
+n_lactate_draws_strictly_pre_anchor,539,1058,0.7161410018552876,0.6020793950850661,0.0,0.0,0.12602806014694487,available_pre_anchor,
+anchor_minute,539,1058,114.89647349872405,112.67055410995943,112.4916666624,112.3833333248,0.03649248049631979,available_pre_anchor,
+early_hr_median,0,0,,,,,,unavailable_for_episode_preanchor_from_cache,"Saved covariates are aggregate over [0,240) and may include measurements after an early episode anchor; not reused for episode adjustment."
+early_sbp_median,0,0,,,,,,unavailable_for_episode_preanchor_from_cache,"Saved covariates are aggregate over [0,240) and may include measurements after an early episode anchor; not reused for episode adjustment."
+early_map_median,0,0,,,,,,unavailable_for_episode_preanchor_from_cache,"Saved covariates are aggregate over [0,240) and may include measurements after an early episode anchor; not reused for episode adjustment."
+early_rr_median,0,0,,,,,,unavailable_for_episode_preanchor_from_cache,"Saved covariates are aggregate over [0,240) and may include measurements after an early episode anchor; not reused for episode adjustment."
+early_fio2_median,0,0,,,,,,unavailable_for_episode_preanchor_from_cache,"Saved covariates are aggregate over [0,240) and may include measurements after an early episode anchor; not reused for episode adjustment."

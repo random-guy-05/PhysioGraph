@@ -1,0 +1,18 @@
+CORRECTED LANDMARK
+12 h: N=388, events=50; exposed 27/155=17.4%, unexposed 23/233=9.9%; RR 1.765 [1.050, 3.042], RD 0.075 [0.006, 0.147]; clinical-core adjusted RR 1.848 [1.101, 3.102], EPV 10.0; IPW RR 1.906, RD 0.086, ESS 360.2.
+24 h: N=421, events=49; exposed 25/174=14.4%, unexposed 24/247=9.7%; RR 1.479 [0.854, 2.532], RD 0.047 [-0.018, 0.110]; clinical-core adjusted RR 1.539 [0.903, 2.623], EPV 9.8; IPW RR 1.612, RD 0.058, ESS 402.5.
+
+CORRECTED EPISODE
+Acute 0–1 h RR 0.660 [0.128, 1.937]. Delayed 1–8 h RR 1.818 [0.979, 3.588]; primary two-test Holm p 0.123; five-window global Holm p 0.309; adjusted RR 1.884 [1.003, 3.539], EPV 5.0, fragile. Delayed IPW RR 1.887 [0.959, 4.063]; risk-set RR 1.070 [0.633, 1.799]; assignment median RR 1.287, q2.5–97.5% [1.055, 1.703], max/min 1.859/0.963, fraction >1=0.98.
+
+FALSIFICATION / CONTEXT
+Pre-anchor serial lactate changes were not more positive in the episode group; selected serial subset only. Normoxemic analysis: 34 classifiable 12-h stays, 2 events; underpowered. Ventilation codebook/source mapping defect confirmed; procedure evidence is a lower bound and no support-negative state is inferred. Time-aligned MAP branch unavailable from cached data and no outcome model run. Both SpO2 directions retained; neither direction estimate is precise. 1-Hz and approximately 1/min results were directionally similar; coverage restrictions widened intervals.
+
+PREDICTION
+12-h parsimonious-dynamics ΔAUROC -0.033, ΔAUPRC -0.007; no incremental gain. 24-h ΔAUROC +0.021, ΔAUPRC -0.005; no demonstrated consistent improvement.
+
+EXTERNAL
+eICU replication not run at user direction. No external validation claim. MIMIC-IV parity remains unavailable.
+
+FINAL CLASSIFICATION
+The corrected 12-hour complete-follow-up association is supported as an observational association; the 24-hour result is imprecise; the delayed episode result is suggestive but fails prespecified Holm correction, and the acute result is null/imprecise. Testing selection, waveform selection, residual confounding, fragile episode adjustment, unavailable respiratory-negative classification, and unavailable time-aligned MAP limit interpretation; dynamics did not improve OOF prediction. A skeptical-reviewer-defensible exploratory manuscript is reasonable only with these limits in the headline and no mechanism, prediction, or clinical-use claims.

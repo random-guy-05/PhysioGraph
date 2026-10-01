@@ -1,0 +1,18 @@
+variable,level,selected_n,nonselected_n,selected_mean,nonselected_mean,selected_median,nonselected_median,standardized_mean_difference,status,eligible_clinical_n,manifest_selected_n,selection_fraction,usable_signal_n,oof_auc,oof_folds,bootstrap_unit,outcome_blind,predictors,interpretation
+age_years,,1667.0,8563,71.34433113377325,71.55623029312157,74.0,74.0,-0.015359734202481686,available,,,,,,,,,,
+sex_male,,1667.0,8563,0.5602879424115177,0.5217797500875861,1.0,1.0,0.07732100873952881,available,,,,,,,,,,
+baseline_lactate_mmol_l,,958.0,5007,2.263194154488518,2.254669462752147,1.75,1.8,0.004936674734741907,available,,,,,,,,,,
+baseline_lactate_observed,,1667.0,8563,0.5746850629874025,0.5847249795632372,1.0,1.0,-0.02033732941208963,available,,,,,,,,,,
+early_hr_median,,1643.0,8094,84.39013998782714,85.68223375339758,82.0,84.0,-0.0680589244736139,available,,,,,,,,,,
+early_sbp_median,,1639.0,8068,118.545759609518,118.7387828458106,116.0,115.5,-0.008798224709893129,available,,,,,,,,,,
+early_map_median,,547.0,4912,76.30469580585822,77.19326924035137,74.8333511352539,75.33329772949219,-0.061814427844588356,available,,,,,,,,,,
+early_rr_median,,1637.0,8038,19.60171044593769,19.640395620801193,19.0,19.0,-0.0077044717663734726,available,,,,,,,,,,
+early_vasoactive_infusion,,1667.0,8563,0.20875824835032994,0.1564872124255518,0.0,0.0,0.135576575960471,available,,,,,,,,,,
+icu_admit_year,,1667.0,8563,2150.986802639472,2151.0900385378955,2150.0,2151.0,-0.003549164414975951,available,,,,,,,,,,
+FIRST_CAREUNIT,CCU,635.0,2151,0.06207233626588465,0.21026392961876833,,,-0.4425381116446176,available,,,,,,,,,,
+FIRST_CAREUNIT,CSRU,164.0,983,0.01603128054740958,0.09608993157380254,,,-0.35341430370190136,available,,,,,,,,,,
+FIRST_CAREUNIT,MICU,595.0,4268,0.05816226783968719,0.4172043010752688,,,-0.9302664007766777,available,,,,,,,,,,
+FIRST_CAREUNIT,SICU,212.0,729,0.02072336265884653,0.07126099706744868,,,-0.24304135152570985,available,,,,,,,,,,
+FIRST_CAREUNIT,TSICU,61.0,432,0.005962854349951125,0.04222873900293255,,,-0.23816708886225962,available,,,,,,,,,,
+creatinine,,0.0,0,,,,,,unavailable_not_in_saved_prelandmark_covariates,,,,,,,,,,
+selection_model_summary,,,8563,,,,,,,10230.0,1667.0,0.1629521016617791,1654.0,0.6928258398302822,5.0,SUBJECT_ID/patient,True,age|sex|baseline lactate observation/value|HR|SBP|MAP|RR|vasoactive status|careunit|ICU year,Outcome-blind selection model; does not remove selection bias.

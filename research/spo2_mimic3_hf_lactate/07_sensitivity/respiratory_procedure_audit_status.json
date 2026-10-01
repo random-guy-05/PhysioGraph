@@ -1,0 +1,9 @@
+{
+  "eligible_n": 10230,
+  "procedure_source_rows": 2432,
+  "mapped_support_rows": 1233,
+  "procedure_positive_stays": 1192,
+  "invasive_stays": 1014,
+  "noninvasive_stays": 184,
+  "procedure_negative_classification": "not available; no procedure record is unknown"
+}

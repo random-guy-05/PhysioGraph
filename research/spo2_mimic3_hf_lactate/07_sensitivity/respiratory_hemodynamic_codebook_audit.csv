@@ -1,0 +1,43 @@
+ITEMID,LABEL,DBSOURCE,LINKSTO,CATEGORY,PARAM_TYPE,UNITNAME
+1040,BIpap FIO2,carevue,chartevents,,,
+1206,HFO FIO2:,carevue,chartevents,,,
+618,Respiratory Rate,carevue,chartevents,,,
+52,Arterial BP Mean,carevue,chartevents,,,
+189,FiO2 (Analyzed),carevue,chartevents,,,
+190,FiO2 Set,carevue,chartevents,,,
+191,FiO2/O2 Delivered,carevue,chartevents,,,
+211,Heart Rate,carevue,chartevents,,,
+442,Manual BP [Systolic],carevue,chartevents,,,
+455,NBP [Systolic],carevue,chartevents,,,
+456,NBP Mean,carevue,chartevents,,,
+720,Ventilator Mode,carevue,chartevents,,,
+722,Ventilator Type,carevue,chartevents,,,
+727,Vision FiO2,carevue,chartevents,,,
+3313,BP Cuff [Systolic],carevue,chartevents,,,
+3420,FIO2,carevue,chartevents,,,
+3422,FIO2 [Meas],carevue,chartevents,,,
+1863,HFO-FiO2,carevue,chartevents,,,
+5955,Analyzed INOV FiO2,carevue,chartevents,,,
+2518,HFO- FIO2,carevue,chartevents,,,
+2981,FiO2,carevue,chartevents,,,
+7018,ecmo fio2,carevue,chartevents,,,
+7041,vapotherm fio2,carevue,chartevents,,,
+7402,fi02 set,carevue,chartevents,,,
+7570,FIO2 SET,carevue,chartevents,,,
+6590,arterial mean #2,carevue,chartevents,,,
+6702,Arterial BP Mean #2,carevue,chartevents,,,
+6927,Arterial Mean #3,carevue,chartevents,,,
+224167,Manual Blood Pressure Systolic Left,metavision,chartevents,Routine Vital Signs,Numeric,mmHg
+227243,Manual Blood Pressure Systolic Right,metavision,chartevents,Routine Vital Signs,Numeric,mmHg
+224690,Respiratory Rate (Total),metavision,chartevents,Respiratory,Numeric,insp/min
+225792,Invasive Ventilation,metavision,procedureevents_mv,2-Ventilation,Process,
+225794,Non-invasive Ventilation,metavision,procedureevents_mv,2-Ventilation,Process,
+220045,Heart Rate,metavision,chartevents,Routine Vital Signs,Numeric,bpm
+220052,Arterial Blood Pressure mean,metavision,chartevents,Routine Vital Signs,Numeric,mmHg
+220179,Non Invasive Blood Pressure systolic,metavision,chartevents,Routine Vital Signs,Numeric,mmHg
+220181,Non Invasive Blood Pressure mean,metavision,chartevents,Routine Vital Signs,Numeric,mmHg
+220210,Respiratory Rate,metavision,chartevents,Respiratory,Numeric,insp/min
+226260,Mechanically Ventilated,metavision,chartevents,General,Checkbox,
+223848,Ventilator Type,metavision,chartevents,Respiratory,Text,
+223849,Ventilator Mode,metavision,chartevents,Respiratory,Text,
+225312,ART BP mean,metavision,chartevents,Routine Vital Signs,Numeric,mmHg

@@ -1,0 +1,60 @@
+ITEMID,LABEL,DBSOURCE,LINKSTO,CATEGORY,PARAM_TYPE
+1040,BIpap FIO2,carevue,chartevents,,
+1206,HFO FIO2:,carevue,chartevents,,
+1457,CPAP,carevue,chartevents,,
+63,BIPAP - BPM,carevue,chartevents,,
+64,BIPAP - EPAP,carevue,chartevents,,
+65,BIPAP - Est. Vt,carevue,chartevents,,
+66,BIPAP - IPAP,carevue,chartevents,,
+67,BIPAP - O2 lpm,carevue,chartevents,,
+68,BIPAP-Mode,carevue,chartevents,,
+185,FIO2 Alarm-High,carevue,chartevents,,
+186,FIO2 Alarm-Low,carevue,chartevents,,
+189,FiO2 (Analyzed),carevue,chartevents,,
+190,FiO2 Set,carevue,chartevents,,
+191,FiO2/O2 Delivered,carevue,chartevents,,
+720,Ventilator Mode,carevue,chartevents,,
+721,Ventilator No.,carevue,chartevents,,
+722,Ventilator Type,carevue,chartevents,,
+727,Vision FiO2,carevue,chartevents,,
+3111,cpap level,carevue,chartevents,,
+3420,FIO2,carevue,chartevents,,
+3421,FIO2 Alarm [Low],carevue,chartevents,,
+3422,FIO2 [Meas],carevue,chartevents,,
+1863,HFO-FiO2,carevue,chartevents,,
+1914,Cpap,carevue,chartevents,,
+6060,Bipap mask,carevue,chartevents,,
+5782,High Minute Ventilan,carevue,chartevents,,
+5850,Home Bipap Unit,carevue,chartevents,,
+5955,Analyzed INOV FiO2,carevue,chartevents,,
+1488,HIGH MIN. VENTIL.,carevue,chartevents,,
+1562,High Minute Ventil.,carevue,chartevents,,
+2518,HFO- FIO2,carevue,chartevents,,
+2866,CPAP MASK,carevue,chartevents,,
+2981,FiO2,carevue,chartevents,,
+3681,Ventilator Number,carevue,chartevents,,
+3689,Vt [Ventilator],carevue,chartevents,,
+7018,ecmo fio2,carevue,chartevents,,
+7041,vapotherm fio2,carevue,chartevents,,
+7570,FIO2 SET,carevue,chartevents,,
+8517,FIO2 Alarm [High],carevue,chartevents,,
+6875,CPAP AMT,carevue,chartevents,,
+227061,Ventilated at any time during ICU Day 1,metavision,chartevents,Scores - APACHE IV,Checkbox
+227009,FiO2_ApacheIV_old,metavision,chartevents,Scores - APACHE IV (2),Numeric
+227010,FiO2_ApacheIV,metavision,chartevents,Scores - APACHE IV (2),Numeric
+225792,Invasive Ventilation,metavision,procedureevents_mv,2-Ventilation,Process
+225794,Non-invasive Ventilation,metavision,procedureevents_mv,2-Ventilation,Process
+227565,Ventilator Tank #1,metavision,chartevents,Respiratory,Numeric
+227566,Ventilator Tank #2,metavision,chartevents,Respiratory,Numeric
+227577,BiPap Mode,metavision,chartevents,Respiratory,Text
+227578,BiPap Mask,metavision,chartevents,Respiratory,Text
+227579,BiPap EPAP,metavision,chartevents,Respiratory,Numeric
+227580,BiPap IPAP,metavision,chartevents,Respiratory,Numeric
+227581,BiPap bpm (S/T -Back up),metavision,chartevents,Respiratory,Numeric
+227582,BiPap O2 Flow,metavision,chartevents,Respiratory,Numeric
+227583,Autoset/CPAP,metavision,chartevents,Respiratory,Text
+226260,Mechanically Ventilated,metavision,chartevents,General,Checkbox
+223848,Ventilator Type,metavision,chartevents,Respiratory,Text
+223849,Ventilator Mode,metavision,chartevents,Respiratory,Text
+225303,Mask Ventilation (Intubation),metavision,chartevents,Intubation,Text
+226754,FiO2ApacheIIValue,metavision,chartevents,Scores - APACHE II,Numeric

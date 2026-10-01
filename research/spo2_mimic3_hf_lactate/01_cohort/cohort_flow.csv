@@ -1,0 +1,12 @@
+flow_step,n_remaining,excluded_at_step,scope,definition,status
+All MIMIC-III ICU stays,61532,0,full_clinical_cohort,Full MIMIC-III v1.4 ICU table; not restricted to waveform coverage.,available
+First ICU stay per hospital admission,57786,3746,full_clinical_cohort,Earliest INTIME per HADM_ID; ties broken by ICUSTAY_ID.,available
+Adult at ICU anchor,49695,8091,full_clinical_cohort,Age floored from INTIME minus DOB; MIMIC-III ages above 89 top-coded to 90.,available
+Explicit HF ICD-9 phenotype,13592,36103,full_clinical_cohort,At least one ICD-9 diagnosis with digits beginning 428.,available
+Early ICU admission or cardiogenic shock,10293,3299,full_clinical_cohort,"ICU admission 0–24h after hospital admission, inclusive, OR ICD-9 78551.",available
+Observable beyond ICU hour 4,10230,63,full_clinical_cohort,"Minimum known ICU outtime, hospital discharge, and death time is strictly after minute 240.",available
+Eligible cohort represented in waveform record manifest,1667,8563,clinical_eligible_subset,"Unique eligible ICUSTAY_IDs present in the HF record manifest; this manifest is not the upstream all-waveform 8,736-stay candidate list.",available
+Usable 15-minute signal among eligible clinical cohort,1654,8576,clinical_eligible_subset,"Eligible stays with at least one valid 50–100% SpO2 15-minute median in [0,240).",available
+Dynamics eligible,1597,57,clinical_eligible_subset,At least 3 valid bins and at least 2 qualifying transitions with a gap no longer than 30 minutes.,available
+All stays in supplied feature file,1654,,supplied_signal_artifact,Unique ICUSTAY_IDs in the supplied derived feature file; the all-waveform upstream candidate ID list was not supplied.,available
+"Upstream all-waveform candidate universe (~8,736 expected)",,,upstream_waveform_universe,No all-candidate ICUSTAY_ID list was found in Downloads; no denominator inferred from the selected HF artifacts.,unavailable

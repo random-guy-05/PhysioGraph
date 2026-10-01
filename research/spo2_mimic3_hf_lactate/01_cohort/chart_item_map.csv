@@ -1,0 +1,49 @@
+domain,ITEMID,LABEL
+hr,211,Heart Rate
+hr,220045,Heart Rate
+sbp,51,Arterial BP [Systolic]
+sbp,442,Manual BP [Systolic]
+sbp,455,NBP [Systolic]
+sbp,3313,BP Cuff [Systolic]
+sbp,3319,BP PAL [Systolic]
+sbp,6701,Arterial BP #2 [Systolic]
+sbp,224167,Manual Blood Pressure Systolic Left
+sbp,227243,Manual Blood Pressure Systolic Right
+sbp,220050,Arterial Blood Pressure systolic
+sbp,220179,Non Invasive Blood Pressure systolic
+map,52,Arterial BP Mean
+map,456,NBP Mean
+map,6590,arterial mean #2
+map,6702,Arterial BP Mean #2
+map,6927,Arterial Mean #3
+rr,618,Respiratory Rate
+rr,224690,Respiratory Rate (Total)
+rr,220210,Respiratory Rate
+spo2,646,SpO2
+spo2,6719,SpO2-L
+fio2,1040,BIpap FIO2
+fio2,1206,HFO FIO2:
+fio2,189,FiO2 (Analyzed)
+fio2,190,FiO2 Set
+fio2,191,FiO2/O2 Delivered
+fio2,727,Vision FiO2
+fio2,3420,FIO2
+fio2,3422,FIO2 [Meas]
+fio2,1863,HFO-FiO2
+fio2,5955,Analyzed INOV FiO2
+fio2,2518,HFO- FIO2
+fio2,2981,FiO2
+fio2,7018,ecmo fio2
+fio2,7041,vapotherm fio2
+fio2,7402,fi02 set
+fio2,7570,FIO2 SET
+temp,676,Temperature C
+temp,677,Temperature C (calc)
+temp,678,Temperature F
+temp,679,Temperature F (calc)
+ventilation,720,Ventilator Mode
+ventilation,722,Ventilator Type
+ventilation,225792,Invasive Ventilation
+ventilation,226260,Mechanically Ventilated
+ventilation,223848,Ventilator Type
+ventilation,223849,Ventilator Mode

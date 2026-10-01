@@ -1,0 +1,3 @@
+horizon,oof_rows,patients,unique_folds,max_folds_per_patient,all_predictions_present,unique_stay_rows,exact_complete_followup_outcome_rows,outcome_labels_match_saved_primary,same_rows_all_nested_models,same_metric_model_n,outcome_excluded_from_predictors,fold_local_preprocessing_verified_from_saved_analysis_code,subject_group_overlap_pass,status
+12h,388,373,5,1,True,True,True,True,True,True,True,True,True,pass
+24h,421,404,5,1,True,True,True,True,True,True,True,True,True,pass
