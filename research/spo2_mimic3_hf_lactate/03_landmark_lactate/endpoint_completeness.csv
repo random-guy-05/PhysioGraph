@@ -1,0 +1,3 @@
+horizon,eligible_stays,baseline_observed_n,any_post_landmark_lactate_n,followup_complete_to_horizon_n,observed_n,events,non_events,event_prevalence,missing_baseline_n,no_post_window_draw_n,censored_without_event_n,censored_after_early_event_n,censored_unavailable_n,adequacy_gate_pass,status
+12h,10230,5965,3080,9990,2486,367,2119,0.14762670957361224,4265,3439,17,23,40,True,available
+24h,10230,5965,3702,8414,2680,352,2328,0.13134328358208955,4265,3034,193,58,251,True,available

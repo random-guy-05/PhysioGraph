@@ -1,0 +1,3 @@
+horizon,dynamics_eligible_stays,observed_n,events,non_events,adequacy_gate_pass
+12h,1597,388,50,338,True
+24h,1597,421,49,372,True

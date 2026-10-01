@@ -1,0 +1,17 @@
+claim,classification,evidence_and_limit
+Dense SpO₂ measurement feasibility,suggestive,"1,597 dynamics-eligible stays; 539 had ≥1 fixed ≥4-pp transition; reconstructed signal matched cached features."
+12-h fixed-landmark association,statistically supported observational association,27/155 vs 23/233; patient-cluster RR CI excludes 1 after complete-follow-up correction; residual confounding and testing selection remain.
+24-h fixed-landmark association,directionally consistent but imprecise,25/174 vs 24/247; patient-cluster CI crosses 1.
+Delayed 1–8 h episode association,suggestive,18/99 vs 17/170; RR 1.82; does not survive either prespecified Holm family.
+Acute 0–1 h episode association,null / no demonstrated association,4/33 vs 9/49; wide patient-cluster CI includes 1.
+Episode temporal ordering,suggestive,Delayed signal is larger than acute in the point estimates; endpoint observation and selected serial lactate limit inference.
+Pre-lactate trend falsification,null / no demonstrated association,Serial pre-anchor subset shows no systematic greater worsening before episodes; descriptive and selected.
+Lactate-observation selection robustness,suggestive,Patient-grouped OOF IPW does not erase the point estimate; extreme predicted observation probabilities and residual informative testing remain.
+Sampling-regime robustness,directionally consistent but imprecise,1-Hz and approximately 1/min estimates overlap broadly; no material interaction demonstrated.
+Normoxemia robustness,unavailable,Strict all-16-bin normoxemic subset has 34 classifiable landmark records and 2 events; delayed episode subset is underpowered.
+Respiratory-support robustness,unavailable,Procedure evidence is a lower bound; absent records are unknown and numeric CHARTEVENTS checkbox was not re-read.
+Hemodynamic-context robustness,unavailable,No cached exact-bin MAP values to assess the prespecified synchronous decline rule; no outcome model fit.
+Continuous lactate support,null / no demonstrated association,Mean/median deltas and rank tests do not show a clear uniform upward shift.
+Incremental predictive value,null / no demonstrated association,Dynamics worsen 12-h OOF performance; 24-h gains are small/inconsistent and intervals cross zero.
+eICU external replication,unavailable,Not run at user direction; no external replication claim.
+Generalizability beyond waveform subset,unavailable,Waveform manifest represents 16.3% of eligible clinical cohort and selection model discriminates inclusion (OOF AUC 0.693).

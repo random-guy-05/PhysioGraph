@@ -1,16 +1,16 @@
-# Graph Report - PhysioGraph  (2026-09-10)
+# Graph Report - PhysioGraph  (2026-10-01)
 
 ## Corpus Check
-- 884 files · ~386,742 words
+- 912 files · ~442,008 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 10904 nodes · 13668 edges · 1185 communities (1064 shown, 121 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 596 edges (avg confidence: 0.73)
+- 11735 nodes · 14888 edges · 1245 communities (1124 shown, 121 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 650 edges (avg confidence: 0.73)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5fbeb14c`
+- Built from commit: `03371508`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -868,9 +868,12 @@
 - [[_COMMUNITY_Community 1065|Community 1065]]
 - [[_COMMUNITY_Community 1066|Community 1066]]
 - [[_COMMUNITY_Community 1067|Community 1067]]
+- [[_COMMUNITY_Community 1068|Community 1068]]
 - [[_COMMUNITY_Community 1069|Community 1069]]
 - [[_COMMUNITY_Community 1070|Community 1070]]
 - [[_COMMUNITY_Community 1071|Community 1071]]
+- [[_COMMUNITY_Community 1072|Community 1072]]
+- [[_COMMUNITY_Community 1073|Community 1073]]
 - [[_COMMUNITY_Community 1074|Community 1074]]
 - [[_COMMUNITY_Community 1075|Community 1075]]
 - [[_COMMUNITY_Community 1076|Community 1076]]
@@ -915,10 +918,12 @@
 - [[_COMMUNITY_Community 1115|Community 1115]]
 - [[_COMMUNITY_Community 1116|Community 1116]]
 - [[_COMMUNITY_Community 1117|Community 1117]]
+- [[_COMMUNITY_Community 1118|Community 1118]]
 - [[_COMMUNITY_Community 1119|Community 1119]]
 - [[_COMMUNITY_Community 1120|Community 1120]]
 - [[_COMMUNITY_Community 1121|Community 1121]]
 - [[_COMMUNITY_Community 1122|Community 1122]]
+- [[_COMMUNITY_Community 1123|Community 1123]]
 - [[_COMMUNITY_Community 1124|Community 1124]]
 - [[_COMMUNITY_Community 1125|Community 1125]]
 - [[_COMMUNITY_Community 1126|Community 1126]]
@@ -978,41 +983,96 @@
 - [[_COMMUNITY_Community 1180|Community 1180]]
 - [[_COMMUNITY_Community 1181|Community 1181]]
 - [[_COMMUNITY_Community 1182|Community 1182]]
+- [[_COMMUNITY_Community 1183|Community 1183]]
 - [[_COMMUNITY_Community 1184|Community 1184]]
 - [[_COMMUNITY_Community 1185|Community 1185]]
 - [[_COMMUNITY_Community 1186|Community 1186]]
+- [[_COMMUNITY_Community 1188|Community 1188]]
 - [[_COMMUNITY_Community 1189|Community 1189]]
 - [[_COMMUNITY_Community 1190|Community 1190]]
 - [[_COMMUNITY_Community 1191|Community 1191]]
+- [[_COMMUNITY_Community 1192|Community 1192]]
+- [[_COMMUNITY_Community 1193|Community 1193]]
+- [[_COMMUNITY_Community 1194|Community 1194]]
+- [[_COMMUNITY_Community 1195|Community 1195]]
+- [[_COMMUNITY_Community 1196|Community 1196]]
+- [[_COMMUNITY_Community 1197|Community 1197]]
+- [[_COMMUNITY_Community 1198|Community 1198]]
+- [[_COMMUNITY_Community 1199|Community 1199]]
+- [[_COMMUNITY_Community 1200|Community 1200]]
+- [[_COMMUNITY_Community 1201|Community 1201]]
+- [[_COMMUNITY_Community 1202|Community 1202]]
+- [[_COMMUNITY_Community 1203|Community 1203]]
+- [[_COMMUNITY_Community 1204|Community 1204]]
+- [[_COMMUNITY_Community 1205|Community 1205]]
+- [[_COMMUNITY_Community 1206|Community 1206]]
+- [[_COMMUNITY_Community 1207|Community 1207]]
+- [[_COMMUNITY_Community 1208|Community 1208]]
+- [[_COMMUNITY_Community 1209|Community 1209]]
+- [[_COMMUNITY_Community 1210|Community 1210]]
+- [[_COMMUNITY_Community 1211|Community 1211]]
+- [[_COMMUNITY_Community 1212|Community 1212]]
+- [[_COMMUNITY_Community 1213|Community 1213]]
+- [[_COMMUNITY_Community 1214|Community 1214]]
+- [[_COMMUNITY_Community 1215|Community 1215]]
+- [[_COMMUNITY_Community 1216|Community 1216]]
+- [[_COMMUNITY_Community 1217|Community 1217]]
+- [[_COMMUNITY_Community 1218|Community 1218]]
+- [[_COMMUNITY_Community 1219|Community 1219]]
+- [[_COMMUNITY_Community 1220|Community 1220]]
+- [[_COMMUNITY_Community 1221|Community 1221]]
+- [[_COMMUNITY_Community 1222|Community 1222]]
+- [[_COMMUNITY_Community 1223|Community 1223]]
+- [[_COMMUNITY_Community 1224|Community 1224]]
+- [[_COMMUNITY_Community 1225|Community 1225]]
+- [[_COMMUNITY_Community 1226|Community 1226]]
+- [[_COMMUNITY_Community 1227|Community 1227]]
+- [[_COMMUNITY_Community 1228|Community 1228]]
+- [[_COMMUNITY_Community 1229|Community 1229]]
+- [[_COMMUNITY_Community 1230|Community 1230]]
+- [[_COMMUNITY_Community 1231|Community 1231]]
+- [[_COMMUNITY_Community 1232|Community 1232]]
+- [[_COMMUNITY_Community 1233|Community 1233]]
+- [[_COMMUNITY_Community 1234|Community 1234]]
+- [[_COMMUNITY_Community 1235|Community 1235]]
+- [[_COMMUNITY_Community 1236|Community 1236]]
+- [[_COMMUNITY_Community 1237|Community 1237]]
+- [[_COMMUNITY_Community 1238|Community 1238]]
+- [[_COMMUNITY_Community 1239|Community 1239]]
+- [[_COMMUNITY_Community 1240|Community 1240]]
+- [[_COMMUNITY_Community 1241|Community 1241]]
+- [[_COMMUNITY_Community 1242|Community 1242]]
+- [[_COMMUNITY_Community 1243|Community 1243]]
+- [[_COMMUNITY_Community 1244|Community 1244]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `run_spo2_drilldown()` - 61 edges
-2. `DataFrame` - 59 edges
-3. `AuditLogger` - 58 edges
-4. `str` - 45 edges
-5. `_make_series()` - 45 edges
-6. `DataFrame` - 39 edges
-7. `compute_early_decompensation_outcomes()` - 37 edges
-8. `DataFrame` - 36 edges
-9. `SourceExtraction` - 36 edges
-10. `DataFrame` - 36 edges
+1. `protected_artifacts` - 96 edges
+2. `run_spo2_drilldown()` - 61 edges
+3. `DataFrame` - 59 edges
+4. `AuditLogger` - 58 edges
+5. `str` - 45 edges
+6. `_make_series()` - 45 edges
+7. `main()` - 39 edges
+8. `DataFrame` - 39 edges
+9. `Path` - 38 edges
+10. `DataFrame` - 37 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `test_kapur_stage_does_not_turn_missing_normal_data_into_stage_a()` --calls--> `assign_kapur_scai_stage()`  [INFERRED]
-  tests/unit/test_biomarker_benchmark.py → src/physiograph/analysis/biomarker_benchmark.py
-- `test_four_hour_features_exclude_landmark_and_count_active_therapy()` --calls--> `build_biomarker_analysis_frame()`  [INFERRED]
-  tests/unit/test_biomarker_benchmark.py → src/physiograph/analysis/biomarker_benchmark.py
-- `test_vectorized_weighted_metrics_match_sklearn_with_ties()` --calls--> `_weighted_binary_metric_samples()`  [INFERRED]
-  tests/unit/test_biomarker_benchmark.py → src/physiograph/analysis/biomarker_benchmark.py
-- `test_prediction_comparison_uses_identical_rows_and_folds()` --calls--> `fit_biomarker_prediction_benchmark()`  [INFERRED]
-  tests/unit/test_biomarker_benchmark.py → src/physiograph/analysis/biomarker_benchmark.py
-- `test_association_standardization_retains_endpoints_and_raw_exposures()` --calls--> `_standardized_exposures()`  [INFERRED]
-  tests/unit/test_biomarker_benchmark.py → src/physiograph/analysis/biomarker_benchmark.py
+- `test_preanchor_pressor_or_mcs_excludes_candidate()` --calls--> `intervention_free()`  [INFERRED]
+  tests/unit/test_masked_pulsatility.py → src/physiograph/analysis/masked_pulsatility.py
+- `test_automatic_stop_logic_uses_fixed_minimums()` --calls--> `feasibility_gate()`  [INFERRED]
+  tests/unit/test_masked_pulsatility.py → src/physiograph/analysis/masked_pulsatility.py
+- `test_risk_difference_known_answer()` --calls--> `_risk_difference_wald()`  [INFERRED]
+  tests/unit/test_spo2_epidemiology.py → src/physiograph/analysis/spo2_epidemiology.py
+- `test_clean_ventilation_outcome_rejects_false_text_matches()` --calls--> `_derive_ventilation_outcomes()`  [INFERRED]
+  tests/unit/test_spo2_instability.py → src/physiograph/analysis/spo2_instability.py
+- `float` --uses--> `EventLookup`  [INFERRED]
+  tests/unit/test_spo2_multiorgan_mechanistic.py → src/physiograph/analysis/spo2_multiorgan_mechanistic.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (1185 total, 121 thin omitted)
+## Communities (1245 total, 121 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.11
@@ -1079,8 +1139,8 @@ Cohesion: 0.06
 Nodes (34): dictionary_sha256, bytes, mtime_ns, path, sha256, explicit_csv_quoting, full_raw_lab_scans, inputs (+26 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.06
-Nodes (35): _ensure_project_imports(), Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab. (+27 more)
+Cohesion: 0.04
+Nodes (49): _ensure_project_imports(), Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab., Make project-root scripts and ``src`` imports work in Colab. (+41 more)
 
 ### Community 17 - "Community 17"
 Cohesion: 0.08
@@ -1120,7 +1180,7 @@ Nodes (25): acidemia_flag, baseline_bilirubin_total, baseline_creatinine, baseli
 
 ### Community 26 - "Community 26"
 Cohesion: 0.03
-Nodes (89): _available_controls(), _available_spo2_model_features(), _available_spo2_variability_features(), build_respiratory_context_tables(), _finite_odds_ratio_triplet(), _fit_binomial_glm_inference(), _fit_spo2_or_pvalue_tables_single(), _fit_spo2_variability_or_tables_single() (+81 more)
+Nodes (91): _available_controls(), _available_spo2_model_features(), _available_spo2_variability_features(), build_respiratory_context_tables(), _finite_odds_ratio_triplet(), _fit_binomial_glm_inference(), _fit_spo2_or_pvalue_tables_single(), _fit_spo2_variability_or_tables_single() (+83 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.17
@@ -1135,8 +1195,8 @@ Cohesion: 0.09
 Nodes (12): match_icd_prefix handles NaN codes gracefully., match_icd_prefix returns all-False for empty pattern map., Verify HF_ICD_PATTERNS and CARDIOGENIC_SHOCK_ICD_PATTERNS match     expected not, ICD-9 HF pattern must match codes starting with 428., ICD-10 HF pattern must match codes starting with I50., ICD-9 cardiogenic shock pattern must match codes starting with 78551., ICD-10 cardiogenic shock pattern must match codes starting with R570., match_icd_prefix correctly identifies ICD-9 HF codes. (+4 more)
 
 ### Community 30 - "Community 30"
-Cohesion: 0.05
-Nodes (43): _benjamini_hochberg(), _expected_calibration_error(), _filter_measured_spo2_rows(), _get_grouped_cv_splitter(), ndarray, Keep rows with at least one plausible SpO2 measurement., Keep rows with at least one plausible SpO2 measurement., Return (group column, cv_scope label) for grouped CV. (+35 more)
+Cohesion: 0.04
+Nodes (53): _benjamini_hochberg(), _expected_calibration_error(), _filter_measured_spo2_rows(), fit_spo2_models(), _get_grouped_cv_splitter(), ndarray, Keep rows with at least one plausible SpO2 measurement., Keep rows with at least one plausible SpO2 measurement. (+45 more)
 
 ### Community 31 - "Community 31"
 Cohesion: 0.05
@@ -1236,7 +1296,7 @@ Nodes (9): compute_lactate_acidemia_interaction(), Compute lactate × acidemia i
 
 ### Community 55 - "Community 55"
 Cohesion: 0.13
-Nodes (44): _available(), _bin_signal(), build_instability_coverage(), build_instability_definitions(), build_instability_dose_response(), build_instability_feature_correlations(), build_multihorizon_instability_frame(), _build_nonlinear_pipeline() (+36 more)
+Nodes (46): _available(), _bin_signal(), build_instability_coverage(), build_instability_definitions(), build_instability_dose_response(), build_instability_feature_correlations(), build_multihorizon_instability_frame(), build_multiscale_instability_features() (+38 more)
 
 ### Community 56 - "Community 56"
 Cohesion: 0.07
@@ -1295,8 +1355,8 @@ Cohesion: 0.18
 Nodes (10): DataFrameSchema, Validate *dataframe* against *schema* with clear error messages.      Parameters, validate_schema(), DataFrame, str, Tests for the validate_schema() convenience function., validate_schema returns validated DataFrame on success., validate_schema re-raises SchemaErrors with context label. (+2 more)
 
 ### Community 70 - "Community 70"
-Cohesion: 0.10
-Nodes (65): _add_composite_frames(), _adjusted_modified_poisson_all_endpoints(), _apply_effect_multiplicity(), _apply_locked_tier_multiplicity(), _apply_observation_multiplicity(), _apply_weighted_multiplicity(), _availability_table(), _base_record() (+57 more)
+Cohesion: 0.11
+Nodes (62): _add_composite_frames(), _adjusted_modified_poisson_all_endpoints(), _apply_effect_multiplicity(), _apply_locked_tier_multiplicity(), _apply_observation_multiplicity(), _apply_weighted_multiplicity(), _availability_table(), _base_record() (+54 more)
 
 ### Community 71 - "Community 71"
 Cohesion: 0.06
@@ -1448,7 +1508,7 @@ Nodes (9): `evaluate.py`, `evaluate.py`, `evaluate.py`, `evaluate.py`, `evaluate
 
 ### Community 108 - "Community 108"
 Cohesion: 0.09
-Nodes (23): build_cohort_flow_table(), build_spo2_trajectory_summary(), Aggregate stay-weighted 15-minute SpO2 trajectories by outcome., Aggregate stay-weighted 15-minute SpO2 trajectories by outcome., Aggregate stay-weighted 15-minute SpO2 trajectories by outcome., Create an auditable analysis-inclusion flow for each dataset., Collect observation-window raw SpO2 events across datasets., Aggregate stay-weighted 15-minute SpO2 trajectories by outcome. (+15 more)
+Nodes (23): build_cohort_flow_table(), collect_raw_spo2_events(), Collect observation-window raw SpO2 events across datasets., Collect observation-window raw SpO2 events across datasets., Collect observation-window raw SpO2 events across datasets., Flag PI-facing outputs that contain apparent metrics or in-sample calibration., Create an auditable analysis-inclusion flow for each dataset., Collect observation-window raw SpO2 events across datasets. (+15 more)
 
 ### Community 109 - "Community 109"
 Cohesion: 0.50
@@ -1471,8 +1531,8 @@ Cohesion: 0.67
 Nodes (3): mean, scale, baseline_creatinine
 
 ### Community 114 - "Community 114"
-Cohesion: 0.22
-Nodes (12): build_multiscale_instability_features(), Build native-cadence, fixed-gap, binned, and hour-localized dynamics., float, int, object, str, Adversarial tests for dynamics-first SpO2 instability analyses., _spo2() (+4 more)
+Cohesion: 0.24
+Nodes (10): float, int, object, str, Adversarial tests for dynamics-first SpO2 instability analyses., _spo2(), test_adaptive_gap_uses_sparse_mimic_trajectory_without_relaxing_raw30_sensitivity(), test_clean_ventilation_outcome_rejects_false_text_matches() (+2 more)
 
 ### Community 115 - "Community 115"
 Cohesion: 0.67
@@ -1515,8 +1575,8 @@ Cohesion: 0.04
 Nodes (44): path, sha256, database, database_sha256, bytes, mtime_ns, path, sha256 (+36 more)
 
 ### Community 125 - "Community 125"
-Cohesion: 0.04
-Nodes (57): _available_outcomes(), build_descriptive_summary(), build_lactate_negative_summary(), build_spo2_association_proxy(), build_spo2_variability_group_summary(), _mask_single_source_pooled_outcomes(), _observed_dataset_count(), Count sources with an actually observed binary endpoint. (+49 more)
+Cohesion: 0.03
+Nodes (68): _available_outcomes(), build_descriptive_summary(), build_lactate_negative_summary(), build_spo2_association_proxy(), build_spo2_trajectory_summary(), build_spo2_variability_group_summary(), _mask_single_source_pooled_outcomes(), _observed_dataset_count() (+60 more)
 
 ### Community 126 - "Community 126"
 Cohesion: 0.11
@@ -1571,8 +1631,8 @@ Cohesion: 0.06
 Nodes (35): path, sha256, bytes, mtime_ns, path, sha256, full_raw_lab_scans, path (+27 more)
 
 ### Community 148 - "Community 148"
-Cohesion: 0.06
-Nodes (35): Record legacy/V2 files to archive after the clean path is accepted., Model-minimal companion analyses (ANALYSIS_PLAN.md section 8).      Classical ep, Record legacy/V2 files to archive after the clean path is accepted., Record legacy/V2 files to archive after the clean path is accepted., Model-minimal companion analyses (ANALYSIS_PLAN.md section 8).      Classical ep, Model-minimal companion analyses (ANALYSIS_PLAN.md section 8).      Classical ep, Record legacy/V2 files to archive after the clean path is accepted., Model-minimal companion analyses (ANALYSIS_PLAN.md section 8).      Classical ep (+27 more)
+Cohesion: 0.02
+Nodes (96): protected_artifacts, docs/SPO2_VARIABILITY_INSPIRE_EXTERNAL_VALIDATION.md, docs/SPO2_VARIABILITY_MIMIC3_REPLICATION.md, docs/SPO2_VARIABILITY_NWICU_MODIFIED_ENDPOINT.md, docs/SPO2_VARIABILITY_TARGETED_VALIDATION_PROTOCOL.md, research/spo2_variability_inspire_validation/analysis_lock.json, research/spo2_variability_inspire_validation/analysis_lock.sha256, research/spo2_variability_inspire_validation/artifact_hashes.json (+88 more)
 
 ### Community 149 - "Community 149"
 Cohesion: 0.07
@@ -1587,8 +1647,8 @@ Cohesion: 0.11
 Nodes (18): bytes, mtime_ns, path, sha256, bytes, mtime_ns, path, sha256 (+10 more)
 
 ### Community 152 - "Community 152"
-Cohesion: 0.10
-Nodes (58): _aggregate_numeric_concept(), _analysis_populations(), assign_kapur_scai_stage(), _association_groups(), _available(), _between(), build_biomarker_analysis_frame(), build_biomarker_coverage_audit() (+50 more)
+Cohesion: 0.08
+Nodes (67): _aggregate_numeric_concept(), _analysis_populations(), assign_kapur_scai_stage(), _association_groups(), _available(), _between(), build_biomarker_analysis_frame(), build_biomarker_coverage_audit() (+59 more)
 
 ### Community 153 - "Community 153"
 Cohesion: 0.05
@@ -1612,7 +1672,7 @@ Nodes (20): active_cells, builder_cells_match, builder_sha256, code_cells, colab
 
 ### Community 158 - "Community 158"
 Cohesion: 0.10
-Nodes (53): _adjusted_modified_poisson(), _attach_lactate_lags(), _bh_adjust(), build_episode_lactate_controlled_summary(), build_episode_lactate_paired_summary(), build_episode_lactate_records(), build_lactate_episode_evidence_summary(), build_lactate_episode_measurement_weighted() (+45 more)
+Nodes (53): Prespecified analyses for the PhysioGraph research question., _adjusted_modified_poisson(), _attach_lactate_lags(), _bh_adjust(), build_episode_lactate_controlled_summary(), build_episode_lactate_paired_summary(), build_episode_lactate_records(), build_lactate_episode_evidence_summary() (+45 more)
 
 ### Community 159 - "Community 159"
 Cohesion: 0.09
@@ -1643,8 +1703,8 @@ Cohesion: 0.07
 Nodes (28): bytes, mtime_ns, path, sha256, bytes, mtime_ns, path, sha256 (+20 more)
 
 ### Community 167 - "Community 167"
-Cohesion: 0.12
-Nodes (15): fit_spo2_dragged_horizon_models(), Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis. (+7 more)
+Cohesion: 0.17
+Nodes (12): fit_spo2_dragged_horizon_models(), Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis., Compatibility wrapper around the rigorous incremental-value analysis. (+4 more)
 
 ### Community 168 - "Community 168"
 Cohesion: 0.10
@@ -1683,8 +1743,8 @@ Cohesion: 0.07
 Nodes (26): bytes, mtime_ns, path, sha256, full_raw_lab_scans, bytes, mtime_ns, path (+18 more)
 
 ### Community 181 - "Community 181"
-Cohesion: 0.03
-Nodes (124): _add_death_from_cohort(), _artifact_paths(), _artifact_ready(), _atomic_to_csv(), _checkpoint_csv(), _current_project_code_hashes(), _execution_provenance_note(), _file_sha256() (+116 more)
+Cohesion: 0.04
+Nodes (117): _add_death_from_cohort(), _artifact_paths(), _artifact_ready(), _atomic_to_csv(), _current_project_code_hashes(), _file_sha256(), _fragility_label(), _json_default() (+109 more)
 
 ### Community 182 - "Community 182"
 Cohesion: 0.12
@@ -1975,7 +2035,7 @@ Cohesion: 0.33
 Nodes (5): additional_corrections, before_new_exposure_outcome_cross_tabulations, corrections, new_hypothesis_thresholds_changed, recorded_utc
 
 ### Community 294 - "Community 294"
-Cohesion: 0.33
+Cohesion: 0.40
 Nodes (5): eICU/admissionDx, bytes, mtime_ns, path, sha256
 
 ### Community 295 - "Community 295"
@@ -1987,7 +2047,7 @@ Cohesion: 0.33
 Nodes (5): additional_corrections, before_new_exposure_outcome_cross_tabulations, corrections, new_hypothesis_thresholds_changed, recorded_utc
 
 ### Community 297 - "Community 297"
-Cohesion: 0.33
+Cohesion: 0.40
 Nodes (5): eICU/admissionDx, bytes, mtime_ns, path, sha256
 
 ### Community 298 - "Community 298"
@@ -2031,7 +2091,7 @@ Cohesion: 0.40
 Nodes (5): eICU/diagnosis, bytes, mtime_ns, path, sha256
 
 ### Community 308 - "Community 308"
-Cohesion: 0.40
+Cohesion: 0.33
 Nodes (5): eICU/lab, bytes, mtime_ns, path, sha256
 
 ### Community 309 - "Community 309"
@@ -2079,7 +2139,7 @@ Cohesion: 0.40
 Nodes (5): eICU/diagnosis, bytes, mtime_ns, path, sha256
 
 ### Community 320 - "Community 320"
-Cohesion: 0.40
+Cohesion: 0.33
 Nodes (5): eICU/lab, bytes, mtime_ns, path, sha256
 
 ### Community 321 - "Community 321"
@@ -2415,8 +2475,8 @@ Cohesion: 0.25
 Nodes (7): cell_module_sha256, clinical_inputs_used, environment, independent_scipy_coherence_match, surrogate_array_shape_verified, utc, whole_missing_run_interpolation_verified
 
 ### Community 483 - "Community 483"
-Cohesion: 0.04
-Nodes (68): assemble_spo2_analysis_frame(), collect_raw_spo2_events(), compute_horizon_outcomes(), compute_respiratory_support_features(), compute_rrt_features(), compute_spo2_features(), _event_text(), _merge_default_feature_frame() (+60 more)
+Cohesion: 0.05
+Nodes (56): assemble_spo2_analysis_frame(), compute_horizon_outcomes(), compute_respiratory_support_features(), compute_rrt_features(), compute_spo2_features(), _event_text(), _merge_default_feature_frame(), _observation_events() (+48 more)
 
 ### Community 484 - "Community 484"
 Cohesion: 0.20
@@ -2567,8 +2627,8 @@ Cohesion: 0.40
 Nodes (4): before_new_paired_contrast, original_marginal_results_already_known, sha256, utc
 
 ### Community 539 - "Community 539"
-Cohesion: 0.06
-Nodes (33): lint_claims_and_outputs(), Flag PI-facing outputs that contain apparent metrics or in-sample calibration., Flag PI-facing outputs that contain apparent metrics or in-sample calibration., Flag PI-facing outputs that contain apparent metrics or in-sample calibration., Flag PI-facing outputs that contain apparent metrics or in-sample calibration., Flag PI-facing outputs that contain apparent metrics or in-sample calibration., Flag PI-facing outputs that contain apparent metrics or in-sample calibration., Flag PI-facing outputs that contain apparent metrics or in-sample calibration. (+25 more)
+Cohesion: 0.05
+Nodes (42): _checkpoint_csv(), Write ROC/PR/calibration panels for every fitted per-dataset endpoint., Write ROC/PR/calibration panels for every fitted per-dataset endpoint., Classify endpoint evidence without converting fragility into a claim., Model-minimal companion analyses (ANALYSIS_PLAN.md section 8).      Classical ep, Write a stage result immediately so partial runs keep completed stages., Write ROC/PR/calibration panels for every fitted per-dataset endpoint., Run the SpO2 drilldown across available datasets and write outputs. (+34 more)
 
 ### Community 540 - "Community 540"
 Cohesion: 0.33
@@ -3079,8 +3139,8 @@ Cohesion: 0.25
 Nodes (8): third_resumed_assessment, changed_research_evidence, date_utc, ecg_advancement_gate_pass, goal_tool_confirmed_status, hr_advancement_gate_pass, new_patient_experiment, same_impasse_persists
 
 ### Community 778 - "Community 778"
-Cohesion: 0.15
-Nodes (16): build_specificity_matrix(), build_stratified_risk_tables(), Analysis E: per-endpoint classification across the evidence family.      Prespec, Analysis E: per-endpoint classification across the evidence family.      Prespec, Analysis E: per-endpoint classification across the evidence family.      Prespec, Analysis A: exposed-vs-unexposed risk, RR/RD, Fisher p, cluster CI., Analysis A: exposed-vs-unexposed risk, RR/RD, Fisher p, cluster CI., float (+8 more)
+Cohesion: 0.13
+Nodes (20): _bh_adjust(), build_dose_response_tables(), build_stratified_risk_tables(), Benjamini-Hochberg step-up adjusted p-values., Analysis A: exposed-vs-unexposed risk, RR/RD, Fisher p, cluster CI., Analysis A: exposed-vs-unexposed risk, RR/RD, Fisher p, cluster CI., Analysis C: risk by instability tertile with Cochran-Armitage trend., Analysis C: risk by instability tertile with Cochran-Armitage trend. (+12 more)
 
 ### Community 779 - "Community 779"
 Cohesion: 0.29
@@ -3135,8 +3195,8 @@ Cohesion: 0.25
 Nodes (7): all_timestamp_pairs_sql_python_agree, distinct_measurement_times, hash_splits_reconstruct, lowest_stay_per_person_sql_python_agree, metadata_rows, original_encounters, selected_people
 
 ### Community 800 - "Community 800"
-Cohesion: 0.18
-Nodes (11): build_analysis_manifest(), Build provenance manifest with explicit limitations., Build provenance manifest with explicit limitations., Build provenance manifest with explicit limitations., Build provenance manifest with explicit limitations., Build provenance manifest with explicit limitations., Build provenance manifest with explicit limitations., Build provenance manifest with explicit limitations. (+3 more)
+Cohesion: 0.09
+Nodes (22): build_analysis_manifest(), _execution_provenance_note(), lint_claims_and_outputs(), Flag PI-facing outputs that contain apparent metrics or in-sample calibration., Flag PI-facing outputs that contain apparent metrics or in-sample calibration., Build provenance manifest with explicit limitations., Build provenance manifest with explicit limitations., Flag PI-facing outputs that contain apparent metrics or in-sample calibration. (+14 more)
 
 ### Community 801 - "Community 801"
 Cohesion: 0.25
@@ -3203,8 +3263,8 @@ Cohesion: 0.04
 Nodes (46): degraded_iqr, degraded_sd, moved_two_or_more_quartiles_fraction, n_paired, original_iqr, original_sd, pearson_correlation, reliability_slope_degraded_on_original (+38 more)
 
 ### Community 835 - "Community 835"
-Cohesion: 0.26
-Nodes (16): EventLookup, Compact per-concept/per-stay sorted arrays for repeated lag queries., Compact per-concept/per-stay sorted arrays for repeated lag queries., DataFrame, float, object, str, _anchors() (+8 more)
+Cohesion: 0.22
+Nodes (16): _conservative_any_records(), Combine endpoints without treating an unobserved component as negative., Combine endpoints without treating an unobserved component as negative., DataFrame, float, object, str, _anchors() (+8 more)
 
 ### Community 836 - "Community 836"
 Cohesion: 0.18
@@ -3235,8 +3295,8 @@ Cohesion: 0.14
 Nodes (13): Anti-circularity endpoint, Candidate signals, Development population and chronology, Domain 1: pressure or hemodynamic support, Domain 2: objective hypoperfusion or acute organ injury, External confirmation rule, Internal stability, Interpretation limits (+5 more)
 
 ### Community 843 - "Community 843"
-Cohesion: 0.11
-Nodes (33): fit_fixed_scale_model(), fixed_exposure_parameters(), Locked helpers for targeted SpO2-variability replication., Return the development-cohort winsorization and scaling constants., Fit modified Poisson using the MIMIC-frozen exposure transformation., Outcome-stratified bootstrap with the fixed MIMIC transformation., stratified_bootstrap_fixed(), digest() (+25 more)
+Cohesion: 0.15
+Nodes (16): fit_fixed_scale_model(), fixed_exposure_parameters(), Locked helpers for targeted SpO2-variability replication., Return the development-cohort winsorization and scaling constants., Fit modified Poisson using the MIMIC-frozen exposure transformation., Outcome-stratified bootstrap with the fixed MIMIC transformation., stratified_bootstrap_fixed(), Any (+8 more)
 
 ### Community 844 - "Community 844"
 Cohesion: 0.40
@@ -3451,8 +3511,8 @@ Cohesion: 0.27
 Nodes (5): observation_time_bin(), Map an observation-window offset to its 15-minute time bin index.      Args:, Tests for 15-minute time binning within observation window., Tests for 15-minute time binning within observation window., TestObservationTimeBin
 
 ### Community 927 - "Community 927"
-Cohesion: 0.07
-Nodes (61): apply_locked_timing_degradation(), assert_eicu_hospital_clustering(), assert_prelandmark_measurements(), canonical_sha256(), clinical_context_rows(), cross_database_synthesis(), degradation_agreement(), derive_degradation_specification() (+53 more)
+Cohesion: 0.10
+Nodes (40): apply_locked_timing_degradation(), assert_eicu_hospital_clustering(), assert_prelandmark_measurements(), canonical_sha256(), clinical_context_rows(), cross_database_synthesis(), degradation_agreement(), derive_degradation_specification() (+32 more)
 
 ### Community 928 - "Community 928"
 Cohesion: 0.29
@@ -3719,8 +3779,8 @@ Cohesion: 0.67
 Nodes (3): hourly_aggregation, urine_output, vitals
 
 ### Community 1001 - "Community 1001"
-Cohesion: 0.22
-Nodes (9): _bh_adjust(), build_dose_response_tables(), Benjamini-Hochberg step-up adjusted p-values., Analysis C: risk by instability tertile with Cochran-Armitage trend., Analysis C: risk by instability tertile with Cochran-Armitage trend., Analysis C: risk by instability tertile with Cochran-Armitage trend., test_all_missing_endpoint_is_unavailable_across_epidemiology_tables(), test_bh_adjustment_monotone_and_bounded() (+1 more)
+Cohesion: 0.05
+Nodes (40): all_ci_reproducibility_checks, all_ci_reproducibility_failures, analysis_completed_at_utc, colab_execution, completed_at_utc, eicu_replication_status, execution_mode, execution_time_seconds (+32 more)
 
 ### Community 1002 - "Community 1002"
 Cohesion: 0.22
@@ -3731,8 +3791,8 @@ Cohesion: 0.18
 Nodes (11): fit_spo2_variability_or_tables(), Per-dataset variability ORs with pooled estimates marked secondary., Per-dataset variability ORs with pooled estimates marked secondary., Per-dataset variability ORs with pooled estimates marked secondary., Per-dataset variability ORs with pooled estimates marked secondary., Per-dataset variability ORs with pooled estimates marked secondary., Per-dataset variability ORs with pooled estimates marked secondary., Per-dataset variability ORs with pooled estimates marked secondary. (+3 more)
 
 ### Community 1004 - "Community 1004"
-Cohesion: 0.18
-Nodes (10): float, str, test_aperiodic_eicu_cuff_pressure_is_extracted(), test_association_fit_executes_with_declared_controls(), test_association_standardization_retains_endpoints_and_raw_exposures(), test_four_hour_features_exclude_landmark_and_count_active_therapy(), test_kapur_2022_stage_boundaries(), test_kapur_stage_does_not_turn_missing_normal_data_into_stage_a() (+2 more)
+Cohesion: 0.08
+Nodes (37): assert_exposure_branch_matches_lock(), assert_lock_precedes_association(), assert_preserved_classifications(), compare_endpoint_ids(), compute_locked_exposure(), corrected_later_events(), corrected_oliguria_events(), corrected_primary_events() (+29 more)
 
 ### Community 1005 - "Community 1005"
 Cohesion: 0.29
@@ -3751,8 +3811,8 @@ Cohesion: 0.17
 Nodes (11): classification, eicu_accessed, eicu_must_remain_unopened, external_winner, final_gate_count, first_mimic_candidate_outcome_read_utc, novelty_passed, novelty_review_utc (+3 more)
 
 ### Community 1009 - "Community 1009"
-Cohesion: 0.20
-Nodes (10): fit_spo2_models(), Fit the prespecified patient-grouped, fold-local incremental models., Fit the prespecified patient-grouped, fold-local incremental models., Fit the prespecified patient-grouped, fold-local incremental models., Fit the prespecified patient-grouped, fold-local incremental models., Fit the prespecified patient-grouped, fold-local incremental models., Fit the prespecified patient-grouped, fold-local incremental models., Fit the prespecified patient-grouped, fold-local incremental models. (+2 more)
+Cohesion: 0.06
+Nodes (33): 10. Acute versus delayed temporal pattern, 11. Multiplicity, 12. Pre-episode lactate trajectory, 13. Measurement-selection analysis, 14. Censoring analysis, 15. Control-anchor robustness, 16. Risk-set control analysis, 17. Normoxemia and absolute oxygenation (+25 more)
 
 ### Community 1010 - "Community 1010"
 Cohesion: 0.20
@@ -3787,8 +3847,8 @@ Cohesion: 0.05
 Nodes (38): agreement, degraded_iqr, degraded_sd, moved_two_or_more_quartiles_fraction, n_paired, original_iqr, original_sd, pearson_correlation (+30 more)
 
 ### Community 1020 - "Community 1020"
-Cohesion: 0.22
-Nodes (4): Path, Tests for the frozen NWICU feasibility gate., test_checksum_manifest_accepts_supplied_one_space_format(), test_exact_frozen_exposure_uses_mimic_scale()
+Cohesion: 0.06
+Nodes (31): at_risk_cohort, corrected_component_counts, paired_hypoperfusion, paired_pressure_support, corrected_later_window_events_at_risk, corrected_oliguria_events_all_stays, corrected_primary_events_at_risk, exposure_coverage (+23 more)
 
 ### Community 1021 - "Community 1021"
 Cohesion: 0.25
@@ -3892,11 +3952,11 @@ Nodes (4): classification, end_utc, environment, status
 
 ### Community 1049 - "Community 1049"
 Cohesion: 0.20
-Nodes (31): Figure, RuntimeError, _baseline_from_labs(), _collapse_urine(), _composition_rows(), _eicu_prelandmark_inputs(), finalize(), _full_components() (+23 more)
+Nodes (30): Figure, _baseline_from_labs(), _collapse_urine(), _composition_rows(), _eicu_prelandmark_inputs(), finalize(), _full_components(), _hospital_heterogeneity() (+22 more)
 
 ### Community 1050 - "Community 1050"
-Cohesion: 0.19
-Nodes (29): DuckDBPyConnection, assemble(), cohort_comparison(), create_m3_tables(), create_m4_tables(), endpoint_rows(), extra_measurement_rows(), figures() (+21 more)
+Cohesion: 0.18
+Nodes (31): DuckDBPyConnection, assemble(), coarse_icu_group(), cohort_comparison(), create_m3_tables(), create_m4_tables(), endpoint_rows(), extra_measurement_rows() (+23 more)
 
 ### Community 1054 - "Community 1054"
 Cohesion: 0.67
@@ -3931,8 +3991,8 @@ Cohesion: 0.15
 Nodes (21): assert_association_authorized(), canonical_sha256(), evaluate_frozen_feasibility(), lock_payload(), Guardrails for the frozen NWICU SpO2-variability validation attempt., Apply retained gates plus the two explicit user-authorized waivers., Fail closed before any exposure-outcome association can be read., Return the immutable NWICU implementation specification. (+13 more)
 
 ### Community 1062 - "Community 1062"
-Cohesion: 0.17
-Nodes (7): compute_frozen_exposure(), Compute the exact frozen feature and apply only the MIMIC transform., DataFrame, Path, Tests for the frozen INSPIRE external-validation guardrails., test_checksum_manifest_accepts_inspire_one_space_format(), test_exact_frozen_exposure_uses_mimic_scale()
+Cohesion: 0.10
+Nodes (11): compute_frozen_exposure(), Compute the exact frozen feature and apply only the MIMIC transform., DataFrame, Path, Path, Tests for the frozen INSPIRE external-validation guardrails., test_checksum_manifest_accepts_inspire_one_space_format(), test_exact_frozen_exposure_uses_mimic_scale() (+3 more)
 
 ### Community 1063 - "Community 1063"
 Cohesion: 0.10
@@ -3954,6 +4014,10 @@ Nodes (19): association_authorized, classification, contributing_sites, eligible
 Cohesion: 0.10
 Nodes (19): association_authorized, classification, contributing_sites, eligible_stays, exact_composite_observable, exposure_coverage, failures, gates (+11 more)
 
+### Community 1068 - "Community 1068"
+Cohesion: 0.18
+Nodes (28): bool, int, binary_effects(), cluster_bootstrap_rr_rd(), cluster_bootstrap_spearman(), complete_followup_before_after_reconciliation(), complete_followup_reconciliation_pass(), create_notebook() (+20 more)
+
 ### Community 1069 - "Community 1069"
 Cohesion: 0.11
 Nodes (17): df, formal_cross_era_heterogeneity_present_at_0_05, i_squared_percent, interpretation, log_rr_difference_mimic_iv_minus_mimic_iii, mimic_iii, log_rr, rr (+9 more)
@@ -3965,6 +4029,14 @@ Nodes (16): distinguish_rr_1_10_from, estimate, ci_high, ci_low, cluster_robust_
 ### Community 1071 - "Community 1071"
 Cohesion: 0.12
 Nodes (16): degradation_lock_sha256, eicu_valid_exposure, environment, mimic_valid_exposure, precision, ci_high, ci_low, cluster_robust_se (+8 more)
+
+### Community 1072 - "Community 1072"
+Cohesion: 0.25
+Nodes (26): availability_statistics(), classify_corrected(), configure_connection(), establish_protected_baseline(), flags_payload(), git_revision(), heterogeneity_analysis(), load_preserved_results() (+18 more)
+
+### Community 1073 - "Community 1073"
+Cohesion: 0.24
+Nodes (23): Logger, DataFrame, Path, Series, RuntimeError, build_cohort(), build_item_map(), cached_eligible_clinical() (+15 more)
 
 ### Community 1074 - "Community 1074"
 Cohesion: 0.12
@@ -4142,6 +4214,10 @@ Nodes (9): analysis_lock.json, analysis_lock.sha256, feasibility.json, figures/n
 Cohesion: 0.20
 Nodes (9): Cross-database synthesis, Decision, Frozen analysis guard, Measurement degradation, Measurement process and feature transport, Outcome and case mix, Precision, SpO2-variability transportability and precision audit (+1 more)
 
+### Community 1118 - "Community 1118"
+Cohesion: 0.09
+Nodes (22): association_models_fitted, classification, corrected_association_inspected, environment, flags, corrected_later_association_fitted, corrected_later_event_gate_passed, corrected_primary_association_fitted (+14 more)
+
 ### Community 1119 - "Community 1119"
 Cohesion: 0.22
 Nodes (8): adjustment_covariates, association_inspected, dataset, population, primary_covariance, prohibited, status, timeline_origin
@@ -4157,6 +4233,10 @@ Nodes (8): documentation_sha256, first_nwicu_association_read_utc, lock_utc, nwi
 ### Community 1122 - "Community 1122"
 Cohesion: 0.22
 Nodes (8): association_inspected, association_models_fitted, classification, environment, execution_label, outcome_fit_count, reason, status
+
+### Community 1123 - "Community 1123"
+Cohesion: 0.09
+Nodes (21): df, difference_in_log_rr_corrected_minus_mimic4, heterogeneity_p_value, heterogeneity_z, i_squared_percent, mimic3_parity_corrected_primary, log_rr, robust_se (+13 more)
 
 ### Community 1124 - "Community 1124"
 Cohesion: 0.36
@@ -4394,6 +4474,10 @@ Nodes (4): attempt, degradation_lock_sha256, fit, outcome_read_utc
 Cohesion: 0.40
 Nodes (5): exposure_parameters, center, lower, scale, upper
 
+### Community 1183 - "Community 1183"
+Cohesion: 0.10
+Nodes (20): ckd_reconciliation, cohort_n, created_at_utc, exposed_n, lactate_core_reproduction, lactate_old_full_model_reproduction, mortality_old_full_model_reproduction, mortality_old_model (+12 more)
+
 ### Community 1184 - "Community 1184"
 Cohesion: 0.50
 Nodes (4): protected_artifact_tree_hashes_after, research/spo2_variability_mimic3_validation, research/spo2_variability_transportability, research/spo2_variability_validation
@@ -4406,25 +4490,241 @@ Nodes (4): protected_artifact_tree_hashes_before, research/spo2_variability_mimi
 Cohesion: 0.50
 Nodes (3): Approximate event requirements, Approximate power at 85 events, eICU precision audit
 
+### Community 1188 - "Community 1188"
+Cohesion: 0.10
+Nodes (20): self_audit_checks, all_reported_confidence_intervals_reproduced, colab_notebook_embeds_pipeline, core_clinical_tables_present, dense_15min_input_present, duplicate_stay_and_admission_checks_pass, figures_created_from_saved_tables, final_report_exists (+12 more)
+
+### Community 1192 - "Community 1192"
+Cohesion: 0.11
+Nodes (19): specification, availability_branch, availability_semantics_decision_sha256, corrected_later_rule, corrected_oliguria_start_hour, exposure_itemid, forensic_classification, git_revision (+11 more)
+
+### Community 1193 - "Community 1193"
+Cohesion: 0.11
+Nodes (18): source_row_counts, ADMISSIONS, CHARTEVENTS, D_ICD_DIAGNOSES, D_ICD_PROCEDURES, D_ITEMS, D_LABITEMS, DIAGNOSES_ICD (+10 more)
+
+### Community 1194 - "Community 1194"
+Cohesion: 0.24
+Nodes (17): object, str, canonical_csv_table_name(), choose_table(), classify_primary(), classify_regime(), count_csv_data_rows(), file_header() (+9 more)
+
+### Community 1195 - "Community 1195"
+Cohesion: 0.27
+Nodes (17): digest(), extract_eicu(), freeze(), load_mimic(), log(), main(), mimic_followup(), DataFrame (+9 more)
+
+### Community 1196 - "Community 1196"
+Cohesion: 0.11
+Nodes (17): guard, later, corrected_event_ids, corrected_only, jaccard_overlap, original_event_ids, original_only, shared (+9 more)
+
+### Community 1197 - "Community 1197"
+Cohesion: 0.12
+Nodes (17): minimum_contributing_sites, minimum_exposure_coverage, support, at_risk_cohort, corrected_later_window_events_at_risk, corrected_oliguria_events_all_stays, corrected_primary_events_at_risk, exposure_coverage (+9 more)
+
+### Community 1198 - "Community 1198"
+Cohesion: 0.12
+Nodes (16): flags, corrected_later_association_fitted, corrected_later_event_gate_passed, corrected_primary_association_fitted, corrected_primary_event_gate_passed, endpoint_logically_equivalent_after_correction, endpoint_observability_fully_equivalent, exposure_availability_parity_applied (+8 more)
+
+### Community 1199 - "Community 1199"
+Cohesion: 0.20
+Nodes (13): frozen_exposure_from_raw(), Fail closed if any part of the frozen feature definition changes., Compute the exact locked hourly-median, detrended RMS-residual feature., validate_frozen_feature_spec(), DataFrame, float, int, Focused guards for the post-hoc SpO2 transportability audit. (+5 more)
+
+### Community 1200 - "Community 1200"
+Cohesion: 0.17
+Nodes (11): guard, log_ci_width, log_rr, method, modeled_events, multiplicative_95_ci_factor, power, required_events (+3 more)
+
+### Community 1201 - "Community 1201"
+Cohesion: 0.17
+Nodes (12): exposure, availability_branch, dataset_specific_recentering_or_rescaling, detrending, eligibility, error_rule, feature, hourly_binning (+4 more)
+
+### Community 1202 - "Community 1202"
+Cohesion: 0.22
+Nodes (11): AuthorizedFitLedger, Enforce the one-primary/one-later corrected-model authorization., count_components(), create_corrected_spo2_source(), DataFrame, DuckDBPyConnection, int, object (+3 more)
+
+### Community 1203 - "Community 1203"
+Cohesion: 0.27
+Nodes (10): DataFrame, int, object, Path, str, add_row(), fmt(), norm_code() (+2 more)
+
+### Community 1204 - "Community 1204"
+Cohesion: 0.18
+Nodes (10): analysis_character, association_inspected, authorized_association_fits, later_only_if_modeled_events_at_least, maximum, outcomes, dataset, interpretation (+2 more)
+
+### Community 1205 - "Community 1205"
+Cohesion: 0.18
+Nodes (10): analysis_character, association_models_fitted, authorized_models_fitted, availability_branch, classification, dataset, first_corrected_association_read_utc, forensic_classification_preserved (+2 more)
+
+### Community 1206 - "Community 1206"
+Cohesion: 0.18
+Nodes (11): later_window, ci_high, ci_low, covariance, coverage, events, hospitals, log_rr (+3 more)
+
+### Community 1207 - "Community 1207"
+Cohesion: 0.18
+Nodes (11): primary, ci_high, ci_low, covariance, coverage, events, hospitals, log_rr (+3 more)
+
+### Community 1208 - "Community 1208"
+Cohesion: 0.20
+Nodes (10): Load cached artifacts or rebuild a dataset ETL output., Load cached artifacts or rebuild a dataset ETL output., Load cached artifacts or rebuild a dataset ETL output., Load cached artifacts or rebuild a dataset ETL output., Load cached artifacts or rebuild a dataset ETL output., Load cached artifacts or rebuild a dataset ETL output., Load cached artifacts or rebuild a dataset ETL output., Load cached artifacts or rebuild a dataset ETL output. (+2 more)
+
+### Community 1209 - "Community 1209"
+Cohesion: 0.20
+Nodes (10): reanalysis_self_audit_checks, cached_cohort_id_lookup_one_to_one, episode_last_value_requires_complete_window, grouped_predictive_folds_patient_disjoint, monotone_early_positive_companions_preserved, notebook_embeds_current_pipeline_exactly, positive_and_negative_removals_reconcile, primary_and_episode_patient_cluster_intervals_reproduced (+2 more)
+
+### Community 1210 - "Community 1210"
+Cohesion: 0.20
+Nodes (10): scripts/run_spo2_variability_mimic3_forensic.py, scripts/run_spo2_variability_mimic3_parity_corrected.py, scripts/run_spo2_variability_mimic3_validation.py, scripts/shock_signal_discovery_cells.py, src/physiograph/analysis/shock_signal_discovery.py, src/physiograph/analysis/spo2_variability_mimic3_parity_corrected.py, src/physiograph/analysis/spo2_variability_mimic3_validation.py, src/physiograph/analysis/spo2_variability_validation.py (+2 more)
+
+### Community 1211 - "Community 1211"
+Cohesion: 0.20
+Nodes (10): paired_hypoperfusion, paired_pressure_support, creatinine, lactate, oliguria, ph, continuous_support, mcs (+2 more)
+
+### Community 1212 - "Community 1212"
+Cohesion: 0.20
+Nodes (10): endpoint_id_comparison, guard, later, corrected_event_ids, corrected_only, jaccard_overlap, original_event_ids, original_only (+2 more)
+
+### Community 1213 - "Community 1213"
+Cohesion: 0.33
+Nodes (9): float, ndarray, calibration_summary(), expected_calibration_error(), incremental_prediction_metric(), newcombe_rd_interval(), prediction_metric(), Compute only metrics used in the paired bootstrap, avoiding repeated calibration (+1 more)
+
+### Community 1214 - "Community 1214"
+Cohesion: 0.22
+Nodes (9): median_chart_to_store_delay_minutes, mimic3_carevue_spo2_rows_charttime_0_240, p95_chart_to_store_delay_minutes, storetime_after_minute_240_count, storetime_after_minute_240_fraction, storetime_missing_count, storetime_missing_fraction, valid_rows_available_by_240 (+1 more)
+
+### Community 1215 - "Community 1215"
+Cohesion: 0.22
+Nodes (9): endpoint, endpoint_observability_fully_equivalent, hypoperfusion_components, later, maximum_domain_separation_minutes, observability_note, pre_landmark_exclusions, pressure_support_components (+1 more)
+
+### Community 1216 - "Community 1216"
+Cohesion: 0.22
+Nodes (9): minimum_contributing_sites, minimum_exposure_coverage, support, minimum_contributing_sites, minimum_exposure_coverage, minimum_modeled_later_events, minimum_modeled_primary_events, new_waivers_created (+1 more)
+
+### Community 1217 - "Community 1217"
+Cohesion: 0.25
+Nodes (7): analysis_definitions_changed, checks, completion_eligible, documented_unavailable_branches, figures_reproducible_from_saved_result_tables, patient_cluster_bootstrap_unit, status
+
+### Community 1218 - "Community 1218"
+Cohesion: 0.36
+Nodes (8): Return the SHA-256 digest of a file., Write the degradation lock once and return its whole-file hash., Block outcome access until an immutable degradation specification exists., require_degradation_lock_before_outcomes(), sha256_file(), write_immutable_degradation_lock(), Path, test_degradation_lock_is_immutable_and_required_before_outcomes()
+
+### Community 1219 - "Community 1219"
+Cohesion: 0.25
+Nodes (7): Adjustment set and model, Analysis summary, Cohort and exposure, First-four-hour SpO₂ instability and in-hospital mortality, Interpretation and scope, Outcome and data sources, Prior-code definitions
+
+### Community 1220 - "Community 1220"
+Cohesion: 0.25
+Nodes (8): cohort_counts, dynamics_eligible_n, eligible_clinical_n, eligible_unique_admissions, eligible_unique_patients, exposed_n, upstream_waveform_candidate_universe, usable_signal_n
+
+### Community 1221 - "Community 1221"
+Cohesion: 0.25
+Nodes (8): finalization_analysis_lock, clarification_at_utc, episode_baseline_rule, initial_sha256_before_plan_clarification, locked_at_utc, path, sha256, status
+
+### Community 1222 - "Community 1222"
+Cohesion: 0.25
+Nodes (7): Feasibility and endpoint membership, Formal comparison and precision, Interpretation, Locked effect estimates, One-time locked MIMIC-III endpoint-parity correction, Required flags, What was corrected
+
+### Community 1223 - "Community 1223"
+Cohesion: 0.25
+Nodes (8): cohort, at_risk_exclusions, early_icu_entry_rule, first_icu_logic, heart_failure_phenotype, minimum_observation, population, timeline_origin
+
+### Community 1224 - "Community 1224"
+Cohesion: 0.25
+Nodes (8): all_other_parameters, end_hour, minimum_documented_hours, start_hour, threshold, timestamp, window_hours, corrected_oliguria
+
+### Community 1225 - "Community 1225"
+Cohesion: 0.25
+Nodes (8): primary, corrected_event_ids, corrected_only, jaccard_overlap, original_event_ids, original_only, shared, shared_event_time_assignments_changed
+
+### Community 1226 - "Community 1226"
+Cohesion: 0.29
+Nodes (7): package_versions, matplotlib, numpy, pandas, python, scikit-learn, scipy
+
+### Community 1227 - "Community 1227"
+Cohesion: 0.29
+Nodes (6): corrected_association_inspected, first_corrected_association_read_utc, lock_utc, source_checks, specification_sha256, status
+
+### Community 1228 - "Community 1228"
+Cohesion: 0.29
+Nodes (7): model, adjustment_covariates, covariance, effect_scale, family, link, missing_data
+
+### Community 1229 - "Community 1229"
+Cohesion: 0.33
+Nodes (5): CKD-corrected full adjusted lactate and mortality models with mean-SpO2 sensitivity, Conclusion, Fixed model and code definitions, Reconciliation, Results
+
+### Community 1230 - "Community 1230"
+Cohesion: 0.40
+Nodes (5): build_specificity_matrix(), Analysis E: per-endpoint classification across the evidence family.      Prespec, Analysis E: per-endpoint classification across the evidence family.      Prespec, Analysis E: per-endpoint classification across the evidence family.      Prespec, test_specificity_matrix_labels_bilirubin_as_specificity_comparator()
+
+### Community 1231 - "Community 1231"
+Cohesion: 0.40
+Nodes (4): Finalization Analysis Lock, Frozen scientific definitions, Locked hardening methods, Pre-estimate specification clarification (2026-09-26 03:50:06 UTC)
+
+### Community 1232 - "Community 1232"
+Cohesion: 0.40
+Nodes (5): center, lower, scale, upper, exposure_parameters
+
+### Community 1233 - "Community 1233"
+Cohesion: 0.40
+Nodes (4): algorithm, created_utc, manifest_role, protected_artifact_count
+
+### Community 1234 - "Community 1234"
+Cohesion: 0.40
+Nodes (4): analysis_lock_sha256, authorized_model_limit, first_corrected_association_read_utc, outcome_peek_before_lock
+
+### Community 1235 - "Community 1235"
+Cohesion: 0.40
+Nodes (4): CareVue STORETIME availability decision, Locked implementation, Qualification, Source audit
+
+### Community 1236 - "Community 1236"
+Cohesion: 0.40
+Nodes (5): center, lower, scale, upper, clipping_and_scaling
+
+### Community 1237 - "Community 1237"
+Cohesion: 0.40
+Nodes (5): confirmation, direction_consistent_with_mimic4, primary_ci_excludes_1_positive_direction, primary_p_lt, primary_rr_gt_1
+
+### Community 1238 - "Community 1238"
+Cohesion: 0.40
+Nodes (5): minimum_contributing_sites, minimum_exposure_coverage, minimum_modeled_later_events, minimum_modeled_primary_events, retained_support_gates
+
+### Community 1239 - "Community 1239"
+Cohesion: 0.67
+Nodes (4): _merge_anchor_context(), _build_anchor_sets(), _locked_validation_anchors(), _merge_anchor_extras()
+
+### Community 1240 - "Community 1240"
+Cohesion: 0.50
+Nodes (3): Answer, Q: What were the frozen MIMIC-IV SpO2 variability results?, Source Nodes
+
+### Community 1241 - "Community 1241"
+Cohesion: 0.50
+Nodes (3): Answer, Q: What were the frozen MIMIC-IV primary endpoint criteria?, Source Nodes
+
+### Community 1242 - "Community 1242"
+Cohesion: 0.50
+Nodes (3): Contents, MIMIC-III HF SpO2 and lactate analysis, Reproduction and provenance
+
+### Community 1243 - "Community 1243"
+Cohesion: 0.50
+Nodes (3): PhysioGraph dense waveform analysis, Reproduce the run, Results
+
+### Community 1244 - "Community 1244"
+Cohesion: 0.50
+Nodes (4): lower_exclusive, maximum_domain_separation_minutes, upper_inclusive, corrected_primary_window
+
 ## Knowledge Gaps
-- **5878 isolated node(s):** `ndarray`, `bool`, `Namespace`, `path`, `bytes` (+5873 more)
+- **6464 isolated node(s):** `ndarray`, `bool`, `Namespace`, `path`, `bytes` (+6459 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **121 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `run_spo2_drilldown()` connect `Community 539` to `Community 0`, `Community 6`, `Community 10`, `Community 16`, `Community 144`, `Community 146`, `Community 148`, `Community 406`, `Community 152`, `Community 1049`, `Community 26`, `Community 158`, `Community 159`, `Community 800`, `Community 181`, `Community 1089`, `Community 70`, `Community 1094`, `Community 86`, `Community 483`, `Community 105`, `Community 1003`, `Community 108`, `Community 1009`, `Community 125`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `run_spo2_drilldown()` connect `Community 539` to `Community 0`, `Community 6`, `Community 10`, `Community 16`, `Community 144`, `Community 146`, `Community 406`, `Community 152`, `Community 26`, `Community 158`, `Community 159`, `Community 800`, `Community 30`, `Community 1073`, `Community 181`, `Community 1089`, `Community 70`, `Community 1094`, `Community 86`, `Community 483`, `Community 105`, `Community 1003`, `Community 108`, `Community 125`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Why does `AuditLogger` connect `Community 714` to `Community 64`, `Community 7`, `Community 10`, `Community 271`, `Community 49`, `Community 1138`, `Community 81`, `Community 22`, `Community 923`, `Community 926`, `Community 831`?**
   _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **Why does `CohortResult` connect `Community 714` to `Community 5`, `Community 713`, `Community 938`, `Community 941`, `Community 47`, `Community 53`, `Community 57`, `Community 58`, `Community 955`, `Community 29`?**
-  _High betweenness centrality (0.006) - this node is a cross-community bridge._
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+- **Are the 53 inferred relationships involving `RuntimeError` (e.g. with `run_locked_external_replication()` and `assert_association_authorized()`) actually correct?**
+  _`RuntimeError` has 53 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 10 inferred relationships involving `run_spo2_drilldown()` (e.g. with `run_biomarker_benchmark()` and `run_advanced_episode_inference()`) actually correct?**
   _`run_spo2_drilldown()` has 10 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 50 inferred relationships involving `AuditLogger` (e.g. with `CohortResult` and `EICUCohortBuilder`) actually correct?**
   _`AuditLogger` has 50 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 36 inferred relationships involving `RuntimeError` (e.g. with `run_locked_external_replication()` and `assert_association_authorized()`) actually correct?**
-  _`RuntimeError` has 36 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `ndarray`, `Minimal Colab runner for the PhysioGraph final workflow.  The notebook should on`, `Make project-root scripts and ``src`` imports work in Colab.` to the rest of the system?**
-  _7357 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _7966 weakly-connected nodes found - possible documentation gaps or missing edges._

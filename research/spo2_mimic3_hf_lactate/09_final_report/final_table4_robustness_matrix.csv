@@ -1,0 +1,42 @@
+analysis,group,horizon,n,events,RR_or_summary,interval_low,interval_high,RD,status,notes
+sampling_regime,1_Hz,12h,171.0,21.0,2.120481927710843,0.9241956676136364,6.580496696286168,0.0891292442497261,available,Prespecified fixed >=4-point exposure.
+sampling_regime,approximately_1_per_min,12h,217.0,29.0,1.6362847222222223,0.8328129166666668,3.282145399042028,0.0702107279693486,available,Prespecified fixed >=4-point exposure.
+sampling_regime,mixed,12h,0.0,0.0,,,,,unavailable,Prespecified fixed >=4-point exposure.
+sampling_regime,1_Hz,24h,190.0,22.0,1.4444444444444444,0.6527777777777778,3.7501630434782594,0.0421052631578947,available,Prespecified fixed >=4-point exposure.
+sampling_regime,approximately_1_per_min,24h,230.0,27.0,1.529113924050633,0.7167754196411343,3.0666241685144087,0.0525609858328443,available,Prespecified fixed >=4-point exposure.
+sampling_regime,mixed,24h,1.0,0.0,,,,,unavailable,Prespecified fixed >=4-point exposure.
+coverage_at_least_1h_observed_bins,min_bins=4,12h,377.0,48.0,1.7113341204250296,0.9980234253536814,3.032100415923945,0.0701764603109894,available,Observed coverage restriction.
+coverage_at_least_2h_observed_bins,min_bins=8,12h,310.0,43.0,1.6793650793650794,0.959837676161919,3.027751456123548,0.0738440303657694,available,Observed coverage restriction.
+coverage_at_least_3h_observed_bins,min_bins=12,12h,157.0,26.0,1.5400000000000005,0.7620336724806202,3.626868131868129,0.0701298701298701,available,Observed coverage restriction.
+coverage_near_complete_at_least_15_of_16_bins,min_bins=15,12h,62.0,10.0,2.488888888888889,0.6774131274131274,9.714285714285714,0.1395833333333333,available,Observed coverage restriction.
+coverage_at_least_1h_observed_bins,min_bins=4,24h,409.0,46.0,1.4881765633210715,0.8295215065265288,2.5909952503400198,0.0455079847163711,available,Observed coverage restriction.
+coverage_at_least_2h_observed_bins,min_bins=8,24h,336.0,42.0,1.484615384615385,0.8573831292199905,2.6122908881862603,0.0502192108409725,available,Observed coverage restriction.
+coverage_at_least_3h_observed_bins,min_bins=12,24h,174.0,27.0,1.3266733266733266,0.6684782608695653,2.98619711273172,0.0432940553422481,available,Observed coverage restriction.
+coverage_near_complete_at_least_15_of_16_bins,min_bins=15,24h,74.0,11.0,1.136842105263158,0.2991452991452991,4.524999999999993,0.0190058479532163,available,Observed coverage restriction.
+absolute_transition_ge3_pp,all dynamics,12h,388.0,50.0,1.5869918699186991,0.9547348609904798,2.8918597529856074,0.0577369052379048,available,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+absolute_transition_ge3_pp,all dynamics,24h,421.0,49.0,1.6554621848739497,0.9768877673020429,3.154197869144319,0.056562726613488,available,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+absolute_transition_ge4_pp,all dynamics,12h,388.0,50.0,1.764656381486676,1.0495401318583053,3.042269307854927,0.0754811020351654,available_exact_primary_definition,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+absolute_transition_ge4_pp,all dynamics,24h,421.0,49.0,1.478687739463601,0.8544942084942085,2.532314616483068,0.0465121690167062,available_exact_primary_definition,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+absolute_transition_ge5_pp,all dynamics,12h,388.0,50.0,1.488188976377953,0.8545922769519542,2.498915343915343,0.0542432195975503,available,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+absolute_transition_ge5_pp,all dynamics,24h,421.0,49.0,1.3407282372799614,0.739453719884167,2.314513776763776,0.0355435930975499,available,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+strict_spo2_gt70_artifact_filter,all dynamics,12h,385.0,50.0,1.8191765044630004,1.0638996076437186,3.2441390891403743,0.0805173487292692,available,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+strict_spo2_gt70_artifact_filter,all dynamics,24h,418.0,49.0,1.6491048593350384,0.9509540534662556,2.95190884226561,0.0601992409867172,available,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+first_patient_stay_only,all dynamics,12h,283.0,33.0,2.455892731122089,1.2776190476190474,5.265779382083526,0.1087735948539491,available,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+first_patient_stay_only,all dynamics,24h,308.0,32.0,1.9078341013824884,0.9924933702989394,3.867615709621663,0.0690743338008415,available,Only frozen listed signal sensitivity; >=4 row matches primary exactly.
+any_below90_stratum,False,12h,285.0,34.0,2.321428571428572,1.083813318216822,4.459109970175543,0.1233333333333333,available,Exposure remains fixed at >=4 pp.
+any_below90_stratum,True,12h,103.0,16.0,0.5894736842105263,0.1890034364261168,1.7142857142857142,-0.1026315789473684,available,Exposure remains fixed at >=4 pp.
+any_below90_stratum,False,24h,302.0,33.0,2.0432900432900434,0.9374950948915524,3.941631250527025,0.0928351309707242,available,Exposure remains fixed at >=4 pp.
+any_below90_stratum,True,24h,119.0,16.0,0.441358024691358,0.1676141104806408,1.34824105096103,-0.1523569023569023,available,Exposure remains fixed at >=4 pp.
+fixed_normoxemic_all16_bins_ge90,all16_ge90,12h,34.0,2.0,2.4000000000000004,0.0,7.226666666666673,0.0583333333333333,available,Sparse normoxemic subset; descriptive only.
+fixed_normoxemic_all16_bins_ge90,all16_ge90,24h,39.0,4.0,0.75,0.0,4.258963815789464,-0.0277777777777777,available,Sparse normoxemic subset; descriptive only.
+fixed_normoxemic_all16_bins_ge90_episode_delayed,all16_ge90,delayed_1_8h,14.0,1.0,0.0,0.0,0.0,-0.0909090909090909,available,Sparse normoxemic subset; descriptive only.
+episode_direction,drop,acute_0_1h,58.0,8.0,0.5873015873015872,0.0,2.2222222222222223,-0.0669240669240669,available,Direction families remain separate from primary multiplicity.
+episode_direction,drop,delayed_1_8h,242.0,30.0,1.1919642857142858,0.4814428572091253,2.437567066210045,0.0226474719101123,available,Direction families remain separate from primary multiplicity.
+episode_direction,rise,acute_0_1h,81.0,10.0,0.8571428571428571,0.0,3.076101762820515,-0.0185185185185185,available,Direction families remain separate from primary multiplicity.
+episode_direction,rise,delayed_1_8h,264.0,38.0,1.317901234567901,0.6914585340499976,2.3214673913043478,0.0416919651892329,available,Direction families remain separate from primary multiplicity.
+episode_IPW,episode vs aligned control,delayed_1_8h,269.0,35.0,1.88667251669578,0.958510128011907,4.062844392919513,0.0811690530776051,available,Patient-grouped OOF observation weights; 1st/99th percentile truncation.
+posthoc_risk_set,at-risk controls,delayed_1_8h,303.0,56.0,1.069609507640068,0.6327589640232202,1.7989348764366393,0.0125960061443932,available,93 classifiable cases/210 controls; 232 matched sets; post-hoc design.
+pseudo_anchor_assignment,100 assignments,delayed_1_8h,,,1.2867132867132869,1.0551136363636364,1.7033057851239666,,available,"Assignment distribution, not a sampling CI; min/max and fraction RR>1 in dedicated summary."
+documented_procedure_support_lower_bound,unexposed,first_4h,1058.0,221.0,0.2088846880907372,,,,incomplete_ascertainment,"No procedure record is unknown, not no support."
+documented_procedure_support_lower_bound,exposed,first_4h,539.0,97.0,0.1799628942486085,,,,incomplete_ascertainment,"No procedure record is unknown, not no support."
+same_transition_MAP,all qualifying transitions,first_4h,,,,,,,unavailable,No time-aligned MAP-bin cache; no raw 330M-row reprocessing per user instruction.

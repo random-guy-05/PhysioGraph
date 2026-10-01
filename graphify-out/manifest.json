@@ -4185,22 +4185,22 @@
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/forensic_summary.json": {
-    "mtime": 1789084959.918327,
-    "ast_hash": "537ff630605823488d69f4328d00012b",
+    "mtime": 1789085760.830089,
+    "ast_hash": "e76940f2dc36cc1b825a77258e037a54",
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/heterogeneity_analysis.json": {
-    "mtime": 1789084957.318167,
+    "mtime": 1789085756.4931672,
     "ast_hash": "5d15fdff7fce8c2bf25bd1300f865be8",
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/precision_analysis.json": {
-    "mtime": 1789084957.3172123,
+    "mtime": 1789085756.4924605,
     "ast_hash": "3d483b33914fa97793fb9063803c6180",
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/sanity_checks.json": {
-    "mtime": 1789084957.3188686,
+    "mtime": 1789085756.493913,
     "ast_hash": "77b63305d069aa188527bf120489f78e",
     "semantic_hash": ""
   },
@@ -4355,8 +4355,8 @@
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/run_spo2_variability_mimic3_forensic.py": {
-    "mtime": 1789084625.7565417,
-    "ast_hash": "b4aca05672220cd5f9792e796460cf78",
+    "mtime": 1789085226.2438827,
+    "ast_hash": "b19966174bab3c46d6350f2796410cb3",
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/run_spo2_variability_mimic3_validation.py": {
@@ -4440,8 +4440,8 @@
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/FINAL_REPORT.md": {
-    "mtime": 1789084959.8439739,
-    "ast_hash": "9f25ffe2ad7eeb4c761d44d276ea82c5",
+    "mtime": 1789085760.715637,
+    "ast_hash": "79fe83b8232e56b0e07de3dc2d60f933",
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_validation/FINAL_REPORT.md": {
@@ -4505,27 +4505,27 @@
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/figures/endpoint_composition.png": {
-    "mtime": 1789084959.4575667,
+    "mtime": 1789085760.0425603,
     "ast_hash": "ba97f100e0370ca23a4f436bbf0403d7",
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/figures/exposure_distribution.png": {
-    "mtime": 1789084959.0753136,
+    "mtime": 1789085759.3566954,
     "ast_hash": "9f387bc48961375eb397704c8cbf37ef",
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/figures/measurement_density.png": {
-    "mtime": 1789084957.9223814,
+    "mtime": 1789085757.3804061,
     "ast_hash": "fb7cdf46180a421bd1b2eb4b73ab1079",
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/figures/mimic4_mimic3_forest.png": {
-    "mtime": 1789084959.7354164,
+    "mtime": 1789085760.5416527,
     "ast_hash": "b75f389c4fa0d7ad0d8bc09869131944",
     "semantic_hash": ""
   },
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_forensic/figures/repetition_quantization.png": {
-    "mtime": 1789084958.660774,
+    "mtime": 1789085758.6730008,
     "ast_hash": "faaa77f514ff73a03696c17a81b388f2",
     "semantic_hash": ""
   },
@@ -4572,6 +4572,171 @@
   "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_transportability/figures/original_vs_degraded_mimic.png": {
     "mtime": 1788824704.2265458,
     "ast_hash": "08034dcf9563c89263ec666b9cbae78b",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/09_final_report/final_self_audit.json": {
+    "mtime": 1790401030.627869,
+    "ast_hash": "2f6d1a58d79ba8241189e31ca9cc2416",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/ckd_corrected_full_adjusted_models/analysis_audit.json": {
+    "mtime": 1790450778.5095217,
+    "ast_hash": "ca436771cacf5bc16f36f115af091dad",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/provenance/source_run_status.json": {
+    "mtime": 1790401030.84848,
+    "ast_hash": "c8caf01ee5b4e109188c017cfdb0dced",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/scripts/rerun_ckd_corrected_full_adjusted_models.py": {
+    "mtime": 1790450763.0206604,
+    "ast_hash": "83bd6d13078444739d0d81f4938d9120",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/scripts/run_dense_waveform_analysis.py": {
+    "mtime": 1790390805.5208375,
+    "ast_hash": "8a67b35baae4dfbb3a987bebc73d7cca",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/analysis_lock.json": {
+    "mtime": 1789091429.2849462,
+    "ast_hash": "8761478569255460461abdd5b337c141",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/artifact_hashes.json": {
+    "mtime": 1789089444.7193584,
+    "ast_hash": "d0b4866b8884b1b4325e16f4a09b71c4",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/association_read_receipt.json": {
+    "mtime": 1789091554.0687263,
+    "ast_hash": "90cbbea0e86f9f817672644bb7142678",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/endpoint_id_comparison.json": {
+    "mtime": 1789091553.3240874,
+    "ast_hash": "36819cc7c2e24ce9fda87afc02be96c1",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/heterogeneity_analysis.json": {
+    "mtime": 1789091554.4035842,
+    "ast_hash": "489a54be5c78a7981c7bfb8a0a4baef6",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/precision_analysis.json": {
+    "mtime": 1789091554.4025981,
+    "ast_hash": "ae261c6bd13732733a96ba877e430fbb",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/protocol.json": {
+    "mtime": 1789091424.9906483,
+    "ast_hash": "8c6277bbcba3a6044b62cd628878afa2",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/run_status.json": {
+    "mtime": 1789091554.4046237,
+    "ast_hash": "757e0052408d7c8cb82e879d368a9d52",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/support_counts.json": {
+    "mtime": 1789091553.3222125,
+    "ast_hash": "4240933e26d0c1b7596d8e2a696f71f4",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/validation_results.json": {
+    "mtime": 1789091554.4015198,
+    "ast_hash": "5c7def12045d795801b2c5f6482b7fb3",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/scripts/run_spo2_variability_mimic3_parity_corrected.py": {
+    "mtime": 1789090860.885739,
+    "ast_hash": "c8dd31639a256d58c0e141c2c31e903c",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/src/physiograph/analysis/spo2_variability_mimic3_parity_corrected.py": {
+    "mtime": 1789090815.2945597,
+    "ast_hash": "0268d674b68d362d80c0afbe0d41d5d9",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/tests/unit/test_spo2_variability_mimic3_parity_corrected.py": {
+    "mtime": 1789090828.2700016,
+    "ast_hash": "68bcaed655c2c71176fc36015aaee503",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/docs/SPO2_MIMIC3_MORTALITY_REPORT.md": {
+    "mtime": 1790450827.1518183,
+    "ast_hash": "64302ddbc739627f5a6a4eb9bebb0eea",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/graphify-out/memory/query_20260918_235902_what_were_the_frozen_mimic_iv_spo2_variability_res.md": {
+    "mtime": 1789775942.3968039,
+    "ast_hash": "d3a2d6223ce1450a4016c4d6d3355c31",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/graphify-out/memory/query_20260919_000144_what_were_the_frozen_mimic_iv_primary_endpoint_cri.md": {
+    "mtime": 1789776104.5855684,
+    "ast_hash": "425fce099dabd26de99ff8ebdca7c7fb",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/FINALIZATION_ANALYSIS_LOCK.md": {
+    "mtime": 1790394617.2962403,
+    "ast_hash": "7aadea64a0b7844f88b59b90cca8d26b",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/FINAL_HARDENED_REPORT.md": {
+    "mtime": 1790401029.8083498,
+    "ast_hash": "aa1c7b9924d1a08aee02c51ca94230d0",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/README.md": {
+    "mtime": 1790883004.134898,
+    "ast_hash": "d8b8129f6f903d3ccc9e81167aef3ef9",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/SOURCE_README.md": {
+    "mtime": 1790390814.3720393,
+    "ast_hash": "9dc8a1aac0c501d5f0b58d755f111673",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/ckd_corrected_full_adjusted_models/REPORT.md": {
+    "mtime": 1790450778.4533849,
+    "ast_hash": "cd8eb702efa587cf1f58fd11f705fd57",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_mimic3_hf_lactate/requirements.txt": {
+    "mtime": 1790390814.372236,
+    "ast_hash": "28eb21640a9708328302f55ba87ba790",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/FINAL_REPORT.md": {
+    "mtime": 1789091554.9067276,
+    "ast_hash": "f7a5d51164c956021f7a9b6d83ee8d9d",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/availability_semantics_decision.md": {
+    "mtime": 1789091424.9887137,
+    "ast_hash": "738a00d8fe446e56ae089df383329106",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/figures/endpoint_overlap.png": {
+    "mtime": 1789091553.926933,
+    "ast_hash": "a2bbdb89098a55292e0e99749809cf33",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/figures/endpoint_overlap.svg": {
+    "mtime": 1789091554.0640514,
+    "ast_hash": "6638bbecf74c2b30a79b3c54bafb8cfa",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/figures/mimic4_original_mimic3_corrected_forest.png": {
+    "mtime": 1789091554.7674577,
+    "ast_hash": "2454fb197a1f9ff473aa22d192985ee2",
+    "semantic_hash": ""
+  },
+  "/Users/admin/Library/CloudStorage/GoogleDrive-2arnavmana@gmail.com/My Drive/Projects/PhysioGraph/research/spo2_variability_mimic3_parity_corrected/figures/mimic4_original_mimic3_corrected_forest.svg": {
+    "mtime": 1789091554.9043987,
+    "ast_hash": "938cb6f9018b853ab1104c223c49ca1e",
     "semantic_hash": ""
   }
 }

@@ -1,0 +1,105 @@
+{
+  "status": "pass_with_documented_unavailable_branches",
+  "completion_eligible": true,
+  "checks": [
+    {
+      "check": "12h_complete_followup_for_positive_and_negative",
+      "status": "pass",
+      "evidence": "classifiable_n=2486; all have observable_end>=minute 960"
+    },
+    {
+      "check": "12h_unavailable_primary_outcomes_missing",
+      "status": "pass",
+      "evidence": "Unavailable endpoint values are NA."
+    },
+    {
+      "check": "24h_complete_followup_for_positive_and_negative",
+      "status": "pass",
+      "evidence": "classifiable_n=2680; all have observable_end>=minute 1680"
+    },
+    {
+      "check": "24h_unavailable_primary_outcomes_missing",
+      "status": "pass",
+      "evidence": "Unavailable endpoint values are NA."
+    },
+    {
+      "check": "episode_baseline_strictly_pre_anchor_and_within_6h",
+      "status": "pass",
+      "evidence": "baseline_available=705/1597"
+    },
+    {
+      "check": "all_episode_last_value_windows_require_complete_followup",
+      "status": "pass",
+      "evidence": "five fixed windows checked; available=1207; all available rows have complete windows, strict six-hour baseline, and matching last-value event class"
+    },
+    {
+      "check": "direction_last_value_windows_require_complete_followup",
+      "status": "pass",
+      "evidence": "5,732 direction-window anchor rows checked; available rows require complete windows and strict six-hour baselines"
+    },
+    {
+      "check": "direction_effect_denominators_match_corrected_records",
+      "status": "pass",
+      "evidence": "4 direction/window effects compared with corrected record-level outcomes"
+    },
+    {
+      "check": "episode_all_five_fixed_windows_present",
+      "status": "pass",
+      "evidence": "Final corrected episode result rows."
+    },
+    {
+      "check": "both_episode_directions_present",
+      "status": "pass",
+      "evidence": "Drop and rise are separate sensitivities."
+    },
+    {
+      "check": "delayed_primary_multiplicity_reproduces",
+      "status": "pass",
+      "evidence": "Holm two-test value recomputed from two raw p-values."
+    },
+    {
+      "check": "prediction_group_and_row_audit_passes",
+      "status": "pass",
+      "evidence": "[{'horizon': '12h', 'oof_rows': 388, 'patients': 373, 'unique_folds': 5, 'max_folds_per_patient': 1, 'all_predictions_present': True, 'unique_stay_rows': True, 'exact_complete_followup_outcome_rows': True, 'outcome_labels_match_saved_primary': True, 'same_rows_all_nested_models': True, 'same_metric_model_n': True, 'outcome_excluded_from_predictors': True, 'fold_local_preprocessing_verified_from_saved_analysis_code': True, 'subject_group_overlap_pass': True, 'status': 'pass'}, {'horizon': '24h', 'oof_rows': 421, 'patients': 404, 'unique_folds': 5, 'max_folds_per_patient': 1, 'all_predictions_present': True, 'unique_stay_rows': True, 'exact_complete_followup_outcome_rows': True, 'outcome_labels_match_saved_primary': True, 'same_rows_all_nested_models': True, 'same_metric_model_n': True, 'outcome_excluded_from_predictors': True, 'fold_local_preprocessing_verified_from_saved_analysis_code': True, 'subject_group_overlap_pass': True, 'status': 'pass'}]"
+    },
+    {
+      "check": "all_low_EPV_models_labelled",
+      "status": "pass",
+      "evidence": "Final results retain EPV; report explicitly labels EPV<10 fragile."
+    },
+    {
+      "check": "IPW_diagnostics_present",
+      "status": "pass",
+      "evidence": "Landmark and episode IPW diagnostics remain in saved tables."
+    },
+    {
+      "check": "MAP_unavailable_branch_explicit",
+      "status": "pass",
+      "evidence": "No exact-bin MAP cache; no MAP outcome model fit."
+    },
+    {
+      "check": "eICU_scope_override_explicit",
+      "status": "pass",
+      "evidence": "No eICU data included in final estimates."
+    },
+    {
+      "check": "no_threshold_search",
+      "status": "pass",
+      "evidence": "Only frozen listed sensitivities remain."
+    },
+    {
+      "check": "figures_1_to_9_exist",
+      "status": "pass",
+      "evidence": "All final figures are generated from saved tables or fixed definitions."
+    }
+  ],
+  "documented_unavailable_branches": [
+    "eICU replication not run at user direction",
+    "episode time-aligned HR/SBP/MAP/RR/FiO2 not available from saved cache",
+    "same-transition MAP analysis unavailable from saved cache",
+    "numeric CHARTEVENTS ventilation checkbox not re-read; no full-table scan run"
+  ],
+  "patient_cluster_bootstrap_unit": "SUBJECT_ID",
+  "analysis_definitions_changed": false,
+  "figures_reproducible_from_saved_result_tables": true
+}
