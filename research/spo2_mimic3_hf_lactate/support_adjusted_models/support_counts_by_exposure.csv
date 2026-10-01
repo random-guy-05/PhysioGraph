@@ -1,0 +1,5 @@
+analysis,exposure,n,events,vasopressor_n,mechanical_ventilation_n,any_vasoactive_n,mean_SpO2_mean,early_chart_rows_min
+primary_lactate_12h,0,226,22,100,140,100,97.79304000020824,75
+primary_lactate_12h,1,154,27,72,75,73,93.71746762895025,93
+in_hospital_mortality,0,557,78,165,275,167,97.75988255969148,61
+in_hospital_mortality,1,343,78,111,140,113,94.15641286068787,45

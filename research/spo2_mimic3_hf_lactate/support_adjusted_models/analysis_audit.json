@@ -1,0 +1,295 @@
+{
+  "execution": "local; not Google Colab",
+  "completed_utc": "2026-10-01T20:24:58.150129+00:00",
+  "runtime_seconds": 43.82904505729675,
+  "duckdb_version": "1.5.6",
+  "source_audit": {
+    "input_hashes": {
+      "ADMISSIONS.csv.gz": "68f128f19e95434500982d95e623638f22eadf1c6a07f4bfa6c39c21751d8085",
+      "DIAGNOSES_ICD.csv.gz": "02d3941aa3c7a043af4f138e4ffc9f0a51ceca21c905de1abd2b953211910420",
+      "D_ITEMS.csv.gz": "eb18c4084f6c8db49add26cbcfef4ec7627bbf72c2b887c36aa0d5f3dccaf4a0",
+      "ICUSTAYS.csv.gz": "65f8c8686e791bee80df0115fc18f9f3c1087b85889ba9ce2d9c441204e467ab",
+      "CHARTEVENTS.csv.gz": "5961ac36d8bfbd399088811f9a1d30bd6f482b23a84628593d3122b5a6be8bc4",
+      "PROCEDUREEVENTS_MV.csv.gz": "6a1107b6a6f11ab37ac62b3ef3901db2c5f973c5794951141efd0e268e4a9c9e",
+      "INPUTEVENTS_CV.csv.gz": "4f19505634ba11b369e8855da515569628ddb6b41025b797594f697c1c9264bd",
+      "INPUTEVENTS_MV.csv.gz": "1f52534074bf0840bb002aa8fa16da1933d01b8cf2cc92f3e30ec42e04685b40"
+    },
+    "extractor_sha256": "987cebcba08a138f4851139046a0943a396327f58e4523b3d73371808e41a9c0",
+    "ventilation_mapping_source": "https://github.com/MIT-LCP/mimic-code/blob/main/mimic-iii/concepts/durations/ventilation_classification.sql",
+    "chart_record_linkage_audit": {
+      "candidate_rows": 429099,
+      "subject_mismatch_rows": 0,
+      "admission_mismatch_rows": 74,
+      "missing_admission_rows": 0,
+      "excluded_inconsistent_rows": 74
+    },
+    "pressor_item_mapping": [
+      {
+        "ITEMID": 30119,
+        "LABEL": "Epinephrine-k",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30127,
+        "LABEL": "Neosynephrine",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30043,
+        "LABEL": "Dopamine",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30307,
+        "LABEL": "Dopamine Drip",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30309,
+        "LABEL": "Epinephrine Drip",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30044,
+        "LABEL": "Epinephrine",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30047,
+        "LABEL": "Levophed",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30051,
+        "LABEL": "Vasopressin",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30120,
+        "LABEL": "Levophed-k",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30128,
+        "LABEL": "Neosynephrine-k",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 42273,
+        "LABEL": "vasopressin unit/min",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 42802,
+        "LABEL": "VASOPRESSIN  CC/HR.",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 221289,
+        "LABEL": "Epinephrine",
+        "LINKSTO": "inputevents_mv"
+      },
+      {
+        "ITEMID": 221662,
+        "LABEL": "Dopamine",
+        "LINKSTO": "inputevents_mv"
+      },
+      {
+        "ITEMID": 221749,
+        "LABEL": "Phenylephrine",
+        "LINKSTO": "inputevents_mv"
+      },
+      {
+        "ITEMID": 221906,
+        "LABEL": "Norepinephrine",
+        "LINKSTO": "inputevents_mv"
+      },
+      {
+        "ITEMID": 222315,
+        "LABEL": "Vasopressin",
+        "LINKSTO": "inputevents_mv"
+      }
+    ],
+    "inotrope_item_mapping": [
+      {
+        "ITEMID": 30125,
+        "LABEL": "Milrinone",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30306,
+        "LABEL": "Dobutamine Drip",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 30042,
+        "LABEL": "Dobutamine",
+        "LINKSTO": "inputevents_cv"
+      },
+      {
+        "ITEMID": 221653,
+        "LABEL": "Dobutamine",
+        "LINKSTO": "inputevents_mv"
+      },
+      {
+        "ITEMID": 221986,
+        "LABEL": "Milrinone",
+        "LINKSTO": "inputevents_mv"
+      }
+    ],
+    "ventilation_setting_itemids": [
+      1,
+      60,
+      218,
+      221,
+      223,
+      436,
+      437,
+      444,
+      445,
+      448,
+      449,
+      450,
+      501,
+      502,
+      503,
+      505,
+      506,
+      535,
+      543,
+      639,
+      654,
+      667,
+      668,
+      669,
+      670,
+      671,
+      672,
+      681,
+      682,
+      683,
+      684,
+      686,
+      1211,
+      1340,
+      1486,
+      1600,
+      1655,
+      2000,
+      3459,
+      5865,
+      5866,
+      220339,
+      224419,
+      224684,
+      224685,
+      224686,
+      224687,
+      224695,
+      224696,
+      224697,
+      224700,
+      224701,
+      224702,
+      224705,
+      224706,
+      224707,
+      224709,
+      224738,
+      224746,
+      224747,
+      224750,
+      226873,
+      227187
+    ],
+    "stays": 1597,
+    "stays_without_early_chart_rows": 16
+  },
+  "baseline_models_reproduced": {
+    "primary_lactate_12h": {
+      "status": "available",
+      "reason": "",
+      "n": 388,
+      "events": 50,
+      "non_events": 338,
+      "patients": 373,
+      "parameters": 10,
+      "covariates": "age_years|sex_male|baseline_lactate_mmol_l|ckd_expanded|esrd_lactate|lung_lactate|liver_prior|diabetes_prior",
+      "exposure_beta": 0.5721947273547346,
+      "adjusted_RR": 1.7721521773385442,
+      "robust_SE_log_RR": 0.2721253427443027,
+      "adjusted_RR_95CI_low": 1.0395927558748543,
+      "adjusted_RR_95CI_high": 3.020916913760986,
+      "p_value": 0.03549304057168959,
+      "iterations": 8,
+      "converged": true,
+      "events_per_parameter": 5.0,
+      "effect_term": "exposure",
+      "design_rank": 10,
+      "independent_likelihood_and_CI_check": true,
+      "max_absolute_score": 5.373895772819992e-13,
+      "predicted_mean_max": 0.4433166351705821
+    },
+    "in_hospital_mortality": {
+      "status": "available",
+      "reason": "",
+      "n": 911,
+      "events": 159,
+      "non_events": 752,
+      "patients": 831,
+      "parameters": 10,
+      "covariates": "age_years|sex_male|baseline_lactate_mmol_l|ckd_expanded|esrd_mortality|lung_mortality|liver_prior|diabetes_prior",
+      "exposure_beta": 0.411350623723825,
+      "adjusted_RR": 1.508854303936645,
+      "robust_SE_log_RR": 0.13988365580565787,
+      "adjusted_RR_95CI_low": 1.1470330572428906,
+      "adjusted_RR_95CI_high": 1.9848088040116931,
+      "p_value": 0.0032751114365191735,
+      "iterations": 7,
+      "converged": true,
+      "events_per_parameter": 15.9,
+      "effect_term": "exposure",
+      "design_rank": 10,
+      "independent_likelihood_and_CI_check": true,
+      "max_absolute_score": 1.7332696243543833e-08,
+      "predicted_mean_max": 1.5555971639226407
+    }
+  },
+  "fixed_cohort_n": 1597,
+  "fixed_exposed_n": 539,
+  "denominator_reconciliation": [
+    {
+      "analysis": "primary_lactate_12h",
+      "original_n": 388,
+      "original_events": 50,
+      "expanded_n": 380,
+      "expanded_events": 49,
+      "removed_n": 8,
+      "removed_events": 1,
+      "removed_non_events": 7,
+      "removed_exposed_n": 1,
+      "removed_unexposed_n": 7,
+      "removal_reason": "no valid chart documentation in hours 0-4 and no positive invasive-ventilation procedure; ventilation status unavailable"
+    },
+    {
+      "analysis": "in_hospital_mortality",
+      "original_n": 911,
+      "original_events": 159,
+      "expanded_n": 900,
+      "expanded_events": 156,
+      "removed_n": 11,
+      "removed_events": 3,
+      "removed_non_events": 8,
+      "removed_exposed_n": 2,
+      "removed_unexposed_n": 9,
+      "removal_reason": "no valid chart documentation in hours 0-4 and no positive invasive-ventilation procedure; ventilation status unavailable"
+    }
+  ],
+  "saved_endpoint_and_signal_hashes": {
+    "02_signal_qc/signal_features_recomputed.csv": "d054b84f98c81e0e0c7cf6fd3359147ca81f9d1a2f5422029863c0006d131fff",
+    "03_landmark_lactate/lactate_outcomes.csv": "ea7f0217c30609c762dabc46e49cbbe337c3d683b97ec3e20b5298eb4ed79125",
+    "04_episode_lactate/episode_anchor_records.csv": "421d61a770c33760dabb5fa6dda91efd36507725133373e2e07056512e33c224"
+  },
+  "no_source_cohort_exposure_or_endpoint_overwrite": true,
+  "code_sha256": "987cebcba08a138f4851139046a0943a396327f58e4523b3d73371808e41a9c0"
+}

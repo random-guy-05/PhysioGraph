@@ -1,0 +1,3 @@
+analysis,original_n,original_events,expanded_n,expanded_events,removed_n,removed_events,removed_non_events,removed_exposed_n,removed_unexposed_n,removal_reason
+primary_lactate_12h,388,50,380,49,8,1,7,1,7,no valid chart documentation in hours 0-4 and no positive invasive-ventilation procedure; ventilation status unavailable
+in_hospital_mortality,911,159,900,156,11,3,8,2,9,no valid chart documentation in hours 0-4 and no positive invasive-ventilation procedure; ventilation status unavailable
