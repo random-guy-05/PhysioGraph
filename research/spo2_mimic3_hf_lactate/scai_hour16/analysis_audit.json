@@ -1,0 +1,141 @@
+{
+  "execution": "local retrospective descriptive analysis; not Google Colab",
+  "completed_utc": "2026-10-01T23:45:11.060939+00:00",
+  "runtime_seconds": 449.1642019748688,
+  "code_sha256": "b367b29ad547f02bb838bf609af4b4f1e633f46b1e17d6e06cf8b4e469e03c34",
+  "source_hashes": {
+    "ICUSTAYS.csv.gz": "65f8c8686e791bee80df0115fc18f9f3c1087b85889ba9ce2d9c441204e467ab",
+    "ADMISSIONS.csv.gz": "68f128f19e95434500982d95e623638f22eadf1c6a07f4bfa6c39c21751d8085",
+    "D_ITEMS.csv.gz": "eb18c4084f6c8db49add26cbcfef4ec7627bbf72c2b887c36aa0d5f3dccaf4a0",
+    "D_LABITEMS.csv.gz": "d035bca700423dba4ea74f13389362596941c09914255008f89d1f656dbebbca",
+    "CHARTEVENTS.csv.gz": "5961ac36d8bfbd399088811f9a1d30bd6f482b23a84628593d3122b5a6be8bc4",
+    "LABEVENTS.csv.gz": "79d86315dde6e1121f7a88f62c2b91b7b835364ac1e777248a58e4f180224ae6",
+    "INPUTEVENTS_CV.csv.gz": "4f19505634ba11b369e8855da515569628ddb6b41025b797594f697c1c9264bd",
+    "INPUTEVENTS_MV.csv.gz": "1f52534074bf0840bb002aa8fa16da1933d01b8cf2cc92f3e30ec42e04685b40",
+    "PROCEDUREEVENTS_MV.csv.gz": "6a1107b6a6f11ab37ac62b3ef3901db2c5f973c5794951141efd0e268e4a9c9e"
+  },
+  "mapping": {
+    "reference": "https://www.jacc.org/doi/10.1016/j.jacc.2022.04.049",
+    "drug_item_map": {
+      "30047": "norepinephrine",
+      "30120": "norepinephrine",
+      "221906": "norepinephrine",
+      "30119": "epinephrine",
+      "30309": "epinephrine",
+      "30044": "epinephrine",
+      "221289": "epinephrine",
+      "30127": "phenylephrine",
+      "30128": "phenylephrine",
+      "221749": "phenylephrine",
+      "30043": "dopamine",
+      "30307": "dopamine",
+      "221662": "dopamine",
+      "30306": "dobutamine",
+      "30042": "dobutamine",
+      "221653": "dobutamine",
+      "30125": "milrinone",
+      "221986": "milrinone",
+      "30051": "vasopressin",
+      "42273": "vasopressin",
+      "42802": "vasopressin",
+      "222315": "vasopressin"
+    },
+    "sbp_items": [
+      51,
+      442,
+      455,
+      3313,
+      3315,
+      3317,
+      3319,
+      3321,
+      3323,
+      6701,
+      220050,
+      220179,
+      224167,
+      225309,
+      227243
+    ],
+    "map_items": [
+      52,
+      224,
+      443,
+      456,
+      3312,
+      3314,
+      3316,
+      3318,
+      3320,
+      3322,
+      6590,
+      6702,
+      6927,
+      220052,
+      220181,
+      224322,
+      225312
+    ],
+    "device_chart_items": {
+      "225": "iabp",
+      "224": "iabp",
+      "224322": "iabp",
+      "227980": "iabp",
+      "225982": "iabp",
+      "429": "lvad",
+      "600": "rvad",
+      "220128": "rvad",
+      "228154": "impella",
+      "228198": "tandem",
+      "228189": "tandem"
+    },
+    "device_procedure_items": {
+      "224272": "iabp",
+      "228169": "impella",
+      "228201": "tandem",
+      "228202": "tandem"
+    },
+    "ecmo_unspecified_items": [
+      2957,
+      3265,
+      5798,
+      5931,
+      5937,
+      6758,
+      6931,
+      7015,
+      7018,
+      7449,
+      224660,
+      228193
+    ],
+    "lab_items": {
+      "50813": "lactate",
+      "50861": "alt",
+      "50820": "ph"
+    },
+    "chart_audit": {
+      "selected_candidates": 75141,
+      "excluded_linkage_mismatch_rows": 0
+    },
+    "lab_audit": {
+      "selected_candidates": 4498,
+      "excluded_unrecognized_unit_rows": 0,
+      "blood_ph_item": 50820
+    }
+  },
+  "primary_time": "ICU minute 960; latest valid physiology in [720,960]; no measurements after 960",
+  "treatment_time": "MV intervals active at minute 960; CV latest per-drug chart in [900,960]; device intervals active at 960 or recent chart evidence in [720,960]",
+  "limitations": [
+    "minimum evidenced Kapur/CSWG stage, not clinician-adjudicated SCAI",
+    "OHCA unavailable; stage A cannot be confirmed; every assigned stage is a lower bound",
+    "Unspecified ECMO not counted as cardiac MCS because VA versus VV unavailable",
+    "MCS chart evidence and CareVue drug records are documentation proxies",
+    "Drug dose escalation and clinical treatment indication not adjudicated",
+    "Persistence proxy: abnormal at hour4 and hour16 with documented early treatment",
+    "Published >3 device threshold used for stage E; original comparator has >=3",
+    "Freshness sensitivity uses one-hour and six-hour physiology lookback; unchanged hour16 treatment definition"
+  ],
+  "cohort_n": 1597,
+  "private_patient_cache": "/Users/admin/Downloads/physiograph_dense_waveform_analysis/11_scai_hour16_cache/patient_scai_hour16.csv"
+}

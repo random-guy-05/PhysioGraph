@@ -9,6 +9,7 @@
 - 01_cohort/, 02_signal_qc/, 04_episode_lactate/, 05_predictive_models/, 06_mimic4_parity/, and 07_sensitivity/ contain the remaining aggregate diagnostics and sensitivity results; 08_figures/ contains the saved plots from the run.
 - ckd_corrected_full_adjusted_models/ contains the CKD-corrected full lactate and mortality model results, including the 0–4-hour mean-SpO2 sensitivity, its audit, and reconciliation.
 - support_adjusted_models/ contains the primary lactate and mortality rerun adding 0–4-hour mean SpO2, vasopressor infusion use, and documented mechanical ventilation. The notebook includes this model extension after the main workflow; scripts/rerun_support_adjusted_models.py can also run it against saved analysis outputs.
+- scai_hour16/ contains the descriptive hour-16 Kapur/CSWG minimum evidenced SCAI distribution, cohort and component-availability denominators, and physiology-freshness sensitivities. The notebook includes this calculation; stage A cannot be confirmed from the available OHCA/examination data, and assigned stages are lower bounds.
 - FINALIZATION_ANALYSIS_LOCK.md, provenance/, and SOURCE_README.md preserve the protocol and run provenance.
 
 ## Reproduction and provenance
