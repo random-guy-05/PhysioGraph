@@ -46,3 +46,10 @@ Local descriptive calculation on the fixed 1,597-stay SpO2 cohort; separate rows
 - Non-cardiac causes of hypotension, lactate elevation, or vasoactive use are not adjudicated. This does not prove cardiogenic shock in every classified patient.
 - Full stage, exposure-stratified distributions and 1-/6-hour physiology-lookback sensitivities are in stage_distribution.csv. Component coverage is in component_availability.csv.
 - Patient-linked results remain in the private cache; repository tables contain aggregate results only.
+
+## Graphs
+
+- [Overall distributions](figures/scai_hour16_distributions.png), with [vector PDF](figures/scai_hour16_distributions.pdf) and [SVG](figures/scai_hour16_distributions.svg).
+- [Distributions by early SpO₂ instability](figures/scai_hour16_by_instability.png), with [vector PDF](figures/scai_hour16_by_instability.pdf) and [SVG](figures/scai_hour16_by_instability.svg).
+
+The graphs use the saved aggregate results with the prespecified 240-minute physiology lookback. Counts and percentages include every stay in the respective sample/exposure group. Stage A is marked unavailable rather than plotted as zero. Discharged and other ICU-departure counts are combined for display; deaths remain separate. The exposure comparison is descriptive and unadjusted. Figure generation does not rerun clinical processing or models. The notebook includes the plotting step; `figures/figure_audit.json` records the source-table hash and display conventions.

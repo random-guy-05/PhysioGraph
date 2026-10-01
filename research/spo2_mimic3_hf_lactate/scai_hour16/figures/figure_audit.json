@@ -1,0 +1,18 @@
+{
+  "source": "stage_distribution.csv",
+  "source_sha256": "b8cb5cd464c9a8053edefb92ae7f184bae0334f2382bf1c7a6b303eb33d59d96",
+  "measurement_lookback_minutes": 240,
+  "percent_denominator": "entire population/exposure group, including unclassified and not-in-ICU stays",
+  "stage_A": "unavailable; not plotted as zero",
+  "departure_display": "sum of mutually exclusive discharged_by_hour16 and left_icu_by_hour16",
+  "execution": "local aggregate plotting; no clinical data processing or model rerun",
+  "figures": [
+    "scai_hour16_distributions",
+    "scai_hour16_by_instability"
+  ],
+  "formats": [
+    "png",
+    "pdf",
+    "svg"
+  ]
+}
