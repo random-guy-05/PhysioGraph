@@ -1,0 +1,12 @@
+analysis,VIS_status,n,events
+primary_lactate_12h,available,124,19
+primary_lactate_12h,available_documented_zero,237,28
+primary_lactate_12h,no_early_infusion_documentation,10,1
+primary_lactate_12h,unavailable_CareVue_rate,6,1
+primary_lactate_12h,unresolvable_dose_unit_or_prior_weight,3,0
+in_hospital_mortality,available,200,51
+in_hospital_mortality,available_documented_zero,628,89
+in_hospital_mortality,no_early_infusion_documentation,56,8
+in_hospital_mortality,stale_CareVue_dose_at_observed_state,2,0
+in_hospital_mortality,unavailable_CareVue_rate,9,4
+in_hospital_mortality,unresolvable_dose_unit_or_prior_weight,5,4
