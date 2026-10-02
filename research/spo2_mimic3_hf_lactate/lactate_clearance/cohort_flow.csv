@@ -1,0 +1,6 @@
+step,n
+waveform_dynamics_eligible,1597
+baseline_in_0_4h,426
+also_followup_in_4_16h,244
+also_baseline_to_followup_at_least2h,243
+also_complete_followup_through_hour16,239

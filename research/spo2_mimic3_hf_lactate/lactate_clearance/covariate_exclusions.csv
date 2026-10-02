@@ -1,0 +1,5 @@
+analysis,missing_covariates,n,failures,exposed_n
+all_qualifying_pairs,VIS_max_0_4h,12,1,6
+all_qualifying_pairs,mechanical_ventilation_0_4h|VIS_max_0_4h,4,1,1
+complete_followup_through_hour16,VIS_max_0_4h,12,1,6
+complete_followup_through_hour16,mechanical_ventilation_0_4h|VIS_max_0_4h,4,1,1

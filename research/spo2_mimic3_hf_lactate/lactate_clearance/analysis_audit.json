@@ -1,0 +1,161 @@
+{
+  "execution": "local analysis from validated saved inputs; no raw clinical or waveform processing",
+  "primary_followup_policy": "complete_window",
+  "endpoint_status": "new user-requested post-result endpoint",
+  "baseline_window_minutes": "[0,240]",
+  "followup_window_minutes": "(240,960]",
+  "minimum_pair_interval_hours": 2,
+  "exposure": "unchanged saved exposure; absolute jump>=4; transition gaps<=30 minutes",
+  "failure": "followup>0.9*baseline AND not both<=2.0; exact decimal comparison",
+  "complete_window_semantics": "observable_end_minute>=960 for failures and successes alike",
+  "private_primary_endpoint": "primary_failure_clearance; unavailable pairs/censored stays remain NaN; failure_clearance retains observed-pair classification only for the separately labeled sensitivity",
+  "covariates": [
+    "age_years",
+    "sex_male",
+    "baseline_lactate_mmol_l",
+    "mean_binned_spo2",
+    "vasopressor_0_4h",
+    "mechanical_ventilation_0_4h",
+    "ckd_expanded",
+    "esrd_lactate",
+    "lung_lactate",
+    "liver_prior",
+    "diabetes_prior",
+    "VIS_max_0_4h",
+    "lactate_interval_hours"
+  ],
+  "VIS": "unchanged maximum concurrent six-drug VIS in [0,240), continuous linear",
+  "interval": "actual baseline-to-last-followup interval in hours, continuous linear",
+  "original_covariates": "saved prior-coded flags; lactate-model ESRD and pulmonary definitions retained",
+  "input_sha256": {
+    "/Users/admin/Downloads/physiograph_dense_waveform_analysis/11_scai_hour16_cache/patient_scai_hour16.csv": "1d0dbbf33966b30a650e6d1e8a80e21e817326b473cf03266572fc29af68cfc5",
+    "/Users/admin/Downloads/physiograph_dense_waveform_analysis/10_support_adjustment_cache/support_by_stay.csv": "2c5ef3e65c36eab943780581bc1356aec4cef3c1ff9d46dda094572ef308b16f",
+    "/Users/admin/Downloads/physiograph_dense_waveform_analysis/13_vis_0_4h_adjustment_cache/vis_by_stay.csv": "93ba3cb25be2788d5ec70e012a3def98a59bb7f1adf21d5acbed4edbe8cd6f48",
+    "research/spo2_mimic3_hf_lactate/vis_adjusted_models/analysis_audit.json": "bf9391b7d6f04ce23ff74cade0d787bf85b41af1f2afefddf5cf07ff1e5a6a42",
+    "/Users/admin/Downloads/physiograph_dense_waveform_analysis/03_landmark_lactate/lactate_outcomes.csv": "ea7f0217c30609c762dabc46e49cbbe337c3d683b97ec3e20b5298eb4ed79125",
+    "/Users/admin/Downloads/physiograph_dense_waveform_analysis/03_landmark_lactate/linked_lactate_draws.csv.gz": "792d8c27210e6943193d77942d0907d858d3281dbd6a93c6266435de2bbb5416",
+    "research/spo2_mimic3_hf_lactate/provenance/source_output_hashes.csv": "525d42c955a277d904c169a6dbcb6c6348a4919cb5ea4c6b21fbecd8aded4a24",
+    "research/spo2_mimic3_hf_lactate/vis_adjusted_models/adjusted_models.csv": "1653c5c04473dcc7b9f267c3c005374ac7ac851c4eebc97d83ef59725ff9f8b0"
+  },
+  "code_sha256": "4e6fba1ce5cd714abf063130969ac727173c736133937a56ce5817678a08f401",
+  "model_code_sha256": "3138f4c49bb60a4314f521e1d8cc8ad2f023104867934939518dcae2a38395b9",
+  "fit_check_code_sha256": "987cebcba08a138f4851139046a0943a396327f58e4523b3d73371808e41a9c0",
+  "baseline_and_followup_verified_against_saved_draws": true,
+  "prior_VIS_adjusted_models_reproduced": true,
+  "cohort_flow": [
+    {
+      "step": "waveform_dynamics_eligible",
+      "n": 1597
+    },
+    {
+      "step": "baseline_in_0_4h",
+      "n": 426
+    },
+    {
+      "step": "also_followup_in_4_16h",
+      "n": 244
+    },
+    {
+      "step": "also_baseline_to_followup_at_least2h",
+      "n": 243
+    },
+    {
+      "step": "also_complete_followup_through_hour16",
+      "n": 239
+    }
+  ],
+  "raw_results": [
+    {
+      "analysis": "all_qualifying_pairs",
+      "n": 243,
+      "patients": 238,
+      "events": 66,
+      "exposed_n": 99,
+      "exposed_events": 24,
+      "unexposed_n": 144,
+      "unexposed_events": 42,
+      "exposed_risk": 0.24242424242424243,
+      "unexposed_risk": 0.2916666666666667,
+      "raw_RR": 0.8311688311688311,
+      "raw_RD": -0.049242424242424254
+    },
+    {
+      "analysis": "all_qualifying_pairs_full_model_sample",
+      "n": 227,
+      "patients": 223,
+      "events": 64,
+      "exposed_n": 92,
+      "exposed_events": 23,
+      "unexposed_n": 135,
+      "unexposed_events": 41,
+      "exposed_risk": 0.25,
+      "unexposed_risk": 0.3037037037037037,
+      "raw_RR": 0.8231707317073171,
+      "raw_RD": -0.0537037037037037
+    },
+    {
+      "analysis": "complete_followup_through_hour16",
+      "n": 239,
+      "patients": 234,
+      "events": 63,
+      "exposed_n": 97,
+      "exposed_events": 23,
+      "unexposed_n": 142,
+      "unexposed_events": 40,
+      "exposed_risk": 0.23711340206185566,
+      "unexposed_risk": 0.28169014084507044,
+      "raw_RR": 0.8417525773195875,
+      "raw_RD": -0.044576738783214775
+    },
+    {
+      "analysis": "complete_followup_through_hour16_full_model_sample",
+      "n": 223,
+      "patients": 219,
+      "events": 61,
+      "exposed_n": 90,
+      "exposed_events": 22,
+      "unexposed_n": 133,
+      "unexposed_events": 39,
+      "exposed_risk": 0.24444444444444444,
+      "unexposed_risk": 0.2932330827067669,
+      "raw_RR": 0.8336182336182336,
+      "raw_RD": -0.048788638262322465
+    }
+  ],
+  "before_after_denominators": [
+    {
+      "comparison": "paired_cohort",
+      "old_n": 388,
+      "old_rise_events": 50,
+      "new_complete_window_n": 239,
+      "old_rise_events_in_new_sample": 37,
+      "new_clearance_failures": 63,
+      "removed_n": 149,
+      "removed_old_rise_events": 13,
+      "removed_old_rise_non_events": 136
+    },
+    {
+      "comparison": "support_model",
+      "old_n": 380,
+      "old_rise_events": 49,
+      "new_complete_window_n": 235,
+      "old_rise_events_in_new_sample": 36,
+      "new_clearance_failures": 62,
+      "removed_n": 145,
+      "removed_old_rise_events": 13,
+      "removed_old_rise_non_events": 132
+    },
+    {
+      "comparison": "VIS_model",
+      "old_n": 361,
+      "old_rise_events": 47,
+      "new_complete_window_n": 223,
+      "old_rise_events_in_new_sample": 34,
+      "new_clearance_failures": 61,
+      "removed_n": 138,
+      "removed_old_rise_events": 13,
+      "removed_old_rise_non_events": 125
+    }
+  ],
+  "original_reports_preserved": true
+}

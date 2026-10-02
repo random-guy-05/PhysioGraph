@@ -1,0 +1,11 @@
+analysis,old_rise_ge0_5,new_failure_clearance,n,exposed_n
+all_qualifying_pairs,0,0,174,73
+all_qualifying_pairs,0,1,28,4
+all_qualifying_pairs,1,0,2,1
+all_qualifying_pairs,1,1,35,19
+all_qualifying_pairs,unavailable,0,1,1
+all_qualifying_pairs,unavailable,1,3,1
+complete_followup_through_hour16,0,0,174,73
+complete_followup_through_hour16,0,1,28,4
+complete_followup_through_hour16,1,0,2,1
+complete_followup_through_hour16,1,1,35,19

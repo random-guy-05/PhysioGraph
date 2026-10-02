@@ -1,0 +1,9 @@
+analysis,both_lactates_le2,clearance_ge10_percent,n,failures
+all_qualifying_pairs,False,False,66,66
+all_qualifying_pairs,False,True,82,0
+all_qualifying_pairs,True,False,49,0
+all_qualifying_pairs,True,True,46,0
+complete_followup_through_hour16,False,False,63,63
+complete_followup_through_hour16,False,True,81,0
+complete_followup_through_hour16,True,False,49,0
+complete_followup_through_hour16,True,True,46,0

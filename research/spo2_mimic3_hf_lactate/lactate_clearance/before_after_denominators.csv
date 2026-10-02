@@ -1,0 +1,4 @@
+comparison,old_n,old_rise_events,new_complete_window_n,old_rise_events_in_new_sample,new_clearance_failures,removed_n,removed_old_rise_events,removed_old_rise_non_events
+paired_cohort,388,50,239,37,63,149,13,136
+support_model,380,49,235,36,62,145,13,132
+VIS_model,361,47,223,34,61,138,13,125
