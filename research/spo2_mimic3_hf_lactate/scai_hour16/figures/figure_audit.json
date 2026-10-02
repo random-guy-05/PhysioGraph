@@ -8,11 +8,19 @@
   "execution": "local aggregate plotting; no clinical data processing or model rerun",
   "figures": [
     "scai_hour16_distributions",
-    "scai_hour16_by_instability"
+    "scai_hour16_by_instability",
+    "scai_hour16_mortality_by_stage"
   ],
   "formats": [
     "png",
     "pdf",
     "svg"
-  ]
+  ],
+  "mortality_by_stage": {
+    "source": "mortality_by_stage.csv",
+    "source_sha256": "e1dea96e005a2a47dbd72715178b453be19ea488dcee8fa74a18e56cb79da26e",
+    "stage_bar_n": 882,
+    "stage_bar_deaths": 141,
+    "rate_denominator": "all alive/in-ICU stays within each displayed category"
+  }
 }

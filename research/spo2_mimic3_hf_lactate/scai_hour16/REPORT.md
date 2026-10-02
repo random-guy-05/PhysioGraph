@@ -51,5 +51,20 @@ Local descriptive calculation on the fixed 1,597-stay SpO2 cohort; separate rows
 
 - [Overall distributions](figures/scai_hour16_distributions.png), with [vector PDF](figures/scai_hour16_distributions.pdf) and [SVG](figures/scai_hour16_distributions.svg).
 - [Distributions by early SpO₂ instability](figures/scai_hour16_by_instability.png), with [vector PDF](figures/scai_hour16_by_instability.pdf) and [SVG](figures/scai_hour16_by_instability.svg).
+- [In-hospital mortality by hour-16 stage](figures/scai_hour16_mortality_by_stage.png), with [vector PDF](figures/scai_hour16_mortality_by_stage.pdf) and [SVG](figures/scai_hour16_mortality_by_stage.svg). All figures use horizontal bars in a wide, side-by-side layout.
 
 The graphs use the saved aggregate results with the prespecified 240-minute physiology lookback. Counts and percentages include every stay in the respective sample/exposure group. Stage A is marked unavailable rather than plotted as zero. Discharged and other ICU-departure counts are combined for display; deaths remain separate. The exposure comparison is descriptive and unadjusted. Figure generation does not rerun clinical processing or models. The notebook includes the plotting step; `figures/figure_audit.json` records the source-table hash and display conventions.
+
+### Mortality within hour-16 categories
+
+The fixed 900-stay mortality model sample has 156 in-hospital deaths. The stage-specific graph includes 882 stays alive and in the ICU at hour 16, with 141 subsequent in-hospital deaths. Fifteen deaths by hour 16 and three earlier ICU departures (zero in-hospital deaths) are shown separately and reconcile the full sample. Stage A remains unavailable. These are descriptive, unadjusted rates conditional on reaching the hour-16 ICU landmark; no mortality model is refit.
+
+| Hour-16 category | Stays | In-hospital deaths | Hospital survivors | Mortality |
+|---|---:|---:|---:|---:|
+| B | 182 | 25 | 157 | 13.7% |
+| C | 109 | 29 | 80 | 26.6% |
+| D | 82 | 33 | 49 | 40.2% |
+| E | 39 | 13 | 26 | 33.3% |
+| Unclassified | 470 | 41 | 429 | 8.7% |
+
+`mortality_by_stage.csv` contains aggregate counts; `mortality_by_stage_audit.json` records reconciliation with the saved stage distribution and index-admission hospital death flag. Patient-level data remain outside the repository.

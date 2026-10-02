@@ -67,10 +67,103 @@ def export(fig, root, stem):
     plt.close(fig)
 
 
+def aggregate_mortality(patient_cache, results_dir):
+    columns = ["ICUSTAY_ID", "mortality_sample", "measurement_lookback_minutes", "stage_minimum_evidenced", "in_hospital_death", "HOSPITAL_EXPIRE_FLAG", "status_at16"]
+    patient = pd.read_csv(patient_cache, usecols=columns)
+    current = patient.loc[patient.measurement_lookback_minutes.eq(240)].copy()
+    if len(current) != 1597 or not current.ICUSTAY_ID.is_unique or not current.mortality_sample.isin([True, False]).all():
+        raise ValueError("Cached cohort/lookback or sample flags have changed.")
+    sample = current.loc[current.mortality_sample.eq(True)]
+    if len(sample) != 900 or not sample.in_hospital_death.isin([0, 1]).all() or sample.in_hospital_death.sum() != 156:
+        raise ValueError("Mortality cache does not reproduce the fixed 900-stay/156-death model sample.")
+    if not sample.in_hospital_death.eq(sample.HOSPITAL_EXPIRE_FLAG).all():
+        raise ValueError("Mortality outcome disagrees with the admission death flag.")
+    expected = pd.read_csv(results_dir / "stage_distribution.csv")
+    expected = expected.loc[expected.population.eq("mortality_model") & expected.exposure_group.eq("all") & expected.measurement_lookback_minutes.eq(240)]
+    if not sample.stage_minimum_evidenced.isin(expected.category).all():
+        raise ValueError("Unknown stage category in cached mortality sample.")
+    rows = []
+    for record in expected.itertuples():
+        group = sample.loc[sample.stage_minimum_evidenced.eq(record.category)]
+        n, deaths = len(group), int(group.in_hospital_death.sum())
+        if n != record.n:
+            raise ValueError("Mortality categories do not match the original stage distribution.")
+        if record.category in list("BCDE") + ["unclassified"] and not group.status_at16.eq("in_icu_at_hour16").all():
+            raise ValueError("Stage category includes a stay outside the hour-16 ICU risk set.")
+        if record.category == "died_by_hour16" and deaths != n:
+            raise ValueError("Early death category contains a survivor.")
+        rows.append({"category": record.category, "n": n, "in_hospital_deaths": deaths, "hospital_survivors": n - deaths, "mortality_percent": 100 * deaths / n if n else np.nan})
+    table = pd.DataFrame(rows)
+    if table.n.sum() != 900 or table.in_hospital_deaths.sum() != 156:
+        raise ValueError("Mortality table fails sample/event reconciliation.")
+    table.to_csv(results_dir / "mortality_by_stage.csv", index=False)
+    audit = {"execution": "local aggregation of saved hour-16 patient cache; no clinical processing or model rerun", "private_source_sha256": hashlib.sha256(patient_cache.read_bytes()).hexdigest(), "private_source_name": patient_cache.name, "outcome": "index-admission HOSPITAL_EXPIRE_FLAG (in-hospital death)", "population": "fixed organ-support-adjusted mortality model sample", "sample_n": 900, "in_hospital_deaths": 156, "measurement_lookback_minutes": 240, "reconciliation": "category counts equal saved stage_distribution.csv; mortality equals admission flag; each ICU stay counted once", "stage_A": "unavailable"}
+    (results_dir / "mortality_by_stage_audit.json").write_text(json.dumps(audit, indent=2) + "\n")
+
+
+def plot_mortality(results_dir, output):
+    source = results_dir / "mortality_by_stage.csv"
+    if not source.exists():
+        return None
+    table = pd.read_csv(source).set_index("category")
+    order = ["B", "C", "D", "E", "unclassified"]
+    displayed = table.loc[order]
+    n = displayed.n.to_numpy(dtype=int)
+    deaths = displayed.in_hospital_deaths.to_numpy(dtype=int)
+    survivors = displayed.hospital_survivors.to_numpy(dtype=int)
+    if not np.array_equal(n, deaths + survivors) or not np.allclose(displayed.mortality_percent, deaths / n * 100):
+        raise ValueError("Mortality graph rates/counts disagree.")
+    total_n, total_deaths = int(table.n.sum()), int(table.in_hospital_deaths.sum())
+    early = table.loc["died_by_hour16"]
+    departed = table.loc[["left_icu_by_hour16", "discharged_by_hour16"]].sum()
+    fig, axes = plt.subplots(1, 2, figsize=(16, 8), gridspec_kw={"width_ratios": [1.1, 1]})
+    fig.subplots_adjust(left=0.12, right=0.98, top=0.72, bottom=0.26, wspace=0.20)
+    fig.text(0.035, 0.945, "In-hospital mortality by hour-16 SCAI proxy stage", fontsize=22, weight="bold", color="#263542")
+    fig.text(0.035, 0.891, f"Mortality model sample: {total_deaths:,}/{total_n:,} deaths ({100 * total_deaths / total_n:.1f}%). Stage bars include {int(n.sum()):,} stays alive and in the ICU at hour 16.", fontsize=12, color="#52606D")
+    handles = [plt.Rectangle((0, 0), 1, 1, color="#C65448"), plt.Rectangle((0, 0), 1, 1, color="#CAD2D9")]
+    fig.legend(handles, ["In-hospital death", "Survived to hospital discharge"], loc="upper left", bbox_to_anchor=(0.03, 0.86), frameon=False, ncol=2, fontsize=11)
+    ys = np.arange(len(order))
+    for i, ax in enumerate(axes):
+        ax.set_yticks(ys, ["Stage B", "Stage C", "Stage D", "Stage E", "Unclassified"] if i == 0 else [""] * len(order))
+        ax.set_ylim(4.5, -0.6)
+        ax.tick_params(length=0, pad=8)
+        ax.grid(axis="x", color="#E5E9ED", linewidth=0.7)
+        ax.set_axisbelow(True)
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+    axes[0].set_title("Deaths and survivors within each category", loc="left", fontsize=12, weight="bold", pad=15)
+    axes[0].barh(ys, deaths, height=0.58, color="#C65448")
+    axes[0].barh(ys, survivors, left=deaths, height=0.58, color="#CAD2D9")
+    for y, d, s, count in zip(ys, deaths, survivors, n):
+        axes[0].text(d / 2, y, str(d), color="white", va="center", ha="center", fontsize=8 if d < 20 else 10, weight="bold")
+        axes[0].text(d + s / 2, y, str(s), color="#263542", va="center", ha="center", fontsize=10)
+        axes[0].text(count + 6, y, f"n = {count}", va="center", fontsize=10, color="#263542")
+    axes[0].set_xlim(0, max(n) * 1.2)
+    axes[0].set_xlabel("Number of ICU stays", labelpad=12)
+    rates = deaths / n * 100
+    axes[1].set_title("Mortality rate within each category", loc="left", fontsize=12, weight="bold", pad=15)
+    axes[1].barh(ys, rates, height=0.58, color="#C65448")
+    axes[1].set_xlim(0, 64)
+    axes[1].set_xticks([0, 10, 20, 30, 40, 50])
+    axes[1].xaxis.set_major_formatter(PercentFormatter(100, decimals=0))
+    axes[1].set_xlabel("In-hospital mortality", labelpad=12)
+    for y, d, count, rate in zip(ys, deaths, n, rates):
+        axes[1].text(rate + 1, y, f"{d}/{count} ({rate:.1f}%)", va="center", fontsize=11, color="#263542")
+    fig.text(0.035, 0.155, f"Outside the stage bars: {int(early.n)} deaths by hour 16; {int(departed.n)} earlier ICU departures/discharges ({int(departed.in_hospital_deaths)} in-hospital deaths).", fontsize=11, color="#263542")
+    fig.text(0.035, 0.113, "Stage A is unavailable. B–E are minimum evidenced proxy stages; unclassified does not mean normal.", fontsize=11, weight="bold", color="#263542")
+    fig.text(0.035, 0.073, "Rates are descriptive and unadjusted, conditional on being alive and in the ICU at hour 16; deaths before staging are not assigned a stage.", fontsize=10, color="#52606D")
+    fig.text(0.035, 0.035, "Physiology: latest valid value in hours 12–16; treatment at hour 16. Counts are ICU stays, not unique patients.", fontsize=10, color="#52606D")
+    export(fig, output, "scai_hour16_mortality_by_stage")
+    return {"source": source.name, "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "stage_bar_n": int(n.sum()), "stage_bar_deaths": int(deaths.sum()), "rate_denominator": "all alive/in-ICU stays within each displayed category"}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--results-dir", type=Path, required=True)
+    parser.add_argument("--patient-cache", type=Path, help="Optionally aggregate mortality from the saved private hour-16 cache.")
     args = parser.parse_args()
+    if args.patient_cache is not None:
+        aggregate_mortality(args.patient_cache, args.results_dir)
     source = args.results_dir / "stage_distribution.csv"
     frame = pd.read_csv(source)
     frame = frame[frame.measurement_lookback_minutes == 240].copy()
@@ -118,8 +211,12 @@ def main():
     footer(fig, stratified=True)
     export(fig, output, "scai_hour16_by_instability")
     audit = {"source": source.name, "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "measurement_lookback_minutes": 240, "percent_denominator": "entire population/exposure group, including unclassified and not-in-ICU stays", "stage_A": "unavailable; not plotted as zero", "departure_display": "sum of mutually exclusive discharged_by_hour16 and left_icu_by_hour16", "execution": "local aggregate plotting; no clinical data processing or model rerun", "figures": ["scai_hour16_distributions", "scai_hour16_by_instability"], "formats": ["png", "pdf", "svg"]}
+    mortality = plot_mortality(args.results_dir, output)
+    if mortality is not None:
+        audit["mortality_by_stage"] = mortality
+        audit["figures"].append("scai_hour16_mortality_by_stage")
     (output / "figure_audit.json").write_text(json.dumps(audit, indent=2) + "\n")
-    print(f"Saved two figures in PNG, PDF, and SVG: {output}")
+    print(f"Saved {len(audit['figures'])} figures in PNG, PDF, and SVG: {output}")
 
 
 if __name__ == "__main__":

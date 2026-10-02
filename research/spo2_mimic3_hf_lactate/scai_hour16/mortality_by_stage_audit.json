@@ -1,0 +1,12 @@
+{
+  "execution": "local aggregation of saved hour-16 patient cache; no clinical processing or model rerun",
+  "private_source_sha256": "1d0dbbf33966b30a650e6d1e8a80e21e817326b473cf03266572fc29af68cfc5",
+  "private_source_name": "patient_scai_hour16.csv",
+  "outcome": "index-admission HOSPITAL_EXPIRE_FLAG (in-hospital death)",
+  "population": "fixed organ-support-adjusted mortality model sample",
+  "sample_n": 900,
+  "in_hospital_deaths": 156,
+  "measurement_lookback_minutes": 240,
+  "reconciliation": "category counts equal saved stage_distribution.csv; mortality equals admission flag; each ICU stay counted once",
+  "stage_A": "unavailable"
+}

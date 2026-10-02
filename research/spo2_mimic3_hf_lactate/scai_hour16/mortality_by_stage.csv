@@ -1,0 +1,10 @@
+category,n,in_hospital_deaths,hospital_survivors,mortality_percent
+A,0,0,0,
+B,182,25,157,13.736263736263735
+C,109,29,80,26.605504587155963
+D,82,33,49,40.24390243902439
+E,39,13,26,33.333333333333336
+unclassified,470,41,429,8.72340425531915
+died_by_hour16,15,15,0,100.0
+discharged_by_hour16,0,0,0,
+left_icu_by_hour16,3,0,3,0.0
