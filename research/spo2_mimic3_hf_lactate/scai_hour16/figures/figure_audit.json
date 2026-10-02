@@ -16,11 +16,15 @@
     "pdf",
     "svg"
   ],
+  "axis_orientation": "categories on x; counts, percentages or VIS on y",
   "mortality_by_stage": {
     "source": "mortality_by_stage.csv",
     "source_sha256": "e1dea96e005a2a47dbd72715178b453be19ea488dcee8fa74a18e56cb79da26e",
     "stage_bar_n": 882,
     "stage_bar_deaths": 141,
-    "rate_denominator": "all alive/in-ICU stays within each displayed category"
+    "right_panel": "hour-16 six-drug VIS distribution",
+    "vis_source_sha256": "bc7826d70c63079de61cd2d89b1a5abd97a0308ede9f121f57ccf9e50ffc31b0",
+    "vis_available_n": 695,
+    "orientation": "categories on x; counts and VIS on y"
   }
 }

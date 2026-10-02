@@ -10,7 +10,7 @@
 - ckd_corrected_full_adjusted_models/ contains the CKD-corrected full lactate and mortality model results, including the 0–4-hour mean-SpO2 sensitivity, its audit, and reconciliation.
 - support_adjusted_models/ contains the primary lactate and mortality rerun adding 0–4-hour mean SpO2, vasopressor infusion use, and documented mechanical ventilation. The notebook includes this model extension after the main workflow; scripts/rerun_support_adjusted_models.py can also run it against saved analysis outputs.
 - scai_hour16/ contains the descriptive hour-16 Kapur/CSWG minimum evidenced SCAI distribution, cohort and component-availability denominators, and physiology-freshness sensitivities. The notebook includes this calculation; stage A cannot be confirmed from the available OHCA/examination data, and assigned stages are lower bounds.
-- scai_hour16/figures/ contains overall, exposure-stratified, and mortality-within-stage graphs in PNG, PDF, and SVG, all with horizontal bars in a wide layout. The notebook reproduces them using scripts/plot_scai_hour16.py; mortality aggregation reuses the saved private hour-16 cache without rerunning clinical processing or models.
+- scai_hour16/figures/ contains overall, exposure-stratified, and mortality/VIS-within-stage graphs in PNG, PDF, and SVG, with categories on the x-axis. The notebook reproduces them using scripts/plot_scai_hour16.py. Mortality aggregation reuses the saved private hour-16 cache; scripts/calculate_vis_hour16.py selects dose/weight records to calculate the standard six-drug VIS without changing existing cohorts, stages, endpoints, or models.
 - FINALIZATION_ANALYSIS_LOCK.md, provenance/, and SOURCE_README.md preserve the protocol and run provenance.
 
 ## Reproduction and provenance

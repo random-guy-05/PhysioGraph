@@ -1,0 +1,17 @@
+category,availability,n
+B,available,138
+B,no_recent_infusion_documentation,43
+B,stale_CareVue_dose,1
+C,available,104
+C,no_recent_infusion_documentation,3
+C,stale_CareVue_dose,2
+D,available,80
+D,unavailable_dose_unit_or_weight,2
+E,available,30
+E,no_recent_infusion_documentation,6
+E,stale_CareVue_dose,2
+E,unavailable_dose_unit_or_weight,1
+unclassified,available,343
+unclassified,no_recent_infusion_documentation,123
+unclassified,stale_CareVue_dose,3
+unclassified,unavailable_dose_unit_or_weight,1

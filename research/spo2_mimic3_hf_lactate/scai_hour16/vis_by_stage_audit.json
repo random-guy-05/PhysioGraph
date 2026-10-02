@@ -1,0 +1,171 @@
+{
+  "execution": "local dose extraction and descriptive aggregation; existing cohort, SCAI stage and mortality unchanged",
+  "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9891263/",
+  "formula": "dopamine + dobutamine + 100*epinephrine + 100*norepinephrine + 10*milrinone + 10000*vasopressin",
+  "units": "mcg/kg/min except vasopressin in units/kg/min",
+  "phenylephrine": "excluded from standard six-drug VIS",
+  "timing": "MV interval active at minute 960; CV latest documented drug rate in [900,960]; no future data",
+  "weight": "MV infusion PATIENTWEIGHT when 20\u2013300 kg; otherwise latest valid charted weight in [0,960], no future backfill or population imputation",
+  "duplicate_rates": "latest active start/chart time per drug; tied rows use maximum dose after unit conversion",
+  "zero_rule": "no documented active six-drug infusion plus contemporaneous infusion-table coverage; EHR absence is not adjudicated clinical absence",
+  "missing_rule": "no contemporaneous infusion documentation, stale positive/unknown CV rate, unrecognized dose units or missing required weight => VIS unavailable",
+  "risk_set_n": 882,
+  "available_n": 695,
+  "source_hashes": {
+    "D_ITEMS.csv.gz": "eb18c4084f6c8db49add26cbcfef4ec7627bbf72c2b887c36aa0d5f3dccaf4a0",
+    "INPUTEVENTS_CV.csv.gz": "4f19505634ba11b369e8855da515569628ddb6b41025b797594f697c1c9264bd",
+    "INPUTEVENTS_MV.csv.gz": "1f52534074bf0840bb002aa8fa16da1933d01b8cf2cc92f3e30ec42e04685b40",
+    "CHARTEVENTS.csv.gz": "5961ac36d8bfbd399088811f9a1d30bd6f482b23a84628593d3122b5a6be8bc4"
+  },
+  "patient_cache_sha256": "1d0dbbf33966b30a650e6d1e8a80e21e817326b473cf03266572fc29af68cfc5",
+  "code_sha256": "bf5a87a797ffd95b157ac558a5e1f604befcdfb5931983578e51b19b68f63f8a",
+  "item_mapping": {
+    "30043": "dopamine",
+    "30307": "dopamine",
+    "221662": "dopamine",
+    "30306": "dobutamine",
+    "30042": "dobutamine",
+    "221653": "dobutamine",
+    "30119": "epinephrine",
+    "30309": "epinephrine",
+    "30044": "epinephrine",
+    "221289": "epinephrine",
+    "30047": "norepinephrine",
+    "30120": "norepinephrine",
+    "221906": "norepinephrine",
+    "30125": "milrinone",
+    "221986": "milrinone",
+    "30051": "vasopressin",
+    "42273": "vasopressin",
+    "42802": "vasopressin",
+    "222315": "vasopressin"
+  },
+  "record_units": [
+    {
+      "system": "CV",
+      "drug": "dobutamine",
+      "rate_unit": "mcgkgmin",
+      "n": 349
+    },
+    {
+      "system": "CV",
+      "drug": "dobutamine",
+      "rate_unit": "",
+      "n": 168
+    },
+    {
+      "system": "CV",
+      "drug": "dopamine",
+      "rate_unit": "mcgkgmin",
+      "n": 952
+    },
+    {
+      "system": "CV",
+      "drug": "dopamine",
+      "rate_unit": "",
+      "n": 452
+    },
+    {
+      "system": "CV",
+      "drug": "epinephrine",
+      "rate_unit": "mcgkgmin",
+      "n": 179
+    },
+    {
+      "system": "CV",
+      "drug": "epinephrine",
+      "rate_unit": "",
+      "n": 100
+    },
+    {
+      "system": "CV",
+      "drug": "milrinone",
+      "rate_unit": "mcgkgmin",
+      "n": 76
+    },
+    {
+      "system": "CV",
+      "drug": "milrinone",
+      "rate_unit": "",
+      "n": 44
+    },
+    {
+      "system": "CV",
+      "drug": "norepinephrine",
+      "rate_unit": "mcgkgmin",
+      "n": 1107
+    },
+    {
+      "system": "CV",
+      "drug": "norepinephrine",
+      "rate_unit": "mcgmin",
+      "n": 62
+    },
+    {
+      "system": "CV",
+      "drug": "norepinephrine",
+      "rate_unit": "",
+      "n": 614
+    },
+    {
+      "system": "CV",
+      "drug": "vasopressin",
+      "rate_unit": "Uhr",
+      "n": 11
+    },
+    {
+      "system": "CV",
+      "drug": "vasopressin",
+      "rate_unit": "Umin",
+      "n": 177
+    },
+    {
+      "system": "CV",
+      "drug": "vasopressin",
+      "rate_unit": "",
+      "n": 105
+    },
+    {
+      "system": "MV",
+      "drug": "dobutamine",
+      "rate_unit": "mcg/kg/min",
+      "n": 28
+    },
+    {
+      "system": "MV",
+      "drug": "dopamine",
+      "rate_unit": "mcg/kg/min",
+      "n": 205
+    },
+    {
+      "system": "MV",
+      "drug": "epinephrine",
+      "rate_unit": "mcg/kg/min",
+      "n": 57
+    },
+    {
+      "system": "MV",
+      "drug": "milrinone",
+      "rate_unit": "mcg/kg/min",
+      "n": 27
+    },
+    {
+      "system": "MV",
+      "drug": "norepinephrine",
+      "rate_unit": "mcg/kg/min",
+      "n": 866
+    },
+    {
+      "system": "MV",
+      "drug": "vasopressin",
+      "rate_unit": "units/hour",
+      "n": 38
+    }
+  ],
+  "limitations": [
+    "SCAI proxy stages themselves use vasoactive treatment; the VIS comparison is partly definition-related",
+    "infusion records may be incomplete; no undocumented medication assumed clinically absent",
+    "dose outliers retained; box whiskers will show 5th\u201395th percentiles",
+    "descriptive distribution, no adjusted association or predictive test"
+  ]
+}

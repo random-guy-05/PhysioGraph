@@ -40,17 +40,20 @@ def counts_for(frame, population, group):
 
 
 def style_axis(ax, index):
-    ax.set_xlim(0, 74)
-    ax.set_xticks([0, 20, 40, 60])
-    ax.xaxis.set_major_formatter(PercentFormatter(100, decimals=0))
-    ax.grid(axis="x", color="#E5E9ED", linewidth=0.7)
+    ax.set_ylim(0, 74)
+    ax.set_yticks([0, 20, 40, 60])
+    ax.yaxis.set_major_formatter(PercentFormatter(100, decimals=0))
+    ax.grid(axis="y", color="#E5E9ED", linewidth=0.7)
     ax.set_axisbelow(True)
-    ax.set_yticks(np.arange(len(CATEGORIES)), LABELS if index == 0 else [""] * len(CATEGORIES))
-    ax.set_ylim(len(CATEGORIES) - 0.5, -0.7)
+    ax.set_xticks(np.arange(len(CATEGORIES)), ["B", "C", "D", "E", "Unclassified", "Died ≤16 h", "Departed"])
+    ax.tick_params(axis="x", labelrotation=45)
+    ax.set_xlim(-0.65, len(CATEGORIES) - 0.35)
     ax.tick_params(axis="both", length=0, pad=8)
     for spine in ax.spines.values():
         spine.set_visible(False)
-    ax.set_xlabel("Percentage of sample", labelpad=12)
+    ax.set_xlabel("Hour-16 category", labelpad=10)
+    if index == 0:
+        ax.set_ylabel("Percentage of sample", labelpad=10)
 
 
 def footer(fig, stratified=False):
@@ -108,6 +111,10 @@ def plot_mortality(results_dir, output):
     table = pd.read_csv(source).set_index("category")
     order = ["B", "C", "D", "E", "unclassified"]
     displayed = table.loc[order]
+    vis_source = results_dir / "vis_by_stage.csv"
+    vis = pd.read_csv(vis_source).set_index("category").loc[order]
+    if not np.array_equal(vis.stage_n, displayed.n) or not np.array_equal(vis.vis_available_n + vis.vis_unavailable_n, vis.stage_n):
+        raise ValueError("VIS denominators disagree with the mortality stage categories.")
     n = displayed.n.to_numpy(dtype=int)
     deaths = displayed.in_hospital_deaths.to_numpy(dtype=int)
     survivors = displayed.hospital_survivors.to_numpy(dtype=int)
@@ -117,44 +124,57 @@ def plot_mortality(results_dir, output):
     early = table.loc["died_by_hour16"]
     departed = table.loc[["left_icu_by_hour16", "discharged_by_hour16"]].sum()
     fig, axes = plt.subplots(1, 2, figsize=(16, 8), gridspec_kw={"width_ratios": [1.1, 1]})
-    fig.subplots_adjust(left=0.12, right=0.98, top=0.72, bottom=0.26, wspace=0.20)
-    fig.text(0.035, 0.945, "In-hospital mortality by hour-16 SCAI proxy stage", fontsize=22, weight="bold", color="#263542")
+    fig.subplots_adjust(left=0.07, right=0.98, top=0.72, bottom=0.36, wspace=0.20)
+    fig.text(0.035, 0.945, "Mortality and VIS by hour-16 SCAI proxy stage", fontsize=22, weight="bold", color="#263542")
     fig.text(0.035, 0.891, f"Mortality model sample: {total_deaths:,}/{total_n:,} deaths ({100 * total_deaths / total_n:.1f}%). Stage bars include {int(n.sum()):,} stays alive and in the ICU at hour 16.", fontsize=12, color="#52606D")
     handles = [plt.Rectangle((0, 0), 1, 1, color="#C65448"), plt.Rectangle((0, 0), 1, 1, color="#CAD2D9")]
     fig.legend(handles, ["In-hospital death", "Survived to hospital discharge"], loc="upper left", bbox_to_anchor=(0.03, 0.86), frameon=False, ncol=2, fontsize=11)
     ys = np.arange(len(order))
     for i, ax in enumerate(axes):
-        ax.set_yticks(ys, ["Stage B", "Stage C", "Stage D", "Stage E", "Unclassified"] if i == 0 else [""] * len(order))
-        ax.set_ylim(4.5, -0.6)
+        ax.set_xticks(ys, ["B", "C", "D", "E", "Unclassified"])
+        ax.set_xlim(-0.6, 4.6)
         ax.tick_params(length=0, pad=8)
-        ax.grid(axis="x", color="#E5E9ED", linewidth=0.7)
+        ax.grid(axis="y", color="#E5E9ED", linewidth=0.7)
         ax.set_axisbelow(True)
         for spine in ax.spines.values():
             spine.set_visible(False)
     axes[0].set_title("Deaths and survivors within each category", loc="left", fontsize=12, weight="bold", pad=15)
-    axes[0].barh(ys, deaths, height=0.58, color="#C65448")
-    axes[0].barh(ys, survivors, left=deaths, height=0.58, color="#CAD2D9")
+    axes[0].bar(ys, deaths, width=0.58, color="#C65448")
+    axes[0].bar(ys, survivors, bottom=deaths, width=0.58, color="#CAD2D9")
     for y, d, s, count in zip(ys, deaths, survivors, n):
-        axes[0].text(d / 2, y, str(d), color="white", va="center", ha="center", fontsize=8 if d < 20 else 10, weight="bold")
-        axes[0].text(d + s / 2, y, str(s), color="#263542", va="center", ha="center", fontsize=10)
-        axes[0].text(count + 6, y, f"n = {count}", va="center", fontsize=10, color="#263542")
-    axes[0].set_xlim(0, max(n) * 1.2)
-    axes[0].set_xlabel("Number of ICU stays", labelpad=12)
-    rates = deaths / n * 100
-    axes[1].set_title("Mortality rate within each category", loc="left", fontsize=12, weight="bold", pad=15)
-    axes[1].barh(ys, rates, height=0.58, color="#C65448")
-    axes[1].set_xlim(0, 64)
-    axes[1].set_xticks([0, 10, 20, 30, 40, 50])
-    axes[1].xaxis.set_major_formatter(PercentFormatter(100, decimals=0))
-    axes[1].set_xlabel("In-hospital mortality", labelpad=12)
-    for y, d, count, rate in zip(ys, deaths, n, rates):
-        axes[1].text(rate + 1, y, f"{d}/{count} ({rate:.1f}%)", va="center", fontsize=11, color="#263542")
-    fig.text(0.035, 0.155, f"Outside the stage bars: {int(early.n)} deaths by hour 16; {int(departed.n)} earlier ICU departures/discharges ({int(departed.in_hospital_deaths)} in-hospital deaths).", fontsize=11, color="#263542")
-    fig.text(0.035, 0.113, "Stage A is unavailable. B–E are minimum evidenced proxy stages; unclassified does not mean normal.", fontsize=11, weight="bold", color="#263542")
-    fig.text(0.035, 0.073, "Rates are descriptive and unadjusted, conditional on being alive and in the ICU at hour 16; deaths before staging are not assigned a stage.", fontsize=10, color="#52606D")
-    fig.text(0.035, 0.035, "Physiology: latest valid value in hours 12–16; treatment at hour 16. Counts are ICU stays, not unique patients.", fontsize=10, color="#52606D")
+        axes[0].text(y if d >= 20 else y + 0.36, d / 2, str(d), color="white" if d >= 20 else "#C65448", va="center", ha="center" if d >= 20 else "left", fontsize=10, weight="bold")
+        axes[0].text(y, d + s / 2, str(s), color="#263542", va="center", ha="center", fontsize=10)
+        axes[0].text(y, count + 8, f"n = {count}", ha="center", fontsize=10, color="#263542")
+    axes[0].set_ylim(0, max(n) * 1.2)
+    axes[0].set_ylabel("Number of ICU stays", labelpad=12)
+    axes[0].set_xlabel("Hour-16 SCAI proxy category", labelpad=10)
+    axes[1].set_title("VIS distribution at hour 16", loc="left", fontsize=12, weight="bold", pad=15)
+    boxes, positions = [], []
+    for i, row in enumerate(vis.itertuples()):
+        if row.vis_available_n:
+            boxes.append({"med": row.median, "q1": row.q25, "q3": row.q75, "whislo": row.p05, "whishi": row.p95, "fliers": []})
+            positions.append(i)
+    artists = axes[1].bxp(boxes, positions=positions, widths=0.5, showfliers=False, patch_artist=True, manage_ticks=False)
+    for box in artists["boxes"]:
+        box.set(facecolor="#BCD5E5", edgecolor="#2676AD", linewidth=1.5)
+    for line in artists["medians"]:
+        line.set(color="#263542", linewidth=2)
+    max_vis = float(vis.p95.max())
+    if max_vis > 60:
+        axes[1].set_yscale("symlog", linthresh=10)
+        axes[1].set_ylabel("VIS (linear 0–10; log scale above 10)", labelpad=12)
+    else:
+        axes[1].set_ylabel("Vasoactive–inotropic score (VIS)", labelpad=12)
+    axes[1].set_ylim(0, max(10, max_vis * 1.35))
+    axes[1].set_xticks(ys, [f"{label}\nn = {int(row.vis_available_n)}/{int(row.stage_n)}" for label, row in zip(["B", "C", "D", "E", "Unclassified"], vis.itertuples())])
+    axes[1].set_xlabel("Category; VIS available / all stays", labelpad=10)
+    fig.text(0.035, 0.212, "VIS: boxes = IQR; line = median; whiskers = 5th–95th percentiles (outside values not plotted). Missing VIS is excluded; available / total shown.", fontsize=10, color="#52606D")
+    fig.text(0.035, 0.170, f"Outside both panels: {int(early.n)} deaths by hour 16; {int(departed.n)} earlier ICU departures/discharges ({int(departed.in_hospital_deaths)} in-hospital deaths).", fontsize=11, color="#263542")
+    fig.text(0.035, 0.125, "Stage A is unavailable. B–E are minimum evidenced proxy stages; unclassified does not mean normal.", fontsize=11, weight="bold", color="#263542")
+    fig.text(0.035, 0.080, "Standard six-drug VIS uses documented dose rates at hour 16. No recent documentation or an unresolvable dose makes VIS unavailable.", fontsize=10, color="#52606D")
+    fig.text(0.035, 0.039, "Descriptive comparison among stays alive/in ICU at hour 16. Vasoactive treatment contributes to SCAI staging, so these measures are not independent.", fontsize=10, color="#52606D")
     export(fig, output, "scai_hour16_mortality_by_stage")
-    return {"source": source.name, "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "stage_bar_n": int(n.sum()), "stage_bar_deaths": int(deaths.sum()), "rate_denominator": "all alive/in-ICU stays within each displayed category"}
+    return {"source": source.name, "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "stage_bar_n": int(n.sum()), "stage_bar_deaths": int(deaths.sum()), "right_panel": "hour-16 six-drug VIS distribution", "vis_source_sha256": hashlib.sha256(vis_source.read_bytes()).hexdigest(), "vis_available_n": int(vis.vis_available_n.sum()), "orientation": "categories on x; counts and VIS on y"}
 
 
 def main():
@@ -172,7 +192,7 @@ def main():
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 11, "svg.fonttype": "none", "pdf.fonttype": 42})
 
     fig, axes = plt.subplots(1, 3, figsize=(17, 8.5))
-    fig.subplots_adjust(left=0.145, right=0.99, top=0.79, bottom=0.21, wspace=0.11)
+    fig.subplots_adjust(left=0.06, right=0.99, top=0.79, bottom=0.27, wspace=0.18)
     fig.text(0.035, 0.94, "Hour-16 SCAI proxy distribution", fontsize=23, weight="bold", color="#263542")
     fig.text(0.035, 0.891, "All stays remain in the denominator, including unclassified stays and those no longer in the ICU.", fontsize=12, color="#52606D")
     for i, (population, title) in enumerate(POPULATIONS.items()):
@@ -181,14 +201,14 @@ def main():
         ax = axes[i]
         style_axis(ax, i)
         ax.set_title(f"{title}\nn = {n:,} stays", loc="left", fontsize=12, weight="bold", pad=21)
-        ax.barh(np.arange(len(counts)), rates, height=0.6, color=COLORS)
+        ax.bar(np.arange(len(counts)), rates, width=0.6, color=COLORS)
         for y, count, rate in zip(range(len(counts)), counts, rates):
-            ax.text(rate + 1.0, y, f"{count:,} ({rate:.1f}%)", va="center", fontsize=10, color="#263542")
+            ax.text(y, rate + 1.0, f"{count:,}\n({rate:.1f}%)", ha="center", va="bottom", fontsize=9, color="#263542")
     footer(fig)
     export(fig, output, "scai_hour16_distributions")
 
     fig, axes = plt.subplots(1, 3, figsize=(17, 9.5))
-    fig.subplots_adjust(left=0.145, right=0.99, top=0.74, bottom=0.20, wspace=0.11)
+    fig.subplots_adjust(left=0.06, right=0.99, top=0.74, bottom=0.26, wspace=0.18)
     fig.text(0.035, 0.95, "Hour-16 SCAI proxy by early SpO₂ instability", fontsize=22, weight="bold", color="#263542")
     fig.text(0.035, 0.905, "Descriptive, unadjusted comparison within each sample; no inference of causation or predictive performance.", fontsize=12, color="#52606D")
     handles = [plt.Rectangle((0, 0), 1, 1, color="#2676AD"), plt.Rectangle((0, 0), 1, 1, color="#8897A4")]
@@ -205,13 +225,14 @@ def main():
         for n, counts, offset, color in [(n1, c1, -0.18, "#2676AD"), (n0, c0, 0.18, "#8897A4")]:
             rates = counts / n * 100
             ys = np.arange(len(counts)) + offset
-            ax.barh(ys, rates, height=0.31, color=color)
+            ax.bar(ys, rates, width=0.31, color=color)
             for y, count, rate in zip(ys, counts, rates):
-                ax.text(rate + 1.0, y, f"{count:,} ({rate:.1f}%)", va="center", fontsize=9, color="#263542")
+                ax.text(y, rate + 1.0, f"{count:,} ({rate:.1f}%)", ha="center", va="bottom", rotation=90, fontsize=8, color="#263542")
     footer(fig, stratified=True)
     export(fig, output, "scai_hour16_by_instability")
     audit = {"source": source.name, "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "measurement_lookback_minutes": 240, "percent_denominator": "entire population/exposure group, including unclassified and not-in-ICU stays", "stage_A": "unavailable; not plotted as zero", "departure_display": "sum of mutually exclusive discharged_by_hour16 and left_icu_by_hour16", "execution": "local aggregate plotting; no clinical data processing or model rerun", "figures": ["scai_hour16_distributions", "scai_hour16_by_instability"], "formats": ["png", "pdf", "svg"]}
     mortality = plot_mortality(args.results_dir, output)
+    audit["axis_orientation"] = "categories on x; counts, percentages or VIS on y"
     if mortality is not None:
         audit["mortality_by_stage"] = mortality
         audit["figures"].append("scai_hour16_mortality_by_stage")
