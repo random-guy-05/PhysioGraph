@@ -63,3 +63,12 @@ coverage.xml
 full_rebuild_log.txt
 analysis_rerun_log.txt
 full_rebuild_log.txt
+
+# Consolidated local source data, historical runs, and personal exports.
+# Navigation is committed; local transfer records are kept outside Git.
+/consolidated/
+/mimic3_waveform_spo2_15min.csv.gz
+/docs/CONSOLIDATION.md
+/docs/CONSOLIDATION_MANIFEST.json
+/docs/CLEANUP_2026-10-01.md
+/docs/CLEANUP_MANIFEST_2026-10-01.json

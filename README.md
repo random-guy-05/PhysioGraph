@@ -1,5 +1,11 @@
 # PhysioGraph
 
+## Start here
+
+Open [START_HERE.md](START_HERE.md) for the current study, runnable notebook, results, and consolidated files from other locations. The dense MIMIC-III HF lactate/mortality study lives in [research/spo2_mimic3_hf_lactate](research/spo2_mimic3_hf_lactate/README.md).
+
+The sections below describe the broader PhysioGraph framework. Study-specific definitions and execution provenance are recorded with each study; the consolidation archive contains preserved source snapshots.
+
 Leakage-safe landmark analysis of **SpO2 signal instability as an early warning signal for cardiogenic decompensation** in ICU patients. PhysioGraph extracts structured events from MIMIC and eICU electronic health records, computes pre-landmark SpO2 instability features from the first 4 ICU hours, and tests whether they predict decompensation (lactate rise, vasopressor/inotropic-score rise, urine-output decline, organ-injury labs, MCS initiation) in the subsequent 12–24 hours — beyond clinical context, absolute SpO2, and monitoring intensity/missingness.
 
 The research question and endpoint hierarchy are defined in [PROJECT_GOAL.md](PROJECT_GOAL.md).
@@ -185,7 +191,7 @@ PhysioGraph implements 12 guard mechanisms verified against PROBAST+AI Domain 4 
 - Outcome contamination: `assert_no_outcome_in_features` with forbidden-column lists
 - Preprocessing leakage: fold-local / fit-on-train-only preprocessing throughout
 
-See [AUDIT_REPORT.md](AUDIT_REPORT.md) for the leakage risk audit and [PROJECT_GOAL.md](PROJECT_GOAL.md) for claim-scope rules.
+See [docs/ANALYSIS_PLAN.md](docs/ANALYSIS_PLAN.md) for the analysis protocol and [PROJECT_GOAL.md](PROJECT_GOAL.md) for claim-scope rules.
 
 ## License
 
